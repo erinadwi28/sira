@@ -34,40 +34,56 @@
 							<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
 							<div class="col-lg-6">
 								<div class="p-5">
+									
+									<?php if ($this->session->flashdata('success')) : ?>
+										<div class="alert alert-success alert-dismissible fade show" role="alert">
+											<?= $this->session->flashdata('success') ?>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									<?php elseif($this->session->flashdata('error')) : ?>
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+											<?= $this->session->flashdata('error') ?>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									<?php endif ?>
+
 									<div class="text-center">
 										<img src="<?= base_url('assets/dashboard/') ?>img/login_SIRA.png" />
 										<!--  <h1 class="h4 text-gray-900 mb-4">LOGIN</h1> -->
 									</div>
-									<form class="user">
+									
+									<form method="POST" class="user">
 										<div class="form-group">
 											<label>NIK</label>
-											<input type="text" class="form-control" id="exampleInputEmail"
-												aria-describedby="emailHelp" />
+											<input type="text" class="form-control" id="nik" name="nik"/>
 										</div>
 										<div class="form-group">
 											<label>Kata Sandi</label>
-											<input type="password" class="form-control form-password"
-												id="exampleInputPassword" />
+											<input type="password" class="form-control form-password" id="kata_sandi" name="kata_sandi" />
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
 										</div>
 										<div class="form-group">
-											<select class="form-control form-user-input" name="login_sebagai"
-												id="login_sebagai">
-												<option selected>Login Sebagai...</option>
-												<option value="warga" class="form-user-input">Warga</option>
-												<option value="rt" class="form-user-input">Ketua RT</option>
-												<option value="admin" class="form-user-input">Admin</option>
-												<option value="kpl_desa" class="form-user-input">Kepala Desa</option>
+											<select class="form-control form-user-input" name="role" id="role">
+												<option value ="pilih" class="form-user-input" id="pilih" name="pilih" selected>Login Sebagai...</option>
+												<option value="warga" class="form-user-input" id="warga" name="warga">Warga</option>
+												<option value="rt" class="form-user-input" id="rt" name="rt">Ketua RT</option>
+												<option value="admin" class="form-user-input" id="admin" name="admin">Admin</option>
+												<option value="kades" class="form-user-input" id="kades" name="kades">Kepala Desa</option>
 											</select>
 										</div>
 										<br />
-										<a href="index.html" class="btn btn-primary btn-user btn-block">
+										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">
 											Login
-										</a>
+										</button>
 									</form>
 									<hr />
+									<center><small><a href="<?= base_url('landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center>
 								</div>
 							</div>
 						</div>
@@ -86,6 +102,30 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$("#masuk").click(function(e){
+				e.preventDefault();
+				let datanya = $('.user').serialize();
+				$.ajax({
+					type: 'POST',
+					url: "<?= base_url('login/proses_login') ?>",
+					data: datanya,
+					// if sukses
+					success: function(hasil) {
+						if(hasil === 'sukses') {
+							window.location.href = "<?= base_url('login') ?>";
+						}else{
+							window.location.href = "<?= base_url('login') ?>";
+						}
+					}
+				})
+			});
+
+		});
+	</script>
+
 	<script>
 		$(document).ready(function () {
 			var cek = $(".form-checkbox").val();

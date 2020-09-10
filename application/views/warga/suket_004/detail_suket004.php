@@ -87,13 +87,12 @@
 				<div class="card-footer">
 					<div class="float-right">
 						<a href="#">
-							<button id="btn_tolak" class="btn btn-sm btn-danger" type="submit">
-								<i class="fa fa-times nav-icon">
-								</i> Tutup
+							<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
+								<i class="fa fa-arrow-left">
+								</i> Kembali
 							</button>
 						</a>
 					</div>
-
 				</div>
 			</div>
 		</div>

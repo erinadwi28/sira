@@ -10,7 +10,7 @@ class M_admin extends CI_Model{
 	}
 	
 	// list data kepala desa
-	 public function get_data_kepaladesa(){
+	public function get_data_kepaladesa(){
         $this->db->select('*');
         $this->db->from('kepala_desa');
         $this->db->where('status_delete', 0);
@@ -18,5 +18,10 @@ class M_admin extends CI_Model{
         $hasil = $this->db->get();
 
         return $hasil;
+    }
+
+    // tambah data kades
+    public function tambah_kades($data) {
+        return $this->db->insert($this->_table, $data);
     }
 }

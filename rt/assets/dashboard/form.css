@@ -1,0 +1,10 @@
+.form-group {
+	
+}
+
+.form-control small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}

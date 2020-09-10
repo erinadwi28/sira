@@ -4,8 +4,24 @@ class Login extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		if($this->session->login) redirect('dashboard');
+		if ($this->session->login) {
+			if($this->session->login['level_user']==='Admin'){
+				redirect('Admin');
+			} 
+			elseif ($this->session->login['level_user']==='warga'){
+				redirect('Warga');
+			} 
+			elseif ($this->session->login['level_user']==='rt'){
+				redirect('Rt');
+			} 
+			elseif ($this->session->login['level_user']==='kepala_desa'){
+				redirect('Kades');
+			} 	
+		}else {
+			$this->load->view('login');
+		}
 
+		//if($this->session->login) redirect('Admin');
 		$this->load->model('M_admin', 'm_admin');
 		$this->load->model('M_warga', 'm_warga');
 		$this->load->model('M_rt', 'm_rt');
@@ -13,7 +29,8 @@ class Login extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('login');
+		//$this->load->view('login');
+		
 	}
 
 	public function proses_login() {
@@ -35,13 +52,13 @@ class Login extends CI_Controller {
 				$session=[ 
 				'id_admin'=> $get_admin->id_admin,
 				'nik'=> $get_admin->nik,
-				'role' => $get_admin->role
+				'level_user' => $get_admin->level_user
 				];
-
+			
+				redirect('Admin');
 			$this->session->set_userdata('login', $session);
 			$this->session->set_flashdata('success', 'Login berhasil');
 			echo "sukses";
-			
 			} else {
 				$this->session->set_flashdata('error', 'Kata sandi salah');
 				echo "gagal";
@@ -60,9 +77,9 @@ class Login extends CI_Controller {
 				$session=[ 
 				'id_warga'=> $get_warga->id_warga,
 				'nik'=> $get_warga->nik,
-				'role' => $get_warga->role
+				'level_user' => $get_admin->level_user
 				];
-
+redirect('Warga');
 			$this->session->set_userdata('login', $session);
 			$this->session->set_flashdata('success', 'Login berhasil');
 			echo "sukses";
@@ -84,9 +101,9 @@ class Login extends CI_Controller {
 				$session=[ 
 				'id_rt'=> $get_rt->id_rt,
 				'nik'=> $get_rt->nik,
-				'role' => $get_rt-> role
+				'level_user' => $get_admin->level_user
 				];
-
+redirect('rt');
 			$this->session->set_userdata('login', $session);
 			$this->session->set_flashdata('success', 'Login berhasil');
 			echo "sukses";
@@ -108,9 +125,9 @@ class Login extends CI_Controller {
 				$session=[ 
 				'id_kades'=> $get_kepala_desa->id_kades,
 				'nik'=> $get_kepala_desa->nik,
-				'role' => $get_kepala_desa->role
+				'level_user' => $get_admin->level_user
 				];
-
+redirect('kades');
 			$this->session->set_userdata('login', $session);
 			$this->session->set_flashdata('success', 'Login berhasil');
 			echo "sukses";

@@ -9,6 +9,7 @@ class Login extends CI_Controller {
 	}
 	public function index()
     {
+        $this->form_validation->set_rules('nik','nik');
         
         if ($this->session->userdata('nik')) {
             redirect('warga');

@@ -16,7 +16,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT KETERANGAN USAHA</h5>
+                            <h5>SUKET. USAHA</h5>
                         </div>
                     </div>
                     <!-- <div class="col-auto">
@@ -37,7 +37,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT KETERANGAN DOMISILI</h5>
+                            <h5>SUKET. DOMISILI</h5>
                         </div>
                     </div>
                     <!-- <div class="col-auto">
@@ -98,7 +98,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT KETERANGAN BEDA NAMA</h5>
+                            <h5>SUKET. BEDA NAMA</h5>
                         </div>
                     </div>
                     <!-- <div class="col-auto">

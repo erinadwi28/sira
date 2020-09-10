@@ -15,30 +15,30 @@ class Admin extends CI_Controller {
         
         }
 
-        public function list_kades_admin()
+        public function list_data_kades()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/list_kades_admin');
+                $this->load->view('admin/list_data_kades');
                 $this->load->view('footer');
         }
 
-        public function form_tambah_kades_admin()
+        public function form_tambah_kades()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/form_tambah_kades_admin');
+                $this->load->view('admin/form_tambah_kades');
                 $this->load->view('footer');
         }
 
-        public function detail_kades_admin()
+        public function detail_data_kades()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/detail_kades_admin');
+                $this->load->view('admin/detail_data_kades');
                 $this->load->view('footer');
         }
         public function list_rt_admin()
@@ -104,12 +104,12 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function preview_per_surat_admin()
+        public function tampil_suket001()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/preview_per_surat_admin');
+                $this->load->view('admin/tampil_suket001');
                 $this->load->view('footer');
         }
 
@@ -212,6 +212,29 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-
+        public function detail_per_suket_001_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_per_suket_001_admin');
+                $this->load->view('footer');
+        }
+        public function detail_per_suket_002_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_per_suket_002_admin');
+                $this->load->view('footer');
+        }
+        public function detail_per_suket_003_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_per_suket_003_admin');
+                $this->load->view('footer');
+        }
 
 }

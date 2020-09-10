@@ -1,0 +1,69 @@
+.kopsurat p {
+	font-weight: bold;
+	line-height: 1em;
+}
+
+.card-body{
+	padding: 2.54rem;
+	color: black;
+}
+
+.badan_surat{
+	opacity: 0.8;
+}
+
+.k_kab {
+	font-family: Arial;
+	font-size: 0.75em;
+}
+
+.k_kec {
+	font-family: 'Times New Roman';
+	font-size: 1em;
+}
+
+.k_kel {
+	font-family: 'Times New Roman';
+	font-size: 1.5em;
+}
+
+.almt {
+	font-family: 'Times New Roman';
+	font-size: 0.6875em;
+}
+
+.hr_kop {
+	border-top: 0.1875em double #8c8b8b;
+	margin-top: 0em;
+}
+
+.badan_surat {
+	font-family: 'Book Antiqua';
+}
+
+.no_surat {
+	font-weight: bold;
+	font-size: 0.875em;
+}
+
+.paragraf {
+	text-indent: 2.8125em;
+	text-align: justify;
+}
+
+.isi_surat {
+	margin-left: 0.0375em;
+	font-size: 0.75em;
+	line-height: 1.2em;
+}
+
+.identitas {
+	margin-left: 2.8125em;
+	margin-bottom: 0.3125em;
+}
+
+.bawah {
+	display: block;
+	float: right;
+	
+}

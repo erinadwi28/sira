@@ -6,6 +6,6 @@ class M_warga extends CI_Model{
     // Cek NIK untuk login
 	public function cek_nik($nik){
 		$query = $this->db->get_where($this->_table, ['nik' => $nik]);
-		return $query->row();
+		return $query->row_array();
 	}
 }

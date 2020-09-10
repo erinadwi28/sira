@@ -56,7 +56,7 @@
 										<!--  <h1 class="h4 text-gray-900 mb-4">LOGIN</h1> -->
 									</div>
 									
-									<form method="POST" class="user">
+									<form action="<?= base_url('login/aksi_login'); ?>" method="post">
 										<div class="form-group">
 											<label>NIK</label>
 											<input type="text" class="form-control" id="nik" name="nik"/>
@@ -67,15 +67,6 @@
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
-										</div>
-										<div class="form-group">
-											<select class="form-control form-user-input" name="role" id="role">
-												<option value ="pilih" class="form-user-input" id="pilih" name="pilih" selected>Login Sebagai...</option>
-												<option value="warga" class="form-user-input" id="warga" name="warga">Warga</option>
-												<option value="rt" class="form-user-input" id="rt" name="rt">Ketua RT</option>
-												<option value="admin" class="form-user-input" id="admin" name="admin">Admin</option>
-												<option value="kades" class="form-user-input" id="kades" name="kades">Kepala Desa</option>
-											</select>
 										</div>
 										<br />
 										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">
@@ -104,29 +95,6 @@
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
 	<script>
-		$(document).ready(function(){
-			$("#masuk").click(function(e){
-				e.preventDefault();
-				let datanya = $('.user').serialize();
-				$.ajax({
-					type: 'POST',
-					url: "<?= base_url('login/proses_login') ?>",
-					data: datanya,
-					// if sukses
-					success: function(hasil) {
-						if(hasil === 'sukses') {
-							window.location.href = "<?= base_url('login') ?>";
-						}else{
-							window.location.href = "<?= base_url('login') ?>";
-						}
-					}
-				})
-			});
-
-		});
-	</script>
-
-	<script>
 		$(document).ready(function () {
 			var cek = $(".form-checkbox").val();
 			$(".form-checkbox").click(function () {
@@ -140,5 +108,4 @@
 
 	</script>
 </body>
-
 </html>

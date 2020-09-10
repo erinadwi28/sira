@@ -18,6 +18,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
+<<<<<<< HEAD
         // tampil list kepala desa
         public function data_kepaladesa()
 	{
@@ -76,3 +77,205 @@ class Admin extends CI_Controller {
                 
         }
 }
+=======
+        public function list_kades_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/list_kades_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_kades_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_kades_admin');
+                $this->load->view('footer');
+        }
+
+        public function detail_kades_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_kades_admin');
+                $this->load->view('footer');
+        }
+        public function list_rt_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/list_rt_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_rt_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_rt_admin');
+                $this->load->view('footer');
+        }
+
+        public function detail_rt_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_rt_admin');
+                $this->load->view('footer');
+        }
+        
+        public function list_warga_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/list_warga_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_warga_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_warga_admin');
+                $this->load->view('footer');
+        }
+
+        public function detail_warga_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_warga_admin');
+                $this->load->view('footer');
+        }
+
+        public function data_permohonan_surat()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/data_permohonan_surat');
+                $this->load->view('footer');
+        }
+
+        public function preview_per_surat_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/preview_per_surat_admin');
+                $this->load->view('footer');
+        }
+
+        public function list_surat_masuk_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/list_surat_masuk_admin');
+                $this->load->view('footer');
+        }
+
+        public function detail_surat_masuk_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_surat_masuk_admin');
+                $this->load->view('footer');
+        }
+
+        public function ubah_surat_masuk_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/ubah_surat_masuk_admin');
+                $this->load->view('footer');
+        }
+
+        public function list_surat_keluar_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/list_surat_keluar_admin');
+                $this->load->view('footer');
+        }
+
+        public function detail_surat_keluar_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/detail_surat_keluar_admin');
+                $this->load->view('footer');
+        }
+
+        public function ubah_surat_keluar_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/ubah_surat_keluar_admin');
+                $this->load->view('footer');
+        }
+
+        public function lap_per_selesai_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/lap_per_selesai_admin');
+                $this->load->view('footer');
+        }
+
+        public function arsip_surat_masuk_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/arsip_surat_masuk_admin');
+                $this->load->view('footer');
+        }
+
+        public function arsip_surat_keluar_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/arsip_surat_keluar_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_surat_masuk_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_surat_masuk_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_surat_keluar_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_surat_keluar_admin');
+                $this->load->view('footer');
+        }
+
+
+
+}
+>>>>>>> 5b452f0d264bc1b29ba66de0f43be982010515dc

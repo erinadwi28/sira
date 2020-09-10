@@ -18,22 +18,30 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-<<<<<<< HEAD
         // tampil list kepala desa
-        public function data_kepaladesa()
+        public function list_data_kades()
 	{
-                $data_kepaladesa = $this->m_admin->get_data_kepaladesa();
+                $data_kades = $this->m_admin->get_data_kades();
                 $result = array(
-                'list_data' => $data_kepaladesa,
-                'page' => 'admin/list_kepaladesa',
+                'list_data' => $data_kades,
+                'page' => 'admin/list_data_kades',
                 );
-                $this->load->view('header','admin/sidebar_admin','topbar',$result,'footer');
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view($result);
+                $this->load->view('footer');
         }
-        
+
         // tampil form tambah data kepala desa
-        public function form_tambah_kades() 
-        {
-                $this->load->view('admin/tambah_kepala_desa');
+        public function form_tambah_kades()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_kades');
+                $this->load->view('footer');
         }
 
         // aksi tambah data kepala desa
@@ -76,27 +84,8 @@ class Admin extends CI_Controller {
 		}
                 
         }
-}
-=======
-        public function list_kades_admin()
-	{
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/list_kades_admin');
-                $this->load->view('footer');
-        }
 
-        public function form_tambah_kades_admin()
-	{
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/form_tambah_kades_admin');
-                $this->load->view('footer');
-        }
-
-        public function detail_kades_admin()
+        public function detail_data_kades()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -104,7 +93,7 @@ class Admin extends CI_Controller {
                 $this->load->view('admin/detail_kades_admin');
                 $this->load->view('footer');
         }
-        public function list_rt_admin()
+        public function list_data_rt()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -113,7 +102,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function form_tambah_rt_admin()
+        public function form_tambah_rt()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -122,7 +111,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function detail_rt_admin()
+        public function detail_data_rt()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -131,7 +120,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
         
-        public function list_warga_admin()
+        public function list_data_warga()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -140,7 +129,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function form_tambah_warga_admin()
+        public function form_tambah_warga()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -149,7 +138,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function detail_warga_admin()
+        public function detail_data_warga()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -158,7 +147,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function data_permohonan_surat()
+        public function list_data_permohonan()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -167,7 +156,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function preview_per_surat_admin()
+        public function tampil_data_permohonan()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -176,7 +165,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function list_surat_masuk_admin()
+        public function list_surat_masuk()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -185,7 +174,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function detail_surat_masuk_admin()
+        public function detail_surat_masuk()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -194,7 +183,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function ubah_surat_masuk_admin()
+        public function ubah_surat_masuk()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -203,7 +192,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function list_surat_keluar_admin()
+        public function list_surat_keluar()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -212,7 +201,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function detail_surat_keluar_admin()
+        public function detail_surat_keluar()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -221,7 +210,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function ubah_surat_keluar_admin()
+        public function ubah_surat_keluar()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -230,7 +219,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function lap_per_selesai_admin()
+        public function list_permohonan_selesai()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -239,25 +228,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function arsip_surat_masuk_admin()
-	{
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/arsip_surat_masuk_admin');
-                $this->load->view('footer');
-        }
-
-        public function arsip_surat_keluar_admin()
-	{
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/arsip_surat_keluar_admin');
-                $this->load->view('footer');
-        }
-
-        public function form_tambah_surat_masuk_admin()
+        public function form_tambah_surat_masuk()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -266,7 +237,7 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
-        public function form_tambah_surat_keluar_admin()
+        public function form_tambah_surat_keluar()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -274,8 +245,4 @@ class Admin extends CI_Controller {
                 $this->load->view('admin/form_tambah_surat_keluar_admin');
                 $this->load->view('footer');
         }
-
-
-
 }
->>>>>>> 5b452f0d264bc1b29ba66de0f43be982010515dc

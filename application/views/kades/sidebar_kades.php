@@ -31,7 +31,7 @@
 			<!-- Nav Item - Main Menu -->
 
 			<li class="nav-item">
-                <a class="nav-link" href="list_data_admin_kades.html">
+                <a class="nav-link" href="list_admin_kades.php">
                     <i class="fa fa-users"></i>
                     <span>Data Admin</span>
                 </a>

@@ -3,16 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Warga extends CI_Controller
 {
-
-
-<<<<<<< HEAD
-	 public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
-		if($this->session->login['level_user']!=='warga') redirect('login');
-        }
-        
-=======
->>>>>>> 27526f667371f01724c286b4cfa39b586a9daf8c
+		if (!$this->session->userdata('nik')) {
+			redirect('login');
+		}
+	}
+
 	public function index()
 	{
 		$this->load->view('header');

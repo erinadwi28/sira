@@ -24,6 +24,15 @@ class Admin extends CI_Controller {
                 $this->load->view('footer');
         }
 
+        public function form_tambah_kades_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_kades_admin');
+                $this->load->view('footer');
+        }
+
         public function detail_kades_admin()
 	{
                 $this->load->view('header');
@@ -38,6 +47,15 @@ class Admin extends CI_Controller {
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
                 $this->load->view('admin/list_rt_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_rt_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_rt_admin');
                 $this->load->view('footer');
         }
 
@@ -56,6 +74,15 @@ class Admin extends CI_Controller {
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
                 $this->load->view('admin/list_warga_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_warga_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_warga_admin');
                 $this->load->view('footer');
         }
 
@@ -166,5 +193,25 @@ class Admin extends CI_Controller {
                 $this->load->view('admin/arsip_surat_keluar_admin');
                 $this->load->view('footer');
         }
+
+        public function form_tambah_surat_masuk_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_surat_masuk_admin');
+                $this->load->view('footer');
+        }
+
+        public function form_tambah_surat_keluar_admin()
+	{
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_tambah_surat_keluar_admin');
+                $this->load->view('footer');
+        }
+
+
 
 }

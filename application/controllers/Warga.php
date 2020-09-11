@@ -13,10 +13,13 @@ class Warga extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/dashboard_warga');
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+		$this->load->view('header', $data);
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/dashboard_warga', $data);
 		$this->load->view('footer');
 	}
 	public function profil_warga()

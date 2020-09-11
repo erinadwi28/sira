@@ -21,6 +21,7 @@ class Login extends CI_Controller {
     {
         $nik = $this->input->post('nik');
         $kata_sandi = $this->input->post('kata_sandi');
+        $nama = $this->input->post('nama');
         // $level_user = $this->input->post('level_user');
 		
 		$warga = $this->m_warga->cek_nik($nik);
@@ -32,6 +33,7 @@ class Login extends CI_Controller {
 
                 $data = [
                     'nik' => $warga['nik'],
+                    'nama' => $warga['nama'],
                     'id_warga' => $warga['id_warga'],
                     'role_warga' => $warga['role_warga'],
                 ];

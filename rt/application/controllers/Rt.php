@@ -4,9 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Rt extends CI_Controller
 {
 
-
-<<<<<<< HEAD
-        public function __construct()
+    public function __construct()
 	{
 		parent::__construct();
 		if (!$this->session->userdata('role_rt'))  {
@@ -14,14 +12,15 @@ class Rt extends CI_Controller
 		}
 	}
 	
-=======
->>>>>>> 487f0769962cf7ab81edfc70118441ad29b56c05
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('rt/sidebar_rt');
-		$this->load->view('topbar');
-		$this->load->view('rt/dashboard_rt');
+		$data['rt'] = $this->db->get_where('rt', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+		$this->load->view('header', $data);
+		$this->load->view('rt/sidebar_rt', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('rt/dashboard_rt', $data);
 		$this->load->view('footer');
 	}
 	public function profil_rt()

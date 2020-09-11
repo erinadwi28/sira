@@ -44,7 +44,7 @@ class Admin extends CI_Controller {
         public function form_tambah_kades()
 	{
                 $result = array(
-                'page'='admin/form_tambah_kades',
+                'page'=>'admin/form_tambah_kades',
                 );
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -126,22 +126,78 @@ class Admin extends CI_Controller {
 			echo "gagal";
 		}
         }
+
+        // tampil list rt
         public function list_data_rt()
 	{
+                $this->load->model('M_admin','m_admin');
+                $data_rt = $this->m_admin->get_data_rt();
+                $result = array(
+                'list_data' => $data_rt,
+                'page' => 'admin/list_rt',
+                );
+                
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/list_rt_admin');
+                $this->load->view($result);
                 $this->load->view('footer');
         }
 
+        // tampil form tambah data rt
         public function form_tambah_rt()
 	{
+                 $result = array(
+                'page'='admin/form_tambah_rt',
+                );
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/form_tambah_rt_admin');
+                $this->load->view($result);
                 $this->load->view('footer');
+        }
+
+        // aksi tambah data rt
+        public function aksi_tambah_rt() 
+        {
+                $data = array(
+			'nik' => $this->input->post('nik'),
+			'nama' => $this->input->post('nama'),
+                        'rt' => $this->input->post('rt'),
+                        'kelurahan' => $this->input->post('kelurahan'),
+                        'kecamatan' => $this->input->post('kecamatan'),
+                        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                        'agama' => $this->input->post('agama'),
+                        'tempat_lahir' => $this->input->post('tempat_lahir'),
+                        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                        'status_perkawinan' => $this->input->post('status_perkawinan'),
+                        'pekerjaan' => $this->input->post('pekerjaan'),
+                        'golongan_darah' => $this->input->post('golongan_darah'),
+                        'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+                        'kata_sandi' => $this->input->post('kata_sandi'),
+                        'foto_kades' => $this->input->post('foto_kades'),
+                        'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
+                        'no_kk' => $this->input->post('no_kk'),
+                        'status_hub_kel' => $this->input->post('status_hub_kel'),
+                        'no_hp' => $this->input->post('no_hp'),
+                        'foto_ktp' => $this->input->post('foto_ktp'),
+                        'foto_kk' => $this->input->post('foto_kk'),
+                        'foto_ttd' => $this->input->post('foto_ttd'),
+                        'status_kepegawaian' => $this->input->post('status_kepegawaian'),
+                );
+
+                $this->load->model('M_admin','m_admin');
+                $this->m_admin->tambah_rt($data);
+
+		if($this->m_admin->tambah_rt($data)){
+			$this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
+			echo "sukses";
+		} else {
+			$this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
+			echo "gagal";
+		}
+                
         }
 
         public function detail_data_rt()

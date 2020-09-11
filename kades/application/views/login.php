@@ -68,7 +68,6 @@
 											kata sandi
 											<br />
 										</div>
-										<input type="hidden" class="form-control " id="level_user" name="level_user" value="kades" />
 										<br />
 										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">
 											Login

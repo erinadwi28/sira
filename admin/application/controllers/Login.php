@@ -10,7 +10,7 @@ class Login extends CI_Controller {
 	public function index()
     {
         
-        if ($this->session->userdata('level_user')) {
+        if ($this->session->userdata('role_admin')) {
             redirect('admin');
 		}
 		
@@ -21,7 +21,6 @@ class Login extends CI_Controller {
     {
         $nik = $this->input->post('nik');
 		$kata_sandi = $this->input->post('kata_sandi');
-        $level_user = $this->input->post('level_user');
         
 		$admin = $this->m_admin->cek_nik($nik);
 		
@@ -33,7 +32,7 @@ class Login extends CI_Controller {
                 $data = [
                     'nik' => $admin['nik'],
                     'id_admin' => $admin['id_admin'],
-                    'level_user' => $admin['level_user'],
+                    'role_admin' => $admin['role_admin'],
                 ];
 
                 $this->session->set_userdata($data);
@@ -54,7 +53,7 @@ class Login extends CI_Controller {
     public function logout()
     {
         //untuk membersihkan session dan mengembalikannya ke halaman login
-        $this->session->unset_userdata('nik');
+        $this->session->unset_userdata('role_admin');
 
         $this->session->set_flashdata('success', 'Berhasil <b>Logout</b>');
 			redirect('login');

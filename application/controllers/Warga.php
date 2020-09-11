@@ -14,7 +14,7 @@ class Warga extends CI_Controller
 	public function index()
 	{
 		$data['warga'] = $this->db->get_where('warga', ['nik' =>
-		$this->session->userdata('nik')])->row_array();
+		$this->session->userdata('nik')])->row_array(); 
 
 		$this->load->view('header', $data);
 		$this->load->view('warga/sidebar_warga', $data);

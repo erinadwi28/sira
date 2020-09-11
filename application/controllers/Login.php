@@ -9,19 +9,19 @@ class Login extends CI_Controller {
 	}
 	public function index()
     {
-        $this->form_validation->set_rules('nik','nik');
         
-        if ($this->session->userdata('nik')) {
+        if ($this->session->userdata('role_warga')) {
             redirect('warga');
 		}
-		
+
 		$this->load->view('login');
 	}
 
 	public function aksi_login()
     {
         $nik = $this->input->post('nik');
-		$kata_sandi = $this->input->post('kata_sandi');
+        $kata_sandi = $this->input->post('kata_sandi');
+        // $level_user = $this->input->post('level_user');
 		
 		$warga = $this->m_warga->cek_nik($nik);
 		
@@ -33,6 +33,7 @@ class Login extends CI_Controller {
                 $data = [
                     'nik' => $warga['nik'],
                     'id_warga' => $warga['id_warga'],
+                    'role_warga' => $warga['role_warga'],
                 ];
 
                 $this->session->set_userdata($data);
@@ -53,7 +54,7 @@ class Login extends CI_Controller {
     public function logout()
     {
         //untuk membersihkan session dan mengembalikannya ke halaman login
-        $this->session->unset_userdata('nik');
+        $this->session->unset_userdata('role_warga');
 
         $this->session->set_flashdata('success', 'Berhasil <b>Logout</b>');
 			redirect('login');

@@ -3,21 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-<<<<<<< HEAD
-        public function __construct(){
-		parent::__construct();
-		if($this->session->login['level_user']!=='admin') redirect('login');
-	}
-
-	
-=======
         public function __construct()
         {
                 parent::__construct();
                 $this->load->model('M_admin');
         }
 
->>>>>>> 27526f667371f01724c286b4cfa39b586a9daf8c
 	public function index()
 	{   
                 $this->load->view('header');

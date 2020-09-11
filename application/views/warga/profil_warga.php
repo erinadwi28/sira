@@ -11,7 +11,7 @@
 
 			<div class="card shadow mb-4">
 				<div class="card-body">
-					<img src="img/user.png" alt="foto profil" class="img-fluid">
+					<img class="img-fluid" alt="foto_profil" src="<?= base_url('assets/dashboard/') ?>img/wkwk.jpg">
 				</div>
 				<div class="card-footer py-3">
 					<center>

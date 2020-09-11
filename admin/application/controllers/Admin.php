@@ -2,25 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+	
+
+        public function __construct()
+        {
+                parent::__construct();
+                $this->load->model('M_admin', 'm_admin');
+                
+                if (!$this->session->userdata('role_admin')) {
+			redirect('login');
+		}
+
+        }
+
 	public function index()
-	{   
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/dashboard_admin');
-                $this->load->view('footer');
-        }
-
-        public function profil_admin()
-	{   
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/profil_admin');
-                $this->load->view('footer');
-        }
-
-        public function ubah_profil()
 	{   
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -31,10 +26,11 @@ class Admin extends CI_Controller {
 
         public function list_data_kades()
 	{
+               $this->load->model('M_admin','m_admin');
                 $data_kades = $this->m_admin->get_data_kades();
                 $result = array(
                 'list_data' => $data_kades,
-                'page' => 'admin/list_data_kades',
+                'page' => 'admin/list_kades',
                 );
 
                 $this->load->view('header');
@@ -55,18 +51,20 @@ class Admin extends CI_Controller {
 
         public function form_tambah_kades()
 	{
+                $result = array(
+                'page'='admin/form_tambah_kades',
+                );
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/form_tambah_kades');
+                $this->load->view($result);
                 $this->load->view('footer');
         }
 
         // aksi tambah data kepala desa
         public function aksi_tambah_kades() 
         {
-                $data = [
-			'id_kades' => $this->input->post('id_kades'),
+                $data = array(
 			'nik' => $this->input->post('nik'),
 			'nama' => $this->input->post('nama'),
                         'rt' => $this->input->post('rt'),
@@ -90,8 +88,10 @@ class Admin extends CI_Controller {
                         'foto_kk' => $this->input->post('foto_kk'),
                         'foto_ttd' => $this->input->post('foto_ttd'),
                         'status_kepegawaian' => $this->input->post('status_kepegawaian'),
-                        
-		];
+                );
+
+                $this->load->model('M_admin','m_admin');
+                $this->m_admin->tambah_kades($data);
 
 		if($this->m_admin->tambah_kades($data)){
 			$this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
@@ -103,16 +103,38 @@ class Admin extends CI_Controller {
                 
         }
 
-        public function list_data_rt()
+        //detail data kepala desa
+        public function detail_data_kades()
 	{
+                $this->load->model('M_admin','m_admin');
+		$data_profile =$this->m_admin->get_detail_kades($id_kades);
+
+		$result = array(
+			'data_detail'=>$data_profile,
+			'page'=>'admin/detail_kades',
+                );
+                
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/list_data_rt');
+                $this->load->view($result);
                 $this->load->view('footer');
         }
-        
-        public function detail_data_rt()
+
+        // aksi hapus data kepala desa
+        public function aksi_hapus($id_kades){
+                $this->load->model('M_admin','m_admin');
+                $this->m_admin->hapus_kades($id_kades);
+
+                if($this->m_admin->hapus_kades($data)){
+			$this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
+			echo "sukses";
+		} else {
+			$this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
+			echo "gagal";
+		}
+        }
+        public function list_data_rt()
 	{
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');

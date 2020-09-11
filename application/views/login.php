@@ -67,6 +67,7 @@
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
+											<input type="hidden" class="form-control" id="level_user" name="level_user" value="warga" />
 										</div>
 										<br />
 										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">

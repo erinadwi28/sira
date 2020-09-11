@@ -20,13 +20,14 @@ class Login extends CI_Controller {
 	public function aksi_login()
     {
         $nik = $this->input->post('nik');
-		$kata_sandi = $this->input->post('kata_sandi');
+        $kata_sandi = $this->input->post('kata_sandi');
+        $kata_sandi_hash = sha1($kata_sandi);
         
 		$admin = $this->m_admin->cek_nik($nik);
 		
         if ($admin) {
             //admin ada
-            if ($kata_sandi === $admin['kata_sandi']) {
+            if ($kata_sandi_hash === $admin['kata_sandi']) {
                 //kata sandi benar
 
                 $data = [

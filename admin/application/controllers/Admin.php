@@ -30,7 +30,7 @@ class Admin extends CI_Controller {
                 $data_kades = $this->m_admin->get_data_kades();
                 $result = array(
                 'list_data' => $data_kades,
-                'page' => 'admin/list_data_kades',
+                'page' => 'admin/list_kades',
                 );
 
                 $this->load->view('header');
@@ -103,7 +103,7 @@ class Admin extends CI_Controller {
 
 		$result = array(
 			'data_detail'=>$data_profile,
-			'page'=>'admin/detail_kades_admin',
+			'page'=>'admin/detail_kades',
                 );
                 
                 $this->load->view('header');

@@ -32,6 +32,7 @@ class Login extends CI_Controller {
                 $data = [
                     'nik' => $rt['nik'],
                     'id_rt' => $rt['id_rt'],
+                    'nama' => $rt['nama'],
                     'role_rt' => $rt['role_rt'],
                 ];
 

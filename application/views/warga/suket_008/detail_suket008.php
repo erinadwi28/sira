@@ -22,70 +22,70 @@
 								<td><b>Nama Istri</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>Rahma Maulani</td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>Sleman</td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>22/07/2000</td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan Istri</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>Swasta</td>
+							</tr>
+							<tr>
+								<td><b>Alamat Tinggal </b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td>Jalan Abdul Ancis, RT 21, Kel. Mendawai, Kec. Arut Selatan, Kab. Kotawaringin Barat</td>
 							</tr>
 							<tr>
 								<td><b>Nama Suami</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>Muhammad Farid</td>
 							</tr>
 							<tr>
-								<td><b>Tempat Lahir</b></td>
+								<td><b>Tempat, Tanggal Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
-								<td>Kotawaringin Barat </td>
-							</tr>
-							<tr>
-								<td><b>Tanggal Lahir</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td>06/06/2000</td>
+								<td>:</td>
+								<td>Kotawaringin Barat, 06/06/2000</td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan Suami</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>Swasta</td>
 							</tr>
 							<tr>
 								<td><b>Alasan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
-								<td>Meninggal Dunia</td>
+								<td>:</td>
+								<td>Meninggalkan rumah tanpa izin kelurahan 1 tahun 2 bulan</td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td>01/08/2020</td>
 							</tr>
 						</tbody>

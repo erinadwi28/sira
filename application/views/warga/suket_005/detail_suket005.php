@@ -50,7 +50,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td>Pengajian AKbar</td>
+								<td>Pengajian Akbar</td>
 							</tr>
 							<tr>
 								<td><b>Hari</b></td>

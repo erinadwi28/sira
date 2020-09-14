@@ -81,6 +81,16 @@
 											</div>
 										</div>
 									</div>
+									<div class="form-group">
+										<div class="form-group row" style="margin-left: 10px;">
+											<label for="Alamat_tinggal" class="col-sm-3 col-form-label">Alamat Tinggal</label>
+											<div class="col-sm-8">
+												<div class="form-line">
+													<textarea class="form-control" id="alamat_tinggal" name="alamat_tinggal" rows="3" placeholder="Alamat Tinggal"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
 											<label for="Nama)suami" class="col-sm-3 col-form-label">Nama Suami</label>
@@ -147,34 +157,38 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="form-group row" style="margin-left: 10px;">
-											<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-											<div class="col-sm-8">
-												<div class="form-line">
-													<input type="hidden" class="form-control" id="Tanggal_pembuatan" name="Tanggal_pembuatan" value="" required="">
-												</div>
-											</div>
-										</div>
+								</div>
+								<div class="card-footer">
+									<div class="float-left">
+										<a href="#">
+											<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
+												<i class="fa fa-arrow-left">
+												</i> Kembali
+											</button>
+										</a>
+									</div>
+									<div class="float-right">
+										<a href="#">
+											<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
+												<i class="fa fa-times nav-icon">
+												</i> Batal
+											</button>
+										</a>
+										<a href="#">
+											<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
+												<i class="far fa-save nav-icon">
+												</i> Simpan
+											</button>
+										</a>
 									</div>
 								</div>
-							</div>
-					</div>
-					<div class="card-footer">
-						<div class="form-group">
-							<div class=" col-sm-offset-0 col-sm-0" style="float: left;">
-								<span><a class="btn btn-warning " href="#" role="button"> <i class="fa fa-arrow-left" aria-hidden="true"> Kembali</i> </a></span>
-							</div>
-							<div class=" col-sm-offset-2 col-sm-4" style="float: right;">
-								<span><a class="btn btn-danger " href="#" role="button"> <i class="fa fa-times" aria-hidden="true"> Batal</i> </a></span>
-								<span><a class="btn btn-primary far fa-save" href="#" role="button"> Simpan</a></span>
-							</div>
-						</div>
-					</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+						</form>
 
-	<!--End Content Profile-->
+
+					</div>
+				</div>
+				<!--End Content Profile-->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- End of Main Content -->

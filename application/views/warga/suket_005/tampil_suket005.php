@@ -1,8 +1,11 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<!-- Page Heading -->
-					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Preview Permohonan Surat</h1>
+					<button class="btn btn-sm btn-warning float-left" type="reset"><i class="fa fa-arrow-left"></i> Kembali</button>
+					<div class="preview">
+						<center>
+							<h1 class="h3 mb-30 text-gray-800">Preview Permohonan Surat</h1>
+						</center>
 					</div>
 					<div class="row">
 						<div class="col-md-2">
@@ -22,101 +25,129 @@
 										<div class="badan_surat">
 											<div class="no_surat">
 												<center>
-													<p><u>SURAT KETERANGAN USAHA</u><br>
-														Nomor : 206 / KM / AS / VIII / 2020. Um</p>
+													<p><u>SURAT KETERANGAN IZIN KERAMAIAN</u><br>
+														Nomor : 300 / 005 / KM / AS / VIII / 2020</p>
 												</center>
 											</div>
 											<div class="isi_surat paragraf">
 												<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
-													Selatan, Kabupaten Kotawaringin Barat,
-													Provinsi Kalimantan Tengah, dengan ini menerangkan bahwa :</p>
+													Selatan, Kabupaten Kotawaringin Barat, Provinsi Kalimantan Tengah : </p>
 											</div>
 											<div class="isi_surat identitas">
 												<table class="table-responsive">
 													<tbody>
 														<tr>
-															<td>Nama</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
+															<td><b>Nama</b></td>
 															<td> </td>
 															<td> </td>
 															<td>:</td>
-															<td><b>M. SYAPRIANSYAH</b></td>
+															<td>Rahadian Syahmi, S.Hut</td>
 														</tr>
 														<tr>
-															<td>Jenis Kelamin</td>
+															<td><b>NIP</b></td>
 															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
+															<td></td>
 															<td>:</td>
-															<td>Laki - Laki</td>
+															<td>19780211 200604 1 009</td>
 														</tr>
 														<tr>
-															<td>Tempat Tanggal Lahir</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
+															<td><b>Jabatan </b></td>
 															<td> </td>
 															<td> </td>
 															<td>:</td>
-															<td>Pangkalan Bun, 25 September 1972
-															</td>
+															<td>Kepala Desa</td>
 														</tr>
 														<tr>
-															<td>Pekerjaan</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
+															<td><b>Alamat</b></td>
 															<td> </td>
 															<td> </td>
 															<td>:</td>
-															<td>Wiraswasta</td>
-														</tr>
-														<tr>
-															<td>Kelurahan</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Mendawai</td>
-														</tr>
-														<tr>
-															<td>Alamat Tinggal</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>JL. DAH. Hamzah RT. 16 Kelurahan Mendawai
-																Kecamatan Arut Selatan Pangkalan Bun
-															</td>
+															<td>Jalan DAH. Hamzah 22, RT 12, Kel. Mendawai, Kec. Arut Selatan, Kab. Kotawaringin Barat</td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
+											<br>
 											<div class="isi_surat paragraf">
-												<p>
-													Berdasarkan Surat Keterangan dari Ketua Rukun Tetangga ( RT ) 16
-													Kelurahan Mendawai, tanggal 04 Agustus 2020
-													Nomor : 330 /RT. 16 /KM/AS/VIII /2020, bahwa yang bersangkutan
-													memang benar penduduk RT. 16 Kelurahan
-													Mendawai, Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat,
-													dan
-													memang benar juga mempunyai usaha :
-													“Berjualan Ikan dan sayur “.
-												</p>
-												<p>
-													Demikian Surat Keterangan ini kami berikan, agar dapat
-													dipergunakan
-													sebagaimana mestinya. Dengan catatan
-													Surat Keterangan Usaha ini berlaku tiga bulan TMT hari ini.
-												</p>
+												<p>Berdasarkan Surat dari Ketua Rukun Tetangga ( RT ) 021 Kelurahan Mendawai Kecamatan Arut Selatan Kabupaten Kotawaringin Barat,
+													dengan ini menerangkan bahwa : </p>
+											</div>
+											<div class="isi_surat identitas">
+												<table class="table-responsive">
+													<tbody>
+														<tr>
+															<td><b>Nama</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>Rahma Maulani</td>
+														</tr>
+														<tr>
+															<td><b>TTL</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>Sleman, 22/07/2000</td>
+														</tr>
+														<tr>
+															<td><b>Alamat</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>Jalan Abdul Ancis, RT 21, Kel. Mendawai, Kec. Arut Selatan, Kab. Kotawaringin Barat</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<br>
+											<div class="isi_surat paragraf">
+												<p>Mengajukan permohonan izin seperti perihal diatas, untuk menyelenggarakan keramaian mengumpulkan orang banyak
+													dalam rangka kegiatan Pengajian Akbar,yang akan dilaksanakan pada : </p>
+											</div>
+											<div class="isi_surat identitas">
+												<table class="table-responsive">
+													<tbody>
+														<tr>
+															<td><b>Kegiatan</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>Pengajian AKbar</td>
+														</tr>
+														<tr>
+															<td><b>Hari</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>Kamis</td>
+														</tr>
+														<tr>
+															<td><b>Tanggal</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>16/09/2020</td>
+														</tr>
+														<tr>
+															<td><b>Tempat</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>Jalan Abdul Ancis, RT 21, Kel. Mendawai, Kec. Arut Selatan, Kab. Kotawaringin Barat</td>
+														</tr>
+														<tr>
+															<td><b>Jam</b></td>
+															<td> </td>
+															<td> </td>
+															<td>:</td>
+															<td>20.00 WITA</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<br>
+											<div class="isi_surat paragraf">
+												<p>Demikian Surat Keterangan Izin Keramaian kami buat, agar dapat dipergunakan sebagaimana mestinya.</p>
 											</div>
 										</div>
 									</center>
@@ -127,7 +158,7 @@
 											<div class="badan_surat isi_surat">
 												<center>
 
-													Pangkalan Bun, 04 Agustus 2020<br>
+													Pangkalan Bun, 08 Agustus 2020<br>
 													LURAH MENDAWAI
 
 												</center>
@@ -139,9 +170,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="badan_surat isi_surat">
-												<center>
-													<img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png">
-												</center>
+												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
 											</div>
 										</div>
 									</div>
@@ -169,7 +198,6 @@
 						<div class="col-md-2">
 						</div>
 					</div>
-					<button class="btn btn-sm btn-warning float-left" type="reset"><i class="far fa-caret-square-left"></i> Kembali</button>
 				</div>
 				<!-- /.container-fluid -->
 				</div>

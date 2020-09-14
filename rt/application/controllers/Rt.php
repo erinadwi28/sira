@@ -5,7 +5,6 @@ class Rt extends CI_Controller
 {
 
 
-<<<<<<< HEAD
         public function __construct()
 	{
 		parent::__construct();
@@ -14,8 +13,6 @@ class Rt extends CI_Controller
 		}
 	}
 	
-=======
->>>>>>> 487f0769962cf7ab81edfc70118441ad29b56c05
 	public function index()
 	{
 		$this->load->view('header');

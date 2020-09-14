@@ -2,12 +2,10 @@
 
 class M_admin extends CI_Model
 {
-    protected $_table = 'admin';
-
     // Cek NIK untuk login
     public function cek_nik($nik)
     {
-        $query = $this->db->get_where($this->_table, ['nik' => $nik]);
+        $query = $this->db->get_where('admin', ['nik' => $nik]);
         return $query->row_array();
     }
 
@@ -110,7 +108,7 @@ class M_admin extends CI_Model
     public function hapus_rt($id_rt)
     {
         $data = array(
-            'status_kepegawaiaan' => 'Tidak Aktife',
+            'status_kepegawaiaan' => 'Tidak Aktif',
             'status_delete' => '1',
         );
 

@@ -58,7 +58,7 @@ class Admin extends CI_Controller
                 $this->load->view($result);
                 $this->load->view('footer');
         }
-        
+
         public function form_tambah_kades()
         {
                 $result = array(
@@ -203,7 +203,7 @@ class Admin extends CI_Controller
                         redirect('Admin/list_data_rt');
                 } else {
                         $this->session->set_flashdata('error', 'Gagal Tambah Data RT');
-                        echo "gagal";
+                        redirect('Admin/list_data_rt');
                 }
         }
 
@@ -247,11 +247,11 @@ class Admin extends CI_Controller
                 $this->m_admin->hapus_rt($id_rt);
 
                 if ($this->m_admin->hapus_rt($id_rt)) {
-                        $this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
-                        echo "sukses";
+                        $this->session->set_flashdata('success', 'Data Kepala Desa berhasil dihapus');
+                        redirect('admin/list_data_rt');
                 } else {
-                        $this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
-                        echo "gagal";
+                        $this->session->set_flashdata('error', 'Data Kepala Desa gagal dihapus');
+                        redirect('admin/list_data_rt');
                 }
         }
 

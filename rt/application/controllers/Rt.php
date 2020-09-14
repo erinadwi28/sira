@@ -12,13 +12,16 @@ class Rt extends CI_Controller
 			redirect('login');
 		}
 	}
-	
+
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('rt/sidebar_rt');
-		$this->load->view('topbar');
-		$this->load->view('rt/dashboard_rt');
+		$data['rt'] = $this->db->get_where('rt', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+		$this->load->view('header', $data);
+		$this->load->view('rt/sidebar_rt', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('rt/dashboard_rt', $data);
 		$this->load->view('footer');
 	}
 	public function profil_rt()

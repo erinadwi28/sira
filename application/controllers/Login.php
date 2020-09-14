@@ -21,17 +21,19 @@ class Login extends CI_Controller {
     {
         $nik = $this->input->post('nik');
         $kata_sandi = $this->input->post('kata_sandi');
+        $kata_sandi_hash = sha1($kata_sandi);
         // $level_user = $this->input->post('level_user');
 		
 		$warga = $this->m_warga->cek_nik($nik);
 		
         if ($warga) {
             //admin ada
-            if ($kata_sandi === $warga['kata_sandi']) {
+            if ($kata_sandi_hash === $warga['kata_sandi']) {
                 //kata sandi benar
 
                 $data = [
                     'nik' => $warga['nik'],
+                    'nama' => $warga['nama'],
                     'id_warga' => $warga['id_warga'],
                     'role_warga' => $warga['role_warga'],
                 ];

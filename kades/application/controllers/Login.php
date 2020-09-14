@@ -21,12 +21,12 @@ class Login extends CI_Controller {
     {
         $nik = $this->input->post('nik');
 		$kata_sandi = $this->input->post('kata_sandi');
-		
+		$kata_sandi_hash = sha1($kata_sandi);
 		$kades = $this->m_kepala_desa->cek_nik($nik);
 		
         if ($kades) {
             //kades ada
-            if ($kata_sandi === $kades['kata_sandi']) {
+            if ($kata_sandi_hash === $kades['kata_sandi']) {
                 //kata sandi benar
 
                 $data = [

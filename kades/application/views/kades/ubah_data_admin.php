@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Data Admin</h1>
+        <h1 class="h3 mb-0 text-gray-800">Ubah Profil Admin</h1>
     </div>
 
     <!-- Content Row line 1-->
@@ -180,8 +180,6 @@
                             </button>
                         </a>
                     </div>
-                    <!-- <button class="btn btn-sm btn-primary" type="submit"><i
-                                            class="far fa-save nav-icon"></i> Simpan</button> -->
                 </div>
             </div>
         </div>

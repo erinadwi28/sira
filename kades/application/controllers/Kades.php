@@ -49,7 +49,7 @@ class Kades extends CI_Controller
 
                 $result = array(
                         'data_detail' => $data_profil,
-                        'page' => 'kades/ubah_profil',
+                        'page' => 'kades/form_ubah_profil',
                 );
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
@@ -128,6 +128,16 @@ class Kades extends CI_Controller
                 $this->load->view('kades/sidebar_kades');
                 $this->load->view('topbar');
                 $this->load->view('kades/form_tambah_admin');
+                $this->load->view('footer');
+        }
+
+        public function ubah_data_admin()
+        {
+
+                $this->load->view('header');
+                $this->load->view('kades/sidebar_kades');
+                $this->load->view('topbar');
+                $this->load->view('kades/ubah_data_admin');
                 $this->load->view('footer');
         }
 

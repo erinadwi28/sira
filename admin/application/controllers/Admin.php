@@ -26,54 +26,55 @@ class Admin extends CI_Controller
                 $this->load->view('footer');
         }
 
+        //list data kepala desa
         public function list_data_kades()
-        {
+	{
+                 $data['admin'] = $this->db->get_where('admin', ['nik' =>
+                $this->session->userdata('nik')])->row_array();
 
-                $data_kades = $this->m_admin->get_data_kades();
-                $result = array(
-                        'list_data' => $data_kades,
-                        'page' => 'admin/list_kades',
-                );
+                $data_kades['data_kades'] = $this->m_admin->get_data_kades()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/list_data_kades');
+                $this->load->view('topbar',$data);
+                $this->load->view('admin/list_data_kades',$data_kades);
                 $this->load->view('footer');
         }
+        
         //detail data kepala desa
         public function detail_data_kades($id_kades)
         {
+                 $data['admin'] = $this->db->get_where('admin', ['nik' =>
+                $this->session->userdata('nik')])->row_array();
 
-                $data_profil = $this->m_admin->get_detail_kades($id_kades);
+                $detailhere = array('id_kades' => $id_kades);
+                $data_detail['detai_kades'] = $this->m_admin->get_detail_kades($detailhere,'kepala_desa')->result();
 
-                $result = array(
-                        'data_detail' => $data_profil,
-                        'page' => 'admin/detail_kades',
-                );
-
+               
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view($result);
+                $this->load->view('topbar',$data);
+                $this->load->view('admin/detail_data_kades',$data_detail);
                 $this->load->view('footer');
         }
 
         public function form_tambah_kades()
         {
-                $result = array(
-                        'page' => 'admin/form_tambah_kades',
-                );
+                 $data['admin'] = $this->db->get_where('admin', ['nik' =>
+                $this->session->userdata('nik')])->row_array();
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view($result);
+                $this->load->view('topbar',$data);
+                $this->load->view('admin/form_tambah_kades');
                 $this->load->view('footer');
         }
 
         // aksi tambah data kepala desa
         public function aksi_tambah_kades()
         {
+                $kata_sandi = $this->input->post('kata_sandi');
+                $kata_sandi_hash = sha1($kata_sandi);
                 $data = array(
                         'nik' => $this->input->post('nik'),
                         'nama' => $this->input->post('nama'),
@@ -89,8 +90,66 @@ class Admin extends CI_Controller
                         'pekerjaan' => $this->input->post('pekerjaan'),
                         'golongan_darah' => $this->input->post('golongan_darah'),
                         'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-                        'kata_sandi' => $this->input->post('kata_sandi'),
+                        'kata_sandi' => $kata_sandi_hash,
                         'foto_profil_kades' => $this->input->post('foto_profil_kades'),
+                        'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
+                        'no_kk' => $this->input->post('no_kk'),
+                        'status_hub_kel' => $this->input->post('status_hub_kel'),
+                        'no_hp' => $this->input->post('no_hp'),
+                        'foto_ktp' => $this->input->post('foto_ktp'),
+                        'foto_kk' => $this->input->post('foto_kk'),
+                        'foto_ttd' => $this->input->post('foto_ttd'),
+                );
+
+		if($this->m_admin->tambah_kades($data)){
+			$this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
+                        redirect('admin/list_data_kades');
+		} else {
+			$this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
+                        redirect('admin/form_tambah_admin');
+		}
+                
+        }
+
+        // tampil form ubah kades beserta datanya
+        public function form_ubah_kades($id_kades)
+        {
+                 $data['admin'] = $this->db->get_where('admin', ['nik' =>
+                $this->session->userdata('nik')])->row_array();
+
+                $detailhere = array('id_kades' => $id_kades);
+                $data_detail['detai_kades'] = $this->m_admin->get_detail_kades($detailhere,'kepala_desa')->result();
+
+               
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar',$data);
+                $this->load->view('admin/form_ubah_kades',$data_detail);
+                $this->load->view('footer');
+                
+                
+        }
+
+        // aksi ubah kades
+        public function aksi_ubah_kades()
+        {
+                $data = array(
+                        'nik' => $this->input->post('nik'),
+			'nama' => $this->input->post('nama'),
+			'alamat' => $this->input->post('alamat'),
+                        'rt' => $this->input->post('rt'),
+                        'kelurahan' => $this->input->post('kelurahan'),
+                        'kecamatan' => $this->input->post('kecamatan'),
+                        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                        'agama' => $this->input->post('agama'),
+                        'tempat_lahir' => $this->input->post('tempat_lahir'),
+                        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                        'status_perkawinan' => $this->input->post('status_perkawinan'),
+                        'pekerjaan' => $this->input->post('pekerjaan'),
+                        'golongan_darah' => $this->input->post('golongan_darah'),
+                        'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+                        'kata_sandi' => $this->input->post('kata_sandi'),
+                        'foto_profil_kades' => $this->input->post('foto_kades'),
                         'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
                         'no_kk' => $this->input->post('no_kk'),
                         'status_hub_kel' => $this->input->post('status_hub_kel'),
@@ -101,37 +160,27 @@ class Admin extends CI_Controller
                         'status_kepegawaian' => $this->input->post('status_kepegawaian'),
                 );
 
+                $detailhere = $this->input->post('id_kades');
 
-                $this->m_admin->tambah_kades($data);
-
-                if ($this->m_admin->tambah_kades($data)) {
-                        $this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
-                        echo "sukses";
-                } else {
-                        $this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
-                        echo "gagal";
-                }
-        }
+                if($this->m_admin->aksi_ubah_data_kades($detailhere,$data,'kepala_desa'));{
+                        $this->session->set_flashdata('success', 'Data Kepala Desa berhasil diubah');
+                        redirect('admin/detail_data_kades/'.$detailhere);
+                } 
+        }                                       
 
         // aksi hapus data kepala desa
-        public function aksi_hapus_kades($id_kades)
-        {
+        public function aksi_hapus_kades($id_kades){
 
-                $this->m_admin->hapus_kades($id_kades);
+                if($this->m_admin->hapus_kades($id_kades));{
+			$this->session->set_flashdata('success', 'Data Kepala Desa berhasil dihapus');
+                        redirect('admin/list_data_kades');
+		}
 
-                if ($this->m_admin->hapus_kades($id_kades)) {
-                        $this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
-                        echo "sukses";
-                } else {
-                        $this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
-                        echo "gagal";
-                }
+                
         }
 
-        // tampil list rt
         public function list_data_rt()
-        {
-
+	{
                 $data_rt = $this->m_admin->get_data_rt();
                 $result = array(
                         'list_data' => $data_rt,
@@ -199,10 +248,13 @@ class Admin extends CI_Controller
                 $this->m_admin->tambah_rt($data);
 
                 if ($this->m_admin->tambah_rt($data)) {
-                        $this->session->set_flashdata('success', 'Berhasil Tambah Data RT');
+                        $this->session->set_flashdata('success', 'Data Ketua RT berhasil ditambahkan');
                         redirect('Admin/list_data_rt');
                 } else {
+
                         $this->session->set_flashdata('error', 'Gagal Tambah Data RT');
+
+                        $this->session->set_flashdata('error', 'Data Ketua RT gagal ditambahkan');
                         redirect('Admin/list_data_rt');
                 }
         }
@@ -310,31 +362,149 @@ class Admin extends CI_Controller
 
         public function list_data_warga()
         {
+                $data_warga = $this->m_admin->get_data_warga();
+                $result = array(
+                'list_data' => $data_warga,
+                'page' => 'admin/list_data_warga',
+                );
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/list_data_warga');
+                $this->load->view($result);
                 $this->load->view('footer');
         }
 
-        public function detail_data_warga()
-        {
+        //detail data warga
+        public function detail_data_warga($id_warga)
+	{       
+                $data_profile = $this->m_admin->get_detail_warga($id_warga);
+
+		$result = array(
+			'data_detail'=>$data_profile,
+			'page'=>'admin/detail_data_warga',
+                );
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/detail_data_warga');
+                $this->load->view($result);
                 $this->load->view('footer');
         }
 
+        //tampil form tambah data warga
         public function form_tambah_warga()
-        {
+	{
+                $result = array(
+                'page'=>'admin/form_tambah_warga',
+                );
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/form_tambah_warga');
+                $this->load->view($result);
                 $this->load->view('footer');
         }
 
+        // aksi tambah data warga
+        public function aksi_tambah_warga() 
+        {
+                $data = array(
+			'nik' => $this->input->post('nik'),
+                        'nama' => $this->input->post('nama'),
+                        'alamat' => $this->input->post('alamat'),
+                        'rt' => $this->input->post('rt'),
+                        'kelurahan' => $this->input->post('kelurahan'),
+                        'kecamatan' => $this->input->post('kecamatan'),
+                        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                        'agama' => $this->input->post('agama'),
+                        'tempat_lahir' => $this->input->post('tempat_lahir'),
+                        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                        'status_perkawinan' => $this->input->post('status_perkawinan'),
+                        'pekerjaan' => $this->input->post('pekerjaan'),
+                        'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+                        'golongan_darah' => $this->input->post('golongan_darah'),
+                        'kata_sandi' => $this->input->post('kata_sandi'),
+                        'foto_profil_warga' => $this->input->post('foto_kades'),
+                        'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
+                        'no_kk' => $this->input->post('no_kk'),
+                        'status_hub_kel' => $this->input->post('status_hub_kel'),
+                        'no_hp' => $this->input->post('no_hp'),
+                        'foto_ktp' => $this->input->post('foto_ktp'),
+                        'foto_kk' => $this->input->post('foto_kk'),
+                );
+
+                $this->m_admin->tambah_warga($data);
+
+		if($this->m_admin->tambah_warga($data)){
+			$this->session->set_flashdata('success', 'Data Warga berhasil ditambahkan');
+                        redirect('admin/list_data_warga');
+		} else {
+                        $this->session->set_flashdata('error', 'Data Warga gagal ditambahkan');
+                        redirect('admin/form_tambah_warga');
+		}
+        }
+
+        // tampil form ubah warga beserta datanya
+        public function form_ubah_warga($id_warga)
+        {
+                $detailhere = array('id_warga' => $id_warga);
+		$data['warga'] = $this->m_admin->ubah_warga($detailhere,'warga')->result();
+		$this->load->view('header','admin/sidebar_admin','topbar','admin/form_ubah_warga',$data,'footer');
+        }
+
+        // aksi ubah warga
+        public function aksi_ubah_warga()
+        {
+                $data = array(
+                        'nik' => $this->input->post('nik'),
+                        'nama' => $this->input->post('nama'),
+                        'alamat' => $this->input->post('alamat'),
+                        'rt' => $this->input->post('rt'),
+                        'kelurahan' => $this->input->post('kelurahan'),
+                        'kecamatan' => $this->input->post('kecamatan'),
+                        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                        'agama' => $this->input->post('agama'),
+                        'tempat_lahir' => $this->input->post('tempat_lahir'),
+                        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                        'status_perkawinan' => $this->input->post('status_perkawinan'),
+                        'pekerjaan' => $this->input->post('pekerjaan'),
+                        'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+                        'golongan_darah' => $this->input->post('golongan_darah'),
+                        'kata_sandi' => $this->input->post('kata_sandi'),
+                        'foto_profil_warga' => $this->input->post('foto_kades'),
+                        'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
+                        'no_kk' => $this->input->post('no_kk'),
+                        'status_hub_kel' => $this->input->post('status_hub_kel'),
+                        'no_hp' => $this->input->post('no_hp'),
+                        'foto_ktp' => $this->input->post('foto_ktp'),
+                        'foto_kk' => $this->input->post('foto_kk'),
+                );
+
+                $detailhere = array(
+                        'id_warga' => $this->input->post('id_warga'),
+                );
+
+                if($this->m_admin->aksi_ubah_data_warga($detailhere,$data,'warga')){
+                        $this->session->set_flashdata('success', 'Data Warga berhasil diubah');
+                        redirect('admin/list_data_warga');
+                } else {
+                        $this->session->set_flashdata('error', 'Data Warga gagal diubah');
+                        redirect('admin/list_data_warga');
+                }
+        }
+
+        // aksi hapus data warga
+        public function aksi_hapus_warga($id_warga){
+                $this->m_admin->hapus_warga($id_warga);
+
+                if($this->m_admin->hapus_warga($id_warga)){
+			$this->session->set_flashdata('success', 'Data Warga berhasil dihapus');
+                        redirect('admin/list_data_warga');
+		} else {
+			$this->session->set_flashdata('error', 'Data Warga gagal dihapus');
+                        redirect('admin/list_data_warga');
+		}
+        }
 
         public function list_data_permohonan()
         {

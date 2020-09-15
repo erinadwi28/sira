@@ -125,15 +125,15 @@ class CI_Email {
 	 *
 	 * @var	bool
 	 */
-	public $wordwrap	= TRUE;
+	public $detailordwrap	= TRUE;
 
 	/**
 	 * Number of characters to wrap at.
 	 *
-	 * @see	CI_Email::$wordwrap
+	 * @see	CI_Email::$detailordwrap
 	 * @var	int
 	 */
-	public $wrapchars	= 76;
+	public $detailrapchars	= 76;
 
 	/**
 	 * Message format.
@@ -833,9 +833,9 @@ class CI_Email {
 	 * @param	bool
 	 * @return	CI_Email
 	 */
-	public function set_wordwrap($wordwrap = TRUE)
+	public function set_wordwrap($detailordwrap = TRUE)
 	{
-		$this->wordwrap = (bool) $wordwrap;
+		$this->wordwrap = (bool) $detailordwrap;
 		return $this;
 	}
 
@@ -2263,9 +2263,9 @@ class CI_Email {
 	protected function _send_data($data)
 	{
 		$data .= $this->newline;
-		for ($written = $timestamp = 0, $length = self::strlen($data); $written < $length; $written += $result)
+		for ($detailritten = $timestamp = 0, $length = self::strlen($data); $detailritten < $length; $detailritten += $result)
 		{
-			if (($result = fwrite($this->_smtp_connect, self::substr($data, $written))) === FALSE)
+			if (($result = fwrite($this->_smtp_connect, self::substr($data, $detailritten))) === FALSE)
 			{
 				break;
 			}

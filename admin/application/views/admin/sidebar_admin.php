@@ -30,7 +30,7 @@
 
 	<!-- Nav Item - Main Menu -->
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link " href="<?= base_url('admin/list_data_kades') ?>">
 			<i class="fa fa fa-user"></i>
 			<span>Data Kepala Desa</span>
 		</a>

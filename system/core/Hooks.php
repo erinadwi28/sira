@@ -127,26 +127,26 @@ class CI_Hooks {
 	 *
 	 * @uses	CI_Hooks::_run_hook()
 	 *
-	 * @param	string	$which	Hook name
+	 * @param	string	$detailhich	Hook name
 	 * @return	bool	TRUE on success or FALSE on failure
 	 */
-	public function call_hook($which = '')
+	public function call_hook($detailhich = '')
 	{
-		if ( ! $this->enabled OR ! isset($this->hooks[$which]))
+		if ( ! $this->enabled OR ! isset($this->hooks[$detailhich]))
 		{
 			return FALSE;
 		}
 
-		if (is_array($this->hooks[$which]) && ! isset($this->hooks[$which]['function']))
+		if (is_array($this->hooks[$detailhich]) && ! isset($this->hooks[$detailhich]['function']))
 		{
-			foreach ($this->hooks[$which] as $val)
+			foreach ($this->hooks[$detailhich] as $val)
 			{
 				$this->_run_hook($val);
 			}
 		}
 		else
 		{
-			$this->_run_hook($this->hooks[$which]);
+			$this->_run_hook($this->hooks[$detailhich]);
 		}
 
 		return TRUE;

@@ -212,16 +212,16 @@ if ( ! function_exists('anchor_popup'))
 			$attributes = array($attributes);
 
 			// Ref: http://www.w3schools.com/jsref/met_win_open.asp
-			$window_name = '_blank';
+			$detailindow_name = '_blank';
 		}
 		elseif ( ! empty($attributes['window_name']))
 		{
-			$window_name = $attributes['window_name'];
+			$detailindow_name = $attributes['window_name'];
 			unset($attributes['window_name']);
 		}
 		else
 		{
-			$window_name = '_blank';
+			$detailindow_name = '_blank';
 		}
 
 		foreach (array('width' => '800', 'height' => '600', 'scrollbars' => 'yes', 'menubar' => 'no', 'status' => 'yes', 'resizable' => 'yes', 'screenx' => '0', 'screeny' => '0') as $key => $val)
@@ -233,7 +233,7 @@ if ( ! function_exists('anchor_popup'))
 		$attributes = _stringify_attributes($attributes);
 
 		return '<a href="'.$site_url
-			.'" onclick="window.open(\''.$site_url."', '".$window_name."', '"._stringify_attributes($atts, TRUE)."'); return false;\""
+			.'" onclick="window.open(\''.$site_url."', '".$detailindow_name."', '"._stringify_attributes($atts, TRUE)."'); return false;\""
 			.$attributes.'>'.$title.'</a>';
 	}
 }

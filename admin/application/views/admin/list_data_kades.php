@@ -3,7 +3,7 @@
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Data Kepala Desa</h1>
-						<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+						<a href="<?= base_url('admin/form_tambah_kades') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 								class="fa fa-user-plus fa-sm text-white-50"></i> Tambah
 							Data</a>
 					</div>
@@ -11,6 +11,21 @@
 					<!-- DataTables Warga -->
 					<div class="card shadow mb-4">
 						<div class="card-body">
+						<?php if ($this->session->flashdata('success')) : ?>
+										<div class="alert alert-success alert-dismissible fade show" role="alert">
+											<?= $this->session->flashdata('success') ?>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									<?php elseif($this->session->flashdata('error')) : ?>
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+											<?= $this->session->flashdata('error') ?>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									<?php endif ?>
 							<div class="table-responsive">
 								<table class="table table-bordered table-hover" id="dataTable" width="100%"
 									cellspacing="0">
@@ -24,27 +39,36 @@
 											<th>Actions</th>
 										</tr>
 									</thead>
+									
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>340401110219780001</td>
-											<td>RAHADIAN SYAHMI, S.Hut</td>
-											<td>RT 5 Kelurahan, Mendawai, Arut Selatan</td>
-											<td>Aktive</td>
-											<td>
-												<div>
-													<button class="btn btn-sm btn-primary" type="submit">
-														<i class="far fa-eye nav-icon"></i>
-														Detail
-													</button>
-												</div>
-												<div>
-													<button class="btn btn-sm btn-danger mt-1">
-														<i class="far fa-trash-alt nav-icon"></i> Hapus
-													</button>
-												</div>
-											</td>
-										</tr>
+									<?php 
+									$no = 1;
+									foreach($data_kades as $kades){ 
+									?>
+									<tr>
+									<td><?php echo $no++ ?></td>
+									<td><?php echo $kades->nik ?></td>
+									<td><?php echo $kades->nama ?></td>
+									<td><?php echo $kades->alamat ?></td>
+									<td><?php echo $kades->status_kepegawaian?></td>
+							<td>
+								<div>
+									<a href="<?= base_url()?>admin/detail_data_kades/<?= $kades->id_kades ?>">
+										<button class="btn btn-sm btn-primary" type="submit">
+											<i class="far fa-eye nav-icon"></i>
+											Detail
+										</button>
+									</a>
+
+									<a href="<?= base_url()?>admin/aksi_hapus_kades/<?= $kades->id_kades ?> ">
+										<button class="btn btn-sm btn-danger mt-1" type="submit">
+											<i class="far fa-trash-alt nav-icon"></i>
+											Hapus
+										</button>
+									</a>
+								</div>
+							</td>
+									<?php } ?>
 									</tbody>
 								</table>
 							</div>

@@ -1,15 +1,15 @@
 <?php
 
-class M_admin extends CI_Model
-{
+class M_admin extends CI_Model{
+
     // Cek NIK untuk login
     public function cek_nik($nik)
     {
-        $query = $this->db->get_where('admin', ['nik' => $nik]);
-        return $query->row_array();
-    }
-
-    // list data kepala desa
+  $query = $this->db->get_where('admin', ['nik' => $nik]);
+  return $query->row_array();
+ }
+ 
+ // list data kepala desa
     public function get_data_kades()
     {
         $this->db->select('*');
@@ -22,14 +22,10 @@ class M_admin extends CI_Model
     }
 
     // detail kades
-    public function get_detail_kades($id_kades)
-    {
-        $this->db->select('kepala_desa', '*');
-        $this->db->from('kepala_desa');
-        $this->db->where('id_kades', $id_kades);
+    public function get_detail_kades($detailhere, $tabel){
 
-        $hasil = $this->db->get();
-        return $hasil->row();
+        return $this->db->get_where($tabel, $detailhere);                                                                   
+                                     
     }
 
     // tambah data kades
@@ -38,11 +34,28 @@ class M_admin extends CI_Model
         return $this->db->insert('kepala_desa', $data);
     }
 
-    //hapus data kades
-    public function hapus_kades($id_kades)
+    // ambil data ke form ubah kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ubah data kades
+    public function ubah_kades($detailhere, $table)
     {
-        $this->db->where('kepala_desa', $id_kades);
-        $this->db->delete('kepala_desa');
+        return $this->db->get_where($table,$detailhere);
+    }
+
+    // aksi ubah data kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
+    public function aksi_ubah_data_kades($detailhere, $data, $table)
+    {
+        $this->db->where('id_kades',$detailhere);
+        $this->db->update($table,$data);
+    }
+
+    //hapus data kades
+    public function hapus_kades($id_kades){
+        $data = array(
+            'status_kepegawaian' => 'Tidak Aktif',
+            'status_delete' => 1
+        );
+
+        $this->db->where('id_kades',$id_kades);
+        $this->db->update('kepala_desa',$data);
     }
 
     //list data rt
@@ -114,5 +127,55 @@ class M_admin extends CI_Model
 
         $this->db->where('id_rt', $id_rt);
         $this->db->update('rt', $data);
+    }
+
+    // list data warga
+ public function get_data_warga(){
+        $this->db->select('*');
+        $this->db->from('warga');
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    // tambah data warga
+    public function tambah_warga($data) {
+        return $this->db->insert('warga', $data);
+    }
+
+    // detail warga
+    public function get_detail_warga($id_warga){
+        $this->db->select('*');
+  $this->db->from('warga');
+  $this->db->where('id_warga',$id_warga);
+
+  $hasil = $this->db->get();
+  return $hasil;
+    }
+
+    // ambil data ke form ubah warga
+    public function ubah_warga($detailhere, $table)
+    {
+        return $this->db->get_where($table,$detailhere);
+    }
+
+    // aksi ubah data warga                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ubah data kades
+    public function aksi_ubah_data_warga($detailhere, $data, $table)
+    {
+        $this->db->where($detailhere);
+        $this->db->update($table,$data);
+    }
+
+    //hapus data warga
+    public function hapus_warga($id_warga){
+        $data = array(
+            'status_kepegawaian' => 'Tidak Aktif',
+            'status_delete' => 1
+        );
+
+        $this->db->where('warga',$id_warga);
+        $this->db->update('warga',$data);
     }
 }

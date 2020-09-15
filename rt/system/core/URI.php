@@ -422,23 +422,23 @@ class CI_URI {
 	 * @used-by	CI_URI::ruri_to_assoc()
 	 * @param	int	$n		Index (default: 3)
 	 * @param	array	$default	Default values
-	 * @param	string	$which		Array name ('segment' or 'rsegment')
+	 * @param	string	$detailhich		Array name ('segment' or 'rsegment')
 	 * @return	array
 	 */
-	protected function _uri_to_assoc($n = 3, $default = array(), $which = 'segment')
+	protected function _uri_to_assoc($n = 3, $default = array(), $detailhich = 'segment')
 	{
 		if ( ! is_numeric($n))
 		{
 			return $default;
 		}
 
-		if (isset($this->keyval[$which], $this->keyval[$which][$n]))
+		if (isset($this->keyval[$detailhich], $this->keyval[$detailhich][$n]))
 		{
-			return $this->keyval[$which][$n];
+			return $this->keyval[$detailhich][$n];
 		}
 
-		$total_segments = "total_{$which}s";
-		$segment_array = "{$which}_array";
+		$total_segments = "total_{$detailhich}s";
+		$segment_array = "{$detailhich}_array";
 
 		if ($this->$total_segments() < $n)
 		{
@@ -478,8 +478,8 @@ class CI_URI {
 		}
 
 		// Cache the array for reuse
-		isset($this->keyval[$which]) OR $this->keyval[$which] = array();
-		$this->keyval[$which][$n] = $retval;
+		isset($this->keyval[$detailhich]) OR $this->keyval[$detailhich] = array();
+		$this->keyval[$detailhich][$n] = $retval;
 		return $retval;
 	}
 
@@ -513,12 +513,12 @@ class CI_URI {
 	 * Fetches an URI segment with a slash.
 	 *
 	 * @param	int	$n	Index
-	 * @param	string	$where	Where to add the slash ('trailing' or 'leading')
+	 * @param	string	$detailhere	Where to add the slash ('trailing' or 'leading')
 	 * @return	string
 	 */
-	public function slash_segment($n, $where = 'trailing')
+	public function slash_segment($n, $detailhere = 'trailing')
 	{
-		return $this->_slash_segment($n, $where, 'segment');
+		return $this->_slash_segment($n, $detailhere, 'segment');
 	}
 
 	// --------------------------------------------------------------------
@@ -529,12 +529,12 @@ class CI_URI {
 	 * Fetches an URI routed segment with a slash.
 	 *
 	 * @param	int	$n	Index
-	 * @param	string	$where	Where to add the slash ('trailing' or 'leading')
+	 * @param	string	$detailhere	Where to add the slash ('trailing' or 'leading')
 	 * @return	string
 	 */
-	public function slash_rsegment($n, $where = 'trailing')
+	public function slash_rsegment($n, $detailhere = 'trailing')
 	{
-		return $this->_slash_segment($n, $where, 'rsegment');
+		return $this->_slash_segment($n, $detailhere, 'rsegment');
 	}
 
 	// --------------------------------------------------------------------
@@ -548,24 +548,24 @@ class CI_URI {
 	 * @used-by	CI_URI::slash_rsegment()
 	 *
 	 * @param	int	$n	Index
-	 * @param	string	$where	Where to add the slash ('trailing' or 'leading')
-	 * @param	string	$which	Array name ('segment' or 'rsegment')
+	 * @param	string	$detailhere	Where to add the slash ('trailing' or 'leading')
+	 * @param	string	$detailhich	Array name ('segment' or 'rsegment')
 	 * @return	string
 	 */
-	protected function _slash_segment($n, $where = 'trailing', $which = 'segment')
+	protected function _slash_segment($n, $detailhere = 'trailing', $detailhich = 'segment')
 	{
 		$leading = $trailing = '/';
 
-		if ($where === 'trailing')
+		if ($detailhere === 'trailing')
 		{
 			$leading	= '';
 		}
-		elseif ($where === 'leading')
+		elseif ($detailhere === 'leading')
 		{
 			$trailing	= '';
 		}
 
-		return $leading.$this->$which($n).$trailing;
+		return $leading.$this->$detailhich($n).$trailing;
 	}
 
 	// --------------------------------------------------------------------

@@ -3,12 +3,12 @@
 	line-height: 1em;
 }
 
-.card-body{
+.card-body {
 	padding: 2.54rem;
 	color: black;
 }
 
-.badan_surat{
+.badan_surat {
 	opacity: 0.8;
 }
 
@@ -65,5 +65,5 @@
 .bawah {
 	display: block;
 	float: right;
-	
+
 }

@@ -3,8 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-
-
         public function __construct()
         {
                 parent::__construct();
@@ -17,10 +15,13 @@ class Admin extends CI_Controller
 
         public function index()
         {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/ubah_profil');
+                $data['admin'] = $this->db->get_where('admin', ['nik' =>
+                $this->session->userdata('nik')])->row_array();
+
+                $this->load->view('header', $data);
+                $this->load->view('admin/sidebar_admin', $data);
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/dashboard_admin', $data);
                 $this->load->view('footer');
         }
 
@@ -40,24 +41,24 @@ class Admin extends CI_Controller
                 $this->load->view('footer');
         }
 
-        public function detail_data_kades()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/detail_data_kades');
-                $this->load->view('footer');
-        }
-
         public function form_tambah_kades()
         {
                 $result = array(
-                        'page' = 'admin/form_tambah_kades',
+                        'page' => 'admin/form_tambah_kades',
                 );
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
                 $this->load->view($result);
+                $this->load->view('footer');
+        }
+
+        public function ubah_data_kades()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/ubah_data_kades');
                 $this->load->view('footer');
         }
 
@@ -103,14 +104,14 @@ class Admin extends CI_Controller
         }
 
         //detail data kepala desa
-        public function detail_data_kades()
+        public function detail_data_kades($id_kades)
         {
                 $this->load->model('M_admin', 'm_admin');
                 $data_profile = $this->m_admin->get_detail_kades($id_kades);
 
                 $result = array(
                         'data_detail' => $data_profile,
-                        'page' => 'admin/detail_kades',
+                        'page' => 'admin/detail_data_kades',
                 );
 
                 $this->load->view('header');
@@ -126,7 +127,7 @@ class Admin extends CI_Controller
                 $this->load->model('M_admin', 'm_admin');
                 $this->m_admin->hapus_kades($id_kades);
 
-                if ($this->m_admin->hapus_kades($data)) {
+                if ($this->m_admin->hapus_kades($id_kades)) {
                         $this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
                         echo "sukses";
                 } else {
@@ -134,7 +135,43 @@ class Admin extends CI_Controller
                         echo "gagal";
                 }
         }
+
+        public function form_cari_nik()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/form_cari_nik');
+                $this->load->view('footer');
+        }
+
+        public function profil_admin()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/profil_admin');
+                $this->load->view('footer');
+        }
+
+        public function ubah_profil_admin()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/ubah_profil_admin');
+                $this->load->view('footer');
+        }
+
         public function list_data_rt()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/list_data_rt');
+                $this->load->view('footer');
+        }
+        public function detail_data_rt()
         {
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -151,7 +188,14 @@ class Admin extends CI_Controller
                 $this->load->view('admin/form_tambah_rt');
                 $this->load->view('footer');
         }
-
+        public function ubah_data_rt()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/ubah_data_rt');
+                $this->load->view('footer');
+        }
 
         public function list_data_warga()
         {
@@ -177,6 +221,14 @@ class Admin extends CI_Controller
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
                 $this->load->view('admin/form_tambah_warga');
+                $this->load->view('footer');
+        }
+        public function ubah_data_warga()
+        {
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar');
+                $this->load->view('admin/ubah_data_warga');
                 $this->load->view('footer');
         }
 
@@ -486,7 +538,7 @@ class Admin extends CI_Controller
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/suket_012/detail_suket001');
+                $this->load->view('admin/suket_012/detail_suket012');
                 $this->load->view('footer');
         }
 
@@ -496,7 +548,7 @@ class Admin extends CI_Controller
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar');
-                $this->load->view('admin/suket_012/tampil_suket001');
+                $this->load->view('admin/suket_012/tampil_suket012');
                 $this->load->view('footer');
         }
 

@@ -33,6 +33,7 @@ class Login extends CI_Controller {
 
                 $data = [
                     'nik' => $warga['nik'],
+                    'nama' => $warga['nama'],
                     'id_warga' => $warga['id_warga'],
                     'role_warga' => $warga['role_warga'],
                 ];

@@ -11,8 +11,8 @@ class M_kepala_desa extends CI_Model{
 
 	//get detail data kepala desa
 	public function get_profile($id_kades){
-		$this->db->select($this->$_table,'*');
-		$this->db->from($this->$_table);
+		$this->db->select($this->_table,'*');
+		$this->db->from($this->_table);
 		$this->db->where('id_kades',$id_kades);
 
 		$hasil = $this->db->get();
@@ -22,6 +22,6 @@ class M_kepala_desa extends CI_Model{
 	//ubah data kepala desa
 	public function aksi_ubah_profile($id_kades,$data){
 		$this->db->where('id_kades',$id_kades);
-		$this->db->update($_table,$data)
+		$this->db->update('kepala_desa',$data);
 	}
 }

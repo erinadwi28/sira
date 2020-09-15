@@ -13,12 +13,14 @@ public function __construct()
 	
 	public function index()
 	{   
+                $data['kades'] = $this->db->get_where('kepala_desa', ['nik' =>
+                $this->session->userdata('nik')])->row_array();
 
-        $this->load->view('header');
-        $this->load->view('kades/sidebar_kades');
-        $this->load->view('topbar');
-        $this->load->view('kades/dashboard_kades');
-        $this->load->view('footer');
+                $this->load->view('header', $data);
+                $this->load->view('kades/sidebar_kades', $data);
+                $this->load->view('topbar', $data);
+                $this->load->view('kades/dashboard_kades', $data);
+                $this->load->view('footer');
         
         }
 
@@ -156,7 +158,7 @@ public function __construct()
 	}
 
 	 // tampil form ubah profile
-	public function form_ubah_profile(){
+	public function form_ubah_profile($id_kades){
 		$this->load->model('m_kepala_desa','m_kepala_desa');
 		$data_profile =$this->m_kepala_desa->get_profile($id_kades);
 
@@ -200,7 +202,7 @@ public function __construct()
                         'foto_ttd' => $this->input->post('foto_ttd'),
                         'status_kepegawaian' => $this->input->post('status_kepegawaian'),
 				);
-		$this->load-model('M_kepala_desa','m_kepala_desa');
+		$this->load->model('M_kepala_desa','m_kepala_desa');
 		$this->m_kepala_desa->aksi_ubah_profile($id_kades,$data);
 
 		if($this->m_kepala_desa->aksi_ubah_profile($data)){

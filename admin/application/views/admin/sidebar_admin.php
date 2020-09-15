@@ -1,11 +1,10 @@
 <!-- Sidebar -->
-<ul class="navbar-nav sidebar sidebar-dark accordion"
-	style="background: -webkit-linear-gradient(top, #2dfbff 0%, #000080 100%);" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" style="background: -webkit-linear-gradient(top, #2dfbff 0%, #000080 100%);" id="accordionSidebar">
 
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 		<div class="">
-        <img src="<?= base_url('assets/dashboard/') ?>img/logo_SIRA.png" width="90" />
+			<img src="<?= base_url('assets/dashboard/') ?>img/logo_SIRA.png" width="90" />
 		</div>
 		<div class="sidebar-brand-text mx-3">Admin</div>
 	</a>
@@ -79,8 +78,7 @@
 
 	<!-- Nav Item - Menu Laporan -->
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-			aria-controls="collapsePages">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
 			<i class="fas fa-fw fa-folder"></i>
 			<span>Laporan</span>
 		</a>

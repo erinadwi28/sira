@@ -551,25 +551,25 @@ class CI_Input {
 	 * Validate IP Address
 	 *
 	 * @param	string	$ip	IP address
-	 * @param	string	$which	IP protocol: 'ipv4' or 'ipv6'
+	 * @param	string	$detailhich	IP protocol: 'ipv4' or 'ipv6'
 	 * @return	bool
 	 */
-	public function valid_ip($ip, $which = '')
+	public function valid_ip($ip, $detailhich = '')
 	{
-		switch (strtolower($which))
+		switch (strtolower($detailhich))
 		{
 			case 'ipv4':
-				$which = FILTER_FLAG_IPV4;
+				$detailhich = FILTER_FLAG_IPV4;
 				break;
 			case 'ipv6':
-				$which = FILTER_FLAG_IPV6;
+				$detailhich = FILTER_FLAG_IPV6;
 				break;
 			default:
-				$which = NULL;
+				$detailhich = NULL;
 				break;
 		}
 
-		return (bool) filter_var($ip, FILTER_VALIDATE_IP, $which);
+		return (bool) filter_var($ip, FILTER_VALIDATE_IP, $detailhich);
 	}
 
 	// --------------------------------------------------------------------

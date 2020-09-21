@@ -17,8 +17,7 @@
 										<div class="kopsurat row">
 											<div class="col-md-12 mb-3">
 												<object data="" type="image">
-													<img class="img-fluid" alt="logo_kop_surat"
-														src="<?= base_url('assets/dashboard/') ?>img/KOP.png">
+													<img class="img-fluid" alt="logo_kop_surat" src="<?= base_url('assets/dashboard/') ?>img/KOP.png">
 												</object>
 											</div>
 										</div>
@@ -151,8 +150,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="badan_surat isi_surat">
-												<center><img class="img-fluid" width="50%" alt="ttd_lurah"
-														src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
+												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
 											</div>
 										</div>
 									</div>

@@ -434,9 +434,9 @@ class CI_Zip {
 
 		flock($fp, LOCK_EX);
 
-		for ($result = $written = 0, $data = $this->get_zip(), $length = self::strlen($data); $written < $length; $written += $result)
+		for ($result = $detailritten = 0, $data = $this->get_zip(), $length = self::strlen($data); $detailritten < $length; $detailritten += $result)
 		{
-			if (($result = fwrite($fp, self::substr($data, $written))) === FALSE)
+			if (($result = fwrite($fp, self::substr($data, $detailritten))) === FALSE)
 			{
 				break;
 			}

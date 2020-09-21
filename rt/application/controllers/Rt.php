@@ -8,7 +8,9 @@ class Rt extends CI_Controller
         public function __construct()
 	{
 		parent::__construct();
-		if (!$this->session->userdata('role_rt'))  {
+		$this->load->model('M_rt', 'm_rt');
+
+		if (!$this->session->userdata('role_rt')) {
 			redirect('login');
 		}
 	}
@@ -24,22 +26,80 @@ class Rt extends CI_Controller
 		$this->load->view('rt/dashboard_rt', $data);
 		$this->load->view('footer');
 	}
-	public function profil_rt()
+
+	//profil rt
+	public function profil_rt($id_rt)
 	{
+		$data_profil = $this->m_rt->get_profil($id_rt);
+		$result = array(
+			'data_detail' => $data_profil,
+			'page' => 'rt/profil_rt',
+		);
 		$this->load->view('header');
 		$this->load->view('rt/sidebar_rt');
 		$this->load->view('topbar');
-		$this->load->view('rt/profil_rt');
+		$this->load->view($result);
 		$this->load->view('footer');
 	}
-	public function ubah_profil_rt()
+
+	// tampil form ubah profil
+	public function form_ubah_profil($id_rt)
 	{
+		$data_profil = $this->m_rt->get_profil($id_rt);
+
+		$result = array(
+			'data_detail' => $data_profil,
+			'page' => 'rt/ubah_profil',
+		);
 		$this->load->view('header');
 		$this->load->view('rt/sidebar_rt');
 		$this->load->view('topbar');
-		$this->load->view('rt/ubah_profil_rt');
+		$this->load->view($result);
 		$this->load->view('footer');
 	}
+
+	// aksi ubah profil
+	public function aksi_ubah_profil()
+	{
+		$id_rt = $this->input->post('id_rt');
+
+		$data = array(
+			'nik' => $this->input->post('nik'),
+			'nama' => $this->input->post('nama'),
+			'rt' => $this->input->post('rt'),
+			'kelurahan' => $this->input->post('kelurahan'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+			'agama' => $this->input->post('agama'),
+			'tempat_lahir' => $this->input->post('tempat_lahir'),
+			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'status_perkawinan' => $this->input->post('status_perkawinan'),
+			'pekerjaan' => $this->input->post('pekerjaan'),
+			'golongan_darah' => $this->input->post('golongan_darah'),
+			'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+			'kata_sandi' => $this->input->post('kata_sandi'),
+			'foto_kades' => $this->input->post('foto_kades'),
+			'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
+			'no_kk' => $this->input->post('no_kk'),
+			'status_hub_kel' => $this->input->post('status_hub_kel'),
+			'no_hp' => $this->input->post('no_hp'),
+			'foto_ktp' => $this->input->post('foto_ktp'),
+			'foto_kk' => $this->input->post('foto_kk'),
+			'foto_ttd' => $this->input->post('foto_ttd'),
+			'status_kepegawaian' => $this->input->post('status_kepegawaian'),
+		);
+
+		$this->m_rt->aksi_ubah_profil($id_rt, $data);
+
+		if ($this->m_kepala_desa->aksi_ubah_profil($id_rt, $data)) {
+			$this->session->set_flashdata('success', 'Data Kepala Desa berhasil ditambahkan');
+			echo "sukses";
+		} else {
+			$this->session->set_flashdata('error', 'Data Kepala Desa gagal ditambahkan');
+			echo "gagal";
+		}
+	}
+
 	public function list_data_permohonan_rt()
 	{
 		$this->load->view('header');

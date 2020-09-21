@@ -89,7 +89,7 @@ class CI_Image_lib {
 	 *
 	 * @var int
 	 */
-	public $width			= '';
+	public $detailidth			= '';
 
 	/**
 	 * Image height
@@ -163,112 +163,112 @@ class CI_Image_lib {
 	 *
 	 * @var string
 	 */
-	public $wm_text			= '';
+	public $detailm_text			= '';
 
 	/**
 	 * Type of watermarking.  Options:  text/overlay
 	 *
 	 * @var string
 	 */
-	public $wm_type			= 'text';
+	public $detailm_type			= 'text';
 
 	/**
 	 * Default transparency for watermark
 	 *
 	 * @var int
 	 */
-	public $wm_x_transp		= 4;
+	public $detailm_x_transp		= 4;
 
 	/**
 	 * Default transparency for watermark
 	 *
 	 * @var int
 	 */
-	public $wm_y_transp		= 4;
+	public $detailm_y_transp		= 4;
 
 	/**
 	 * Watermark image path
 	 *
 	 * @var string
 	 */
-	public $wm_overlay_path		= '';
+	public $detailm_overlay_path		= '';
 
 	/**
 	 * TT font
 	 *
 	 * @var string
 	 */
-	public $wm_font_path		= '';
+	public $detailm_font_path		= '';
 
 	/**
 	 * Font size (different versions of GD will either use points or pixels)
 	 *
 	 * @var int
 	 */
-	public $wm_font_size		= 17;
+	public $detailm_font_size		= 17;
 
 	/**
 	 * Vertical alignment:   T M B
 	 *
 	 * @var string
 	 */
-	public $wm_vrt_alignment	= 'B';
+	public $detailm_vrt_alignment	= 'B';
 
 	/**
 	 * Horizontal alignment: L R C
 	 *
 	 * @var string
 	 */
-	public $wm_hor_alignment	= 'C';
+	public $detailm_hor_alignment	= 'C';
 
 	/**
 	 * Padding around text
 	 *
 	 * @var int
 	 */
-	public $wm_padding			= 0;
+	public $detailm_padding			= 0;
 
 	/**
 	 * Lets you push text to the right
 	 *
 	 * @var int
 	 */
-	public $wm_hor_offset		= 0;
+	public $detailm_hor_offset		= 0;
 
 	/**
 	 * Lets you push text down
 	 *
 	 * @var int
 	 */
-	public $wm_vrt_offset		= 0;
+	public $detailm_vrt_offset		= 0;
 
 	/**
 	 * Text color
 	 *
 	 * @var string
 	 */
-	protected $wm_font_color	= '#ffffff';
+	protected $detailm_font_color	= '#ffffff';
 
 	/**
 	 * Dropshadow color
 	 *
 	 * @var string
 	 */
-	protected $wm_shadow_color	= '';
+	protected $detailm_shadow_color	= '';
 
 	/**
 	 * Dropshadow distance
 	 *
 	 * @var int
 	 */
-	public $wm_shadow_distance	= 2;
+	public $detailm_shadow_distance	= 2;
 
 	/**
 	 * Image opacity: 1 - 100  Only works with image
 	 *
 	 * @var int
 	 */
-	public $wm_opacity		= 50;
+	public $detailm_opacity		= 50;
 
 	// --------------------------------------------------------------------------
 	// Private Vars
@@ -370,14 +370,14 @@ class CI_Image_lib {
 	 *
 	 * @var bool
 	 */
-	protected $wm_use_drop_shadow	= FALSE;
+	protected $detailm_use_drop_shadow	= FALSE;
 
 	/**
 	 * Whether to use truetype fonts
 	 *
 	 * @var bool
 	 */
-	public $wm_use_truetype	= FALSE;
+	public $detailm_use_truetype	= FALSE;
 
 	/**
 	 * Initialize Image Library
@@ -1021,10 +1021,10 @@ class CI_Image_lib {
 		// going to have to figure out how to determine the color
 		// of the alpha channel in a future release.
 
-		$white = imagecolorallocate($src_img, 255, 255, 255);
+		$detailhite = imagecolorallocate($src_img, 255, 255, 255);
 
 		// Rotate it!
-		$dst_img = imagerotate($src_img, $this->rotation_angle, $white);
+		$dst_img = imagerotate($src_img, $this->rotation_angle, $detailhite);
 
 		// Show the image
 		if ($this->dynamic_output === TRUE)
@@ -1061,7 +1061,7 @@ class CI_Image_lib {
 			return FALSE;
 		}
 
-		$width  = $this->orig_width;
+		$detailidth  = $this->orig_width;
 		$height = $this->orig_height;
 
 		if ($this->rotation_angle === 'hor')
@@ -1069,7 +1069,7 @@ class CI_Image_lib {
 			for ($i = 0; $i < $height; $i++)
 			{
 				$left = 0;
-				$right = $width - 1;
+				$right = $detailidth - 1;
 
 				while ($left < $right)
 				{
@@ -1086,7 +1086,7 @@ class CI_Image_lib {
 		}
 		else
 		{
-			for ($i = 0; $i < $width; $i++)
+			for ($i = 0; $i < $detailidth; $i++)
 			{
 				$top = 0;
 				$bottom = $height - 1;
@@ -1158,12 +1158,12 @@ class CI_Image_lib {
 
 		// Fetch watermark image properties
 		$props		= $this->get_image_properties($this->wm_overlay_path, TRUE);
-		$wm_img_type	= $props['image_type'];
-		$wm_width	= $props['width'];
-		$wm_height	= $props['height'];
+		$detailm_img_type	= $props['image_type'];
+		$detailm_width	= $props['width'];
+		$detailm_height	= $props['height'];
 
 		// Create two image resources
-		$wm_img  = $this->image_create_gd($this->wm_overlay_path, $wm_img_type);
+		$detailm_img  = $this->image_create_gd($this->wm_overlay_path, $detailm_img_type);
 		$src_img = $this->image_create_gd($this->full_src_path);
 
 		// Reverse the offset if necessary
@@ -1189,44 +1189,44 @@ class CI_Image_lib {
 		// Set the vertical position
 		if ($this->wm_vrt_alignment === 'M')
 		{
-			$y_axis += ($this->orig_height / 2) - ($wm_height / 2);
+			$y_axis += ($this->orig_height / 2) - ($detailm_height / 2);
 		}
 		elseif ($this->wm_vrt_alignment === 'B')
 		{
-			$y_axis += $this->orig_height - $wm_height;
+			$y_axis += $this->orig_height - $detailm_height;
 		}
 
 		// Set the horizontal position
 		if ($this->wm_hor_alignment === 'C')
 		{
-			$x_axis += ($this->orig_width / 2) - ($wm_width / 2);
+			$x_axis += ($this->orig_width / 2) - ($detailm_width / 2);
 		}
 		elseif ($this->wm_hor_alignment === 'R')
 		{
-			$x_axis += $this->orig_width - $wm_width;
+			$x_axis += $this->orig_width - $detailm_width;
 		}
 
 		// Build the finalized image
-		if ($wm_img_type === 3 && function_exists('imagealphablending'))
+		if ($detailm_img_type === 3 && function_exists('imagealphablending'))
 		{
 			@imagealphablending($src_img, TRUE);
 		}
 
 		// Set RGB values for text and shadow
-		$rgba = imagecolorat($wm_img, $this->wm_x_transp, $this->wm_y_transp);
+		$rgba = imagecolorat($detailm_img, $this->wm_x_transp, $this->wm_y_transp);
 		$alpha = ($rgba & 0x7F000000) >> 24;
 
 		// make a best guess as to whether we're dealing with an image with alpha transparency or no/binary transparency
 		if ($alpha > 0)
 		{
 			// copy the image directly, the image's alpha transparency being the sole determinant of blending
-			imagecopy($src_img, $wm_img, $x_axis, $y_axis, 0, 0, $wm_width, $wm_height);
+			imagecopy($src_img, $detailm_img, $x_axis, $y_axis, 0, 0, $detailm_width, $detailm_height);
 		}
 		else
 		{
 			// set our RGB value from above to be transparent and merge the images with the specified opacity
-			imagecolortransparent($wm_img, imagecolorat($wm_img, $this->wm_x_transp, $this->wm_y_transp));
-			imagecopymerge($src_img, $wm_img, $x_axis, $y_axis, 0, 0, $wm_width, $wm_height, $this->wm_opacity);
+			imagecolortransparent($detailm_img, imagecolorat($detailm_img, $this->wm_x_transp, $this->wm_y_transp));
+			imagecopymerge($src_img, $detailm_img, $x_axis, $y_axis, 0, 0, $detailm_width, $detailm_height, $this->wm_opacity);
 		}
 
 		// We can preserve transparency for PNG images
@@ -1247,7 +1247,7 @@ class CI_Image_lib {
 		}
 
 		imagedestroy($src_img);
-		imagedestroy($wm_img);
+		imagedestroy($detailm_img);
 
 		return TRUE;
 	}
@@ -1691,7 +1691,7 @@ class CI_Image_lib {
 	 * new variable needs to be known
 	 *
 	 *	$props = array(
-	 *			'width'		=> $width,
+	 *			'width'		=> $detailidth,
 	 *			'height'	=> $height,
 	 *			'new_width'	=> 40,
 	 *			'new_height'	=> ''

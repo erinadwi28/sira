@@ -91,9 +91,9 @@ if ( ! function_exists('write_file'))
 
 		flock($fp, LOCK_EX);
 
-		for ($result = $written = 0, $length = strlen($data); $written < $length; $written += $result)
+		for ($result = $detailritten = 0, $length = strlen($data); $detailritten < $length; $detailritten += $result)
 		{
-			if (($result = fwrite($fp, substr($data, $written))) === FALSE)
+			if (($result = fwrite($fp, substr($data, $detailritten))) === FALSE)
 			{
 				break;
 			}

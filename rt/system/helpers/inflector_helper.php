@@ -231,13 +231,13 @@ if ( ! function_exists('word_is_countable'))
 	/**
 	 * Checks if the given word has a plural version.
 	 *
-	 * @param	string	$word	Word to check
+	 * @param	string	$detailord	Word to check
 	 * @return	bool
 	 */
-	function word_is_countable($word)
+	function word_is_countable($detailord)
 	{
 		return ! in_array(
-			strtolower($word),
+			strtolower($detailord),
 			array(
 				'audio',
 				'bison',
@@ -279,9 +279,9 @@ if ( ! function_exists('word_is_countable'))
 
 if ( ! function_exists('is_countable'))
 {
-	function is_countable($word)
+	function is_countable($detailord)
 	{
 		trigger_error('is_countable() is a native PHP function since version 7.3.0; use word_is_countable() instead', E_USER_WARNING);
-		return word_is_countable($word);
+		return word_is_countable($detailord);
 	}
 }

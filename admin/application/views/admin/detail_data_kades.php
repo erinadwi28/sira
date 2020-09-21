@@ -3,87 +3,207 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Detail Data Kades</h1>
-		<a href="<?= base_url('admin/list_data_kades')?>">
+		<a href="<?= base_url('admin/list_data_kades') ?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 				<i class="fa fa-arrow-left">
 				</i> Kembali
 			</button>
 		</a>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-12">
+			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
-										<div class="alert alert-success alert-dismissible fade show" role="alert">
-											<?= $this->session->flashdata('success') ?>
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									<?php elseif($this->session->flashdata('error')) : ?>
-										<div class="alert alert-danger alert-dismissible fade show" role="alert">
-											<?= $this->session->flashdata('error') ?>
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									<?php endif ?>
-		</div> 
+			<?php endif; ?>
+		</div>
 	</div>
 
 	<!-- Content Row line 1-->
 	<div class="row">
 		<div class="col-md-4 mb-4">
-			<!-- Foto -->
-			<div class="mb-4">
-				<?php 
-							foreach ($detai_kades as $detail ) {
-							
-						?>
-				<!--Foto profile-->
-				<div class="card">
-					<div class="card-body">
-						<img src="img/user.png" alt="foto profil" class="img-fluid">
-					</div>
-					<div class="card-footer py-3">
-						<center>
-							<h6 class="m-0 font-weight-bold text-primary">Foto Profil <?= $detail->nama; ?></h6>
-						</center>
-					</div>
+
+			<!-- Foto Profil -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<center>
+						<h6 class="m-0 font-weight-bold text-primary">Foto Profil</h6>
+					</center>
 				</div>
 
-				<!--Foto ktp-->
-				<div class="card mt-3">
-					<div class="card-body">
-						<img src="" alt="foto ktp" class="img-fluid">
-					</div>
-					<div class="card-footer py-3">
-						<center>
-							<h6 class="m-0 font-weight-bold text-primary">Foto KTP <?= $detail->nama; ?></h6>
-						</center>
-					</div>
+				<div class="card-body" style="padding: 20px;">
+					<?php 
+					foreach($foto_profil as $kades){ ?>
+					<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_profil_kades; ?>" alt="foto profil"
+						class="img-fluid">
+					<?php } ?>
 				</div>
 
-				<!--Foto kk-->
-				<div class="card mt-3">
-					<div class="card-body">
-						<img src="" alt="foto kk" class="img-fluid">
+				<div class="card-footer py-3">
+					<?= form_open_multipart('admin/upload_foto_profil_kades') ?>
+					<?php 
+					foreach($detail_kades as $kades){ ?>
+					<div class="form-group ml-2 mr-2">
+						<div class="input-group">
+							<div class="custom-file">
+								<label class="custom-file-label" for="file-upload-profil">pilih foto
+									profil...</label>
+								<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
+								<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
+								<input type="hidden" class="form-control form-user-input" name="id_kades" id="kades"
+									value="<?= $kades->id_kades; ?>">
+							</div>
+						</div>
 					</div>
-					<div class="card-footer py-3">
-						<center>
-							<h6 class="m-0 font-weight-bold text-primary">Foto KK <?= $detail->nama; ?></h6>
-						</center>
-					</div>
+					<?php } ?>
+					<center>
+						<button class="btn btn-sm btn-primary" type="submit">
+							<i class="fa fa-upload">
+							</i> Upload
+						</button>
+					</center>
+					<?= form_close() ?>
 				</div>
 			</div>
+
+			<!-- Foto KTP -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<center>
+						<h6 class="m-0 font-weight-bold text-primary">Foto KTP</h6>
+					</center>
+				</div>
+
+				<div class="card-body" style="padding: 20px;">
+					<?php 
+					foreach($foto_ktp as $kades){ 
+				?>
+					<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_ktp_kades; ?>" alt="foto profil" class="img-fluid">
+				<?php } ?>
+				</div>
+
+				<div class="card-footer py-3">
+					<?= form_open_multipart('admin/upload_foto_ktp_kades') ?>
+					<?php 
+					foreach($detail_kades as $kades){ ?>
+					<div class="form-group ml-2 mr-2" >
+								<div class="input-group">
+									<div class="custom-file">
+										<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
+										<input type="file" class="custom-file-input" id="file-upload-ktp"
+											name="berkas[]">
+										<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+										<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades"
+								value="<?= $kades->id_kades; ?>">
+									</div>
+								</div>
+							</div>
+					<?php } ?>
+					<center>
+						<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+					</center>
+					<?= form_close() ?>
+				</div>
+			</div>
+
+			<!-- Foto KK -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<center>
+						<h6 class="m-0 font-weight-bold text-primary">Foto KK</h6>
+					</center>
+				</div>
+
+				<div class="card-body" style="padding: 20px;">
+					<?php 
+					foreach($foto_kk as $kades){ 
+				?>
+					<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_kk_kades; ?>" alt="foto kk" class="img-fluid">
+				<?php } ?>
+				</div>
+
+				<div class="card-footer py-3">
+					<?= form_open_multipart('admin/upload_foto_kk_kades') ?>
+					<?php 
+					foreach($detail_kades as $kades){ ?>
+					<div class="form-group ml-2 mr-2" >
+								<div class="input-group">
+									<div class="custom-file">
+										<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
+										<input type="file" class="custom-file-input" id="file-upload-kk"
+											name="berkas[]">
+										<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+										<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades"
+								value="<?= $kades->id_kades; ?>">
+									</div>
+								</div>
+							</div>
+					<?php } ?>
+					<center>
+						<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+					</center>
+					<?= form_close() ?>
+				</div>
+			</div>
+
+			<!-- Foto TTD -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<center>
+						<h6 class="m-0 font-weight-bold text-primary">Foto Tanda Tangan</h6>
+					</center>
+				</div>
+
+				<div class="card-body" style="padding: 20px;">
+					<?php 
+					foreach($foto_ttd as $kades){ 
+				?>
+					<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_ttd_kades; ?>" alt="foto kk" class="img-fluid">
+				<?php } ?>
+				</div>
+
+				<div class="card-footer py-3">
+					<?= form_open_multipart('admin/upload_foto_ttd_kades') ?>
+					<?php 
+					foreach($detail_kades as $kades){ ?>
+					<div class="form-group ml-2 mr-2" >
+								<div class="input-group">
+									<div class="custom-file">
+										<label class="custom-file-label" for="file-upload-ttd">pilih foto kk...</label>
+										<input type="file" class="custom-file-input" id="file-upload-ttd"
+											name="berkas[]">
+										<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+										<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades"
+								value="<?= $kades->id_kades; ?>">
+									</div>
+								</div>
+							</div>
+					<?php } ?>
+					<center>
+						<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+					</center>
+					<?= form_close() ?>
+				</div>
+			</div>
+
 		</div>
 		<div class="col-md-8 mb-4">
 			<!-- Detail Data -->
 			<div class="card shadow mb-4">
 				<div class="card-body">
+					<?php
+				foreach ($detail_kades as $detail) { ?>
 					<table class="table-hover table-responsive">
 						<tbody>
-
 							<tr>
 								<td><b>NIK</b></td>
 								<td> </td>
@@ -223,7 +343,7 @@
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="<?= base_url()?>admin/form_ubah_kades/<?= $detail->id_kades ?>">
+						<a href="<?= base_url() ?>admin/form_ubah_kades/<?= $detail->id_kades ?>">
 							<button id="btn_ubah" class="btn btn-sm btn-primary" type="submit">
 								<i class="fa fa-edit nav-icon">
 								</i> Ubah
@@ -234,8 +354,6 @@
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 </div>
 <!-- /.container-fluid -->

@@ -18,7 +18,11 @@
 			<div class="card shadow mb-4">
 				<div class="card-body">
 					<?php
+<<<<<<< HEAD
 					foreach ($detai_kades as $detail) {
+=======
+					foreach ($detail_kades as $detail) {
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 
 					?>
 						<!-- <table class="table-responsive">
@@ -30,33 +34,45 @@
 									<div class="form-group">
 										<label class="label-control" for="nik"><b>NIK</b></label>
 										<input type="text" class="form-control form-user-input" name="nik" id="nik" value="<?= $detail->nik; ?>">
+<<<<<<< HEAD
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
+=======
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									</div>
 
 									<div class="form-group">
 										<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
 										<input type="text" class="form-control form-user-input" name="nama" id="nama" value="<?= $detail->nama; ?>">
+<<<<<<< HEAD
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
+=======
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="tempat_lahir"><b>Tempat
 												Lahir</b></label>
 										<input type="text" class="form-control form-user-input" name="tempat_lahir" id="tempat_lahir" value="<?= $detail->tempat_lahir; ?>">
+<<<<<<< HEAD
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
+=======
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="tanggal_lahir"><b>Tanggal
 												Lahir</b></label>
 										<input type="date" class="form-control form-user-input" name="tanggal_lahir" id="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
+<<<<<<< HEAD
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
+=======
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="jenis_kelamin"><b>Jenis
@@ -67,9 +83,12 @@
 											<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
 											</option>
 										</select>
+<<<<<<< HEAD
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
+=======
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="goldar"><b>Golongan
@@ -80,9 +99,12 @@
 											<option value="B" <?= ($detail->golongan_darah == 'B' ? ' selected' : ''); ?> class="form-user-input">B</option>
 											<option value="O" <?= ($detail->golongan_darah == 'O' ? ' selected' : ''); ?> class="form-user-input">O</option>
 										</select>
+<<<<<<< HEAD
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
+=======
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="agama"><b>Agama</b></label>
@@ -96,6 +118,7 @@
 											<option value="Budha" <?= ($detail->agama == 'Budha' ? ' selected' : ''); ?> class="form-user-input">Budha</option>
 											<option value="Khonghucu" <?= ($detail->agama == 'Khonghucu' ? ' selected' : ''); ?> class="form-user-input">Khonghucu
 											</option>
+<<<<<<< HEAD
 
 										</select>
 										<i class="fas fa-check-circle"></i>
@@ -287,11 +310,119 @@
 												<label class="custom-file-label upload-area" for="exampleInputFile">pilih
 													file...</label>
 											</div>
+=======
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
+										<input type="text" class="form-control form-user-input" name="alamat" id="alamat" value="<?= $detail->alamat; ?>">
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="rt"><b>RT</b></label>
+										<input type="text" class="form-control form-user-input" name="rt" id="rt" value="<?= $detail->rt; ?>">
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="kelurahan"><b>Kelurahan</b></label>
+										<input type="text" class="form-control form-user-input" name="kelurahan" id="kelurahan" value="<?= $detail->kelurahan; ?>">
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="kecamatan"><b>Kecamatan</b></label>
+										<input type="text" class="form-control form-user-input" name="kecamatan" id="kecamatan" value="<?= $detail->kecamatan; ?>">
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="status_perkawinan"><b>Status
+												Perkawinan</b></label>
+										<select class="form-control form-user-input" name="status_perkawinan" id="status_perkawinan">
+											<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin</option>
+											<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
+											</option>
+										</select>
+									</div>
+									<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
+									<div class="form-group">
+										<input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>">
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
+										<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan">
+											<option value="WNI" <?= ($detail->kewarganegaraan == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
+											<option value="WNA" <?= ($detail->kewarganegaraan == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<div class="form-group">
+											<label class="label-control" for="no_kk"><b>No KK</b></label>
+											<input type="text" class="form-control form-user-input" name="no_kk" id="no_kk" value="<?= $detail->no_kk; ?>">
 										</div>
+										<div class="form-group">
+											<label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
+													Terakhir</b></label>
+											<select class="form-control form-user-input" name="pendidikan_terakhir" id="pendidikan_terakhir">
+												<option value="TAMAT SD / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'TAMAT SD / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">
+													TAMAT SD /
+													SEDERAJAT</option>
+												<option value="SLTP / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'SLTP / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">SLTP /
+													SEDERAJAT
+												</option>
+												<option value="TIDAK / BELUM SEKOLAH" <?= ($detail->pendidikan_terakhir == 'TIDAK / BELUM SEKOLAH' ? ' selected' : ''); ?> class="form-user-input">
+													TIDAK / BELUM
+													SEKOLAH</option>
+												<option value="SLTA / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'SLTA / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">SLTA /
+													SEDERAJAT
+												</option>
+												<option value="BELUM TAMAT SD / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'BELUM TAMAT SD / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">BELUM
+													TAMAT SD / SEDERAJAT</option>
+												<option value="DIPLOMA IV / STRATA I" <?= ($detail->pendidikan_terakhir == 'DIPLOMA IV / STRATA I' ? ' selected' : ''); ?> class="form-user-input">
+													DIPLOMA IV /
+													STRATA I</option>
+												<option value="AKADEMI / DIPLOMA III / S.MUDA" <?= ($detail->pendidikan_terakhir == 'AKADEMI / DIPLOMA III / S.MUDA' ? ' selected' : ''); ?> class="form-user-input">
+													AKADEMI / DIPLOMA III / S.MUDA</option>
+												<option value="DIPLOMA I / II" <?= ($detail->pendidikan_terakhir == 'DIPLOMA I / II' ? ' selected' : ''); ?> class="form-user-input">DIPLOMA I
+													/ II
+												</option>
+												<option value="STRATA II" <?= ($detail->pendidikan_terakhir == 'STRATA II' ? ' selected' : ''); ?> class="form-user-input">STRATA II
+												</option>
+												<option value="STRATA III" <?= ($detail->pendidikan_terakhir == 'STRATA III' ? ' selected' : ''); ?> class="form-user-input">STRATA III
+												</option>
+											</select>
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
+										</div>
+										<label class="label-control" for="status_hub_kel"><b>Status Hub
+												Keluarga</b></label>
+										<select class="form-control form-user-input" name="status_hub_kel" id="status_hub_kel">
+											<option value="Kepala Keluarga" <?= ($detail->status_hub_kel == 'Kepala Keluarga' ? ' selected' : ''); ?> class="form-user-input">Kepala
+												Keluarga
+											</option>
+											<option value="Suami" <?= ($detail->status_hub_kel == 'Suami' ? ' selected' : ''); ?> class="form-user-input">Suami</option>
+											<option value="Isteri" <?= ($detail->status_hub_kel == 'Isteri' ? ' selected' : ''); ?> class="form-user-input">Isteri</option>
+											<option value="Anak" <?= ($detail->status_hub_kel == 'Anak' ? ' selected' : ''); ?> class="form-user-input">Anak</option>
+											<option value="Menantu" <?= ($detail->status_hub_kel == 'Menantu' ? ' selected' : ''); ?> class="form-user-input">Menantu</option>
+											<option value="Cucu" <?= ($detail->status_hub_kel == 'Cucu' ? ' selected' : ''); ?> class="form-user-input">Cucu</option>
+											<option value="Orang Tua" <?= ($detail->status_hub_kel == 'Orang Tua' ? ' selected' : ''); ?> class="form-user-input">Orang Tua
+											</option>
+											<option value="Mertua" <?= ($detail->status_hub_kel == 'Mertua' ? ' selected' : ''); ?> class="form-user-input">Mertua</option>
+											<option value="Famili Lain" <?= ($detail->status_hub_kel == 'Famili Lain' ? ' selected' : ''); ?> class="form-user-input">Famili Lain
+											</option>
+											<option value="Pembantu" <?= ($detail->status_hub_kel == 'Pembantu' ? ' selected' : ''); ?> class="form-user-input">Pembantu
+											</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="no_hp"><b>No HandPhone</b></label>
+										<input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>">
+									</div>
+									<div class="form-group">
+										<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
+										<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>" disabled>
 									</div>
 								</div>
 							</div>
 							<br>
+<<<<<<< HEAD
 
 				</div>
 				<div class="card-footer">
@@ -313,11 +444,32 @@
 				<input type="hidden" class="form-control form-user-input " name="id_kades" id="id_kades" value="<?= $detail->id_kades; ?>">
 
 			<?php } ?>
+=======
+							<hr />
+							<div class="">
+								<div class="float-right">
+									<a href="">
+										<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+											<i class="far fa-save nav-icon">
+											</i> Simpan
+										</button>
+									</a>
+								</div>
+							</div>
+							<input type="hidden" class="form-control form-user-input " name="id_kades" id="id_kades" value="<?= $detail->id_kades; ?>">
+						</form>
+					<?php } ?>
+				</div>
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 			</div>
 			</form>
 		</div>
 	</div>
+<<<<<<< HEAD
 </div>
 <!-- /.container-fluid -->
+=======
+	<!-- /.container-fluid -->
+>>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 </div>
 <!-- End of Main Content -->

@@ -11,11 +11,6 @@
 		</a>
 	</div>
 
-	<div class="row">
-		<div class="col-md-12">
-		</div>
-	</div>
-
 	<!-- Content Row line 1-->
 	<div class="row">
 		<div class="col-md-12 mb-4">
@@ -187,7 +182,8 @@
 										<input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>">
 									</div>
 									<div class="form-group">
-										<em class="float-center small text-danger">*Masukan kata sandi sebelum simpan</em><br>
+										<em class="small text-danger">*Masukkan kata sandi terlebih dahulu sebelum simpan</em> <br>
+
 										<label class="label-control" for="kata_sandi"><b>Kata
 												Sandi</b></label>
 										<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi">
@@ -216,7 +212,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- /.container-fluid -->
+
 </div>
 </div>
 <!-- End of Main Content -->

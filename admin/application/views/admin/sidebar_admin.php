@@ -62,7 +62,7 @@
 		<div id="menuwarga" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="<?= base_url('admin/list_data_warga') ?>">Data Warga</a>
-				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_rt') ?>">Ubah Password Warga</a>
+				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_warga') ?>">Ubah Password Warga</a>
 			</div>
 		</div>
 	</li>

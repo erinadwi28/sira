@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="preview">
                     <center>
-                        <h1 class="h3 mb-30 text-gray-800">Form Cari NIK Ubah Kata Sandi Ketua RT</h1>
+                        <h1 class="h3 mb-30 text-gray-800">Form Cari NIK Ubah Kata Sandi Warga</h1>
                     </center>
                 </div>
                 <div class="preview">
@@ -15,7 +15,7 @@
                             <br>
                             <em class="float-center small text-danger">*Pastikan NIK yag anda masukan benar</em>
 
-                            <form role="form" action="<?= base_url('admin/aksi_cari_nik_ubah_kata_sandi_rt') ?>" method="post" id="formUbah">
+                            <form role="form" action="<?= base_url('admin/aksi_cari_nik_ubah_kata_sandi_warga') ?>" method="post" id="formUbah">
                                 <div class="form-row align-items-center">
                                     <div class="col-md-4"></div>
                                     <div class="col-auto col-md-4 ">

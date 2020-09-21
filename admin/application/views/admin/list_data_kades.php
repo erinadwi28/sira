@@ -21,7 +21,7 @@
 							<th>NIK</th>
 							<th>Nama</th>
 							<th>Alamat</th>
-							<th>Status Kepegawaan</th>
+							<th>Status Kepegawaian</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -46,7 +46,7 @@
 
 										<a href="<?= base_url() ?>admin/aksi_hapus_kades/<?= $kades->id_kades ?>" class="btn btn-danger btn-sm hapus">
 											<i class="far fa-trash-alt nav-icon"></i>
-											Hapus
+											Nonaktifkan
 										</a>
 									</div>
 								</td>

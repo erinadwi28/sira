@@ -18,7 +18,7 @@
 			<div class="card shadow mb-4">
 				<div class="card-body">
 					<?php
-					foreach ($detai_kades as $detail) {
+					foreach ($detail_kades as $detail) {
 
 					?>
 						<!-- <table class="table-responsive">

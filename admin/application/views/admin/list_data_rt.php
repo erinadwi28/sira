@@ -21,7 +21,7 @@
 							<th>NIK</th>
 							<th>Nama</th>
 							<th>Alamat</th>
-							<th>Status Kepegawaan</th>
+							<th>Status Kepegawaian</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -49,7 +49,7 @@
 										<a href="<?= base_url() ?>admin/aksi_hapus_rt/<?= $rt->id_rt ?> ">
 											<button class="btn btn-sm btn-danger mt-1" type="submit">
 												<i class="far fa-trash-alt nav-icon"></i>
-												Hapus
+												Nonaktifkan
 											</button>
 										</a>
 									</div>

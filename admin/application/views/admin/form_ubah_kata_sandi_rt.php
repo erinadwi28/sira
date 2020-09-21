@@ -21,48 +21,14 @@
 
     <!-- Content Row line 1-->
     <div class="row">
-        <div class="col-md-4 mb-4">
+        <div class="col-md-2 mb-4">
             <!-- Foto -->
             <div class="mb-4">
                 <?php
                 foreach ($detail_rt as $detail) {
 
                 ?>
-                    <!--Foto profile-->
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="img/user.png" alt="foto profil" class="img-fluid">
-                        </div>
-                        <div class="card-footer py-3">
-                            <center>
-                                <h6 class="m-0 font-weight-bold text-primary">Foto Profil <?= $detail->nama; ?></h6>
-                            </center>
-                        </div>
-                    </div>
 
-                    <!--Foto ktp-->
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <img src="" alt="foto ktp" class="img-fluid">
-                        </div>
-                        <div class="card-footer py-3">
-                            <center>
-                                <h6 class="m-0 font-weight-bold text-primary">Foto KTP <?= $detail->nama; ?></h6>
-                            </center>
-                        </div>
-                    </div>
-
-                    <!--Foto kk-->
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <img src="" alt="foto kk" class="img-fluid">
-                        </div>
-                        <div class="card-footer py-3">
-                            <center>
-                                <h6 class="m-0 font-weight-bold text-primary">Foto KK <?= $detail->nama; ?></h6>
-                            </center>
-                        </div>
-                    </div>
             </div>
         </div>
         <div class="col-md-8 mb-4">

@@ -2,8 +2,8 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Form Ubah Kata Sandi Kades</h1>
-        <a href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_kades') ?>">
+        <h1 class="h3 mb-0 text-gray-800">Form Ubah Kata Sandi Warga</h1>
+        <a href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_warga') ?>">
             <button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
                 <i class="fa fa-arrow-left">
                 </i> Kembali
@@ -17,7 +17,7 @@
             <!-- Foto -->
             <div class="mb-4">
                 <?php
-                foreach ($detail_kades as $detail) {
+                foreach ($detail_warga as $detail) {
 
                 ?>
 
@@ -31,7 +31,7 @@
                     <div class="card shadow mb-3">
                         <div class="card-body">
                             <label class="label-control" for="nik"><b>Inputkan Kata Sandi Yang Baru</b></label>
-                            <form role="form" action="<?= base_url('admin/aksi_ubah_kata_sandi_kades') ?>" method="post" id="formUbah">
+                            <form role="form" action="<?= base_url('admin/aksi_ubah_kata_sandi_warga') ?>" method="post" id="formUbah">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="form-group">
@@ -50,7 +50,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <input type="hidden" class="form-control form-user-input " name="id_kades" id="id_kades" value="<?= $detail->id_kades; ?>">
+                                <input type="hidden" class="form-control form-user-input " name="id_warga" id="id_warga" value="<?= $detail->id_warga; ?>">
                             </form>
                         </div>
                     </div>
@@ -185,13 +185,6 @@
                                 <td> </td>
                                 <td> </td>
                                 <td><?= $detail->no_hp; ?></td>
-                            </tr>
-                            <tr>
-                                <td><b>Status Kepegawaian</b></td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td><?= $detail->status_kepegawaian; ?></td>
                             </tr>
                         </tbody>
                     </table>

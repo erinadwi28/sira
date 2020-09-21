@@ -262,9 +262,9 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 
 		if (($length = strlen($session_data)) > 0)
 		{
-			for ($written = 0; $written < $length; $written += $result)
+			for ($detailritten = 0; $detailritten < $length; $detailritten += $result)
 			{
-				if (($result = fwrite($this->_file_handle, substr($session_data, $written))) === FALSE)
+				if (($result = fwrite($this->_file_handle, substr($session_data, $detailritten))) === FALSE)
 				{
 					break;
 				}
@@ -272,7 +272,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 
 			if ( ! is_int($result))
 			{
-				$this->_fingerprint = md5(substr($session_data, 0, $written));
+				$this->_fingerprint = md5(substr($session_data, 0, $detailritten));
 				log_message('error', 'Session: Unable to write data.');
 				return $this->_failure;
 			}

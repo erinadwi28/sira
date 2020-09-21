@@ -5,11 +5,11 @@ class M_admin extends CI_Model{
     // Cek NIK untuk login
     public function cek_nik($nik)
     {
-		$query = $this->db->get_where('admin', ['nik' => $nik]);
-		return $query->row_array();
-	}
-	
-	// list data kepala desa
+  $query = $this->db->get_where('admin', ['nik' => $nik]);
+  return $query->row_array();
+ }
+ 
+ // list data kepala desa
     public function get_data_kades()
     {
         $this->db->select('*');
@@ -34,9 +34,9 @@ class M_admin extends CI_Model{
     }
 
     // ambil data ke form ubah kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ubah data kades
-    public function ubah_kades($where, $table)
+    public function ubah_kades($detailhere, $table)
     {
-        return $this->db->get_where($table,$where);
+        return $this->db->get_where($table,$detailhere);
     }
 
     // aksi ubah data kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
@@ -260,7 +260,7 @@ class M_admin extends CI_Model{
     }
 
     // list data warga
-	public function get_data_warga(){
+    public function get_data_warga(){
         $this->db->select('*');
         $this->db->from('warga');
         $this->db->where('status_delete', 0);
@@ -310,10 +310,10 @@ class M_admin extends CI_Model{
         return $hasil;
     }
 
-    // ambil data ke form ubah warga                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ubah data kades
-    public function ubah_warga($where, $table)
+    // ambil data ke form ubah warga
+    public function ubah_warga($detailhere, $table)
     {
-        return $this->db->get_where($table,$where);
+        return $this->db->get_where($table,$detailhere);
     }
 
     // aksi ubah data warga                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ubah data kades

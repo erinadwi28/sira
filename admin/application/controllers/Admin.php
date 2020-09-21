@@ -58,6 +58,7 @@ class Admin extends CI_Controller
                 $data_detail['foto_ttd'] = $this->m_admin->get_foto_ttd_kades($id_kades)->result();
 
 
+               
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);

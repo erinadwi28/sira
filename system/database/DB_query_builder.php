@@ -818,31 +818,31 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		if ($escape === TRUE)
 		{
-			$where_in = array();
+			$detailhere_in = array();
 			foreach ($values as $value)
 			{
-				$where_in[] = $this->escape($value);
+				$detailhere_in[] = $this->escape($value);
 			}
 		}
 		else
 		{
-			$where_in = array_values($values);
+			$detailhere_in = array_values($values);
 		}
 
 		$prefix = (count($this->qb_where) === 0 && count($this->qb_cache_where) === 0)
 			? $this->_group_get_type('')
 			: $this->_group_get_type($type);
 
-		$where_in = array(
-			'condition' => $prefix.$key.$not.' IN('.implode(', ', $where_in).')',
+		$detailhere_in = array(
+			'condition' => $prefix.$key.$not.' IN('.implode(', ', $detailhere_in).')',
 			'value' => NULL,
 			'escape' => $escape
 		);
 
-		$this->qb_where[] = $where_in;
+		$this->qb_where[] = $detailhere_in;
 		if ($this->qb_caching === TRUE)
 		{
-			$this->qb_cache_where[] = $where_in;
+			$this->qb_cache_where[] = $detailhere_in;
 			$this->qb_cache_exists[] = 'where';
 		}
 
@@ -1014,16 +1014,16 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		$this->qb_where_group_started = TRUE;
 		$prefix = (count($this->qb_where) === 0 && count($this->qb_cache_where) === 0) ? '' : $type;
-		$where = array(
+		$detailhere = array(
 			'condition' => $prefix.$not.str_repeat(' ', ++$this->qb_where_group_count).' (',
 			'value' => NULL,
 			'escape' => FALSE
 		);
 
-		$this->qb_where[] = $where;
+		$this->qb_where[] = $detailhere;
 		if ($this->qb_caching)
 		{
-			$this->qb_cache_where[] = $where;
+			$this->qb_cache_where[] = $detailhere;
 		}
 
 		return $this;
@@ -1075,16 +1075,16 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	public function group_end()
 	{
 		$this->qb_where_group_started = FALSE;
-		$where = array(
+		$detailhere = array(
 			'condition' => str_repeat(' ', $this->qb_where_group_count--).')',
 			'value' => NULL,
 			'escape' => FALSE
 		);
 
-		$this->qb_where[] = $where;
+		$this->qb_where[] = $detailhere;
 		if ($this->qb_caching)
 		{
-			$this->qb_cache_where[] = $where;
+			$this->qb_cache_where[] = $detailhere;
 		}
 
 		return $this;
@@ -1443,21 +1443,21 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * Allows the where clause, limit and offset to be added directly
 	 *
 	 * @param	string	$table
-	 * @param	string	$where
+	 * @param	string	$detailhere
 	 * @param	int	$limit
 	 * @param	int	$offset
 	 * @return	CI_DB_result
 	 */
-	public function get_where($table = '', $where = NULL, $limit = NULL, $offset = NULL)
+	public function get_where($table = '', $detailhere = NULL, $limit = NULL, $offset = NULL)
 	{
 		if ($table !== '')
 		{
 			$this->from($table);
 		}
 
-		if ($where !== NULL)
+		if ($detailhere !== NULL)
 		{
-			$this->where($where);
+			$this->where($detailhere);
 		}
 
 		if ( ! empty($limit))
@@ -1814,11 +1814,11 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * @param	string	$table
 	 * @param	array	$set	An associative array of update values
-	 * @param	mixed	$where
+	 * @param	mixed	$detailhere
 	 * @param	int	$limit
 	 * @return	bool	TRUE on success, FALSE on failure
 	 */
-	public function update($table = '', $set = NULL, $where = NULL, $limit = NULL)
+	public function update($table = '', $set = NULL, $detailhere = NULL, $limit = NULL)
 	{
 		// Combine any cached components with the current statements
 		$this->_merge_cache();
@@ -1833,9 +1833,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			return FALSE;
 		}
 
-		if ($where !== NULL)
+		if ($detailhere !== NULL)
 		{
-			$this->where($where);
+			$this->where($detailhere);
 		}
 
 		if ( ! empty($limit))
@@ -2148,7 +2148,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * @param	bool
 	 * @return	mixed
 	 */
-	public function delete($table = '', $where = '', $limit = NULL, $reset_data = TRUE)
+	public function delete($table = '', $detailhere = '', $limit = NULL, $reset_data = TRUE)
 	{
 		// Combine any cached components with the current statements
 		$this->_merge_cache();
@@ -2164,11 +2164,11 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 		}
 		elseif (is_array($table))
 		{
-			empty($where) && $reset_data = FALSE;
+			empty($detailhere) && $reset_data = FALSE;
 
 			foreach ($table as $single_table)
 			{
-				$this->delete($single_table, $where, $limit, $reset_data);
+				$this->delete($single_table, $detailhere, $limit, $reset_data);
 			}
 
 			return;
@@ -2178,9 +2178,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			$table = $this->protect_identifiers($table, TRUE, NULL, FALSE);
 		}
 
-		if ($where !== '')
+		if ($detailhere !== '')
 		{
-			$this->where($where);
+			$this->where($detailhere);
 		}
 
 		if ( ! empty($limit))

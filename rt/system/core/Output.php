@@ -579,8 +579,8 @@ class CI_Output
 
 		$output = $cache_info . 'ENDCI--->' . $output;
 
-		for ($written = 0, $length = self::strlen($output); $written < $length; $written += $result) {
-			if (($result = fwrite($fp, self::substr($output, $written))) === FALSE) {
+		for ($detailritten = 0, $length = self::strlen($output); $detailritten < $length; $detailritten += $result) {
+			if (($result = fwrite($fp, self::substr($output, $detailritten))) === FALSE) {
 				break;
 			}
 		}

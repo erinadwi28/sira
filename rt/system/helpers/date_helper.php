@@ -207,21 +207,21 @@ if ( ! function_exists('timespan'))
 			$seconds -= $months * 2629743;
 		}
 
-		$weeks = floor($seconds / 604800);
+		$detaileeks = floor($seconds / 604800);
 
-		if (count($str) < $units && ($years > 0 OR $months > 0 OR $weeks > 0))
+		if (count($str) < $units && ($years > 0 OR $months > 0 OR $detaileeks > 0))
 		{
-			if ($weeks > 0)
+			if ($detaileeks > 0)
 			{
-				$str[] = $weeks.' '.$CI->lang->line($weeks > 1 ? 'date_weeks' : 'date_week');
+				$str[] = $detaileeks.' '.$CI->lang->line($detaileeks > 1 ? 'date_weeks' : 'date_week');
 			}
 
-			$seconds -= $weeks * 604800;
+			$seconds -= $detaileeks * 604800;
 		}
 
 		$days = floor($seconds / 86400);
 
-		if (count($str) < $units && ($months > 0 OR $weeks > 0 OR $days > 0))
+		if (count($str) < $units && ($months > 0 OR $detaileeks > 0 OR $days > 0))
 		{
 			if ($days > 0)
 			{

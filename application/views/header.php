@@ -19,6 +19,7 @@
 	<!-- Custom styles for this template-->
 	<link href="<?= base_url('assets/dashboard/') ?>css/sb-admin-2.min.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/preview.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/css_validation.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">

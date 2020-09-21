@@ -3,6 +3,12 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Tambah Data Kepala Desa</h1>
+		<a href="<?= base_url('admin/list_data_kades') ?>">
+			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
+				<i class="fa fa-arrow-left">
+				</i> Kembali
+			</button>
+		</a>
 	</div>
 
 	<!-- Content Row line 1-->
@@ -14,56 +20,73 @@
 					<!-- <table class="table-responsive">
                                         
                                     </table> -->
-					<form role="form" id="formUbah">
+					<form role="form" action="<?= base_url('admin/aksi_tambah_kades') ?>" method="post" id="formTambah">
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="label-control" for="nik"><b>NIK</b></label>
-									<input type="text" class="form-control form-user-input" name="nik" id="nik"
-										value="">
+									<input type="text" class="form-control form-user-input" placeholder="Isikan NIK Anda" name="nik" id="nik">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 
 								<div class="form-group">
 									<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
-									<input type="text" class="form-control form-user-input" name="nama" id="nama"
-										value="">
+									<input type="text" class="form-control form-user-input" placeholder="Isikan Nama" name="nama" id="nama">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="tempat_lahir"><b>Tempat
 											Lahir</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="tempat_lahir"
-										id="tempat_lahir">
+									<input type="text" class="form-control form-user-input" placeholder="Isikan Tempat Lahir" name="tempat_lahir" id="tempat_lahir">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="tanggal_lahir"><b>Tanggal
 											Lahir</b></label>
-									<input type="date" class="form-control form-user-input" value=""
-										name="tanggal_lahir" id="tanggal_lahir">
+									<input type="date" class="form-control form-user-input" name="tanggal_lahir" id="tanggal_lahir">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="jenis_kelamin"><b>Jenis
 											Kelamin</b></label>
-									<select class="form-control form-user-input" name="jenis_kelamin"
-										id="jenis_kelamin">
+									<select class="form-control form-user-input" name="jenis_kelamin" id="jenis_kelamin">
+										<option class="form-user-input" selected>pilih jenis kelamin ...
+										</option>
 										<option value="Laki-Laki" class="form-user-input">Laki-Laki
 										</option>
 										<option value="Perempuan" class="form-user-input">Perempuan
 										</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="goldar"><b>Golongan
 											Darah</b></label>
-									<select class="form-control form-user-input" name="goldar" id="goldar">
+									<select class="form-control form-user-input" name="golongan_darah" id="golongan_darah">
+										<option class="form-user-input" selected>pilih golongan darah ...</option>
 										<option value="AB" class="form-user-input">AB</option>
 										<option value="A" class="form-user-input">A</option>
 										<option value="B" class="form-user-input">B</option>
 										<option value="O" class="form-user-input">O</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="agama"><b>Agama</b></label>
 									<select class="form-control form-user-input" name="agama" id="agama">
+										<option class="form-user-input" selected>pilih agama ...</option>
 										<option value="Islam" class="form-user-input">Islam</option>
 										<option value="Protestan" class="form-user-input">Protestan
 										</option>
@@ -74,61 +97,85 @@
 										<option value="Khonghucu" class="form-user-input">Khonghucu
 										</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
-									<label class="label-control" for="alamat"><b>Alamat</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="alamat"
-										id="alamat">
+									<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
+									<input type="text" class="form-control form-user-input" placeholder="Isikan Alamat Anda" name="alamat" id="alamat">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
+
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="label-control" for="rt"><b>RT</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="rt" id="rt">
+									<input type="text" class="form-control form-user-input" placeholder="RT" name="rt" id="rt">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="kelurahan"><b>Kelurahan</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="kelurahan"
-										id="kelurahan">
+									<input type="text" class="form-control form-user-input" placeholder="Kelurahan" name="kelurahan" id="kelurahan">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="kecamatan"><b>Kecamatan</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="kecamatan"
-										id="kecamatan">
+									<input type="text" class="form-control form-user-input" placeholder="Kecamatan" name="kecamatan" id="kecamatan">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="status_perkawinan"><b>Status
 											Perkawinan</b></label>
-									<select class="form-control form-user-input" name="status_perkawinan"
-										id="status_perkawinan">
+									<select class="form-control form-user-input" name="status_perkawinan" id="status_perkawinan">
+										<option class="form-user-input">pilih status perkawinan ...</option>
 										<option value="Kawin" class="form-user-input">Kawin</option>
 										<option value="Belum Kawin" class="form-user-input">Belum Kawin
 										</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
-								<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
+
 								<div class="form-group">
-									<input type="text" class="form-control form-user-input" value="" name="pekerjaan"
-										id="pekerjaan">
+									<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
+									<input type="text" class="form-control form-user-input" placeholder="Isikan Pekerjaan Anda" name="pekerjaan" id="pekerjaan">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
-									<select class="form-control form-user-input" name="kewarganegaraan"
-										id="kewarganegaraan">
+									<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan">
+										<option class="form-user-input" selected>pilih kewarganegaraan ...</option>
 										<option value="WNI" class="form-user-input">WNI</option>
 										<option value="WNA" class="form-user-input">WNA</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="no_kk"><b>No KK</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="no_kk"
-										id="no_kk">
+									<input type="text" class="form-control form-user-input" placeholder="Isikan No. KK" name="no_kk" id="no_kk">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
-									<label class="label-control" for="pendidikan_terakhir"><b>Pendidikan
+									<label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
 											Terakhir</b></label>
-									<select class="form-control form-user-input" name="pendidikan_terakhir"
-										id="pendidikan_terakhir">
+									<select class="form-control form-user-input" name="pendidikan_terakhir" id="pendidikan_terakhir">
+										<option class="form-user-input" selected>pilih pendidikan terakhir ...</option>
 										<option value="TAMAT SD / SEDERAJAT" class="form-user-input">
 											TAMAT SD /
 											SEDERAJAT</option>
@@ -156,14 +203,17 @@
 										<option value="STRATA III" class="form-user-input">STRATA III
 										</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label class="label-control" for="status_hub_keluarga"><b>Status Hub
+									<label class="label-control" for="status_hub_kel"><b>Status Hub
 											Keluarga</b></label>
-									<select class="form-control form-user-input" name="status_hub_keluarga"
-										id="status_hub_keluarga">
+									<select class="form-control form-user-input" name="status_hub_kel" id="status_hub_kel">
+										<option class="form-user-input" selected>pilih status hubungan keluarga ...</option>
 										<option value="Kepala Keluarga" class="form-user-input">Kepala
 											Keluarga
 										</option>
@@ -180,43 +230,65 @@
 										<option value="Pembantu" class="form-user-input">Pembantu
 										</option>
 									</select>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="no_hp"><b>No HandPhone</b></label>
-									<input type="text" class="form-control form-user-input" value="" name="no_hp"
-										id="no_hp">
+									<input type="text" class="form-control form-user-input" placeholder="Isikan No. HP Anda" name="no_hp" id="no_hp">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="kata_sandi"><b>Kata
 											Sandi</b></label>
-									<input type="password" class="form-control form-user-input form-password" value=""
-										name="kata_sandi" id="kata_sandi">
-									<input type="checkbox" class="form-checkbox" /> lihat
-									kata sandi
+									<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
+									<input type="checkbox" class="form-checkbox" style="margin-top: 15px" /> Lihat kata sandi
 									<br />
+
+
 								</div>
+								<div class="form-group">
+									<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
+									<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
+
+								</div>
+								<em class="small text-danger">*Foto Profil, Foto KTP, dan Foto KK bisa dikosongi terlebih dahulu apabila
+									belum ada</em>
 								<div class="form-group">
 									<label class="label-control" for="foto_profil"><b>Foto
 											Profil</b></label>
 									<div class="input-group">
 										<div class="custom-file">
-											<input type="file" class="custom-file-input" id="foto_admin"
-												name="foto_admin">
-											<label class="custom-file-label upload-area" for="exampleInputFile">Pilih
-												File...</label>
+											<input type="file" class="custom-file-input" id="foto_admin" name="foto_admin" value="">
+											<label class="custom-file-label upload-area" for="exampleInputFile">pilih file...</label>
 										</div>
 									</div>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="foto_ktp"><b>Foto
 											KTP</b></label>
 									<div class="input-group">
 										<div class="custom-file">
-											<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp">
-											<label class="custom-file-label upload-area" for="exampleInputFile">Pilih
-												File...</label>
+											<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp" value="">
+											<label class="custom-file-label upload-area" for="exampleInputFile">pilih
+												file...</label>
 										</div>
 									</div>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="foto_kk"><b>Foto
@@ -224,49 +296,39 @@
 									<div class="input-group">
 										<div class="custom-file">
 											<input type="file" class="custom-file-input" id="foto_kk" name="foto_kk">
-											<label class="custom-file-label upload-area" for="exampleInputFile">Pilih
-												File...</label>
+											<label class="custom-file-label upload-area" for="exampleInputFile">pilih
+												file...</label>
 										</div>
 									</div>
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small>Error Message</small>
 								</div>
-								<input type="hidden" id="status_kepegawaian" name="" value="Aktive">
 							</div>
 						</div>
-					</form>
+						<br>
+
 				</div>
 				<div class="card-footer">
-				
-					<div class="float-left">
-						<a href="#">
-							<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
-								<i class="fa fa-arrow-left">
-								</i> Kembali
-							</button>
-						</a>
-					</div>
 					<div class="float-right">
-						<a href="#">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="submit">
+						<a href="">
+							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
 								<i class="fa fa-times nav-icon">
 								</i> Batal
 							</button>
 						</a>
-						<a href="#">
+						<a href="">
 							<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
 								<i class="far fa-save nav-icon">
 								</i> Simpan
 							</button>
 						</a>
 					</div>
+				</div>
 
-				
-					<!-- <button class="btn btn-sm btn-primary float-right" type="submit"><i
-							class="far fa-save nav-icon"></i> Simpan</button>
-				</div> -->
 			</div>
+			</form>
 		</div>
-
-
 	</div>
 </div>
 <!-- /.container-fluid -->

@@ -737,9 +737,9 @@ class XML_RPC_Client extends CI_Xmlrpc
 
 		stream_set_timeout($fp, $this->timeout); // set timeout for subsequent operations
 
-		for ($written = $timestamp = 0, $length = strlen($op); $written < $length; $written += $result)
+		for ($detailritten = $timestamp = 0, $length = strlen($op); $detailritten < $length; $detailritten += $result)
 		{
-			if (($result = fwrite($fp, substr($op, $written))) === FALSE)
+			if (($result = fwrite($fp, substr($op, $detailritten))) === FALSE)
 			{
 				break;
 			}

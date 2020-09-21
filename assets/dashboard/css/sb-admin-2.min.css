@@ -46,7 +46,6 @@
 ::after,
 ::before {
 	box-sizing: border-box
-	
 }
 
 html {
@@ -103,7 +102,7 @@ h6 {
 p {
 	margin-top: 0;
 	margin-bottom: 1rem;
-	
+
 }
 
 abbr[data-original-title],

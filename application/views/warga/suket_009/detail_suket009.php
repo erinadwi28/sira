@@ -44,7 +44,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td>70</td>
+								<td>70 Tahun</td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kediaman</b></td>
@@ -79,7 +79,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td>02/09/2020</td>
+								<td>18/08/2020</td>
 							</tr>
 						</tbody>
 					</table>

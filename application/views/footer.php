@@ -18,8 +18,7 @@
 	</a>
 
 	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -51,6 +50,12 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
+
+	<!-- Validasi -->
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation.js"></script>
+
+	<!-- ValidasiUbah Profil -->
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation_warga.js"></script>
 
 	<!-- Page level plugins -->
 	<script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>

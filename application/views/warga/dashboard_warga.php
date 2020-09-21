@@ -10,13 +10,13 @@
 <!-- Content Row line 1-->
 <div class="row">
     <!-- SUKET USAHA -->
-    <div class="col-xl-4 col-md-6 mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. USAHA</h5>
+                            <h6>SUKET. USAHA</h6>
                         </div>
                     </div>
                     <!-- <div class="col-auto">
@@ -31,13 +31,32 @@
     </div>
 
     <!-- SUKET DOMISILI-->
-    <div class="col-xl-4 col-md-6 mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. DOMISILI</h5>
+                            <h6>SUKET. DOMISILI</h6>
+                        </div>
+                    </div>
+                    <!-- <div class="col-auto">
+                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
+                    </div> -->
+                    <div>
+                        <button class="btn btn-primary far fa-edit">  Buat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <h6>SUKET. BELUM MEMILIKI RUMAH</h6>
                         </div>
                     </div>
                     <!-- <div class="col-auto">
@@ -51,18 +70,18 @@
         </div>
     </div>
 
-    <div class="col-xl-4 col-md-6 mb-4">
+    <div class="col-xl-3 col-md-5 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        <h5>SUKET. KEPEMILIKAN TANAH</h5>
+                        <h6>SUKET. KEPEMILIKAN TANAH</h6>
                         </div>
                     </div>
-                    <div>
+                    <!-- <div>
                         <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -363,7 +382,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT REKOMENDASI IMB</h5>
+                            <h5>SUREK. IMB</h5>
                             </div>		
                     </div>
                     <div>

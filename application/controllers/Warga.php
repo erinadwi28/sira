@@ -6,7 +6,7 @@ class Warga extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if (!$this->session->userdata('role_warga'))  {
+		if (!$this->session->userdata('role_warga')) {
 			redirect('login');
 		}
 	}
@@ -14,7 +14,7 @@ class Warga extends CI_Controller
 	public function index()
 	{
 		$data['warga'] = $this->db->get_where('warga', ['nik' =>
-		$this->session->userdata('nik')])->row_array(); 
+		$this->session->userdata('nik')])->row_array();
 
 		$this->load->view('header', $data);
 		$this->load->view('warga/sidebar_warga', $data);
@@ -318,6 +318,30 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_012/form_suket012');
 		$this->load->view('footer');
 	}
+	public function list_pengikut_suket012()
+	{
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
+		$this->load->view('topbar');
+		$this->load->view('warga/suket_012/list_pengikut_suket012');
+		$this->load->view('footer');
+	}
+	public function tambah_pengikut_suket012()
+	{
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
+		$this->load->view('topbar');
+		$this->load->view('warga/suket_012/tambah_pengikut_suket012');
+		$this->load->view('footer');
+	}
+	public function ubah_pengikut_suket012()
+	{
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
+		$this->load->view('topbar');
+		$this->load->view('warga/suket_012/ubah_pengikut_suket012');
+		$this->load->view('footer');
+	}
 	public function detail_suket012()
 	{
 		$this->load->view('header');
@@ -334,6 +358,7 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_012/tampil_suket012');
 		$this->load->view('footer');
 	}
+
 	public function form_suket013()
 	{
 		$this->load->view('header');
@@ -364,6 +389,30 @@ class Warga extends CI_Controller
 		$this->load->view('warga/sidebar_warga');
 		$this->load->view('topbar');
 		$this->load->view('warga/suket_014/form_suket014');
+		$this->load->view('footer');
+	}
+	public function list_pengikut_suket014()
+	{
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
+		$this->load->view('topbar');
+		$this->load->view('warga/suket_014/list_pengikut_suket014');
+		$this->load->view('footer');
+	}
+	public function tambah_pengikut_suket014()
+	{
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
+		$this->load->view('topbar');
+		$this->load->view('warga/suket_014/tambah_pengikut_suket014');
+		$this->load->view('footer');
+	}
+	public function ubah_pengikut_suket014()
+	{
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
+		$this->load->view('topbar');
+		$this->load->view('warga/suket_014/ubah_pengikut_suket014');
 		$this->load->view('footer');
 	}
 	public function detail_suket014()

@@ -2,8 +2,8 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Tambah Data Ketua RT</h1>
-		<a href="<?= base_url('admin/form_tambah_rt') ?>">
+		<h1 class="h3 mb-0 text-gray-800">Ubah Data Kepala Desa</h1>
+		<a href="<?= base_url('admin/list_data_kades') ?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
 				<i class="fa fa-arrow-left">
 				</i> Kembali
@@ -18,13 +18,13 @@
 			<div class="card shadow mb-4">
 				<div class="card-body">
 					<?php
-					foreach ($detail_warga as $detail) {
+					foreach ($detail_kades as $detail) {
 
 					?>
 						<!-- <table class="table-responsive">
                                         
                                     </table> -->
-						<form role="form" action="<?= base_url('admin/aksi_tambah_rt') ?>" method="post" id="formUbah">
+						<form role="form" action="<?= base_url('admin/aksi_ubah_kades') ?>" method="post" id="formUbah">
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
@@ -182,14 +182,8 @@
 										<input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>">
 									</div>
 									<div class="form-group">
-										<em class="small text-danger">*Masukkan kata sandi terlebih dahulu sebelum simpan</em> <br>
-
-										<label class="label-control" for="kata_sandi"><b>Kata
-												Sandi</b></label>
-										<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi">
-										<input type="checkbox" class="form-checkbox" /> lihat
-										kata sandi
-										<br />
+										<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
+										<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>" disabled>
 									</div>
 								</div>
 							</div>
@@ -205,15 +199,13 @@
 									</a>
 								</div>
 							</div>
-							<input type="hidden" class="form-control form-user-input " name="id_warga" id="id_warga" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control form-user-input " name="id_kades" id="id_kades" value="<?= $detail->id_kades; ?>">
 						</form>
 					<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-</div>
-<!-- /.container-fluid -->
+	<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->

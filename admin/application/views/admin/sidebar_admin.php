@@ -14,7 +14,7 @@
 
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item active">
-		<a class="nav-link" href="index.html">
+		<a class="nav-link" href="<?= base_url('admin') ?>">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
 	</li>
@@ -29,22 +29,42 @@
 
 	<!-- Nav Item - Main Menu -->
 	<li class="nav-item">
-		<a class="nav-link " href="<?= base_url('admin/list_data_kades') ?>">
-			<i class="fa fa fa-user"></i>
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menukades" for="" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fa fa-users"></i>
 			<span>Data Kepala Desa</span>
 		</a>
+		<div id="menukades" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="<?= base_url('admin/list_data_kades') ?>">Data Kepala Desa</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_mantan_kades') ?>">Data Mantan Kepala Desa</a>
+				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_kades') ?>">Ubah Password Kades</a>
+			</div>
+		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menurt" for="" aria-expanded="true" aria-controls="collapsePages">
 			<i class="fa fa-users"></i>
 			<span>Data Ketua RT</span>
 		</a>
+		<div id="menurt" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="<?= base_url('admin/list_data_rt') ?>">Data Ketua RT</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_mantan_rt') ?>">Data Mantan Ketua RT</a>
+				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_rt') ?>">Ubah Password Ketua RT</a>
+			</div>
+		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menuwarga" for="" aria-expanded="true" aria-controls="collapsePages">
 			<i class="fa fa-users"></i>
 			<span>Data Warga</span>
 		</a>
+		<div id="menuwarga" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="<?= base_url('admin/list_data_warga') ?>">Data Warga</a>
+				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_rt') ?>">Ubah Password Warga</a>
+			</div>
+		</div>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link " href="#">

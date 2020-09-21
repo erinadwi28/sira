@@ -1,80 +1,62 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-					<!-- Page Heading -->
-					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Data Kepala Desa</h1>
-						<a href="<?= base_url('admin/form_tambah_kades') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-								class="fa fa-user-plus fa-sm text-white-50"></i> Tambah
-							Data</a>
-					</div>
+	<!-- Page Heading -->
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 class="h3 mb-0 text-gray-800">Data Kepala Desa</h1>
+		<a href="<?= base_url('admin/form_tambah_kades') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-user-plus fa-sm text-white-50"></i> Tambah
+			Data</a>
+	</div>
 
-					<!-- DataTables Warga -->
-					<div class="card shadow mb-4">
-						<div class="card-body">
-						<?php if ($this->session->flashdata('success')) : ?>
-										<div class="alert alert-success alert-dismissible fade show" role="alert">
-											<?= $this->session->flashdata('success') ?>
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									<?php elseif($this->session->flashdata('error')) : ?>
-										<div class="alert alert-danger alert-dismissible fade show" role="alert">
-											<?= $this->session->flashdata('error') ?>
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									<?php endif ?>
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover" id="dataTable" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>No</th>
-											<th>NIK</th>
-											<th>Nama</th>
-											<th>Alamat</th>
-											<th>Status Kepegawaan</th>
-											<th>Actions</th>
-										</tr>
-									</thead>
-									
-									<tbody>
-									<?php 
-									$no = 1;
-									foreach($data_kades as $kades){ 
-									?>
-									<tr>
-									<td><?php echo $no++ ?></td>
-									<td><?php echo $kades->nik ?></td>
-									<td><?php echo $kades->nama ?></td>
-									<td><?php echo $kades->alamat ?></td>
-									<td><?php echo $kades->status_kepegawaian?></td>
-							<td>
-								<div>
-									<a href="<?= base_url()?>admin/detail_data_kades/<?= $kades->id_kades ?>">
-										<button class="btn btn-sm btn-primary" type="submit">
+	<!-- DataTables Warga -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+			<?php if ($this->session->flashdata('success')) : ?>
+			<?php endif; ?>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>NIK</th>
+							<th>Nama</th>
+							<th>Alamat</th>
+							<th>Status Kepegawaan</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<?php
+						$no = 1;
+						foreach ($data_kades as $kades) {
+						?>
+							<tr>
+								<td><?php echo $no++ ?></td>
+								<td><?php echo $kades->nik ?></td>
+								<td><?php echo $kades->nama ?></td>
+								<td><?php echo $kades->alamat ?></td>
+								<td><label class="badge badge-success"><i class="fas fa-user-check"></i> <?php echo $kades->status_kepegawaian ?></label></td>
+								<td>
+									<div>
+										<a href="<?= base_url() ?>admin/detail_data_kades/<?= $kades->id_kades ?>" class="btn btn-primary btn-sm">
 											<i class="far fa-eye nav-icon"></i>
 											Detail
-										</button>
-									</a>
+										</a>
 
-									<a href="<?= base_url()?>admin/aksi_hapus_kades/<?= $kades->id_kades ?> ">
-										<button class="btn btn-sm btn-danger mt-1" type="submit">
+										<a href="<?= base_url() ?>admin/aksi_hapus_kades/<?= $kades->id_kades ?>" class="btn btn-danger btn-sm hapus">
 											<i class="far fa-trash-alt nav-icon"></i>
 											Hapus
-										</button>
-									</a>
-								</div>
-							</td>
-									<?php } ?>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /.container-fluid -->
+										</a>
+									</div>
+								</td>
+							<?php } ?>
+					</tbody>
+				</table>
 			</div>
-			<!-- End of Main Content -->
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->

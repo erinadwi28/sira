@@ -6,7 +6,8 @@ class Warga extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if (!$this->session->userdata('role_warga'))  {
+		$this->load->model('M_warga', 'm_warga');
+		if (!$this->session->userdata('role_warga')) {
 			redirect('login');
 		}
 	}
@@ -14,7 +15,7 @@ class Warga extends CI_Controller
 	public function index()
 	{
 		$data['warga'] = $this->db->get_where('warga', ['nik' =>
-		$this->session->userdata('nik')])->row_array(); 
+		$this->session->userdata('nik')])->row_array();
 
 		$this->load->view('header', $data);
 		$this->load->view('warga/sidebar_warga', $data);
@@ -46,12 +47,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/list_history_warga');
 		$this->load->view('footer');
 	}
-	public function form_suket001()
+	public function form_suket001($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_001/form_suket001');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_001/form_suket001', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket001()
@@ -70,12 +77,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_001/tampil_suket001');
 		$this->load->view('footer');
 	}
-	public function form_suket002()
+	public function form_suket002($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_002/form_suket002');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_002/form_suket002', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket002()
@@ -94,12 +107,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_002/tampil_suket002');
 		$this->load->view('footer');
 	}
-	public function form_suket003()
+	public function form_suket003($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_003/form_suket003');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_003/form_suket003', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket003()
@@ -118,12 +137,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_003/tampil_suket003');
 		$this->load->view('footer');
 	}
-	public function form_suket004()
+	public function form_suket004($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_004/form_suket004');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_004/form_suket004', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket004()
@@ -142,12 +167,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_004/tampil_suket004');
 		$this->load->view('footer');
 	}
-	public function form_suket005()
+	public function form_suket005($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_005/form_suket005');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_005/form_suket005', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket005()
@@ -166,12 +197,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_005/tampil_suket005');
 		$this->load->view('footer');
 	}
-	public function form_suket006()
+	public function form_suket006($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_006/form_suket006');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_006/form_suket006', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket006()
@@ -190,12 +227,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_006/tampil_suket006');
 		$this->load->view('footer');
 	}
-	public function form_suket007()
+	public function form_suket007($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_007/form_suket007');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_007/form_suket007', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket007()
@@ -214,12 +257,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_007/tampil_suket007');
 		$this->load->view('footer');
 	}
-	public function form_suket008()
+	public function form_suket008($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_008/form_suket008');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_008/form_suket008', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket008()
@@ -238,12 +287,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_008/tampil_suket008');
 		$this->load->view('footer');
 	}
-	public function form_suket009()
+	public function form_suket009($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_009/form_suket009');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_009/form_suket009', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket009()
@@ -262,12 +317,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_009/tampil_suket009');
 		$this->load->view('footer');
 	}
-	public function form_suket010()
+	public function form_suket010($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_010/form_suket010');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_010/form_suket010', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket010()
@@ -286,12 +347,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_010/tampil_suket010');
 		$this->load->view('footer');
 	}
-	public function form_suket011()
+	public function form_suket011($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_011/form_suket011');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_011/form_suket011', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket011()
@@ -310,12 +377,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_011/tampil_suket011');
 		$this->load->view('footer');
 	}
-	public function form_suket012()
+	public function form_suket012($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_012/form_suket012');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_012/form_suket012', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket012()
@@ -334,12 +407,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_012/tampil_suket012');
 		$this->load->view('footer');
 	}
-	public function form_suket013()
+	public function form_suket013($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_013/form_suket013');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_013/form_suket013', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket013()
@@ -358,12 +437,18 @@ class Warga extends CI_Controller
 		$this->load->view('warga/suket_013/tampil_suket013');
 		$this->load->view('footer');
 	}
-	public function form_suket014()
+	public function form_suket014($id_warga)
 	{
+		$data['warga'] = $this->db->get_where('warga', ['nik' =>
+		$this->session->userdata('nik')])->row_array();
+
+
+		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
+
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/suket_014/form_suket014');
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/suket_014/form_suket014', $data_detail);
 		$this->load->view('footer');
 	}
 	public function detail_suket014()

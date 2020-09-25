@@ -23,11 +23,11 @@ const kata_sandiwarga = document.getElementById("kata_sandi");
 formubah.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	checkInputs();
+	checkInputsWarga();
 });
 
 
-function checkInputs() {
+function checkInputsWarga() {
 	const nikValue = nikwarga.value.trim();
 	const namaValue = namawarga.value.trim();
 	const tempat_lahirValue = tempat_lahirwarga.value.trim();
@@ -162,9 +162,6 @@ function checkInputs() {
 	} else {
 		setSuccessFor(kata_sandiwarga);
 	}
-
-
-
 
 }
 

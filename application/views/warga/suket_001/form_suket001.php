@@ -2,9 +2,18 @@
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4 responsive">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Keterangan Usaha</h1>
+		<div class="float-right">
+			<a href="#">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 	</div>
+
 
 	<!--Begin Content Profile-->
 	<div class="row clearfix">
@@ -187,14 +196,6 @@
 						</div>
 				</div>
 				<div class="card-footer">
-					<div class="float-left">
-						<a href="#">
-							<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-								<i class="fa fa-arrow-left">
-								</i> Kembali
-							</button>
-						</a>
-					</div>
 					<div class="float-right">
 						<a href="#">
 							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">

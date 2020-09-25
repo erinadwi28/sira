@@ -20,14 +20,17 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="label-control" for="nik"><b>NIK</b></label>
-									<input type="text" class="form-control form-user-input" placeholder="Isikan NIK Anda" name="nik" id="nik" disabled>
+
+									<input type="text" class="form-control form-user-input" placeholder="Isikan NIK Anda" name="nik" id="nik" value="123" disabled>
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
+
 								</div>
 
 								<div class="form-group">
 									<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
+
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Nama" name="nama" id="nama">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>

@@ -4,6 +4,14 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Izin Keramaian</h1>
+		<div class="float-right">
+			<a href="#">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 	</div>
 
 	<!--Begin Content Profile-->
@@ -139,109 +147,101 @@
 								</div>
 							</div>
 						</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tanggal_kegiatan" class="col-sm-3 col-form-label">Tanggal Kegiatan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tempat_kegiatan" class="col-sm-3 col-form-label">Tempat Kegiatan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<textarea class="form-control" id="tempat_kegiatan" name="tempat_kegiatan" rows="3" placeholder="Tempat ditulis lengkap">
-										</textarea>
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Jam_kegiatan" class="col-sm-3 col-form-label">Jam Kegiatan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="text" class="form-control" id="jam_kegiatan" name="jam_kegiatan" placeholder="">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Foto_ktp" class="col-sm-3 col-form-label">Foto KTP</label>
-										<div class="col-sm-8">
-											<div class="input-group">
-												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp">
-													<label class="custom-file-label upload-area" for="exampleInputFile">Upload Foto KTP</label>
-													<i class="fas fa-check-circle"></i>
-													<i class="fas fa-exclamation-circle"></i>
-													<small>Error massage</small>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="hidden" class="form-control" id="tanggal_pembuatan" name="Tanggal_pembuatan" value="">
-											</div>
+						<div class="form-group">
+							<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Tanggal_kegiatan" class="col-sm-3 col-form-label">Tanggal Kegiatan</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan">
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="form-group">
+							<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Tempat_kegiatan" class="col-sm-3 col-form-label">Tempat Kegiatan</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<textarea class="form-control" id="tempat_kegiatan" name="tempat_kegiatan" rows="3" placeholder="Tempat ditulis lengkap">
+										</textarea>
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Jam_kegiatan" class="col-sm-3 col-form-label">Jam Kegiatan</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="text" class="form-control" id="jam_kegiatan" name="jam_kegiatan" placeholder="">
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Foto_ktp" class="col-sm-3 col-form-label">Foto KTP</label>
+									<div class="col-sm-8">
+										<div class="input-group">
+											<div class="custom-file">
+												<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp">
+												<label class="custom-file-label upload-area" for="exampleInputFile">Upload Foto KTP</label>
+												<i class="fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group row" style="margin-left: 10px;">
+									<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="hidden" class="form-control" id="tanggal_pembuatan" name="Tanggal_pembuatan" value="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
 				</div>
 				<div class="card-footer">
-					<div class="float-left">
-						<a href="#">
-							<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-								<i class="fa fa-arrow-left">
-								</i> Kembali
-							</button>
-						</a>
-					</div>
 					<div class="float-right">
 						<a href="#">
 							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
@@ -257,10 +257,11 @@
 						</a>
 					</div>
 				</div>
-				</form>
 			</div>
+			</form>
 		</div>
-		<!--End Content Profile-->
 	</div>
+	<!--End Content Profile-->
+</div>
 </div>
 <!-- /.container-fluid -->

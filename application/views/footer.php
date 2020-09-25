@@ -51,11 +51,9 @@
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
-	<!-- Validasi -->
+	<!-- Validasi form surat dan ubah profil warga-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/validation.js"></script>
 
-	<!-- ValidasiUbah Profil -->
-	<script src="<?= base_url('assets/dashboard/') ?>js/validation_warga.js"></script>
 
 	<!-- Page level plugins -->
 	<script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>

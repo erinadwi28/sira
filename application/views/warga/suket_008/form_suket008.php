@@ -4,6 +4,14 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Keterangan Janda</h1>
+		<div class="float-right">
+			<a href="#">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 	</div>
 
 	<!--Begin Content Profile-->
@@ -117,9 +125,8 @@
 											<textarea class="form-control" id="alamat_tinggal" name="alamat_tinggal" rows="3" placeholder="Alamat Tinggal Lengkap"></textarea>
 											<i class="fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
-											<small>Tidak boleh kosong</small>
+											<small>Error massage</small>
 										</div>
-
 									</div>
 								</div>
 							</div>
@@ -239,14 +246,6 @@
 				</div>
 			</div>
 			<div class="card-footer">
-				<div class="float-left">
-					<a href="#">
-						<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-							<i class="fa fa-arrow-left">
-							</i> Kembali
-						</button>
-					</a>
-				</div>
 				<div class="float-right">
 					<a href="#">
 						<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">

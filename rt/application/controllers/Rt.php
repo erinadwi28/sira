@@ -5,7 +5,7 @@ class Rt extends CI_Controller
 {
 
 
-        public function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('M_rt', 'm_rt');
@@ -45,6 +45,7 @@ class Rt extends CI_Controller
 	// tampil form ubah profil
 	public function form_ubah_profil($id_rt)
 	{
+
 		$data_profil = $this->m_rt->get_profil($id_rt);
 
 		$result = array(

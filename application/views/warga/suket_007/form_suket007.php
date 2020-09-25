@@ -4,6 +4,14 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Keterangan Tidak Mampu</h1>
+		<div class="float-right">
+			<a href="#">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 	</div>
 
 	<!--Begin Content Profile-->
@@ -145,75 +153,68 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Keperluan" class="col-sm-3 col-form-label">Keperluan</label> 
+										<label for="Keperluan" class="col-sm-3 col-form-label">Keperluan</label>
 										<div class="col-sm-8">
-												<div class="form-line">
-													<input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Cth.Pengajuan Beasiswa" value="">
-													<i class="fas fa-check-circle"></i>
-													<i class="fas fa-exclamation-circle"></i>
-													<small>Tidak boleh kosong</small>
-												</div>
+											<div class="form-line">
+												<input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Cth.Pengajuan Beasiswa" value="">
+												<i class="fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Tidak boleh kosong</small>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
+							<div class="form-group">
+								<div class="form-group" style="margin-top: 20px;">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
+												<i class="fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group" style="margin-top: 20px;">
+									<div class="form-group row" style="margin-left: 10px;">
+										<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="hidden" class="form-control" id="tanggal_pembuatan" name="Tanggal_pembuatan" value="">
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="hidden" class="form-control" id="tanggal_pembuatan" name="Tanggal_pembuatan" value="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 				</div>
+				<div class="card-footer">
+
+					<div class="float-right">
+						<a href="#">
+							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
+								<i class="fa fa-times nav-icon">
+								</i> Batal
+							</button>
+						</a>
+						<a href="#">
+							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
+								<i class="far fa-save nav-icon">
+								</i> Simpan
+							</button>
+						</a>
+					</div>
+				</div>
+				</form>
 			</div>
-			<div class="card-footer">
-				<div class="float-left">
-					<a href="#">
-						<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-							<i class="fa fa-arrow-left">
-							</i> Kembali
-						</button>
-					</a>
-				</div>
-				<div class="float-right">
-					<a href="#">
-						<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-							<i class="fa fa-times nav-icon">
-							</i> Batal
-						</button>
-					</a>
-					<a href="#">
-						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
-							<i class="far fa-save nav-icon">
-							</i> Simpan
-						</button>
-					</a>
-				</div>
-			</div>
-			</form>
 		</div>
+		<!--End Content Profile-->
 	</div>
-	<!--End Content Profile-->
-</div>
 </div>
 <!-- /.container-fluid -->

@@ -17,11 +17,14 @@
 .form-group.success i.fa-check-circle {
 	color: green;
 	visibility: visible;
+
 }
 
 .form-group.error1 i.fa-exclamation-circle {
 	color: red;
 	visibility: visible;
+	position: absolute;
+
 }
 
 .form-group small {

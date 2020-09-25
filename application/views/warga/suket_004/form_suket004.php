@@ -4,6 +4,14 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Keterangan Beda Nama</h1>
+		<div class="float-right">
+			<a href="#">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 	</div>
 
 	<!--Begin Content Profile-->
@@ -93,7 +101,7 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Dokumen_salah" class="col-sm-3 col-form-label">Dokumen Salah</label>
+										<label for="dokumen_salah" class="col-sm-3 col-form-label">Dokumen Salah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control " id="dokumen_salah">
@@ -213,34 +221,28 @@
 								</div>
 							</div>
 						</div>
-						<div class="card-footer">
-							<div class="float-left">
-								<a href="#">
-									<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-										<i class="fa fa-arrow-left">
-										</i> Kembali
-									</button>
-								</a>
-							</div>
-							<div class="float-right">
-								<a href="#">
-									<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-										<i class="fa fa-times nav-icon">
-										</i> Batal
-									</button>
-								</a>
-								<a href="#">
-									<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
-										<i class="far fa-save nav-icon">
-										</i> Simpan
-									</button>
-								</a>
-							</div>
-						</div>
-					</form>
 				</div>
+				<div class="card-footer">
+
+					<div class="float-right">
+						<a href="#">
+							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
+								<i class="fa fa-times nav-icon">
+								</i> Batal
+							</button>
+						</a>
+						<a href="#">
+							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
+								<i class="far fa-save nav-icon">
+								</i> Simpan
+							</button>
+						</a>
+					</div>
+				</div>
+				</form>
 			</div>
-			<!--End Content Profile-->
 		</div>
+		<!--End Content Profile-->
 	</div>
-	<!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->

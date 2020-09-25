@@ -22,28 +22,8 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal">
+						<form class="form-horizontal" id="form_suket005" enctype="multipart/form-data" action="<?= base_url('warga/aksi_tambah_permohonan_suket005') ?>" method="POST">
 							<div class="form-group">
-								<div class="form-group" style="margin-top: 15px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Nomor_surat_admin" class="col-sm-3 col-form-label">No.Surat Admin</label> -->
-										<div class="col-sm-8">
-											<div class="form-line focused">
-												<input type="hidden" class="form-control" id="nomor_surat_admin" name="nomor_surat_admin" placeholder="No Surat diisi petugas" value="" required="">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-group" style="margin-top: 15px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- 	<label for="Nomor_surat_rt" class="col-sm-3 col-form-label">No.Surat RT</label> -->
-										<div class="col-sm-8">
-											<div class="form-line focused">
-												<input type="hidden" class="form-control" id="nomor_surat_rt" name="nomor_surat_rt" placeholder="No Surat diisi petugas" value="" required="">
-											</div>
-										</div>
-									</div>
-								</div>
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
@@ -51,6 +31,9 @@
 											<div class="col-sm-8">
 												<div class="form-line focused">
 													<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" required="">
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
 												</div>
 											</div>
 										</div>
@@ -62,6 +45,9 @@
 										<div class="col-sm-8">
 											<div class="form-line focused">
 												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -72,8 +58,12 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
+
 									</div>
 								</div>
 								<div class="form-group">
@@ -82,6 +72,9 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $detail->alamat; ?></textarea>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -93,6 +86,9 @@
 											<div class="col-sm-8">
 												<div class="form-line focused">
 													<input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Contoh : Pernikahan,Pengajian Akbar,dll..." value="" required="">
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
 												</div>
 											</div>
 										</div>
@@ -112,6 +108,9 @@
 													<option value="Sabtu" class="form-user-input">Sabtu</option>
 													<option value="Minggu" class="form-user-input">Minggu</option>
 												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -122,26 +121,35 @@
 										<div class="col-sm-8">
 											<div class="form-line focused">
 												<input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan" placeholder="Isi Tanggal Kegiatan..." value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tempat_kegiatan" class="col-sm-3 col-form-label">Tempat</label>
+										<label for="tempat" class="col-sm-3 col-form-label">Tempat Kegiatan</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="tempat_kegiatan" name="tempat_kegiatan" rows="3" placeholder="Tempat ditulis lengkap..."></textarea>
+												<textarea class="form-control" id="tempat" name="tempat" rows="3" placeholder="Alamat Tempat kegiatan ditulis lengkap..."></textarea>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Jam_kegiatan" class="col-sm-3 col-form-label">Jam Kegiatan</label>
+										<label for="jam" class="col-sm-3 col-form-label">Jam Kegiatan</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="jam_kegiatan" name="jam_kegiatan" placeholder="Isi Jam Kegiatan..." value="" required="">
+												<input type="text" class="form-control" id="jam" name="jam" placeholder="Isi Jam Kegiatan..." value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -152,19 +160,16 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="hidden" class="form-control" id="tanggal_pembuatan" name="tanggal_pembuatan" value="" required="">
-											</div>
-										</div>
-									</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group">
 										<div class="form-group row" style="margin-left: 10px;">
 											<label for="foto_ktp" class="col-sm-3 col-form-label">Foto KTP</label>
@@ -173,6 +178,9 @@
 													<div class="custom-file">
 														<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp">
 														<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
+														<i class=" fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Error massage</small>
 													</div>
 												</div>
 											</div>
@@ -184,13 +192,13 @@
 				<div class="card-footer">
 					<div class="float-right">
 						<a href="#">
-							<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
+							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
 								<i class="fa fa-times nav-icon">
 								</i> Batal
 							</button>
 						</a>
 						<a href="#">
-							<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
+							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">
 								</i> Simpan
 							</button>
@@ -201,8 +209,8 @@
 			<?php } ?>
 			</div>
 		</div>
+		<!--End Content Profile-->
 	</div>
-	<!--End Content Profile-->
 </div>
 <!-- /.container-fluid -->
 </div>

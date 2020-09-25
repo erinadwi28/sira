@@ -39,18 +39,14 @@
 								<td><label class="badge badge-success"><i class="fas fa-user-check"></i> <?php echo $rt->status_kepegawaian ?></label></td>
 								<td>
 									<div>
-										<a href="<?= base_url() ?>admin/detail_data_rt/<?= $rt->id_rt ?>">
-											<button class="btn btn-sm btn-primary" type="submit">
-												<i class="far fa-eye nav-icon"></i>
-												Detail
-											</button>
+										<a href="<?= base_url() ?>admin/detail_data_rt/<?= $rt->id_rt ?>" class="btn btn-primary btn-sm">
+											<i class="far fa-eye nav-icon"></i>
+											Detail
 										</a>
 
-										<a href="<?= base_url() ?>admin/aksi_hapus_rt/<?= $rt->id_rt ?> ">
-											<button class="btn btn-sm btn-danger mt-1" type="submit">
-												<i class="far fa-trash-alt nav-icon"></i>
-												Nonaktifkan
-											</button>
+										<a href="<?= base_url() ?>admin/aksi_hapus_rt/<?= $rt->id_rt ?> " class="btn btn-danger btn-sm hapus">
+											<i class="far fa-trash-alt nav-icon"></i>
+											Hapus
 										</a>
 									</div>
 								</td>

@@ -16,7 +16,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. USAHA</h5>
+                                <h6>SUKET. USAHA</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -34,10 +34,13 @@
         <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+                    <?php if ($this->session->flashdata('success')) : ?>
+                    <?php endif; ?>
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. DOMISILI</h5>
+                                <h6>SUKET. DOMISILI</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -57,7 +60,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. KEPEMILIKAN TANAH</h5>
+                                <h6>SUKET. KEPEMILIKAN TANAH</h6>
                             </div>
                         </div>
                         <div>
@@ -77,7 +80,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. BELUM MEMILIKI RUMAH</h5>
+                                <h6>SUKET. BELUM MEMILIKI RUMAH</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -98,7 +101,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. BEDA NAMA</h5>
+                                <h6>SUKET. BEDA NAMA</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -119,7 +122,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. PENYERAHAN WARIS</h5>
+                                <h6>SUKET. PENYERAHAN WARIS</h6>
                             </div>
                         </div>
                         <div>
@@ -138,7 +141,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. IZIN KERAMAIAN</h5>
+                                <h6>SUKET. IZIN KERAMAIAN</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -159,7 +162,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. BELUM MENIKAH</h5>
+                                <h6>SUKET. BELUM MENIKAH</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -180,7 +183,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. AHLI WARIS</h5>
+                                <h6>SUKET. AHLI WARIS</h6>
                             </div>
                         </div>
                         <div>
@@ -199,7 +202,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. TIDAK MAMPU </h5>
+                                <h6>SUKET. TIDAK MAMPU </h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -220,7 +223,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. JANDA</h5>
+                                <h6>SUKET. JANDA</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -241,7 +244,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. PENGANATR NIKAH</h5>
+                                <h6>SUKET. PENGANATR NIKAH</h6>
                             </div>
                         </div>
                         <div>
@@ -260,7 +263,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. KEMATIAN</h5>
+                                <h6>SUKET. KEMATIAN</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -281,7 +284,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. KELAHIRAN</h5>
+                                <h6>SUKET. KELAHIRAN</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -302,7 +305,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. PENYERAHAN TANAH</h5>
+                                <h6>SUKET. PENYERAHAN TANAH</h6>
                             </div>
                         </div>
                         <div>
@@ -321,7 +324,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SURAT PENGANTAR KTP</h5>
+                                <h6>SURAT PENGANTAR KTP</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -342,7 +345,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SURAT PENGANTAR KK</h5>
+                                <h6>SURAT PENGANTAR KK</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -363,7 +366,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SURAT REKOMENDASI IMB</h5>
+                                <h6>SURAT REKOMENDASI IMB</h6>
                             </div>
                         </div>
                         <div>
@@ -382,7 +385,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. PINDAH </h5>
+                                <h6>SUKET. PINDAH </h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -403,7 +406,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET. PENGHASILAN</h5>
+                                <h6>SUKET. PENGHASILAN</h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">
@@ -424,7 +427,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h5>SUKET REK.USAHA MIKRO KECIL </h5>
+                                <h6>SUKET REK.USAHA MIKRO KECIL </h6>
                             </div>
                         </div>
                         <!-- <div class="col-auto">

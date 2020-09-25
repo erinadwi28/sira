@@ -17,7 +17,7 @@
 												Kepala Desa
 											</div>
 											<div class="h6 mb-0 font-weight-bold text-gray-800">
-												RAHADIAN SYAHMI, S.Hut
+												RAHADIAN SYAHMI, S.Hut.
 											</div>
 										</div>
 										<div class="col-auto">

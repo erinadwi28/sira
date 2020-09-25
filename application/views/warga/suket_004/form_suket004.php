@@ -1,3 +1,4 @@
+<!-- Begin Page Content -->
 <div class="container-fluid">
 
 	<!-- Page Heading -->
@@ -11,6 +12,7 @@
 		</a>
 
 	</div>
+
 	<!--Begin Content Profile-->
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
@@ -21,38 +23,17 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal">
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 15px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Nomor_surat_admin" class="col-sm-3 col-form-label">No.Surat Admin</label> -->
-										<div class="col-sm-8">
-											<div class="form-line focused">
-												<input type="hidden" class="form-control" id="nomor_surat_admin" name="nomor_surat_admin" placeholder="No Surat diisi petugas" value="" required="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 15px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Nomor_surat_rt" class="col-sm-3 col-form-label">No.Surat RT</label> -->
-										<div class="col-sm-8">
-											<div class="form-line focused">
-												<input type="hidden" class="form-control" id="nomor_surat_rt" name="nomor_surat_rt" placeholder="No Surat diisi petugas" value="" required="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<form class="form-horizontal" id="form_suket004" action="<?= base_url('warga/aksi_tambah_permohonan_suket004') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 15px;">
 									<div class="form-group row" style="margin-left: 10px;">
 										<label for="Nama_benar" class="col-sm-3 col-form-label">Nama benar</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_benar" name="nama_benar" placeholder="Nama benar" value="" required="">
+												<input type="text" class="form-control" id="nama_benar" name="nama_benar" placeholder="Isi nama benar..." value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -64,14 +45,10 @@
 										<label for="Nama_dokumen_benar" class="col-sm-3 col-form-label">Dokumen Benar</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<select class="form-control" id="nama_dokumen_benar">
-													<option>KTP</option>
-													<option>SIM</option>
-													<option>AKTA</option>
-													<option>IJAZAH</option>
-													<option>SERTIFIKAT</option>
-													<option>Lainnya</option>
-												</select>
+												<input type="text" class="form-control" id="nama_dokumen_benar" placeholder="KTP, KK, Ijazah dll..." name="nama_dokumen_benar" value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -83,7 +60,10 @@
 										<label for="Nama_salah" class="col-sm-3 col-form-label">Nama Salah</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_salah" name="nama_salaht" placeholder="Nama salah" value="" required="">
+												<input type="text" class="form-control" id="nama_salah" name="nama_salah" placeholder="Isi nama salah..." value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -92,17 +72,13 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 15px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Nama_dokumen_benar" class="col-sm-3 col-form-label">Dokumen Salah</label>
+										<label for="nama_dokumen_salah" class="col-sm-3 col-form-label">Dokumen Salah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<select class="form-control" id="nama_dokumen_benar">
-													<option>KTP</option>
-													<option>SIM</option>
-													<option>AKTA</option>
-													<option>IJAZAH</option>
-													<option>SERTIFIKAT</option>
-													<option>Lainnya</option>
-												</select>
+												<input type="text" class="form-control" id="nama_dokumen_salah" placeholder="KTP, KK, Ijazah dll..." name="nama_dokumen_salah" value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -114,6 +90,9 @@
 									<div class="col-sm-8">
 										<div class="form-line focused">
 											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -124,6 +103,9 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -134,6 +116,9 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -144,30 +129,16 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $detail->alamat; ?></textarea>
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="" required="">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="hidden" class="form-control" id="tanggal_pembuatan" name="tanggal_pembuatan" value="" required="">
-										</div>
-									</div>
-								</div>
-							</div>
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="4">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Menunggu Persetujuan RT">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
@@ -188,8 +159,8 @@
 				</form>
 			<?php } ?>
 			</div>
+			<!--End Content Profile-->
 		</div>
-		<!--End Content Profile-->
 	</div>
 	<!-- /.container-fluid -->
 </div>

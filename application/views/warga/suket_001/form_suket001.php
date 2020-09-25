@@ -22,30 +22,8 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form_suket001" action="" method="">
+						<form class="form-horizontal" id="form_suket001" action="<?= base_url('warga/aksi_tambah_permohonan_suket001') ?>" method="POST">
 							<div class="form-group">
-								<div class="form-group aria-hidden" style="margin-top: 15px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Nomor_surat_admin" class="col-sm-3 col-form-label">No.Surat Admin</label> -->
-										<div class="col-sm-8">
-											<div class="form-line focused">
-												<input type="hidden" class="form-control" id="nomor_surat_admin" name="nomor_surat_admin" value="" required="">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="form-group" style="margin-top: 15px;">
-										<div class="form-group row" style="margin-left: 10px;">
-											<!-- <label for="Nomor_surat_rt" class="col-sm-3 col-form-label">No.Surat RT</label> -->
-											<div class="col-sm-8">
-												<div class="form-line focused">
-													<input type="hidden" class="form-control" id="nomor_surat_rt" name="nomor_surat_rt" value="" required="">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
@@ -72,6 +50,9 @@
 													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
 													</option>
 												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -81,6 +62,9 @@
 									<div class="col-sm-8">
 										<div class="form-line focused">
 											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -91,6 +75,9 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -101,6 +88,9 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -111,6 +101,9 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<textarea class="form-control" id="alamat" name="alamat" rows="3" required="Isikan Alamat"><?= $detail->alamat; ?></textarea>
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
@@ -118,36 +111,32 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 15px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Usaha" class="col-sm-3 col-form-label">Usaha</label>
+										<label for="nama_usaha" class="col-sm-3 col-form-label">Nama Usaha</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="usaha" name="usaha" value="" required="">
+												<input type="text" class="form-control" id="nama_usaha" name="nama_usaha" value="" required="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="hidden" class="form-control" id="tanggal_pembuatan" name="tanggal_pembuatan" value="" required="">
-										</div>
-									</div>
-								</div>
-							</div>
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="1">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Menunggu Persetujuan RT">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
 						<a href="#">
-							<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
+							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
 								<i class="fa fa-times nav-icon">
 								</i> Batal
 							</button>
 						</a>
-						<a href="#">
-							<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
+						<a href="">
+							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">
 								</i> Simpan
 							</button>
@@ -160,7 +149,6 @@
 		</div>
 		<!--End Content Profile-->
 	</div>
-	<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
 <script type="text/javascript" src="jquery/jquery-1.9.1.js"></script>

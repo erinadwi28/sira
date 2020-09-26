@@ -46,7 +46,7 @@
 
 										<a href="<?= base_url() ?>admin/aksi_hapus_kades/<?= $kades->id_kades ?>" class="btn btn-danger btn-sm hapus">
 											<i class="far fa-trash-alt nav-icon"></i>
-											Nonaktifkan
+											Hapus
 										</a>
 									</div>
 								</td>

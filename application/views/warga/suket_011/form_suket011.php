@@ -4,14 +4,13 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Pengantar KTP</h1>
-		<div class="float-right">
-			<a href="#">
-				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-					<i class="fa fa-arrow-left">
-					</i> Kembali
-				</button>
-			</a>
-		</div>
+		<a href="<?= base_url('warga') ?>">
+			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
+				<i class="fa fa-arrow-left">
+				</i> Kembali
+			</button>
+		</a>
+
 	</div>
 
 	<!--Begin Content Profile-->
@@ -20,395 +19,312 @@
 		<div class="col-xs-12 col-sm-8">
 			<div class="card">
 				<div class="body">
-					<form class="form-horizontal" id="form11" action="" method="">
-						<div class="form-group">
-							<div class="form-group aria-hidden" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Nomor_surat_admin" class="col-sm-3 col-form-label">No.Surat Admin</label> -->
-									<div class="col-sm-8">
-										<div class="form-line focused">
-											<input type="hidden" class="form-control" id="nomor_surat_admin" name="nomor_surat_admin" placeholder="No Surat diisi petugas" value="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Nomor_surat_rt" class="col-sm-3 col-form-label">No.Surat RT</label> -->
-									<div class="col-sm-8">
-										<div class="form-line focused">
-											<input type="hidden" class="form-control" id="nomor_surat_rt" name="nomor_surat_rt" placeholder="No Surat diisi petugas" value="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Nik" class="col-sm-3 col-form-label">NIK</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="nik" name="nik" placeholder="NIK" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Nama" class="col-sm-3 col-form-label">Nama</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Alamat"></textarea>
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Tidak boleh kosong</small>
-										</div>
+					<?php
+					foreach ($detail_profil as $detail) {
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="rt" class="col-sm-3 col-form-label">Rt</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="rt" name="rt" placeholder="rt" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="kelurahan" class="col-sm-3 col-form-label">Kelurahan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="kelurahan" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="kecamatan" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<select class="form-control " id="jenis_kelamin">
-												<option>Pilih jenis kelamin...</option>
-												<option value="Laki-laki">Laki-laki</option>
-												<option value="Perempuan">Perempuan</option>
-											</select>
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Agama" class="col-sm-3 col-form-label">Agama</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<select class="form-control" id="agama">
-												<option>Pilih jenis agama...</option>
-												<option value="Islam">Islam</option>
-												<option value="Protestan">Protestan</option>
-												<option value="Katholik">Katholik</option>
-												<option value="Hindu">Hindu</option>
-												<option value="Budha">Budha</option>
-												<option value="Khonghucu">Khonghucu</option>
-											</select>
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px; ">
-									<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="status_perkawinan" class="col-sm-3 col-form-label">Status Perkawinan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<select class="form-control " id="status_perkawinan">
-												<option>Pilih Status Perkawinan...</option>
-												<option value="Kawin">Kawin</option>
-												<option value="Belum Kawin">Belum Kawin</option>
-											</select>
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="golongan_darah" class="col-sm-3 col-form-label">Golongan Darah</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<select class="form-control" id="golongan_darah">
-												<option>Pilih Golongan Darah...</option>
-												<option value="AB">AB</option>
-												<option value="A">A</option>
-												<option value="B">B</option>
-												<option value="O">O</option>
-											</select>
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="no_kk" class="col-sm-3 col-form-label">No. KK</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="no_kk" name="no_kk" placeholder="No. KK" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal tinggal</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="no_surat_pindah" class="col-sm-3 col-form-label">No. Surat Pindah</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="No. surat_pindah" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="tgl_surat_pindah" class="col-sm-3 col-form-label">Tgl. Surat Pindah</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="pas_foto" class="col-sm-3 col-form-label">Pas Foto</label>
-									<div class="col-sm-8">
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="pas_foto" name="pas_foto">
-												<label class="custom-file-label upload-area" for="exampleInputFile">Upload Pas Foto</label>
-												<i class="fas fa-check-circle"></i>
+					?>
+						<form class="form-horizontal" id="form11" action="">
+							<div class="form-group">
+								<div class="form-group">
+									<div class="form-group row" style="margin-top: 15px; margin-left: 10px;">
+										<label for="NIK" class="col-sm-3 col-form-label">NIK</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="nik" name="nik" value="<?= $detail->nik; ?>">
+												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="foto_kk" class="col-sm-3 col-form-label">Foto KK</label>
-									<div class="col-sm-8">
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_kk" name="foto_kk">
-												<label class="custom-file-label upload-area" for="exampleInputFile">Upload Foto KK</label>
-												<i class="fas fa-check-circle"></i>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="alamat" name="alamat" value="<?= $detail->alamat; ?>">
+												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="foto_surat_pindah" class="col-sm-3 col-form-label">Foto Surat Pindah</label>
-									<div class="col-sm-8">
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_surat_pindah" name="foto_surat_pindah">
-												<label class="custom-file-label upload-area" for="exampleInputFile">Upload Foto Surat Pindah</label>
-												<i class="fas fa-check-circle"></i>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Rt" class="col-sm-3 col-form-label">RT</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="rt" name="rt" value="<?= $detail->rt; ?>">
+												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="tanggal_permohonan" class="col-sm-3 col-form-label">Tgl. Permohonan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Kelurahan" class="col-sm-3 col-form-label">Kelurahan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="kelurahan" name="kelurahan" value="<?= $detail->kelurahan; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="kecamatan" name="kecamatan" value="<?= $detail->kecamatan; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
+													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
+													</option>
+													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Agama" class="col-sm-3 col-form-label">Agama</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control form-user-input" name="agama" id="agama">
+													<option value="Pilih jenis agama..." class="form-user-input">Pilih jenis agama...</option>
+													<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
+													<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
+													</option>
+													<option value="Katholik" <?= ($detail->agama == 'Katholik' ? ' selected' : ''); ?> class="form-user-input">Katholik
+													</option>
+													<option value="Hindu" <?= ($detail->agama == 'Hindu' ? ' selected' : ''); ?> class="form-user-input">Hindu</option>
+													<option value="Budha" <?= ($detail->agama == 'Budha' ? ' selected' : ''); ?> class="form-user-input">Budha</option>
+													<option value="Khonghucu" <?= ($detail->agama == 'Khonghucu' ? ' selected' : ''); ?> class="form-user-input">Khonghucu
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
+										<div class="col-sm-8">
+											<div class="form-line focused">
+												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $detail->tempat_lahir; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="status_perkawinan" class="col-sm-3 col-form-label">Status Perkawinan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="status_perkawinan" name="status_perkawinan">
+													<option value="Pilih status perkawinan..." class="form-user-input">Pilih status perkawinan...</option>
+													<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
+													</option>
+													<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="golongan_darah" class="col-sm-3 col-form-label">Golongan Darah</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="golongan_darah" name="golongan_darah">
+													<option value="AB" <?= ($detail->golongan_darah == 'AB' ? ' selected' : ''); ?> class="form-user-input">AB</option>
+													<option value="A" <?= ($detail->golongan_darah == 'A' ? ' selected' : ''); ?> class="form-user-input">A</option>
+													<option value="B" <?= ($detail->golongan_darah == 'B' ? ' selected' : ''); ?> class="form-user-input">B</option>
+													<option value="O" <?= ($detail->golongan_darah == 'O' ? ' selected' : ''); ?> class="form-user-input">O</option>
+													<option value="Tidak tau" <?= ($detail->golongan_darah == 'Tidak tau' ? ' selected' : ''); ?> class="form-user-input">Tidak tau</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="No_kk" class="col-sm-3 col-form-label">No. KK</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="no_kk" name="no_kk" value="<?= $detail->no_kk; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal Tinggal</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="No_surat_pindah" class="col-sm-3 col-form-label">No. Surat Pindah</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="Isikan nomor surat pindah...">
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Tgl_surat_pindah" class="col-sm-3 col-form-label">Tgl Surat Pindah</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah">
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="pas_foto" class="col-sm-3 col-form-label">Pas Foto</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<div class="custom-file">
+													<input type="file" class="custom-file-input" id="pas_foto" name="pas_foto">
+													<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="foto_kk" class="col-sm-3 col-form-label">Foto KK</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<div class="custom-file">
+													<input type="file" class="custom-file-input" id="foto_kk" name="foto_kk">
+													<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="foto_surat_pindah" class="col-sm-3 col-form-label">Foto Surat Pindah</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<div class="custom-file">
+													<input type="file" class="custom-file-input" id="foto_surat_pindah" name="foto_surat_pindah">
+													<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
+
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="hidden" class="form-control" id="tanggal_pembuatan" name="Tanggal_pembuatan" value="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 				</div>
-			</div>
-			<div class="card-footer">
-				<div class="float-right">
-					<a href="#">
-						<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-							<i class="fa fa-times nav-icon">
-							</i> Batal
-						</button>
-					</a>
-					<a href="#">
-						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
-							<i class="far fa-save nav-icon">
-							</i> Simpan
-						</button>
-					</a>
+				<div class="card-footer">
+					<div class="float-right">
+						<a href="#">
+							<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
+								<i class="fa fa-times nav-icon">
+								</i> Batal
+							</button>
+						</a>
+						<a href="#">
+							<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
+								<i class="far fa-save nav-icon">
+								</i> Simpan
+							</button>
+						</a>
+					</div>
 				</div>
+				</form>
+			<?php } ?>
 			</div>
 			</form>
 		</div>
@@ -417,3 +333,5 @@
 </div>
 </div>
 <!-- /.container-fluid -->
+
+<!-- End of Main Content -->

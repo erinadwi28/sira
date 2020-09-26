@@ -4,14 +4,12 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Keterangan Tidak Mampu</h1>
-		<div class="float-right">
-			<a href="#">
-				<button id="btn_kembali" class="btn btn-sm btn-warning" type="reset">
-					<i class="fa fa-arrow-left">
-					</i> Kembali
-				</button>
-			</a>
-		</div>
+		<a href="<?= base_url('warga') ?>">
+			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
+				<i class="fa fa-arrow-left">
+				</i> Kembali
+			</button>
+		</a>
 	</div>
 
 	<!--Begin Content Profile-->
@@ -20,191 +18,124 @@
 		<div class="col-xs-12 col-sm-8">
 			<div class="card">
 				<div class="body">
-					<form class="form-horizontal" id="form7" action="" method="">
-						<div class="form-group">
-							<div class="form-group aria-hidden" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Nomor_surat_admin" class="col-sm-3 col-form-label">No.Surat Admin</label> -->
-									<div class="col-sm-8">
-										<div class="form-line focused">
-											<input type="hidden" class="form-control" id="nomor_surat_admin" name="nomor_surat_admin" placeholder="No Surat diisi petugas" value="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<!-- <label for="Nomor_surat_rt" class="col-sm-3 col-form-label">No.Surat RT</label> -->
-									<div class="col-sm-8">
-										<div class="form-line focused">
-											<input type="hidden" class="form-control" id="nomor_surat_rt" name="nomor_surat_rt" placeholder="No Surat diisi petugas" value="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+					<?php
+					foreach ($detail_profil as $detail) {
 
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Nama" class="col-sm-3 col-form-label">Nama</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" value="">
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-group" style="margin-top: 20px;">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<select class="form-control " id="jenis_kelamin">
-												<option>Pilih jenis kelamin...</option>
-												<option value="Laki-laki">Laki-laki</option>
-												<option value="Perempuan">Perempuan</option>
-											</select>
-											<i class="fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
-									</div>
-								</div>
-							</div>
+					?>
+						<form class="form-horizontal" id="form7" action="<?= base_url('warga/aksi_tambah_permohonan_suket007') ?>" method="POST">
 							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px; ">
-										<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
+								<div class="form-group">
+									<div class="form-group" style="margin-top: 15px;">
+										<div class="form-group row" style="margin-left: 10px;">
+											<label for="Nama" class="col-sm-3 col-form-label">Nama</label>
+											<div class="col-sm-8">
+												<div class="form-line focused">
+													<input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" value="<?= $detail->nama; ?>">
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
+								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+										<label for="Jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<select class="form-control" id="pekerjaan">
-													<option>Pilih jenis pekerjaan...</option>
-													<option value="PNS">PNS</option>
-													<option value="Swasta">Swasta</option>
-													<option value="Wirausaha">Wirausaha</option>
-													<option value="Buruh">Buruh</option>
-													<option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
-													<option value="Lainnya">Lainnya</option>
+												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
+													</option>
+													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
+													</option>
 												</select>
-												<i class="fas fa-check-circle"></i>
+												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
 								</div>
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
+									<div class="col-sm-8">
+										<div class="form-line focused">
+											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $detail->tempat_lahir; ?>">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Alamat Lengkap"></textarea>
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Tidak boleh kosong</small>
-											</div>
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
+									<div class="col-sm-8">
+										<div class="form-line focused">
+											<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="alamat_tinggal" class="col-sm-3 col-form-label">Alamat Tinggal</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<textarea class="form-control" id="alamat_tinggal" name="alamat_tinggal" rows="3" placeholder="alamat tinggal..."><?= $detail->alamat; ?></textarea>
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Keperluan" class="col-sm-3 col-form-label">Keperluan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Cth.Pengajuan Beasiswa" value="">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Tidak boleh kosong</small>
-											</div>
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Keperluan" class="col-sm-3 col-form-label">Keperluan</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<textarea class="form-control" id="keperluan" name="keperluan" rows="3" placeholder="Cth.: Perpanjang BPJS,Pendaftaran Sekolah, Pengajuan Beasiswa, dll... "></textarea>
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<!-- <label for="Tanggal_pembuatan" class="col-sm-3 col-form-label">Tanggal Pembuatan</label> -->
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="hidden" class="form-control" id="tanggal_pembuatan" name="Tanggal_pembuatan" value="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="7">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" value="Menunggu Persetujuan RT">
 				</div>
 				<div class="card-footer">
-
 					<div class="float-right">
 						<a href="#">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
+							<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
 								<i class="fa fa-times nav-icon">
 								</i> Batal
 							</button>
 						</a>
 						<a href="#">
-							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
+							<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">
 								</i> Simpan
 							</button>
@@ -212,9 +143,10 @@
 					</div>
 				</div>
 				</form>
+			<?php } ?>
 			</div>
 		</div>
 		<!--End Content Profile-->
 	</div>
 </div>
-<!-- /.container-fluid -->
+<!-- End of Main Content -->

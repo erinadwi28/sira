@@ -8,8 +8,9 @@
 	</div>
 
 	<!-- Content Row line 1-->
+
+	<!-- SUKET USAHA -->
 	<div class="row">
-		<!-- SUKET USAHA -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
 				<div class="card-body">
@@ -19,23 +20,26 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket001/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- SUKET DOMISILI -->
+		<!-- SUKET DOMISILI-->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
 				<div class="card-body">
+					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+					<?php if ($this->session->flashdata('success')) : ?>
+					<?php endif; ?>
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
 							<div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. DOMISILI</div> <br>
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket002/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
@@ -51,14 +55,17 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket003/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
+
 	<div class="row">
+
 		<!-- SUKET BEDA NAMA -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
@@ -69,12 +76,13 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket004/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!-- SUKET IZIN KERAMAIAN -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
@@ -85,12 +93,13 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket005/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!-- SUKET BELUM PERNAH MENIKAH -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
@@ -101,12 +110,14 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket006/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
 	</div>
 	<div class="row">
 		<!-- SUKET TIDAK MAMPU -->
@@ -119,12 +130,13 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket007/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!-- SUKET JANDA -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
@@ -135,12 +147,13 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket008/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!-- SUKET KEMATIAN -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
@@ -151,13 +164,14 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket009/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
 		<!-- SUKET KELAHIRAN -->
 		<div class="col-xl-4 col-md-3 mb-3">
@@ -169,12 +183,14 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket010/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
 		<!-- SUKET PENGANTAR KTP -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-primary shadow h-100 py-1">
@@ -185,7 +201,7 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket011/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
@@ -201,7 +217,7 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket012/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
@@ -219,7 +235,7 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket013/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
@@ -235,7 +251,7 @@
 
 						</div>
 						<div>
-							<button class="btn btn-primary far fa-edit"> Buat</button>
+							<a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket014/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
 						</div>
 					</div>
 				</div>
@@ -260,13 +276,12 @@
 	</div>
 
 	<div class="row">
-		<!-- SUKET PENYERAHAN WARIS -->
-		<div class="col-xl-4 col-md-3 mb-3">
+	<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENYERAHAN WARIS</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
 
 						</div>
 						<div>
@@ -276,13 +291,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- SUKET AHLI WARIS -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SURAT KETERANGAN AHLI WARIS</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
 
 						</div>
 						<div>
@@ -292,13 +306,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- SUKET PENGANTAR NIKAH -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SURAT KET. PENGANTAR NIKAH</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
 
 						</div>
 						<div>
@@ -307,17 +320,15 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
-
 	<div class="row">
-		<!-- SUKET PENYERAHAN TANAH -->
-		<div class="col-xl-4 col-md-3 mb-3">
+	<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENYERAHAN TANAH</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
 
 						</div>
 						<div>
@@ -327,14 +338,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- SUKET REKOMENDASI IMB -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI IMB</div>
-
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
 						</div>
 						<div>
 							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
@@ -343,13 +352,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- SUKET REK. UMK -->
 		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI UMK</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
 
 						</div>
 						<div>
@@ -360,6 +368,4 @@
 			</div>
 		</div>
 	</div>
-	<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->
+	

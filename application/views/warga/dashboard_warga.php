@@ -276,12 +276,12 @@
 	</div>
 
 	<div class="row">
-	<div class="col-xl-4 col-md-3 mb-3">
+		<div class="col-xl-4 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENYERAHAN WARIS </div>
 
 						</div>
 						<div>
@@ -296,7 +296,7 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. AHLI WARIS</div> <br>
 
 						</div>
 						<div>
@@ -311,53 +311,7 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
-
-						</div>
-						<div>
-							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	
-	</div>
-	<div class="row">
-	<div class="col-xl-4 col-md-3 mb-3">
-			<div class="card border-left-success shadow h-100 py-1">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
-
-						</div>
-						<div>
-							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-4 col-md-3 mb-3">
-			<div class="card border-left-success shadow h-100 py-1">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
-						</div>
-						<div>
-							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-4 col-md-3 mb-3">
-			<div class="card border-left-success shadow h-100 py-1">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENGANTAR NIKAH</div>
 
 						</div>
 						<div>
@@ -368,4 +322,49 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="row">
+		<div class="col-xl-4 col-md-3 mb-3">
+			<div class="card border-left-success shadow h-100 py-1">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENYERAHAN TANAH</div> <br>
+
+						</div>
+						<div>
+							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-md-3 mb-3">
+			<div class="card border-left-success shadow h-100 py-1">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI IMB</div> <br>
+						</div>
+						<div>
+							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-md-3 mb-3">
+			<div class="card border-left-success shadow h-100 py-1">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="h5 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI USAHA MIKRO KECIL</div>
+
+						</div>
+						<div>
+							<button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -119,14 +119,16 @@ const tanggal_permohonan = document.getElementById("tanggal_permohonan");
 
 if (form1 != null) {
 	form1.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput1();
-		e.target.submit();
+		if (checkInput1 != null) {
+			e.preventDefault();
+		} else
+			e.target.submit();
 	});
+
 } else if (form2 != null) {
 	form2.addEventListener("submit", (e) => {
 		e.preventDefault();
-		checkInput2();
+		checkInput2() === "";
 		e.target.submit();
 	});
 } else if (form3 != null) {

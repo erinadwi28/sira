@@ -32,7 +32,28 @@
                                                 <td> </td>
                                                 <td>Rahma Maulani</td>
                                             </tr>
+                                            </tr>
+                                                <td><b>Agama</b></td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td>Islam</td>
+                                            </tr>
                                             <tr>
+                                                <td><b>Tempat Lahir</b></td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td>Sleman</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tanggal Lahir</b></td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td>22/07/2000</td>
+											</tr>
+											<tr>
                                                 <td><b>Alamat</b></td>
                                                 <td> </td>
                                                 <td> </td>
@@ -59,27 +80,6 @@
                                                 <td> </td>
                                                 <td> </td>
                                                 <td>Arut Selatan</td>
-                                            </tr>
-                                            </tr>
-                                                <td><b>Agama</b></td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td>Islam</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Tempat Lahir</b></td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td>Sleman</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Tanggal Lahir</b></td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td>22/07/2000</td>
                                             </tr>
                                             <tr>
                                                 <td><b>Status Perkawinan</b></td>
@@ -121,7 +121,7 @@
                                                 <td> </td>
                                                 <td> </td>
                                                 <td> </td>
-                                                <td>24/07/2020/td>
+                                                <td>24/07/2020</td>
                                             </tr>
                                             <tr>
                                                 <td><b>Tanggal Permohonan</b></td>

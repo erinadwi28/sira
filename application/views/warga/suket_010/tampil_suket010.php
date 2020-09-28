@@ -1,8 +1,11 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<!-- Page Heading -->
-					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Preview Permohonan Surat</h1>
+					<button class="btn btn-sm btn-warning float-left" type="reset"><i class="fa fa-arrow-left"></i> Kembali</button>
+					<div class="preview">
+						<center>
+							<h1 class="h3 mb-30 text-gray-800">Preview Permohonan Surat</h1>
+						</center>
 					</div>
 					<div class="row">
 						<div class="col-md-2">
@@ -22,102 +25,113 @@
 										<div class="badan_surat">
 											<div class="no_surat">
 												<center>
-													<p><u>SURAT KETERANGAN USAHA</u><br>
-														Nomor : 206 / KM / AS / VIII / 2020. Um</p>
+													<p><u>SURAT KELAHIRAN</u><br>
+														Nomor : 474.1 / 010 / KM / VII / 2020</p>
 												</center>
 											</div>
 											<div class="isi_surat paragraf">
-												<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
-													Selatan, Kabupaten Kotawaringin Barat,
-													Provinsi Kalimantan Tengah, dengan ini menerangkan bahwa :</p>
+												<p> Yang bertanda tangan dibawah ini, menerangkan bahwa pada :</p>
 											</div>
 											<div class="isi_surat identitas">
 												<table class="table-responsive">
 													<tbody>
 														<tr>
-															<td>Nama</td>
+															<td><b>Hari</b></td>
 															<td> </td>
 															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td><b>M. SYAPRIANSYAH</b></td>
+															<td> :</td>
+															<td>Senin</td>
 														</tr>
 														<tr>
-															<td>Jenis Kelamin</td>
+															<td><b>Tanggal</b></td>
 															<td> </td>
 															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Laki - Laki</td>
+															<td> :</td>
+															<td>05/08/2020</td>
 														</tr>
 														<tr>
-															<td>Tempat Tanggal Lahir</td>
+															<td><b>Di</b></td>
 															<td> </td>
 															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Pangkalan Bun, 25 September 1972
-															</td>
+															<td> :</td>
+															<td>Kotawaringin Barat</td>
 														</tr>
 														<tr>
-															<td>Pekerjaan</td>
+															<td><b>Jam</b></td>
 															<td> </td>
 															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Wiraswasta</td>
-														</tr>
-														<tr>
-															<td>Kelurahan</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Mendawai</td>
-														</tr>
-														<tr>
-															<td>Alamat Tinggal</td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>JL. DAH. Hamzah RT. 16 Kelurahan Mendawai
-																Kecamatan Arut Selatan Pangkalan Bun
-															</td>
+															<td> :</td>
+															<td>09.00 WITA</td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
+
+											<div class="isi_surat paragraf">
+												<br>
+												<p>telah lahir seorang anak <b>Perempuan</b> bernama :</p>
+												<center>
+													<p> <b> RATNA NINGRUM</b></p>
+												</center>
+												<p>Dari seorang ibu :</p>
+											</div>
+
+											<div class="isi_surat identitas">
+												<table class="table-responsive">
+													<tbody>
+														<tr>
+															<td><b>Nama Ibu</b></td>
+															<td> </td>
+															<td> </td>
+															<td> :</td>
+															<td>RAHMA MAULANI</td>
+														</tr>
+														<tr>
+															<td><b>Alamat</b></td>
+															<td> </td>
+															<td> </td>
+															<td> :</td>
+															<td>Jalan Abdul Ancis, Rt. 21, Kel. Mendwai, Kec. Arut Selatan, Kab.
+																Kotawaringin Barat</td>
+														</tr>
+														<tr>
+															<td><b>Istri dari</b></td>
+															<td> </td>
+															<td> </td>
+															<td> :</td>
+															<td>Muhammad Farid</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<br>
 											<div class="isi_surat paragraf">
 												<p>
-													Berdasarkan Surat Keterangan dari Ketua Rukun Tetangga ( RT ) 16
-													Kelurahan Mendawai, tanggal 04 Agustus 2020
-													Nomor : 330 /RT. 16 /KM/AS/VIII /2020, bahwa yang bersangkutan
-													memang benar penduduk RT. 16 Kelurahan
-													Mendawai, Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat,
-													dan
-													memang benar juga mempunyai usaha :
-													“Berjualan Ikan dan sayur “.
+													Surat keterangan ini dibuat atas dasar yang sebenarnya
 												</p>
-												<p>
-													Demikian Surat Keterangan ini kami berikan, agar dapat
-													dipergunakan
-													sebagaimana mestinya. Dengan catatan
-													Surat Keterangan Usaha ini berlaku tiga bulan TMT hari ini.
-												</p>
+
 											</div>
+											<div class="isi_surat identitas">
+												<table class="table-responsive">
+													<tbody>
+														<tr>
+															<td><b>Nama pemohon</b></td>
+															<td> </td>
+															<td> </td>
+															<td> :</td>
+															<td>Rahma Maulani</td>
+														</tr>
+														<tr>
+															<td><b>Hubungan dgn bayi</b></td>
+															<td> </td>
+															<td> </td>
+															<td> :</td>
+															<td>Ibu</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
 										</div>
 									</center>
 									<div class="row">
@@ -127,7 +141,7 @@
 											<div class="badan_surat isi_surat">
 												<center>
 
-													Pangkalan Bun, 04 Agustus 2020<br>
+													Pangkalan Bun, 10 Agustus 2020<br>
 													LURAH MENDAWAI
 
 												</center>
@@ -139,9 +153,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="badan_surat isi_surat">
-												<center>
-													<img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png">
-												</center>
+												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
 											</div>
 										</div>
 									</div>
@@ -169,7 +181,6 @@
 						<div class="col-md-2">
 						</div>
 					</div>
-					<button class="btn btn-sm btn-warning float-left" type="reset"><i class="far fa-caret-square-left"></i> Kembali</button>
 				</div>
 				<!-- /.container-fluid -->
 				</div>

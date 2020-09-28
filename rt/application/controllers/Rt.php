@@ -26,8 +26,8 @@ class Rt extends CI_Controller
         }
 
        //tampil profil saya
-        public function profil_saya($id_rt)
-        {
+    public function profil_saya($id_rt)
+    {
         $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
         $this->session->userdata('id_rt')])->row_array();
 

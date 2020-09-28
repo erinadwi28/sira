@@ -440,195 +440,191 @@ class Admin extends CI_Controller
                 $config['upload_path']          = './../assets/uploads/kades/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_kades = $this->input->post('id_kades');
+		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_kades = $this->input->post('id_kades');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
+		for ($i = 0; $i < $jumlah_berkas; $i++) {
+			if (!empty($_FILES['berkas']['name'][$i])) {
+
 				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_profil_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_profil_kades'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa',$data);
+					// $data_detail = $this->input->post('id_warga');
+
+					$this->db->where('id_kades', $id_kades);
+					$this->db->update('kepala_desa', $data);
 				}
 			}
 		}
-        }
+	}
 
-        // upload foto ktp kades
-        public function upload_foto_ktp_kades()
-        {
-                $where = $this->input->post('id_kades');
-                if ($_FILES != null) {
-                $this->aksi_upload_foto_ktp_kades($_FILES);
-                }
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_kades/'.$where);
-        }
+	// upload foto ktp kades
+	public function upload_foto_ktp_kades()
+	{
+		$where = $this->input->post('id_kades');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_ktp_kades($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_kades/' . $where);
+	}
 
-        // upload foto ktp kades
-        private function aksi_upload_foto_ktp_kades($id_kades)
-        {
-                $config['upload_path']          = './../assets/uploads/kades/';
+	// upload foto ktp kades
+	private function aksi_upload_foto_ktp_kades($id_kades)
+	{
+		$config['upload_path']          = './../assets/uploads/kades/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_kades = $this->input->post('id_kades');
+		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_kades = $this->input->post('id_kades');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
+		for ($i = 0; $i < $jumlah_berkas; $i++) {
+			if (!empty($_FILES['berkas']['name'][$i])) {
+
 				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_ktp_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_ktp_kades'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa',$data);
+					// $data_detail = $this->input->post('id_warga');
+
+					$this->db->where('id_kades', $id_kades);
+					$this->db->update('kepala_desa', $data);
 				}
 			}
 		}
-        }
+	}
 
-        // upload foto kk kades
-        public function upload_foto_kk_kades()
-        {
-                $where = $this->input->post('id_kades');
-                if ($_FILES != null) {
-                $this->aksi_upload_foto_kk_kades($_FILES);
-                }
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_kades/'.$where);
-        }
+	// upload foto kk kades
+	public function upload_foto_kk_kades()
+	{
+		$where = $this->input->post('id_kades');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_kk_kades($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_kades/' . $where);
+	}
 
-        //upload foto kk kades
-        private function aksi_upload_foto_kk_kades($id_kades)
-        {
-                $config['upload_path']          = './../assets/uploads/kades/';
+	//upload foto kk kades
+	private function aksi_upload_foto_kk_kades($id_kades)
+	{
+		$config['upload_path']          = './../assets/uploads/kades/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_kades = $this->input->post('id_kades');
+		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_kades = $this->input->post('id_kades');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
+		for ($i = 0; $i < $jumlah_berkas; $i++) {
+			if (!empty($_FILES['berkas']['name'][$i])) {
+
 				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_kk_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_kk_kades'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa',$data);
+					// $data_detail = $this->input->post('id_warga');
+
+					$this->db->where('id_kades', $id_kades);
+					$this->db->update('kepala_desa', $data);
 				}
 			}
 		}
-        }
+	}
 
-        // upload foto ttd kades
-        public function upload_foto_ttd_kades()
-        {
-                $where = $this->input->post('id_kades');
-                if ($_FILES != null) {
-                $this->aksi_upload_foto_ttd_kades($_FILES);
-                }
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_kades/'.$where);
-        }
+	// upload foto ttd kades
+	public function upload_foto_ttd_kades()
+	{
+		$where = $this->input->post('id_kades');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_ttd_kades($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_kades/' . $where);
+	}
 
-        //upload foto ttd kades
-        private function aksi_upload_foto_ttd_kades($id_kades)
-        {
-                $config['upload_path']          = './../assets/uploads/kades/';
+	//upload foto ttd kades
+	private function aksi_upload_foto_ttd_kades($id_kades)
+	{
+		$config['upload_path']          = './../assets/uploads/kades/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_kades = $this->input->post('id_kades');
+		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_kades = $this->input->post('id_kades');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
+		for ($i = 0; $i < $jumlah_berkas; $i++) {
+			if (!empty($_FILES['berkas']['name'][$i])) {
 				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_ttd_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_ttd_kades'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa',$data);
+					// $data_detail = $this->input->post('id_warga');
+
+					$this->db->where('id_kades', $id_kades);
+					$this->db->update('kepala_desa', $data);
 				}
 			}
 		}
@@ -1196,116 +1192,112 @@ class Admin extends CI_Controller
                 $config['upload_path']          = './../assets/uploads/warga/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_warga-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_warga = $this->input->post('id_warga');
+		$config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_warga = $this->input->post('id_warga');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
+		for ($i = 0; $i < $jumlah_berkas; $i++) {
+			if (!empty($_FILES['berkas']['name'][$i])) {
+
 				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_profil_warga'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_profil_warga'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
-                                        $this->db->where('id_warga', $id_warga);
-                                        $this->db->update('warga',$data);
+					// $data_detail = $this->input->post('id_warga');
+
+					$this->db->where('id_warga', $id_warga);
+					$this->db->update('warga', $data);
 				}
 			}
 		}
-        }
+	}
 
-        // upload foto ktp warga
-        public function upload_foto_ktp()
-        {
-                $where = $this->input->post('id_warga');
-                if ($_FILES != null) {
-                $this->aksi_upload_foto_ktp($_FILES);
-                }
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_warga/'.$where);
-        }
+	// upload foto ktp warga
+	public function upload_foto_ktp()
+	{
+		$where = $this->input->post('id_warga');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_ktp($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_warga/' . $where);
+	}
 
-        //upload foto ktp warga
-        private function aksi_upload_foto_ktp($id_warga)
-        {
-                $config['upload_path']          = './../assets/uploads/warga/';
+	//upload foto ktp warga
+	private function aksi_upload_foto_ktp($id_warga)
+	{
+		$config['upload_path']          = './../assets/uploads/warga/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_warga-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_warga = $this->input->post('id_warga');
+		$config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_warga = $this->input->post('id_warga');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
+		for ($i = 0; $i < $jumlah_berkas; $i++) {
+			if (!empty($_FILES['berkas']['name'][$i])) {
+
 				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_ktp_warga'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_ktp_warga'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
                                         $this->db->where('id_warga', $id_warga);
                                         $this->db->update('warga',$data);
 				}
 			}
 		}
-        }
+	}
 
-        // upload foto kk warga
-        public function upload_foto_kk()
-        {
-                $where = $this->input->post('id_warga');
-                if ($_FILES != null) {
-                $this->aksi_upload_foto_kk($_FILES);
-                }
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_warga/'.$where);
-        }
+	// upload foto kk warga
+	public function upload_foto_kk()
+	{
+		$where = $this->input->post('id_warga');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_kk($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_warga/' . $where);
+	}
 
-        //upload foto kk warga
-        private function aksi_upload_foto_kk($id_warga)
-        {
-                $config['upload_path']          = './../assets/uploads/warga/';
+	//upload foto kk warga
+	private function aksi_upload_foto_kk($id_warga)
+	{
+		$config['upload_path']          = './../assets/uploads/warga/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_warga-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-                $id_warga = $this->input->post('id_warga');
+		$config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+		$this->load->library('upload', $config);
+		$id_warga = $this->input->post('id_warga');
 		$jumlah_berkas = count($_FILES['berkas']['name']);
 		for($i = 0; $i < $jumlah_berkas;$i++)
 		{
@@ -1314,33 +1306,32 @@ class Admin extends CI_Controller
 				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
 				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
 				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+				if ($this->upload->do_upload('file')) {
+
+					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+					// $r = $ambil->row();
+					// unlink(".../assets/uploads/warga/".$r->nama_foto);
 
 					$uploadData = $this->upload->data();
-                        
-                                        $data['foto_kk_warga'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
 
-                                        // $data_detail = $this->input->post('id_warga');
+					$data['foto_kk_warga'] = $uploadData['file_name'];
+					// $data['keterangan'] = $keterangan[$i];
+					// $data['id_warga'] = $id_warga;
 
                                         $this->db->where('id_warga', $id_warga);
                                         $this->db->update('warga',$data);
 				}
 			}
 		}
-        }
+	}
 
-        // aksi hapus data warga
-        public function aksi_hapus_warga($id_warga){
+	// aksi hapus data warga
+	public function aksi_hapus_warga($id_warga)
+	{
 
-                $this->m_admin->hapus_warga($id_warga);
+		$this->m_admin->hapus_warga($id_warga);
 		$this->session->set_flashdata('success', 'dihapus');
                 redirect('admin/list_data_warga');
 		

@@ -51,6 +51,12 @@
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
+	<!-- Validasi -->
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation.js"></script>
+
+	<!-- ValidasiUbah Profil -->
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation_warga.js"></script>
+
 	<!-- Page level plugins -->
 	<script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
 
@@ -109,6 +115,37 @@
 		});
 	</script>
 
+	<!-- Sweet alert -->
+	<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+	<!-- simpan data permohonan -->
+	<!-- <script type="text/javascript">
+		$('form').on('submit', function(e) {
+
+			e.preventDefault();
+			const form = $(this).attr('action');
+
+			// var ambilid = $(this).attr('id_warga');
+			// var id_warga = 'id_warga='+ambilid;
+
+			Swal.fire({
+				title: 'Apakah anda yakin  ?',
+				text: "Data ini sudah benar",
+				icon: 'success',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Ya, Simpan Data',
+				cancelButtonText: 'Batal',
+				reverseButtons: true,
+			}).then((result) => {
+				if (result.value) {
+					document.location.form = form;
+				}
+			})
+
+		});
+	</script> -->
 
 	<!-- tambah data dan hapus data -->
 	<script>

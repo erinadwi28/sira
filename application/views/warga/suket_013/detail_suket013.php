@@ -47,6 +47,14 @@
 								<td>22/07/2000</td>
 							</tr>
 							<tr>
+								<td><b>Alamat tinggal</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td>Jalan Abdul Ancis, Rt. 21, Kel. Mendwai, Kec. Arut Selatan, Kab.
+									Kotawaringin Barat</td>
+							</tr>
+							<tr>
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
 								<td> </td>
@@ -59,7 +67,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td>1500000</td>
+								<td>2500000</td>
 							</tr>
 						</tbody>
 					</table>

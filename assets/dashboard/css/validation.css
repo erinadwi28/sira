@@ -1,0 +1,59 @@
+.form-line i {
+	position: absolute;
+	top: 10px;
+	right: 46px;
+	visibility: hidden;
+}
+
+.form-line small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.form-line.success input {
+	border-color: #2ecc71;
+}
+
+.form-line.success textarea {
+	border-color: #2ecc71;
+}
+
+.form-line.success select {
+	border-color: #2ecc71;
+}
+
+.custom-select.success {
+	border-color: #2ecc71;
+}
+
+.form-line.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form-line.errormsg input {
+	border-color: #e74c3c;
+}
+
+.form-line.errormsg textarea {
+	border-color: #e74c3c;
+}
+
+.form-line.errormsg select {
+	border-color: #e74c3c;
+}
+
+.form-line.errormsg i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.form-line.errormsg small {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: small;
+	margin-left: 20px;
+	margin-bottom: -18px;
+}

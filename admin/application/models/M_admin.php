@@ -5,11 +5,61 @@ class M_admin extends CI_Model{
     // Cek NIK untuk login
     public function cek_nik($nik)
     {
-  $query = $this->db->get_where('admin', ['nik' => $nik]);
-  return $query->row_array();
- }
- 
- // list data kepala desa
+        $query = $this->db->get_where('admin', ['nik' => $nik]);
+        return $query->row_array();
+    }
+
+    // detail profil saya
+    public function get_detail_profil_saya($detailhere, $tabel)
+    {
+        return $this->db->get_where($tabel, $detailhere);
+    }
+
+    //ambil foto profil profil saya
+    public function get_foto_profil_profil_saya($id_admin){
+        $this->db->select('foto_profil_admin');
+        $this->db->from('admin');
+        $this->db->where('id_admin', $id_admin);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //ambil foto ktp profil saya
+    public function get_foto_ktp_profil_saya($id_admin){
+        $this->db->select('foto_ktp_admin');
+        $this->db->from('admin');
+        $this->db->where('id_admin', $id_admin);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //ambil foto kk profil saya
+    public function get_foto_kk_profil_saya($id_admin){
+        $this->db->select('foto_kk_admin');
+        $this->db->from('admin');
+        $this->db->where('id_admin', $id_admin);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
+    public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
+    {
+        $this->db->where('id_admin', $detailhere);
+        $this->db->update($table, $data);
+    }
+
+    //aksi ubah kata sandi profil saya
+    public function ubah_kata_sandi_profil_saya($where, $data, $table)
+    {
+        $this->db->where('id_admin', $where);
+        $this->db->update($table, $data);
+    }
+
+    // list data kepala desa
     public function get_data_kades()
     {
         $this->db->select('*');
@@ -46,7 +96,7 @@ class M_admin extends CI_Model{
         $this->db->update($table, $data);
     }
 
-     //ambil foto profil kades
+    //ambil foto profil kades
     public function get_foto_profil_kades($id_kades){
         $this->db->select('foto_profil_kades');
         $this->db->from('kepala_desa');
@@ -66,7 +116,7 @@ class M_admin extends CI_Model{
         return $hasil;
     }
 
-     //ambil foto kk kades
+    //ambil foto kk kades
     public function get_foto_kk_kades($id_kades){
         $this->db->select('foto_kk_kades');
         $this->db->from('kepala_desa');
@@ -166,10 +216,9 @@ class M_admin extends CI_Model{
 
     //ambil foto profil rt
     public function get_foto_profil_rt($id_rt){
-        $this->db->select('warga.foto_profil_warga');
-        $this->db->from('warga');
-        $this->db->join('rt', 'warga.id_warga = rt.id_warga', 'INNER');
-        $this->db->where('rt.id_rt', $id_rt);
+        $this->db->select('foto_profil_rt');
+        $this->db->from('rt');
+        $this->db->where('id_rt', $id_rt);
 
         $hasil = $this->db->get();
         return $hasil;
@@ -197,14 +246,14 @@ class M_admin extends CI_Model{
         return $hasil;
     }
 
-   //aksi ubah rt
+    //aksi ubah rt
     public function aksi_ubah_profil_rt($id_rt, $data_rt)
     {
         $this->db->where('id_rt', $id_rt);
         $this->db->update('rt', $data_rt);
     }
 
-   //aksi ubah data rt di tabel warga
+    //aksi ubah data rt di tabel warga
     public function aksi_ubah_profil_rt_warga($id_warga, $data_warga)
     {
         $this->db->where('id_warga', $id_warga);
@@ -331,5 +380,137 @@ class M_admin extends CI_Model{
 
         $this->db->where('id_warga',$id_warga);
         $this->db->update('warga',$data);
+    }
+
+    // list data surat masuk
+    public function get_data_surat_masuk()
+    {
+        $this->db->select('*');
+        $this->db->from('surat_masuk');
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    //tambah surat masuk
+    public function tambah_surat_masuk($data)
+    {
+        $this->db->insert('surat_masuk', $data);
+        return $this->db->insert_id();
+    }
+
+    // detail surat masuk
+    public function get_detail_surat_masuk($detailhere, $tabel)
+    {
+        return $this->db->get_where($tabel, $detailhere);
+    }
+
+    // aksi ubah data surat masuk                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ubah data kades
+    public function aksi_ubah_surat_masuk($detailhere, $data, $table)
+    {
+        $this->db->where('id_sm', $detailhere);
+        $this->db->update($table, $data);
+    }
+
+    //ambil lampiran surat masuk
+    public function get_lampiran($id_sm){
+        $this->db->select('*');
+        $this->db->from('surat_masuk');
+        $this->db->where('id_sm', $id_sm);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //hapus surat masuk
+    public function hapus_surat_masuk($id_sm){
+        $data = array(
+            'status_delete' => 1
+        );
+
+        $this->db->where('id_sm',$id_sm);
+        $this->db->update('surat_masuk',$data);
+    }
+
+    // list data filter surat masuk
+    public function filter_surat_masuk($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('*');
+        $this->db->from('surat_masuk');
+        $this->db->where('tanggal >=', $tgl_awal);
+        $this->db->where('tanggal <=', $tgl_akhir);
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    // list data surat keluar
+    public function get_data_surat_keluar()
+    {
+        $this->db->select('*');
+        $this->db->from('surat_keluar');
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    //tambah surat keluar
+    public function tambah_surat_keluar($data)
+    {
+        $this->db->insert('surat_keluar', $data);
+        return $this->db->insert_id();
+    }
+
+    // detail surat keluar
+    public function get_detail_surat_keluar($detailhere, $tabel)
+    {
+        return $this->db->get_where($tabel, $detailhere);
+    }
+
+    // aksi ubah data surat keluar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ubah data kades
+    public function aksi_ubah_surat_keluar($detailhere, $data, $table)
+    {
+        $this->db->where('id_sk', $detailhere);
+        $this->db->update($table, $data);
+    }
+
+    //ambil lampiran surat keluar
+    public function get_lampiran_surat_keluar($id_sk){
+        $this->db->select('*');
+        $this->db->from('surat_keluar');
+        $this->db->where('id_sk', $id_sk);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //hapus surat masuk
+    public function hapus_surat_keluar($id_sk){
+        $data = array(
+            'status_delete' => 1
+        );
+
+        $this->db->where('id_sk',$id_sk);
+        $this->db->update('surat_keluar',$data);
+    }
+
+    // list data filter surat keluar
+    public function filter_surat_keluar($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('*');
+        $this->db->from('surat_keluar');
+        $this->db->where('tanggal >=', $tgl_awal);
+        $this->db->where('tanggal <=', $tgl_akhir);
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
     }
 }

@@ -27,7 +27,6 @@
 									<label class="label-control" for="nik"><b>NIK</b></label>
 									<input type="text" class="form-control form-user-input" name="nik" id="nik">
 								</div>
-
 								<div class="form-group">
 									<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
 									<input type="text" class="form-control form-user-input" name="nama" id="nama">

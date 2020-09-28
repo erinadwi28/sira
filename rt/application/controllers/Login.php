@@ -1,12 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-
 	public function __construct(){
 		parent::__construct();
 		
 		$this->load->model('M_rt', 'm_rt');
 	}
+
 	public function index()
     {
         
@@ -20,20 +20,20 @@ class Login extends CI_Controller {
 	public function aksi_login()
     {
         $nik = $this->input->post('nik');
-		$kata_sandi = $this->input->post('kata_sandi');
-		$kata_sandi_has = sha1($kata_sandi);
-		$rt = $this->m_rt->cek_nik($nik);
+        $kata_sandi = $this->input->post('kata_sandi');
+        $kata_sandi_hash = sha1($kata_sandi);
+        $status_delete = $this->input->post('status_delete');
+		$rt = $this->m_rt->cek_nik($nik, $status_delete);
 		
         if ($rt) {
-            //admin ada
-            if ($kata_sandi_has === $rt['kata_sandi']) {
+            //rt ada
+            if ($kata_sandi_hash === $rt['kata_sandi']) {
                 //kata sandi benar
 
                 $data = [
                     'nik' => $rt['nik'],
-                    'id_rt' => $rt['id_rt'],
-                    'nama' => $rt['nama'],
-                    'role_rt' => $rt['role_rt'],
+					'id_rt' => $rt['id_rt'],
+					'role_rt' => $rt['role_rt'],
                 ];
 
                 $this->session->set_userdata($data);
@@ -59,4 +59,5 @@ class Login extends CI_Controller {
         $this->session->set_flashdata('success', 'Berhasil <b>Logout</b>');
 			redirect('login');
     }
+	
 }

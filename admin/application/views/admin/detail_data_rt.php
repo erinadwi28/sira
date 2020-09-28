@@ -34,12 +34,12 @@
 				<div class="card-body" style="padding: 20px;">
 					<?php 
 					foreach($foto_profil as $p){ ?>
-					<img src="<?= base_url(); ?>../assets/uploads/warga/<?= $p->foto_profil_warga; ?>" alt="foto profil" class="img-fluid">
+					<img src="<?= base_url(); ?>../assets/uploads/rt/<?= $p->foto_profil_rt; ?>" alt="foto profil" class="img-fluid">
 				<?php } ?>
 				</div>
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_profil') ?>
+					<?= form_open_multipart('admin/upload_foto_profil_rt') ?>
 					<?php 
 					foreach($detail_rt as $d){ ?>
 					<div class="form-group ml-2 mr-2" >
@@ -49,8 +49,8 @@
 										<input type="file" class="custom-file-input" id="file-upload-profil"
 											name="berkas[]">
 										<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-										<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga"
-								value="<?= $d->id_warga; ?>">
+										<input type="hidden" class="form-control form-user-input" name="id_rt" id="id_rt"
+								value="<?= $d->id_rt; ?>">
 									</div>
 								</div>
 							</div>

@@ -73,13 +73,13 @@
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#">
+		<a class="nav-link collapsed" href="<?= base_url('admin/list_surat_masuk') ?>">
 			<i class="fa fa-book"></i>
 			<span>Data Surat Masuk</span>
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link " href="<?= base_url('admin/list_surat_keluar') ?>">
 			<i class="fa fa-book"></i>
 			<span>Data Surat Keluar</span>
 		</a>

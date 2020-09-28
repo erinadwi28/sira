@@ -3,7 +3,7 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Profil Saya</h1>
-		<a href="<?= base_url('admin/list_data_kades') ?>">
+		<a href="<?= base_url('admin') ?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 				<i class="fa fa-arrow-left">
 				</i> Kembali
@@ -40,9 +40,9 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_profil_admin') ?>
+					<?= form_open_multipart('admin/upload_foto_profil_profil_saya') ?>
 					<?php 
-					foreach($detail_admin as $saya){ ?>
+					foreach($detail_profil_saya as $saya){ ?>
 					<div class="form-group ml-2 mr-2">
 						<div class="input-group">
 							<div class="custom-file">
@@ -80,9 +80,9 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_ktp_admin') ?>
+					<?= form_open_multipart('admin/upload_foto_ktp_profil_saya') ?>
 					<?php 
-					foreach($detail_admin as $saya){ ?>
+					foreach($detail_profil_saya as $saya){ ?>
 					<div class="form-group ml-2 mr-2" >
 								<div class="input-group">
 									<div class="custom-file">
@@ -123,9 +123,9 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_kk_admin') ?>
+					<?= form_open_multipart('admin/upload_foto_kk_profil_saya') ?>
 					<?php 
-					foreach($detail_admin as $saya){ ?>
+					foreach($detail_profil_saya as $saya){ ?>
 					<div class="form-group ml-2 mr-2" >
 								<div class="input-group">
 									<div class="custom-file">
@@ -155,7 +155,7 @@
 			<div class="card shadow mb-4">
 				<div class="card-body">
 					<?php
-				foreach ($detail_kades as $detail) { ?>
+				foreach ($detail_profil_saya as $detail) { ?>
 					<table class="table-hover table-responsive">
 						<tbody>
 							<tr>
@@ -164,6 +164,13 @@
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->nik; ?></td>
+							</tr>
+							<tr>
+								<td><b>NIP</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= $detail->nip; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Lengkap</b></td>
@@ -285,6 +292,13 @@
 								<td><?= $detail->no_hp; ?></td>
 							</tr>
 							<tr>
+								<td><b>Jabatan</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= $detail->jabatan; ?></td>
+							</tr>
+							<tr>
 								<td><b>Status Kepegawaian</b></td>
 								<td> </td>
 								<td> </td>
@@ -297,7 +311,7 @@
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="<?= base_url() ?>admin/form_ubah_kades/<?= $detail->id_kades ?>">
+						<a href="<?= base_url() ?>admin/form_ubah_profil_saya/<?= $detail->id_admin ?>">
 							<button id="btn_ubah" class="btn btn-sm btn-primary" type="submit">
 								<i class="fa fa-edit nav-icon">
 								</i> Ubah

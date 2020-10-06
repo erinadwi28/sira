@@ -22,6 +22,9 @@
 
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+	<!-- Lightbox -->
+	<link href="<?= base_url('assets/dashboard/') ?>css/lightbox.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">

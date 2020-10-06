@@ -119,78 +119,88 @@ const tanggal_permohonan = document.getElementById("tanggal_permohonan");
 
 if (form1 != null) {
 	form1.addEventListener("submit", (e) => {
-		if (checkInput1 != null) {
-			e.preventDefault();
-		} else
+		if (checkInput1() == true) {
 			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 
 } else if (form2 != null) {
 	form2.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput2() === "";
-		e.target.submit();
+		if (checkInput2() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form3 != null) {
 	form3.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput3() === "";
-		e.target.submit();
+		if (checkInput3() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form4 != null) {
 	form4.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput4() === "";
-		e.target.submit();
-
+		if (checkInput4() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form5 != null) {
 	form5.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput5() === "";
-		// e.target.submit();
+		if (checkInput5() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form6 != null) {
 	form6.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput6() === "";
-		e.target.submit();
+		if (checkInput6() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form7 != null) {
 	form7.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput7() === "";
-		e.target.submit();
+		if (checkInput7() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form8 != null) {
 	form8.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput8() === "";
-		e.target.submit();
+		if (checkInput8() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form9 != null) {
 	form9.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput9() === "";
-		e.target.submit();
+		if (checkInput9() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form10 != null) {
 	form10.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput10() === "";
-		e.target.submit();
+		if (checkInput10() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form11 != null) {
 	form11.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput11() === "";
-		// e.target.submit();
+		if (checkInput11() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form12 != null) {
 	form12.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput12() === "";
-		e.target.submit();
+		if (checkInput12() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form13 != null) {
 	form13.addEventListener("submit", (e) => {
@@ -200,15 +210,17 @@ if (form1 != null) {
 	});
 } else if (form14 != null) {
 	form14.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput14() === "";
-		e.target.submit();
+		if (checkInput14() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (formubah != null) {
 	formubah.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInputsWarga() === "";
-		// e.target.submit();
+		if (checkInputsWarga() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 }
 
@@ -226,40 +238,49 @@ function checkInput1() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamatValue === "") {
 		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat);
 	}
 	if (usahaValue === "") {
 		setErrorFor(usaha, "Usaha tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(usaha);
 	}
+
+	return (true);
 }
 
 function checkInput2() {
@@ -274,46 +295,55 @@ function checkInput2() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 
 	if (agamaValue === "Pilih jenis agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(agama);
 	}
 	if (alamat_tinggalValue === "") {
 		setErrorFor(alamat_tinggal, "Alamat tinggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_tinggal);
 	}
 	if (alamat_kkValue === "") {
 		setErrorFor(alamat_kk, "Alamat KK tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_kk);
 	}
+	return (true);
 
 }
 
@@ -329,41 +359,48 @@ function checkInput3() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamat_tinggalValue === "") {
 		setErrorFor(alamat_tinggal, "Alamat tinggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_tinggal);
 	}
 	if (keperluanValue === "") {
 		setErrorFor(keperluan, "Keperluan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(keperluan);
 	}
-
+	return (true);
 }
 
 function checkInput4() {
@@ -379,44 +416,54 @@ function checkInput4() {
 
 	if (nama_benarValue === "") {
 		setErrorFor(nama_benar, "Nama benar tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_benar);
 	}
 	if (nama_dokumen_benarValue === "KTP, KK, Ijazah dll...") {
 		setErrorFor(nama_dokumen_benar, "Dokumen benar tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_dokumen_benar);
 	}
 	if (nama_salahValue === "") {
 		setErrorFor(nama_salah, "Nama salah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_salah);
 	}
 	if (nama_dokumen_salahValue === "KTP, KK, Ijazah dll...") {
 		setErrorFor(nama_dokumen_salah, "Dokumen salah tidak boleh kosong");
+		return (false);
+
 	} else {
 		setSuccessFor(nama_dokumen_salah);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamatValue === "") {
 		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat);
 	}
+	return (true);
 }
 
 function checkInput5() {
@@ -434,54 +481,65 @@ function checkInput5() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (alamatValue === "") {
 		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat);
 	}
 	if (nama_kegiatanValue === "") {
 		setErrorFor(nama_kegiatan, "Nama kegiatan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_kegiatan);
 	}
 	if (hari_kegiatanValue === "Pilih Hari") {
 		setErrorFor(hari_kegiatan, "Hari kegiatan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(hari_kegiatan);
 	}
 	if (tempat_kegiatanValue === "") {
 		setErrorFor(tempat_kegiatan, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_kegiatan);
 	}
 	if (tanggal_kegiatanValue === "") {
 		setErrorFor(tanggal_kegiatan, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_kegiatan);
 	}
 	if (jam_kegiatanValue === "") {
 		setErrorFor(jam_kegiatan, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jam_kegiatan);
 	}
 	if (foto_ktpValue === "Upload Foto KTP") {
 		setErrorFor(foto_ktp, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(foto_ktp);
 	}
+	return (true);
 }
 
 function checkInput6() {
@@ -495,35 +553,42 @@ function checkInput6() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamat_tinggalValue === "") {
 		setErrorFor(alamat_tinggal, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_tinggal);
 	}
+	return (true);
 }
 
 function checkInput7() {
@@ -538,40 +603,48 @@ function checkInput7() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamat_tinggalValue === "") {
 		setErrorFor(alamat_tinggal, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_tinggal);
 	}
 	if (keperluanValue === "") {
 		setErrorFor(keperluan, "Keperluan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(keperluan);
 	}
+	return (true);
 }
 
 function checkInput8() {
@@ -588,54 +661,65 @@ function checkInput8() {
 
 	if (nama_istriValue === "") {
 		setErrorFor(nama_istri, "Nama istri tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_istri);
 	}
 	if (tempat_lahir_istriValue === "") {
 		setErrorFor(tempat_lahir_istri, "Tempat lahir istri tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir_istri);
 	}
 	if (tanggal_lahir_istriValue === "") {
 		setErrorFor(tanggal_lahir_istri, "Tanggal lahir istri tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir_istri);
 	}
 	if (pekerjaan_istriValue === "Pekerjaan Istri...") {
 		setErrorFor(pekerjaan_istri, "Pekerjaan istri tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan_istri);
 	}
 	if (alamat_tinggalValue === "") {
 		setErrorFor(alamat_tinggal, "Alamat tinggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_tinggal);
 	}
 	if (nama_suamiValue === "") {
 		setErrorFor(nama_suami, "Nama suami tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_suami);
 	}
 	if (tempat_lahir_suamiValue === "") {
 		setErrorFor(tempat_lahir_suami, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir_suami);
 	}
 	if (tanggal_lahir_suamiValue === "") {
 		setErrorFor(tanggal_lahir_suami, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir_suami);
 	}
 	if (pekerjaan_suamiValue === "Pekerjaan Suami...") {
 		setErrorFor(pekerjaan_suami, "Pekerjaan suami tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan_suami);
 	}
 	if (alasanValue === "") {
 		setErrorFor(alasan, "Alasan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alasan);
 	}
+	return (true);
 }
 
 function checkInput9() {
@@ -651,44 +735,53 @@ function checkInput9() {
 
 	if (nama_almValue === "") {
 		setErrorFor(nama_alm, "Nama Alm. tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_alm);
 	}
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_meninggalValue === "") {
 		setErrorFor(tempat_meninggal, "Tempat meninggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_meninggal);
 	}
 	if (umurValue === "") {
 		setErrorFor(umur, "Umur tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(umur);
 	}
 	if (tempat_kediamanValue === "") {
 		setErrorFor(tempat_kediaman, "Tempat kediaman tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_kediaman);
 	}
 	if (hari_meninggalValue === "Pilih hari meninggal...") {
 		setErrorFor(hari_meninggal, "Hari meninggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(hari_meninggal);
 	}
 	if (tanggal_meninggalValue === "") {
 		setErrorFor(tanggal_meninggal, "Tanggal meninggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_meninggal);
 	}
 	if (alasan_meninggalValue === "") {
 		setErrorFor(alasan_meninggal, "Alasan meninggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alasan_meninggal);
 	}
+	return (true);
 }
 
 function checkInput10() {
@@ -707,60 +800,72 @@ function checkInput10() {
 
 	if (nama_anakValue === "") {
 		setErrorFor(nama_anak, "Nama anak tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_anak);
 	}
 	if (hari_lahirValue === "Pilih hari lahir...") {
 		setErrorFor(hari_lahir, "Hari lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(hari_lahir);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 
 	if (jam_lahirValue === "") {
 		setErrorFor(jam_lahir, "Jam lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jam_lahir);
 	}
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (nama_ibuValue === "") {
 		setErrorFor(nama_ibu, "Nama ibu tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_ibu);
 	}
 	if (alamatValue === "") {
 		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat);
 	}
 	if (nama_ayahValue === "") {
 		setErrorFor(nama_ayah, "Nama ayah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_ayah);
 	}
 	if (nama_pemohonValue === "") {
 		setErrorFor(nama_pemohon, "Nama pemohon tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_pemohon);
 	}
 	if (hubungan_dengan_bayiValue === "") {
 		setErrorFor(hubungan_dengan_bayi, "Hubungan dengan bayi tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(hubungan_dengan_bayi);
 	}
+	return (true);
 }
 
 function checkInput11() {
@@ -784,84 +889,101 @@ function checkInput11() {
 
 	if (nikValue === "") {
 		setErrorFor(nik, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nik);
 	}
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 	if (alamatValue === "") {
 		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat);
 	}
 	if (rtValue === "") {
 		setErrorFor(rt, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(rt);
 	}
 	if (kelurahanValue === "") {
 		setErrorFor(kelurahan, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kelurahan);
 	}
 	if (kecamatanValue === "") {
 		setErrorFor(kecamatan, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kecamatan);
 	}
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (agamaValue === "Pilih jenis agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(agama);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (status_perkawinanValue === "Pilih status perkawinan...") {
 		setErrorFor(status_perkawinan, " Status perkawinan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(status_perkawinan);
 	}
 	if (golongan_darahValue === "Pilih golongan darah...") {
 		setErrorFor(golongan_darah, "Golongan darah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(golongan_darah);
 	}
 	if (no_kkValue === "") {
 		setErrorFor(no_kk, " tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(no_kk);
 	}
 	if (tanggal_tinggalValue === "") {
 		setErrorFor(tanggal_tinggal, "Tanggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_tinggal);
 	}
 	if (pas_fotoValue === "") {
 		setErrorFor(pas_foto, "Pas foto tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pas_foto);
 	}
 	if (foto_kkValue === "") {
 		setErrorFor(foto_kk, "Foto kk tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(foto_kk);
 	}
+	return (true);
 }
 
 function checkInput12() {
@@ -885,80 +1007,96 @@ function checkInput12() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 
 	if (status_perkawinanValue === "Pilih status perkawinan...") {
 		setErrorFor(status_perkawinan, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(status_perkawinan);
 	}
 	if (agamaValue === "Pilih jenis agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(agama);
 	}
 	if (kewarganegaraanValue === "Pilih kewarganegaraan...") {
 		setErrorFor(kewarganegaraan, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kewarganegaraan);
 	}
 	if (pendidikan_terakhirValue === "Pilih pendidikan terakhir...") {
 		setErrorFor(pendidikan_terakhir, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pendidikan_terakhir);
 	}
 	if (pekerjaanValue === "") {
 		setErrorFor(pekerjaan, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamatValue === "") {
 		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat);
 	}
 	if (tanggal_tinggalValue === "") {
 		setErrorFor(tanggal_tinggal, "Tanggal tinggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_tinggal);
 	}
 	if (kepindahan_dariValue === "") {
 		setErrorFor(kepindahan_dari, "Asal pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kepindahan_dari);
 	}
 	if (nama_ayahValue === "") {
 		setErrorFor(nama_ayah, "Nama ayah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_ayah);
 	}
 	if (nama_ibuValue === "") {
 		setErrorFor(nama_ibu, "Nama ibu tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama_ibu);
 	}
 	if (jumlah_pengikutValue === "") {
 		setErrorFor(jumlah_pengikut, "Jumlah pengikut tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jumlah_pengikut);
 	}
+	return (true);
 }
 
 function checkInput13() {
@@ -973,40 +1111,48 @@ function checkInput13() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamat_tinggalValue === "") {
 		setErrorFor(alamat_tinggal, "Alamat tinggal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_tinggal);
 	}
 	if (penghasilanValue === "") {
 		setErrorFor(penghasilan, "penghasilan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(penghasilan);
 	}
+	return (true);
 }
 
 function checkInput14() {
@@ -1033,99 +1179,119 @@ function checkInput14() {
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(nama);
 	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tempat_lahir);
 	}
 	if (tanggal_lahirValue === "") {
 		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
 	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 	if (status_perkawinanValue === "Pilih status perkawinan...") {
 		setErrorFor(status_perkawinan, "Status perkawinan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(status_perkawinan);
 	}
 	if (agamaValue === "Pilih jenis agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(agama);
 	}
 	if (kewarganegaraanValue === "Pilih kewarganegaraan...") {
 		setErrorFor(kewarganegaraan, "Kewarganegaraan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kewarganegaraan);
 	}
 	if (pendidikan_terakhirValue === "Pilih pendidikan terakhir...") {
 		setErrorFor(pendidikan_terakhir, "Pendidikan terakhir tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pendidikan_terakhir);
 	}
 	if (pekerjaanValue === "") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
 	}
 	if (alamat_asalValue === "") {
 		setErrorFor(alamat_asal, "Alamat Asal tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_asal);
 	}
 	if (no_kkValue === "") {
 		setErrorFor(no_kk, "No KK tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(no_kk);
 	}
 	if (tanggal_kkValue === "") {
 		setErrorFor(tanggal_kk, " Tanggal kk tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_kk);
 	}
 	if (alamat_pindahValue === "") {
 		setErrorFor(alamat_pindah, "Alamat pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(alamat_pindah);
 	}
 	if (kelurahan_pindahValue === "") {
 		setErrorFor(kelurahan_pindah, "Kelurahan pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kelurahan_pindah);
 	}
 	if (kecamatan_pindahValue === "") {
 		setErrorFor(kecamatan_pindah, "Kecamatan pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kecamatan_pindah);
 	}
 	if (kabupaten_pindahValue === "") {
 		setErrorFor(kabupaten_pindah, "Kabupaten pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(kabupaten_pindah);
 	}
 	if (provinsi_pindahValue === "") {
 		setErrorFor(provinsi_pindah, "Provinsi pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(provinsi_pindah);
 	}
 	if (tanggal_pindahValue === "") {
 		setErrorFor(tanggal_pindah, "Tanggal pindah tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(tanggal_pindah);
 	}
 	if (jumlah_pengikutValue === "") {
 		setErrorFor(jumlah_pengikut, "Jumlah pengikut tidak boleh kosong");
+		return (false);
 	} else {
 		setSuccessFor(jumlah_pengikut);
 	}
+	return (true);
 }
 
 

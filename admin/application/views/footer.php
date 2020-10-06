@@ -68,6 +68,9 @@
 <!-- Sweet alert -->
 <script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
+<!-- Lightbox -->
+<script src="<?= base_url('assets/dashboard/') ?>js/lightbox-plus-jquery.min.js"></script>
+
 <!--lihat kata sandi -->
 <script>
 	$(document).ready(function() {

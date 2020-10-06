@@ -17,13 +17,15 @@
 
 				<!-- Nav Item - Alerts -->
 				<li class="nav-item dropdown no-arrow mx-1">
-					<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
 						<span class="badge badge-danger badge-counter">1+</span>
 					</a>
 					<!-- Dropdown - Alerts -->
-					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						aria-labelledby="alertsDropdown">
 						<h6 class="dropdown-header">
 							Permohonan Surat Baru
 						</h6>
@@ -48,15 +50,23 @@
 
 				<!-- Nav Item - User Information -->
 				<li class="nav-item dropdown no-arrow">
-					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
 						<span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $rt['nama']; ?></span>
-						<img class="img-profil rounded-circle" src="<?= base_url('assets/dashboard/') ?>img/wkwk.jpg">
+						<!-- <img class="img-profile rounded-circle" src="<?= base_url('assets/dashboard/') ?>img/wkwk.jpg"> -->
+						<img src="<?= base_url(); ?>../assets/uploads/rt/<?= $rt['foto_profil_rt']; ?>" alt="foto profil" class="img-profile rounded-circle img-fluid">
+
 					</a>
 					<!-- Dropdown - User Information -->
-					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-						<a class="dropdown-item" href="#">
+					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						aria-labelledby="userDropdown">
+						<a class="dropdown-item" href="<?= base_url() ?>rt/profil_saya/<?= $rt['id_rt'] ?>">
 							<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-							profil
+							Profil Saya
+						</a>
+						<a class="dropdown-item" href="<?= base_url() ?>rt/form_ubah_kata_sandi_profil_saya/<?= $rt['id_rt'] ?>">
+							<i class="fas fa-user-lock fa-sm fa-fw mr-2 text-gray-400"></i>
+							Ubah Kata Sandi
 						</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">

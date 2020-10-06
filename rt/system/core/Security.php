@@ -445,15 +445,15 @@ class CI_Security {
 		 * This corrects words like:  j a v a s c r i p t
 		 * These words are compacted back to their correct state.
 		 */
-		$detailords = array(
+		$words = array(
 			'javascript', 'expression', 'vbscript', 'jscript', 'wscript',
 			'vbs', 'script', 'base64', 'applet', 'alert', 'document',
 			'write', 'cookie', 'window', 'confirm', 'prompt', 'eval'
 		);
 
-		foreach ($detailords as $detailord)
+		foreach ($words as $word)
 		{
-			$detailord = implode('\s*', str_split($detailord)).'\s*';
+			$word = implode('\s*', str_split($word)).'\s*';
 
 			// We only want to do this when it is followed by a non-word character
 			// That way valid stuff like "dealer to" does not become "dealerto"

@@ -23,6 +23,8 @@
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation_warga.css" rel="stylesheet" />
 
+	<link href="<?= base_url('assets/dashboard/') ?>css/lightbox.min.css" rel="stylesheet" />
+
 </head>
 
 <body id="page-top">

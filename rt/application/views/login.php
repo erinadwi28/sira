@@ -59,7 +59,7 @@
 									<form action="<?= base_url('login/aksi_login'); ?>" method="post">
 										<div class="form-group">
 											<label>NIK</label>
-											<input type="text" class="form-control" id="nik" name="nik" value="<?=set_value('nik')?>"/>
+											<input type="text" class="form-control" id="nik" name="nik"/>
 										</div>
 										<div class="form-group">
 											<label>Kata Sandi</label>
@@ -67,6 +67,8 @@
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
+											<input type="hidden" class="form-control form-password" id="status_delete" name="status_delete" value="0" />
+
 										</div>
 										<br />
 										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">
@@ -74,7 +76,7 @@
 										</button>
 									</form>
 									<hr />
-									<center><small><a href="<?= base_url('../landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center>
+									<center><small><a href="<?= base_url('landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center>
 								</div>
 							</div>
 						</div>
@@ -94,6 +96,7 @@
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
+	
 	<script>
 		$(document).ready(function () {
 			var cek = $(".form-checkbox").val();
@@ -108,4 +111,5 @@
 
 	</script>
 </body>
+
 </html>

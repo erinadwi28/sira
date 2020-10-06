@@ -1,12 +1,12 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
-| profilr Sections
+| Profiler Sections
 | -------------------------------------------------------------------------
-| This file lets you determine whether or not various sections of profilr
-| data are displayed when the profilr is enabled.
+| This file lets you determine whether or not various sections of Profiler
+| data are displayed when the Profiler is enabled.
 | Please see the user guide for info:
 |
 |	https://codeigniter.com/user_guide/general/profiling.html

@@ -22,14 +22,14 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form_suket009" action="<?= base_url('warga/aksi_tambah_permohonan_suket009') ?>" method="POST">
+						<form class="form-horizontal" id="form9" action="<?= base_url('warga/aksi_tambah_permohonan_suket009') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 15px;">
 									<div class="form-group row" style="margin-left: 10px;">
 										<label for="Nama_alm" class="col-sm-3 col-form-label">Nama Alm/Almh</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_alm" name="nama_alm" placeholder="Isi nama alm/almh..." value="" required="">
+												<input type="text" class="form-control" id="nama_alm" name="nama_alm" placeholder="Isi nama alm/almh...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -43,6 +43,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
 													<option value="Laki-Laki" class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" class="form-user-input">Perempuan
@@ -57,7 +58,7 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tempat_kematian" class="col-sm-3 col-form-label">Tempat Kematian</label>
+										<label for="Tempat_kematian" class="col-sm-3 col-form-label">Tempat Meninggal</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
 												<textarea class="form-control" id="tempat_meninggal" name="tempat_meninggal" rows="3" placeholder="Isikan Tempat kematian..."></textarea>
@@ -73,7 +74,7 @@
 										<label for="Umur" class="col-sm-3 col-form-label">Umur</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="umur" name="umur" placeholder="Isikan umur alm/almh..." value="" required="">
+												<input type="text" class="form-control" id="umur" name="umur" placeholder="Isikan umur alm/almh...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -99,7 +100,8 @@
 										<label for="hari_meninggal" class="col-sm-3 col-form-label">Hari Meninggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<select class="form-control" id="hari hari_meninggal" name="hari_meninggal">
+												<select class="form-control" id="hari_meninggal" name="hari_meninggal">
+													<option value="Pilih hari meninggal..." class="form-user-input">Pilih hari meninggal...</option>
 													<option value="Senin" class="form-user-input">Senin</option>
 													<option value="Selasa" class="form-user-input">Selasa</option>
 													<option value="Rabu" class="form-user-input">Rabu</option>
@@ -120,7 +122,7 @@
 										<label for="Tanggal_Meninggal" class="col-sm-3 col-form-label">Tanggal Meninggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_meninggal" name="tanggal_meninggal" value="" required="">
+												<input type="date" class="form-control" id="tanggal_meninggal" name="tanggal_meninggal">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -158,9 +160,8 @@
 					</form>
 				<?php } ?>
 				</div>
-				</form>
 			</div>
+			</form>
 		</div>
-		<!--End Content Profile-->
 	</div>
 	<!-- End of Main Content -->

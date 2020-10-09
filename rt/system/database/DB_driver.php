@@ -1481,14 +1481,14 @@ abstract class CI_DB_driver {
 	 * @param	mixed	the "where" statement
 	 * @return	string
 	 */
-	public function update_string($table, $data, $detailhere)
+	public function update_string($table, $data, $where)
 	{
-		if (empty($detailhere))
+		if (empty($where))
 		{
 			return FALSE;
 		}
 
-		$this->where($detailhere);
+		$this->where($where);
 
 		$fields = array();
 		foreach ($data as $key => $val)

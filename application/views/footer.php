@@ -51,6 +51,10 @@
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
+<!-- Validasi form surat dan ubah profil warga-->
+<script src="<?= base_url('assets/dashboard/') ?>js/validation.js"></script>
+
+
 <!-- Page level plugins -->
 <script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
 
@@ -61,6 +65,63 @@
 <!-- Page level plugins -->
 <script src="<?= base_url('assets/dashboard/') ?>vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="<?= base_url('assets/dashboard/') ?>js/demo/datatables-demo.js"></script>
+
+<!-- Sweet alert -->
+<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+<!-- Lightbox -->
+<script src="<?= base_url('assets/dashboard/') ?>js/lightbox-plus-jquery.min.js"></script>
+
+<!--lihat kata sandi -->
+<script>
+	$(document).ready(function() {
+		var cek = $(".form-checkbox").val();
+		$(".form-checkbox").click(function() {
+			if ($(this).is(":checked")) {
+				$(".form-password").attr("type", "text");
+			} else {
+				$(".form-password").attr("type", "password");
+			}
+		});
+	});
+</script>
+
+<!-- ganti nama form upload foto -->
+<script>
+	$('#file-upload-profil').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-profil')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+
+	$('#file-upload-ktp').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-ktp')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+
+	$('#file-upload-kk').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-kk')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+
+	$('#file-upload-ttd').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-ttd')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+</script>
+
+<!-- Sweet alert -->
+<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+<!-- simpan data permohonan -->
+<!-- <script type="text/javascript">
+		$('form').on('submit', function(e) {
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/dashboard/') ?>js/demo/datatables-demo.js"></script>

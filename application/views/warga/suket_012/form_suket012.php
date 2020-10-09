@@ -76,6 +76,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
 													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
@@ -116,6 +117,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control form-user-input" name="agama" id="agama">
+													<option value="Pilih jenis agama..." class="form-user-input">Pilih jenis agama...</option>
 													<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
 													<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
 													</option>
@@ -141,6 +143,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control " id="kewarganegaraan" name="kewarganegaraan">
+													<option value="Pilih kewarganegaraan..." class="form-user-input">Pilih kewarganegaraan...</option>
 													<option value="WNI" <?= ($detail->kewarganegaraan == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
 													<option value="WNA" <?= ($detail->kewarganegaraan == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
 												</select>
@@ -159,6 +162,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir">
+													<option value="Pilih pendidikan terakhir..." class="form-user-input">Pilih pendidikan terakhir...</option>
 													<option value="TAMAT SD / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'TAMAT SD / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">
 														TAMAT SD /
 														SEDERAJAT</option>
@@ -231,7 +235,7 @@
 										<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal tinggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" value="">
+												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>

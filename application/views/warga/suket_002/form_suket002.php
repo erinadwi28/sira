@@ -23,7 +23,7 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form_suket002" action="<?= base_url('warga/aksi_tambah_permohonan_suket002') ?>" method="POST">
+						<form class="form-horizontal" id="form2" action="<?= base_url('warga/aksi_tambah_permohonan_suket002') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
@@ -31,7 +31,7 @@
 											<label for="Nama" class="col-sm-3 col-form-label">Nama</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" required="">
+													<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -62,7 +62,7 @@
 									<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 									<div class="col-sm-8">
 										<div class="form-line focused">
-											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -75,7 +75,7 @@
 									<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -115,7 +115,7 @@
 							<label for="Pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
 							<div class="col-sm-8">
 								<div class="form-line">
-									<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>" required="">
+									<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>">
 									<i class=" fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error massage</small>

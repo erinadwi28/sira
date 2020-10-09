@@ -30,7 +30,7 @@
 										<label for="NIK" class="col-sm-3 col-form-label">NIK</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nik" name="nik" value="<?= $detail->nik; ?>" required="">
+												<input type="text" class="form-control" id="nik" name="nik" value="<?= $detail->nik; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -43,7 +43,7 @@
 										<label for="Nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" required="">
+												<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -57,7 +57,7 @@
 										<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="alamat" name="alamat" value="<?= $detail->alamat; ?>" required="">
+												<input type="text" class="form-control" id="alamat" name="alamat" value="<?= $detail->alamat; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -70,7 +70,7 @@
 										<label for="Rt" class="col-sm-3 col-form-label">RT</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="rt" name="rt" value="<?= $detail->rt; ?>" required="">
+												<input type="text" class="form-control" id="rt" name="rt" value="<?= $detail->rt; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -83,7 +83,7 @@
 										<label for="Kelurahan" class="col-sm-3 col-form-label">Kelurahan</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="kelurahan" name="kelurahan" value="<?= $detail->kelurahan; ?>" required="">
+												<input type="text" class="form-control" id="kelurahan" name="kelurahan" value="<?= $detail->kelurahan; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -96,7 +96,7 @@
 										<label for="Kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="kecamatan" name="kecamatan" value="<?= $detail->kecamatan; ?>" required="">
+												<input type="text" class="form-control" id="kecamatan" name="kecamatan" value="<?= $detail->kecamatan; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -110,6 +110,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
 													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
@@ -128,6 +129,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control form-user-input" name="agama" id="agama">
+													<option value="Pilih jenis agama..." class="form-user-input">Pilih jenis agama...</option>
 													<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
 													<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
 													</option>
@@ -150,7 +152,7 @@
 										<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $detail->tempat_lahir; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -163,7 +165,7 @@
 										<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -177,6 +179,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="status_perkawinan" name="status_perkawinan">
+													<option value="Pilih status perkawinan..." class="form-user-input">Pilih status perkawinan...</option>
 													<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
 													</option>
 													<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
@@ -199,6 +202,7 @@
 													<option value="A" <?= ($detail->golongan_darah == 'A' ? ' selected' : ''); ?> class="form-user-input">A</option>
 													<option value="B" <?= ($detail->golongan_darah == 'B' ? ' selected' : ''); ?> class="form-user-input">B</option>
 													<option value="O" <?= ($detail->golongan_darah == 'O' ? ' selected' : ''); ?> class="form-user-input">O</option>
+													<option value="Tidak tau" <?= ($detail->golongan_darah == 'Tidak tau' ? ' selected' : ''); ?> class="form-user-input">Tidak tau</option>
 												</select>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
@@ -212,7 +216,7 @@
 										<label for="No_kk" class="col-sm-3 col-form-label">No. KK</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_kk" name="no_kk" value="<?= $detail->no_kk; ?>" required="">
+												<input type="text" class="form-control" id="no_kk" name="no_kk" value="<?= $detail->no_kk; ?>">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>

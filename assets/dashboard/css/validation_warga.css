@@ -1,0 +1,57 @@
+.form-group {
+	position: relative;
+	/* padding-bottom: 5px; */
+}
+
+.label-control {
+	display: inline-block;
+}
+
+.form-group i {
+	position: absolute;
+	top: 43px;
+	right: 33px;
+	visibility: hidden;
+}
+
+.form-group.success i.fa-check-circle {
+	color: green;
+	visibility: visible;
+
+}
+
+.form-group.error1 i.fa-exclamation-circle {
+	color: red;
+	visibility: visible;
+	position: absolute;
+
+}
+
+.form-group small {
+	position: absolute;
+	bottom: 10;
+	left: 0;
+	font-size: 10px;
+	visibility: hidden;
+}
+
+.form-group.error1 small {
+	color: red;
+	visibility: visible;
+}
+
+.form-group.success input {
+	border-color: green;
+}
+
+.form-group.error1 input {
+	border-color: red;
+}
+
+.form-group.success select {
+	border-color: green;
+}
+
+.form-group.error1 select {
+	border-color: red;
+}

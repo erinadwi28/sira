@@ -1,7 +1,12 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<!-- Page Heading -->
-					<button class="btn btn-sm btn-warning float-left" type="reset"><i class="fa fa-arrow-left"></i> Kembali</button>
+					<a href="<?= base_url() ?>warga/list_permohonan_selesai/<?= $warga['id_warga'] ?>">
+						<button id=" btn_kembali" class="btn btn-sm btn-warning float-right" type="submit">
+							<i class="fa fa-arrow-left">
+							</i> Kembali
+						</button>
+					</a>
 					<div class="preview">
 						<center>
 							<h1 class="h3 mb-30 text-gray-800">Preview Permohonan Surat</h1>
@@ -22,114 +27,154 @@
 											</div>
 										</div>
 										<!-- <hr class="hr_kop"> -->
-										<div class="badan_surat">
-											<div class="no_surat">
-												<center>
-													<p><u>SURAT KETERANGAN BELUM PERNAH MENIKAH</u><br>
-														Nomor : 006 / KM / AS / VIII / 2020</p>
-												</center>
+										<?php
+										foreach ($detail_suket as $w) {
+										?>
+											<?php
+											if ($w->no_bulan == 1) {
+												$bulan = 'I';
+											} elseif ($w->no_bulan == 2) {
+												$bulan = 'II';
+											} elseif ($w->no_bulan == 3) {
+												$bulan = 'III';
+											} elseif ($w->no_bulan == 4) {
+												$bulan = 'IV';
+											} elseif ($w->no_bulan == 5) {
+												$bulan = 'V';
+											} elseif ($w->no_bulan == 6) {
+												$bulan = 'VI';
+											} elseif ($w->no_bulan == 7) {
+												$bulan = 'VII';
+											} elseif ($w->no_bulan == 8) {
+												$bulan = 'VIII';
+											} elseif ($w->no_bulan == 9) {
+												$bulan = 'IX';
+											} elseif ($w->no_bulan == 10) {
+												$bulan = 'X';
+											} elseif ($w->no_bulan == 11) {
+												$bulan = 'XI';
+											} elseif ($w->no_bulan == 12) {
+												$bulan = 'XII';
+											} else {
+												$bulan = '';
+											} ?>
+											<div class="badan_surat">
+												<div class="no_surat">
+													<center>
+														<p><u>SURAT KETERANGAN BELUM PERNAH MENIKAH</u><br>
+															Nomor : <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
+													</center>
+												</div>
+												<div class="isi_surat paragraf">
+													<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
+														Selatan, Kabupaten Kotawaringin Barat,
+														Provinsi Kalimantan Tengah, dengan ini menerangkan bahwa :</p>
+												</div>
+												<div class="isi_surat identitas">
+													<table class="table-responsive">
+														<tbody>
+															<tr>
+																<td><b>Nama</b></td>
+																<td> </td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td><?= $w->nama; ?></td>
+															</tr>
+															<tr>
+																<td><b>Jenis Kelamin</b></td>
+																<td> </td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td><?= $w->jenis_kelamin; ?></td>
+															</tr>
+															<tr>
+																<td><b>Tempat, Tanggal Lahir</b></td>
+																<td> </td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td><?= $w->tempat_lahir; ?>, <?= $w->tanggal_lahir; ?></td>
+															</tr>
+															<tr>
+																<td><b>Pekerjaan</b></td>
+																<td> </td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td><?= $w->pekerjaan; ?></td>
+															</tr>
+															<tr>
+																<td><b>Alamat Tinggal</b></td>
+																<td> </td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td><?= $w->alamat_tinggal; ?></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<br>
+												<div class="isi_surat paragraf">
+													<p>
+														Berdasarkan Surat Keterangan dari Ketua Rukun Tetangga ( RT ) <?= $warga['rt'] ?> Kelurahan Mendawai,
+														tanggal <?php foreach ($detail_permohonan as $d) { ?> <?= $d->tanggal_persetujuan_rt; ?> <?php } ?> , Nomor : <?= $w->nomor_surat_rt; ?>,
+														bahwa nama tersebut diatas adalah benar penduduk menetap RT. <?= $warga['rt'] ?> Kelurahan Mendawai,
+														Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat, Propinsi Kalimantan Tengah,
+														dan yang bersangkutan memang benar Belum Pernah Menikah baik secara tercatat maupun tidak tercatat.
+													</p>
+													<p>
+														Demikian Surat Keterangan beda nama ini kami buat, agar dapat dipergunakan sebagaimana mestinya.
+													</p>
+												</div>
 											</div>
-											<div class="isi_surat paragraf">
-												<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
-													Selatan, Kabupaten Kotawaringin Barat,
-													Provinsi Kalimantan Tengah, dengan ini menerangkan bahwa :</p>
-											</div>
-											<div class="isi_surat identitas">
-												<table class="table-responsive">
-													<tbody>
-														<tr>
-															<td><b>Nama</b></td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Rahma Maulani</td>
-														</tr>
-														<tr>
-															<td><b>Jenis Kelamin</b></td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Perempuan</td>
-														</tr>
-														<tr>
-															<td><b>Tempat, Tanggal Lahir</b></td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Sleman, 22/07/2000</td>
-														</tr>
-														<tr>
-															<td><b>Pekerjaan</b></td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Pelajar/Mahasiswa</td>
-														</tr>
-														<tr>
-															<td><b>Alamat Tinggal</b></td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td>Jalan Abdul Ancis, RT 21, Kel. Mendawai, Kec. Arut Selatan, Kab. Kotawaringin Barat, Prov. Kalimantan Tengah</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-											<br>
-											<div class="isi_surat paragraf">
-												<p>
-													Berdasarkan Surat Keterangan dari Ketua Rukun Tetangga ( RT ) 021 Kelurahan Mendawai,
-													tanggal 04 Agustus 2020 , Nomor : 006 / RT. 021 / KM / AS / VIII / 2020,
-													bahwa nama tersebut diatas adalah benar penduduk menetap RT. 021 Kelurahan Mendawai,
-													Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat, Propinsi Kalimantan Tengah,
-													dan yang bersangkutan memang benar Belum Pernah Menikah baik secara tercatat maupun tidak tercatat.
-												</p>
-												<p>
-													Demikian Surat Keterangan beda nama ini kami buat, agar dapat dipergunakan sebagaimana mestinya.
-												</p>
-											</div>
-										</div>
 									</center>
-									<div class="row">
-										<div class="col-md-6">
-										</div>
-										<div class="col-md-6">
-											<div class="badan_surat isi_surat">
+								<?php } ?>
+								<div class="row">
+									<div class="col-md-6">
+									</div>
+									<div class="col-md-6">
+										<div class="badan_surat isi_surat">
+											<?php
+											foreach ($detail_permohonan as $d) {
+											?>
 												<center>
 
-													Pangkalan Bun, 08 Agustus 2020<br>
+													Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
 													LURAH MENDAWAI
 
 												</center>
-											</div>
+											<?php } ?>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6 ">
-										</div>
-										<div class="col-md-6">
-											<div class="badan_surat isi_surat">
-												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
-											</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 ">
+									</div>
+									<div class="col-md-6">
+										<div class="badan_surat isi_surat">
+											<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6">
-										</div>
-										<div class="col-md-6">
-											<div class="badan_surat isi_surat">
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+									</div>
+									<div class="col-md-6">
+										<div class="badan_surat isi_surat">
+											<?php
+											foreach ($data_kades as $k) {
+											?>
 												<center>
-													<u><b>RAHADIAN SYAHMI, S.Hut</b></u> <br>
-													NIP. 19780211 200604 1 009
+													<u><b><?= $k->nama; ?></b></u> <br>
+													NIP. <?= $k->nip; ?>
 												</center>
-											</div>
+											<?php } ?>
 										</div>
 									</div>
+								</div>
 								</div>
 								<div class="card-footer">
 									<center>

@@ -123,30 +123,53 @@
 <!-- <script type="text/javascript">
 		$('form').on('submit', function(e) {
 
-			e.preventDefault();
-			const form = $(this).attr('action');
+<!-- Page level custom scripts -->
+<script src="<?= base_url('assets/dashboard/') ?>js/demo/datatables-demo.js"></script>
 
-			// var ambilid = $(this).attr('id_warga');
-			// var id_warga = 'id_warga='+ambilid;
+<!-- Sweet alert -->
+<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-			Swal.fire({
-				title: 'Apakah anda yakin  ?',
-				text: "Data ini sudah benar",
-				icon: 'success',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Ya, Simpan Data',
-				cancelButtonText: 'Batal',
-				reverseButtons: true,
-			}).then((result) => {
-				if (result.value) {
-					document.location.form = form;
-				}
-			})
-
+<!--lihat kata sandi -->
+<script>
+	$(document).ready(function() {
+		var cek = $(".form-checkbox").val();
+		$(".form-checkbox").click(function() {
+			if ($(this).is(":checked")) {
+				$(".form-password").attr("type", "text");
+			} else {
+				$(".form-password").attr("type", "password");
+			}
 		});
-	</script> -->
+	});
+</script>
+
+<!-- ganti nama form upload foto -->
+<script>
+	$('#file-upload-profil').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-profil')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+
+	$('#file-upload-ktp').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-ktp')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+
+	$('#file-upload-kk').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-kk')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+
+	$('#file-upload-ttd').change(function() {
+		var i = $(this).prev('label').clone();
+		var file = $('#file-upload-ttd')[0].files[0].name;
+		$(this).prev('label').text(file);
+	});
+</script>
+
 
 <!-- tambah data dan hapus data -->
 <script>

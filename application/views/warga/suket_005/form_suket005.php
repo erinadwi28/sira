@@ -99,7 +99,7 @@
 										<label for="Hari_kegiatan" class="col-sm-3 col-form-label">Hari</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<select class="form-control" id="hari" name="hari">
+												<select class="form-control" id="hari_kegiatan" name="hari_kegiatan">
 													<option value="Senin" class="form-user-input">Senin</option>
 													<option value="Selasa" class="form-user-input">Selasa</option>
 													<option value="Rabu" class="form-user-input">Rabu</option>
@@ -117,7 +117,8 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tanggal_kegiatan" class="col-sm-3 col-form-label">Tanggal Kegiatan</label>
+										<label for="Tanggal_kegiatan" class="col-sm-3 col-form-label">Tanggal
+											Kegiatan</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
 												<input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan" placeholder="Isi Tanggal Kegiatan..." value="">
@@ -155,49 +156,23 @@
 
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Tanggal_permohonan" class="col-sm-3 col-form-label">Tanggal Permohonan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan" value="">
-												<i class=" fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group">
-										<div class="form-group row" style="margin-left: 10px;">
-											<label for="foto_ktp" class="col-sm-3 col-form-label">Foto KTP</label>
-											<div class="col-sm-8">
-												<div class="input-group">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp">
-														<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
-														<i class=" fas fa-check-circle"></i>
-														<i class="fas fa-exclamation-circle"></i>
-														<small>Error massage</small>
-													</div>
-												</div>
-											</div>
-										</div>
+								<div class="form-group row" style="margin-left: 10px;">
+									<label class="col-sm-3 col-form-label" for="file-upload-profil">File Lampiran</label>
+									<div class="custom-file col-sm-7 ml-3">
+										<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
+										<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
 									</div>
 								</div>
 							</div>
+
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="5">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="#">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
 						<a href="#">
 							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">

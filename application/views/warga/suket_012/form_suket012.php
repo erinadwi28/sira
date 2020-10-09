@@ -22,7 +22,7 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form12" action="" method="">
+						<form class="form-horizontal" id="form_suket012" action="<?= base_url('warga/aksi_tambah_permohonan_suket012') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
@@ -97,10 +97,9 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control " id="status_perkawinan" name="status_perkawinan">
-													<option value="Pilih status perkawinan..." class="form-user-input">Pilih status perkawinan...</option>
-													<option value="Laki-Laki" <?= ($detail->status_perkawinan == 'Belum kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
+													<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
 													</option>
-													<option value="Perempuan" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
+													<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
 													</option>
 												</select>
 												<i class=" fas fa-check-circle"></i>
@@ -294,10 +293,10 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="jumlah_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
+										<label for="jml_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="number" class="form-control" id="jumlah_pengikut" name="jumlah_pengikut">
+												<input type="number" class="form-control" id="jml_pengikut" name="jml_pengikut">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -306,16 +305,13 @@
 									</div>
 								</div>
 							</div>
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="12">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
 			</div>
 			<div class="card-footer">
 				<div class="float-right">
-					<a href="#">
-						<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-							<i class="fa fa-times nav-icon">
-							</i> Batal
-						</button>
-					</a>
 					<a href="#">
 						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 							<i class="far fa-save nav-icon">

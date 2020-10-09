@@ -144,17 +144,17 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group row" style="margin-left: 10px;">
-									<label for="Alasan" class="col-sm-3 col-form-label">Alasan</label>
-									<div class="col-sm-8">
-										<div class="form-line">
-											<textarea class="form-control" id="alasan" name="alasan" rows="3" placeholder="Meninggal Dunia,dll..."></textarea>
-											<i class=" fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
-											<small>Error massage</small>
-										</div>
+								<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="8">
+								<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+								<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
+								<div class="card-footer">
+									<div class="float-right">
+										<a href="#">
+											<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
+												<i class="far fa-save nav-icon">
+												</i> Simpan
+											</button>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -185,5 +185,5 @@
 		</div>
 		<!--End Content Profile-->
 	</div>
+	<!-- End of Main Content -->
 </div>
-<!-- End of Main Content -->

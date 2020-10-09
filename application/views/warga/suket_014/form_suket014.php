@@ -22,7 +22,7 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form14" action="" method="">
+						<form class="form-horizontal" id="form_suket014" action="<?= base_url('warga/aksi_tambah_permohonan_suket014') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
@@ -80,27 +80,6 @@
 													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
-													</option>
-												</select>
-												<i class="fas fa-check-circle"></i>
-												<i class="fas fa-exclamation-circle"></i>
-												<small>Error massage</small>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group" style="margin-top: 20px;">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="status_perkawinan" class="col-sm-3 col-form-label">Status Perkawinan</label>
-										<div class="col-sm-8">
-											<div class="form-line">
-												<select class="form-control " id="status_perkawinan" name="status_perkawinan">
-													<option value="Pilih status perkawinan..." class="form-user-input">Pilih status perkawinan...</option>
-													<option value="Laki-Laki" <?= ($detail->status_perkawinan == 'Belum kawin' ? ' selected' : ''); ?> class="form-user-input">Belum kawin
-													</option>
-													<option value="Perempuan" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
 													</option>
 												</select>
 												<i class="fas fa-check-circle"></i>
@@ -207,6 +186,26 @@
 											<div class="form-line">
 												<input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>">
 												<i class="fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group" style="margin-top: 20px;">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="status_perkawinan" class="col-sm-3 col-form-label">Status Perkawinan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control " id="status_perkawinan" name="status_perkawinan">
+													<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
+													</option>
+													<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
 											</div>
@@ -358,6 +357,22 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
+										<label for="alasan_pindah" class="col-sm-3 col-form-label">Alasan Pindah</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<textarea class="form-control" id="alasan_pindah" name="alasan_pindah" rows="3" placeholder="Alasan Pindah... "></textarea>
+												<i class="fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Tidak boleh kosong</small>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group" style="margin-top: 20px;">
+									<div class="form-group row" style="margin-left: 10px;">
 										<label for="jumlah_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
 										<div class="col-sm-8">
 											<div class="form-line">
@@ -370,23 +385,19 @@
 									</div>
 								</div>
 							</div>
-
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="14">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
-				<div class="card-footer">
-					<div class="float-right">
-						<a href="#">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
-						<a href="#">
-							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
-								<i class="far fa-save nav-icon">
-								</i> Simpan
-							</button>
-						</a>
-					</div>
+			</div>
+			<div class="card-footer">
+				<div class="float-right">
+					<a href="#">
+						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
+							<i class="far fa-save nav-icon">
+							</i> Simpan
+						</button>
+					</a>
 				</div>
 				</form>
 			<?php } ?>

@@ -110,18 +110,12 @@
 									</div>
 								</div>
 							</div>
-							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="6">
-							<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
-							<input type="hidden" class="form-control" id="status" name="status" value="Menunggu Persetujuan RT">
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="6">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="#">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
 						<a href="#">
 							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">

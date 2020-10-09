@@ -23,7 +23,7 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal">
+						<form class="form-horizontal" id="form_suket011" action="<?= base_url('warga/aksi_tambah_permohonan_suket011') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group">
 									<div class="form-group row" style="margin-top: 15px; margin-left: 10px;">
@@ -225,7 +225,7 @@
 										<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal Tinggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" value="" required="">
+												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" value="">
 
 											</div>
 										</div>
@@ -236,7 +236,7 @@
 										<label for="No_surat_pindah" class="col-sm-3 col-form-label">No. Surat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="Isikan nomor surat pindah..." value="" required="">
+												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="Isikan nomor surat pindah..." value="">
 
 											</div>
 										</div>
@@ -247,68 +247,20 @@
 										<label for="Tgl_surat_pindah" class="col-sm-3 col-form-label">Tgl Surat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah" value="" required="">
+												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah" value="">
 
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="pas_foto" class="col-sm-3 col-form-label">Pas Foto</label>
-										<div class="col-sm-8">
-											<div class="input-group">
-												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="pas_foto" name="pas_foto">
-													<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
-													<i class=" fas fa-check-circle"></i>
-													<i class="fas fa-exclamation-circle"></i>
-													<small>Error massage</small>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="foto_kk" class="col-sm-3 col-form-label">Foto KK</label>
-										<div class="col-sm-8">
-											<div class="input-group">
-												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="foto_kk" name="foto_kk">
-													<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
-													<i class=" fas fa-check-circle"></i>
-													<i class="fas fa-exclamation-circle"></i>
-													<small>Error massage</small>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="form-group row" style="margin-left: 10px;">
-										<label for="foto_surat_pindah" class="col-sm-3 col-form-label">Foto Surat Pindah</label>
-										<div class="col-sm-8">
-											<div class="input-group">
-												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="foto_surat_pindah" name="foto_surat_pindah">
-													<label class="custom-file-label upload-area" for="exampleInputFile">Pilih File...</label>
 
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="11">
+								<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+								<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 							</div>
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="#">
-							<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
 						<a href="#">
 							<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">

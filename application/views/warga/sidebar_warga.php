@@ -14,7 +14,7 @@
 
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item active">
-		<a class="nav-link" href="dashboard_warga.html">
+		<a class="nav-link" href="<?= base_url() ?>warga">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
 	</li>
@@ -30,13 +30,13 @@
 	<!-- Nav Item - Main Menu -->
 
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link " href="<?= base_url() ?>warga/list_history_permohonan/<?= $warga['id_warga'] ?>">
 			<i class="fa fa-book"></i>
 			<span>History Permohonan</span>
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link " href="<?= base_url() ?>warga/list_permohonan_selesai/<?= $warga['id_warga'] ?>">
 			<i class="fa fa-book"></i>
 			<span>Surat Permohonan Selesai</span>
 		</a>

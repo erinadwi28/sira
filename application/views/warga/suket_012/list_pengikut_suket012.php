@@ -4,6 +4,8 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">List Anggota KK</h1>
+		<a href="<?= base_url() ?>warga/form_tambah_pengikut_suket012/<?= $id_permohonan['id_permohonan_surat']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-user-plus fa-sm text-white-50"></i> Tambah
+			Data</a>
 
 	</div>
 	<!--Begin Content Profile-->
@@ -13,13 +15,11 @@
 			<div class="card">
 				<!-- /.card-header -->
 				<div class="card-body">
-					<div class="form-group">
-						<div class=" col-sm-offset-2 col-sm-1" style="float: right; margin-bottom: 10px;margin-right: 10px">
-							<span><a class="btn btn-primary" href="#" role="button">Tambah</a></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<table class="table table-bordered">
+					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+					<?php if ($this->session->flashdata('success')) : ?>
+					<?php endif; ?>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th>No</th>
@@ -36,47 +36,50 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1.</td>
-									<td>Khoirul Anam</td>
-									<td>Sleman</td>
-									<td>24/04/1965</td>
-									<td>Laki-laki</td>
-									<td>50</td>
-									<td>Kawin</td>
-									<td>SLTA/Sederajat</td>
-									<td>Suradi</td>
-									<td>Ayah</td>
-									<td><span class="btn btn-danger">Hapus</span></td>
-								</tr>
-								<tr>
-									<td>2.</td>
-									<td>Ratna</td>
-									<td>Sleman</td>
-									<td>02/06/2002</td>
-									<td>Perempuan</td>
-									<td>18</td>
-									<td>Belum Kawin</td>
-									<td>SMK</td>
-									<td>Khoirul Anam</td>
-									<td>Anak</td>
-									<td><span class="btn btn-danger">Hapus</span></td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($pengikut as $w) {
+								?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $w->nama ?></td>
+										<td><?= $w->jenis_kelamin ?></td>
+										<td><?= $w->tempat_lahir ?></td>
+										<td><?= $w->tanggal_lahir ?></td>
+										<td><?= $w->umur ?></td>
+										<td><?= $w->status_perkawinan ?></td>
+										<td><?= $w->pendidikan_terakhir ?></td>
+										<td><?= $w->nama_ortu ?></td>
+										<td><?= $w->status_hub_kk ?></td>
+										<td>
+											<div>
+												<a href="<?= base_url() ?>warga/form_ubah_pengikut_suket012/<?= $w->id_pengikut  ?>" class="btn btn-primary btn-sm">
+													<i class="fa fa-edit nav-icon"></i>
+													Ubah
+												</a>
+												<a href="<?= base_url() ?>warga/aksi_hapus_pengikut/<?= $w->id_pengikut  ?>/<?= $w->id_permohonan_surat  ?>" class="mt-2 btn btn-danger btn-sm hapus">
+													<i class="far fa-trash-alt nav-icon"></i>
+													Hapus
+												</a>
+											</div>
+										</td>
+									</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>
 
 				</div>
 				<!-- /.card-body -->
-				<div class="card-footer ">
-
-					<div class="form-group">
-						<div class=" col-sm-offset-3 col-sm-3" style="float: right; margin-right: -70px responsive">
-							<span><a class="btn btn-warning" href="#" role="button">Kembali</a></span>
-							<span><a class="btn btn-success far fa-save nav-icon" class="" href="#" role="button"> Simpan</a></span>
-						</div>
+				<div class="card-footer">
+					<div class="float-right">
+						<a href="<?= base_url() ?>warga/detail_suket012/<?= $id_permohonan['id_surat']; ?>/<?= $id_permohonan['id_permohonan_surat']; ?>">
+							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
+								<i class="far fa-save nav-icon">
+								</i> Simpan
+							</button>
+						</a>
 					</div>
-
 				</div>
 			</div>
 

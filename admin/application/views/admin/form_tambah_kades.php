@@ -20,11 +20,7 @@
 					<!-- <table class="table-responsive">
                                         
                                     </table> -->
-<<<<<<< HEAD
 					<form role="form" action="<?= base_url('admin/aksi_tambah_kades') ?>" method="post" id="formTambah">
-=======
-					<form role="form" action="<?= base_url('admin/aksi_tambah_kades') ?>" method="post" id="formUbah">
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group">
@@ -45,25 +41,18 @@
 								<div class="form-group">
 									<label class="label-control" for="tempat_lahir"><b>Tempat
 											Lahir</b></label>
-<<<<<<< HEAD
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Tempat Lahir" name="tempat_lahir" id="tempat_lahir">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-=======
-									<input type="text" class="form-control form-user-input" name="tempat_lahir" id="tempat_lahir">
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="tanggal_lahir"><b>Tanggal
 											Lahir</b></label>
 									<input type="date" class="form-control form-user-input" name="tanggal_lahir" id="tanggal_lahir">
-<<<<<<< HEAD
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-=======
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="jenis_kelamin"><b>Jenis
@@ -112,17 +101,13 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-							</div>
-							<div class="col-md-4">
 								<div class="form-group">
 									<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
-<<<<<<< HEAD
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Alamat Anda" name="alamat" id="alamat">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
@@ -145,21 +130,6 @@
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-=======
-									<input type="text" class="form-control form-user-input" name="alamat" id="alamat">
-								</div>
-								<div class="form-group">
-									<label class="label-control" for="rt"><b>RT</b></label>
-									<input type="text" class="form-control form-user-input" name="rt" id="rt">
-								</div>
-								<div class="form-group">
-									<label class="label-control" for="kelurahan"><b>Kelurahan</b></label>
-									<input type="text" class="form-control form-user-input" name="kelurahan" id="kelurahan">
-								</div>
-								<div class="form-group">
-									<label class="label-control" for="kecamatan"><b>Kecamatan</b></label>
-									<input type="text" class="form-control form-user-input" name="kecamatan" id="kecamatan">
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="status_perkawinan"><b>Status
@@ -176,15 +146,11 @@
 								</div>
 
 								<div class="form-group">
-<<<<<<< HEAD
 									<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Pekerjaan Anda" name="pekerjaan" id="pekerjaan">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-=======
-									<input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan">
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
@@ -197,18 +163,12 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-							</div>
-							<div class="col-md-4">
 								<div class="form-group">
 									<label class="label-control" for="no_kk"><b>No KK</b></label>
-<<<<<<< HEAD
 									<input type="text" class="form-control form-user-input" placeholder="Isikan No. KK" name="no_kk" id="no_kk">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-=======
-									<input type="text" class="form-control form-user-input" name="no_kk" id="no_kk">
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
@@ -246,6 +206,12 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
+							</div>
+							<!-- <div class="col-md-4">
+
+							</div> -->
+							<div class="col-md-4">
+
 								<div class="form-group">
 									<label class="label-control" for="status_hub_kel"><b>Status Hub
 											Keluarga</b></label>
@@ -273,28 +239,19 @@
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="no_hp"><b>No HandPhone</b></label>
-<<<<<<< HEAD
 									<input type="text" class="form-control form-user-input" placeholder="Isikan No. HP Anda" name="no_hp" id="no_hp">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-=======
-									<input type="text" class="form-control form-user-input" name="no_hp" id="no_hp">
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 								</div>
 								<div class="form-group">
 									<label class="label-control" for="kata_sandi"><b>Kata
 											Sandi</b></label>
 									<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi">
-<<<<<<< HEAD
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 									<input type="checkbox" class="form-checkbox" style="margin-top: 15px" /> Lihat kata sandi
-=======
-									<input type="checkbox" class="form-checkbox" /> lihat
-									kata sandi
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 									<br />
 
 
@@ -307,7 +264,6 @@
 									<small>Error Message</small>
 
 								</div>
-<<<<<<< HEAD
 								<em class="small text-danger">*Foto Profil, Foto KTP, dan Foto KK bisa dikosongi terlebih dahulu apabila
 									belum ada</em>
 								<div class="form-group">
@@ -323,6 +279,7 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
+
 								<div class="form-group">
 									<label class="label-control" for="foto_ktp"><b>Foto
 											KTP</b></label>
@@ -354,58 +311,30 @@
 							</div>
 						</div>
 						<br>
-
 				</div>
-				<div class="card-footer">
-					<div class="float-right">
-						<a href="">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
-						<a href="">
-							<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
-								<i class="far fa-save nav-icon">
-								</i> Simpan
-							</button>
-						</a>
-					</div>
-				</div>
-
-=======
-							</div>
-						</div>
-						<br>
-						<hr />
-						<div class="">
-							<div class="float-right">
-								<a href="">
-									<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-										<i class="fa fa-times nav-icon">
-										</i> Batal
-									</button>
-								</a>
-								<a href="">
-									<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
-										<i class="far fa-save nav-icon">
-										</i> Simpan
-									</button>
-								</a>
-							</div>
-						</div>
-					</form>
-				</div>
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 			</div>
+			<div class="card-footer">
+				<div class="float-right">
+					<a href="">
+						<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
+							<i class="fa fa-times nav-icon">
+							</i> Batal
+						</button>
+					</a>
+					<a href="">
+						<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+							<i class="far fa-save nav-icon">
+							</i> Simpan
+						</button>
+					</a>
+				</div>
+			</div>
+
+
 			</form>
 		</div>
 	</div>
-<<<<<<< HEAD
 </div>
 <!-- /.container-fluid -->
-=======
-	<!-- /.container-fluid -->
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 </div>
 <!-- End of Main Content -->

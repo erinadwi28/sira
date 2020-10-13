@@ -24,27 +24,39 @@
                         <!-- <table class="table-responsive">
                                         
                                     </table> -->
-                        <form role="form" action="<?= base_url('admin/aksi_ubah_rt') ?>" method="post" id="formUbah">
+                        <form role="form" action="<?= base_url('admin/aksi_ubah_rt') ?>" method="post" id="ubahrt">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="nik"><b>NIK</b></label>
                                         <input type="text" class="form-control form-user-input" name="nik" id="nik" value="<?= $detail->nik; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="label-control" for="nama"><b>Nama Lengkap</b></label>
                                         <input type="text" class="form-control form-user-input" name="nama" id="nama" value="<?= $detail->nama; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="tempat_lahir"><b>Tempat
                                                 Lahir</b></label>
                                         <input type="text" class="form-control form-user-input" name="tempat_lahir" id="tempat_lahir" value="<?= $detail->tempat_lahir; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="tanggal_lahir"><b>Tanggal
                                                 Lahir</b></label>
                                         <input type="date" class="form-control form-user-input" name="tanggal_lahir" id="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="jenis_kelamin"><b>Jenis
@@ -55,6 +67,9 @@
                                             <option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
                                             </option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="goldar"><b>Golongan
@@ -65,6 +80,9 @@
                                             <option value="B" <?= ($detail->golongan_darah == 'B' ? ' selected' : ''); ?> class="form-user-input">B</option>
                                             <option value="O" <?= ($detail->golongan_darah == 'O' ? ' selected' : ''); ?> class="form-user-input">O</option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="agama"><b>Agama</b></label>
@@ -79,24 +97,39 @@
                                             <option value="Khonghucu" <?= ($detail->agama == 'Khonghucu' ? ' selected' : ''); ?> class="form-user-input">Khonghucu
                                             </option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
                                         <input type="text" class="form-control form-user-input" name="alamat" id="alamat" value="<?= $detail->alamat; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="rt"><b>RT</b></label>
                                         <input type="text" class="form-control form-user-input" name="rt" id="rt" value="<?= $detail->rt; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="kelurahan"><b>Kelurahan</b></label>
                                         <input type="text" class="form-control form-user-input" name="kelurahan" id="kelurahan" value="<?= $detail->kelurahan; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="kecamatan"><b>Kecamatan</b></label>
                                         <input type="text" class="form-control form-user-input" name="kecamatan" id="kecamatan" value="<?= $detail->kecamatan; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="status_perkawinan"><b>Status
@@ -106,10 +139,17 @@
                                             <option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
                                             </option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
-                                    <label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
+                                    
                                     <div class="form-group">
+                                        <label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
                                         <input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
@@ -117,12 +157,18 @@
                                             <option value="WNI" <?= ($detail->kewarganegaraan == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
                                             <option value="WNA" <?= ($detail->kewarganegaraan == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="no_kk"><b>No KK</b></label>
                                         <input type="text" class="form-control form-user-input" name="no_kk" id="no_kk" value="<?= $detail->no_kk; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
@@ -155,6 +201,9 @@
                                             <option value="STRATA III" <?= ($detail->pendidikan_terakhir == 'STRATA III' ? ' selected' : ''); ?> class="form-user-input">STRATA III
                                             </option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="status_hub_kel"><b>Status Hub
@@ -176,14 +225,23 @@
                                             <option value="Pembantu" <?= ($detail->status_hub_kel == 'Pembantu' ? ' selected' : ''); ?> class="form-user-input">Pembantu
                                             </option>
                                         </select>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="no_hp"><b>No HandPhone</b></label>
                                         <input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
                                         <input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>" disabled>
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
                                     </div>
                                 </div>
                             </div>

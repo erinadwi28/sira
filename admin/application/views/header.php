@@ -19,14 +19,10 @@
 	<!-- Custom styles for this template-->
 	<link href="<?= base_url('assets/dashboard/') ?>css/sb-admin-2.min.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/preview.css" rel="stylesheet" />
-<<<<<<< HEAD
 	<link href="<?= base_url('assets/dashboard/') ?>css/form_validation.css" rel="stylesheet" />
-
-=======
 
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
->>>>>>> d79806f093dc84b30b0498fb8c6c48c9afbd8623
 </head>
 
 <body id="page-top">

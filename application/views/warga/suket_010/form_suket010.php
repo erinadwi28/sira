@@ -121,6 +121,98 @@
 									</div>
 								</div>
 								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Kelahiran" class="col-sm-3 col-form-label">Kelahiran</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="kelahiran" name="kelahiran">
+													<option value="Pilih kelahiran..." class="form-user-input">Pilih kelahiran...</option>
+													<option value="Tunggal" class="form-user-input">Tunggal
+													</option>
+													<option value="Kembar" class="form-user-input">Kembar
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Kembar_ke" class="col-sm-3 col-form-label">Kembar ke</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="kembar_ke" name="kembar_ke">
+													<option value="Jika anak kelahiran kembar..." class="form-user-input">Jika anak kelahiran kembar...</option>
+													<option value="" class="form-user-input">1 </option>
+													<option value="" class="form-user-input">2 </option>
+													<option value="" class="form-user-input">3 </option>
+													<option value="" class="form-user-input">4 </option>
+													<option value="" class="form-user-input">5 </option>
+													<option value="" class="form-user-input">Tidak ada </option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="tempat_persalinan" class="col-sm-3 col-form-label">Tempat Bersalin</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="tempat_persalinan" name="tempat_persalinan">
+													<option value="Pilih tempat bersalin..." class="form-user-input">Pilih tempat bersalin...</option>
+													<option value="Rumah Bersalin" class="form-user-input"> Rumah Bersalin
+													</option>
+													<option value="Bukan Rumah Bersalin" class="form-user-input">Bukan Rumah Bersalin
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Alamat_persalinan" class="col-sm-3 col-form-label">Alamat Persalinan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<textarea class="form-control" id="alamat_persalinan" name="alamat_persalinan" rows="3"></textarea>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="penolong_persalinan" class="col-sm-3 col-form-label">Penolong Bersalin</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="penolong_persalinan" name="penolong_persalinan">
+													<option value="Pilih penolong bersalin..." class="form-user-input">Pilih penolong bersalin...</option>
+													<option value="Dokter" class="form-user-input"> Dokter</option>
+													<option value="Bidan/Perawat" class="form-user-input"> Bidan/Perawat</option>
+													<option value="Dukun" class="form-user-input"> Dukun</option>
+													<option value="Lainnya" class="form-user-input"> Lainnya</option>
+
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
 											<label for="Nama_ibu" class="col-sm-3 col-form-label">Nama Ibu</label>
@@ -137,13 +229,60 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
+										<label for="Alamat_ibu" class="col-sm-3 col-form-label">Alamat Ibu</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Isikan alamat..."></textarea>
+												<textarea class="form-control" id="alamat_ibu" name="alamat_ibu" rows="3" placeholder="Isikan alamat..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="tanggal_lahir_ibu" class="col-sm-3 col-form-label">Tanggal Lahir Ibu</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="date" class="form-control" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group" style="margin-top: 15px;">
+										<div class="form-group row" style="margin-left: 10px;">
+											<label for="umur_ibu" class="col-sm-3 col-form-label">Umur Ibu</label>
+											<div class="col-sm-8">
+												<div class="form-line focused">
+													<input type="number" class="form-control" id="umur_ibu" name="umur_ibu">
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group" style="margin-top: 20px;">
+										<div class="form-group row" style="margin-left: 10px;">
+											<label for="kewarganegaraan_ibu" class="col-sm-3 col-form-label">Kewarganegaraan</label>
+											<div class="col-sm-8">
+												<div class="form-line">
+													<select class="form-control " id="kewarganegaraan_ibu" name="kewarganegaraan_ibu">
+														<option value="Pilih kewarganegaraan ibu..." class="form-user-input">Pilih kewarganegaraan ibu...</option>
+														<option value="WNI" class="form-user-input">WNI</option>
+														<option value="WNA" class="form-user-input">WNA</option>
+													</select>
+													<i class="fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -159,6 +298,79 @@
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
 												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="tanggal_lahir_ayah" class="col-sm-3 col-form-label">Tanggal Lahir Ayah</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="date" class="form-control" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group" style="margin-top: 15px;">
+										<div class="form-group row" style="margin-left: 10px;">
+											<label for="umur_ayah" class="col-sm-3 col-form-label">Umur Ayah</label>
+											<div class="col-sm-8">
+												<div class="form-line focused">
+													<input type="number" class="form-control" id="umur_ayah" name="umur_ayah">
+													<i class=" fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group" style="margin-top: 20px;">
+										<div class="form-group row" style="margin-left: 10px;">
+											<label for="kewarganegaraan_ayah" class="col-sm-3 col-form-label">Kewarganegaraan</label>
+											<div class="col-sm-8">
+												<div class="form-line">
+													<select class="form-control " id="kewarganegaraan_ayah" name="kewarganegaraan_ayah">
+														<option value="Pilih kewarganegaraan ayah..." class="form-user-input">Pilih kewarganegaraan ayah...</option>
+														<option value="WNI" class="form-user-input">WNI</option>
+														<option value="WNA" class="form-user-input">WNA</option>
+													</select>
+													<i class="fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="No_kk" class="col-sm-3 col-form-label">No. KK</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="no_kk" name="no_kk" value="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="No_ktp" class="col-sm-3 col-form-label">No. KTP</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="no_ktp" name="no_ktp" value="">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>

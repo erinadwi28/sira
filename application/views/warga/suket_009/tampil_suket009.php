@@ -68,7 +68,7 @@
 												<div class="isi_surat paragraf">
 													<p> Yang bertanda tangan dibawah ini, berdasarkan Surat Keterangan dari Ketua Rukun
 														Tetangga
-														( RT ) <?= $warga['rt'] ?>, Nomor : <?= $w->nomor_surat_rt; ?>, tanggal <?php foreach ($detail_permohonan as $d) { ?> <?= $d->tanggal_persetujuan_rt; ?> <?php } ?> menerangkan
+														( RT ) <?= $warga['rt'] ?>, Nomor : <?= $w->nomor_surat_rt; ?>, tanggal <?php foreach ($detail_permohonan as $d) { ?> <?= format_indo(date($d->tanggal_persetujuan_rt)); ?> <?php } ?> menerangkan
 														bahwa :</p>
 												</div>
 												<div class="isi_surat identitas">
@@ -136,7 +136,7 @@
 																<td> </td>
 																<td></td>
 																<td>:</td>
-																<td><?= $w->tanggal_meninggal; ?></td>
+																<td><?= format_indo(date($w->tanggal_meninggal)); ?></td>
 															</tr>
 															<tr>
 																<td> <b>Tempat Kematian</b></td>
@@ -181,7 +181,7 @@
 											?>
 												<center>
 
-													Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
 													LURAH MENDAWAI
 
 												</center>
@@ -193,11 +193,14 @@
 									<div class="col-md-6 ">
 									</div>
 									<div class="col-md-6">
-										<div class="badan_surat isi_surat">
-											<center>
-												<img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png">
-											</center>
-										</div>
+										<?php
+										foreach ($data_kades as $k) {
+										?>
+											<div class="badan_surat isi_surat">
+												<center>
+													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+												</center>
+											</div>
 									</div>
 								</div>
 								<div class="row">
@@ -205,22 +208,21 @@
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-											<?php
-											foreach ($data_kades as $k) {
-											?>
-												<center>
-													<u><b><?= $k->nama; ?></b></u> <br>
-													NIP. <?= $k->nip; ?>
-												</center>
-											<?php } ?>
+											<center>
+												<u><b><?= $k->nama; ?></b></u> <br>
+												NIP. <?= $k->nip; ?>
+											</center>
+										<?php } ?>
 										</div>
 									</div>
 								</div>
 								</div>
 								<div class="card-footer">
 									<center>
-										<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-											Cetak</button>
+										<a href="<?= base_url() ?>warga/cetak_surat009/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+												Cetak</button>
+										</a>
 									</center>
 								</div>
 							</div>

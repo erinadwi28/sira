@@ -249,7 +249,8 @@ class M_warga extends CI_Model
 		$this->db->from('permohonan_surat');
 		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
 		$this->db->where('permohonan_surat.id_warga', $id_warga);
-		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'DESC');
+		$this->db->where('status_delete', 0);
+		$this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
 
 		return $this->db->get();
 	}
@@ -262,7 +263,7 @@ class M_warga extends CI_Model
 		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
 		$this->db->where('permohonan_surat.id_warga', $id_warga);
 		$this->db->where('permohonan_surat.status', 'Selesai');
-		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'DESC');
+		$this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'DESC');
 
 		return $this->db->get();
 	}

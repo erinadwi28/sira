@@ -83,7 +83,7 @@
 																<td> </td>
 																<td> </td>
 																<td> :</td>
-																<td><?= $w->tanggal_lahir; ?></td>
+																<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 															</tr>
 															<tr>
 																<td><b>Di</b></td>
@@ -180,7 +180,7 @@
 											?>
 												<center>
 
-													Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
 													LURAH MENDAWAI
 
 												</center>
@@ -192,9 +192,12 @@
 									<div class="col-md-6 ">
 									</div>
 									<div class="col-md-6">
-										<div class="badan_surat isi_surat">
-											<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
-										</div>
+										<?php
+										foreach ($data_kades as $k) {
+										?>
+											<div class="badan_surat isi_surat">
+												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+											</div>
 									</div>
 								</div>
 								<div class="row">
@@ -202,22 +205,21 @@
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-											<?php
-											foreach ($data_kades as $k) {
-											?>
-												<center>
-													<u><b><?= $k->nama; ?></b></u> <br>
-													NIP. <?= $k->nip; ?>
-												</center>
-											<?php } ?>
+											<center>
+												<u><b><?= $k->nama; ?></b></u> <br>
+												NIP. <?= $k->nip; ?>
+											</center>
+										<?php } ?>
 										</div>
 									</div>
 								</div>
 								</div>
 								<div class="card-footer">
 									<center>
-										<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-											Cetak</button>
+										<a href="<?= base_url() ?>warga/cetak_surat010/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+												Cetak</button>
+										</a>
 									</center>
 								</div>
 							</div>

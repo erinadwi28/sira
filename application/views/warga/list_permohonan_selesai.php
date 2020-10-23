@@ -50,6 +50,7 @@
                             <th>No</th>
                             <th>Nama Surat</th>
                             <th>Tgl Permohonan</th>
+                            <th>Tgl Disetujui</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -63,6 +64,7 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $w->nama_surat ?></td>
                                 <td><?= $w->tgl_permohonan_surat ?></td>
+                                <td><?= $w->tgl_persetujuan_admin ?></td>
                                 <?php if ($w->status == 'Menunggu Persetujuan Ketua RT') {
                                 ?><td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
                                                                                                                                 } elseif ($w->status == 'Menunggu Persetujuan Admin') {

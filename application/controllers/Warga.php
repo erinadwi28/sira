@@ -1,4 +1,10 @@
 <?php
+
+require 'vendor/autoload.php';
+
+use Dompdf\Dompdf;
+
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Warga extends CI_Controller
@@ -212,7 +218,7 @@ class Warga extends CI_Controller
 		$data_detail['detail_profil_saya'] = $this->m_warga->get_detail_profil_saya($detailhere, 'warga')->result();
 
 		$this->load->view('header');
-		$this->load->view('warga/sidebar_warga');
+		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
 		$this->load->view('warga/form_ubah_kata_sandi_profil_saya', $data_detail);
 		$this->load->view('footer');
@@ -2475,5 +2481,275 @@ class Warga extends CI_Controller
 			$this->load->view('warga/suket_014/tampil_suket014', $data_detail);
 		}
 		$this->load->view('footer');
+	}
+
+	public function cetak_surat($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_001($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_001/cetak_suket001', $data_detail, true);
+		$dompdf->set_base_path("../../assets/dashboard/css");
+		// $html .= '<link href="../../assets/dashboard/css/sb-admin-2.min.css" rel="stylesheet" />';
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Usaha');
+	}
+
+	public function cetak_surat002($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_002($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_002/cetak_suket002', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Domisili');
+	}
+
+	public function cetak_surat003($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_003($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_003/cetak_suket003', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Belum Memiliki Rumah');
+	}
+
+	public function cetak_surat004($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_004($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_004/cetak_suket004', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Beda Nama');
+	}
+
+	public function cetak_surat005($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_005($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_005/cetak_suket005', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Izin Keramaian');
+	}
+
+	public function cetak_surat006($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_006($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_006/cetak_suket006', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Belum Pernah Menikah');
+	}
+
+	public function cetak_surat007($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_007($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_007/cetak_suket007', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Tidak Mampu');
+	}
+
+	public function cetak_surat008($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_008($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_008/cetak_suket008', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Janda');
+	}
+
+	public function cetak_surat009($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_009($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_009/cetak_suket009', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Kematian');
+	}
+
+	public function cetak_surat010($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_010($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_010/cetak_suket010', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Kelahiran');
+	}
+
+	public function cetak_surat011($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_011($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_011/cetak_suket011', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Pengantar KTP');
+	}
+
+	public function cetak_surat012($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_012($id_permohonan_surat)->result();
+		$data_detail['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_012/cetak_suket012', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Pengantar KK');
+	}
+
+	public function cetak_surat013($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_013($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_013/cetak_suket013', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Penghasilan');
+	}
+
+	public function cetak_surat014($id_permohonan_surat)
+	{
+
+		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+		$data_detail['detail_suket'] = $this->m_warga->get_detail_014($id_permohonan_surat)->result();
+		$data_detail['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan_surat)->result();
+
+		$dompdf = new Dompdf();
+
+		$html = $this->load->view('warga/suket_014/cetak_suket014', $data_detail, true);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
+		$dompdf->stream('Surat Keterangan Pindah');
 	}
 }

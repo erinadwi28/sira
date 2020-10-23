@@ -61,67 +61,80 @@
 											<div class="badan_surat">
 												<div class="no_surat">
 													<center>
-														<p><u>SURAT KETERANGAN BEDA NAMA</u><br>
-															Nomor : <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
+														<p><u>SURAT KELAHIRAN</u><br>
+															Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
 													</center>
 												</div>
 												<div class="isi_surat paragraf">
-													<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
-														Selatan, Kabupaten Kotawaringin Barat,
-														Provinsi Kalimantan Tengah, dengan ini menerangkan bahwa :</p>
+													<p> Yang bertanda tangan dibawah ini, menerangkan bahwa pada :</p>
 												</div>
 												<div class="isi_surat identitas">
 													<table class="table-responsive">
 														<tbody>
 															<tr>
-																<td><b>Nama Benar</b></td>
+																<td><b>Hari</b></td>
 																<td> </td>
 																<td> </td>
-																<td>:</td>
-																<td><?= $w->nama_benar; ?></td>
+																<td> :</td>
+																<td><?= $w->hari_lahir; ?></td>
 															</tr>
 															<tr>
-																<td><b>Dokumen Benar</b></td>
+																<td><b>Tanggal</b></td>
 																<td> </td>
 																<td> </td>
-																<td>:</td>
-																<td><?= $w->nama_dokumen_benar; ?></td>
+																<td> :</td>
+																<td><?= $w->tanggal_lahir; ?></td>
 															</tr>
 															<tr>
-																<td><b>Nama Salah</b></td>
+																<td><b>Di</b></td>
 																<td> </td>
 																<td> </td>
-																<td>:</td>
-																<td><?= $w->nama_salah; ?></td>
+																<td> :</td>
+																<td><?= $w->tempat_lahir; ?></td>
 															</tr>
 															<tr>
-																<td><b>Dokumen Salah</b></td>
+																<td><b>Jam</b></td>
 																<td> </td>
 																<td> </td>
-																<td>:</td>
-																<td><?= $w->nama_dokumen_salah; ?></td>
+																<td> :</td>
+																<td><?= $w->jam_lahir; ?> WITA</td>
 															</tr>
+														</tbody>
+													</table>
+												</div>
+
+												<div class="isi_surat paragraf">
+													<br>
+													<p>telah lahir seorang anak <b><?= $w->jenis_kelamin; ?></b> bernama :</p>
+													<center>
+														<p> <b> <?= $w->nama_anak; ?></b></p>
+													</center>
+													<p>Dari seorang ibu :</p>
+												</div>
+
+												<div class="isi_surat identitas">
+													<table class="table-responsive">
+														<tbody>
 															<tr>
-																<td><b>Tempat, Tanggal Lahir</b></td>
+																<td><b>Nama Ibu</b></td>
 																<td> </td>
 																<td> </td>
-																<td>:</td>
-																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
-															</tr>
-															<tr>
-																<td><b>Pekerjaan</b></td>
-																<td> </td>
-																<td> </td>
-																<td>:</td>
-																<td><?= $w->pekerjaan; ?></td>
+																<td> :</td>
+																<td><?= $w->nama_ibu; ?></td>
 															</tr>
 															<tr>
 																<td><b>Alamat</b></td>
 																<td> </td>
 																<td> </td>
-																<td>:</td>
+																<td> :</td>
 																<td><?= $w->alamat; ?></td>
 															</tr>
+															<tr>
+																<td><b>Istri dari</b></td>
+																<td> </td>
+																<td> </td>
+																<td> :</td>
+																<td><?= $w->nama_ayah; ?></td>
 															</tr>
 														</tbody>
 													</table>
@@ -129,17 +142,31 @@
 												<br>
 												<div class="isi_surat paragraf">
 													<p>
-														Berdasarkan Surat Keterangan dari Pengurus Rukun Tetangga ( RT ) <?= $warga['rt'] ?> Kelurahan Mendawai, Tanggal <?php
-																																											foreach ($detail_permohonan as $d) {
-																																											?> <?= format_indo(date($d->tanggal_persetujuan_rt)); ?> <?php } ?> ,
-														Nomor : <?= $w->nomor_surat_rt; ?>, bahwa yang namanya tersebut di atas adalah satu orang ,
-														dan bertempat tinggal di Kelurahan Mendawai <?= $w->alamat; ?>.
-														Dan menurut Pengakuan yang bersangkutan, nama yang benar, nama sesuai <b>“<?= $w->nama_dokumen_benar; ?>”</b>.
+														Surat keterangan ini dibuat atas dasar yang sebenarnya
 													</p>
-													<p>
-														Demikian Surat Keterangan beda nama ini kami buat, agar dapat dipergunakan sebagaimana mestinya.
-													</p>
+
 												</div>
+												<div class="isi_surat identitas">
+													<table class="table-responsive">
+														<tbody>
+															<tr>
+																<td><b>Nama pemohon</b></td>
+																<td> </td>
+																<td> </td>
+																<td> :</td>
+																<td><?= $w->nama_pemohon; ?></td>
+															</tr>
+															<tr>
+																<td><b>Hubungan dgn bayi</b></td>
+																<td> </td>
+																<td> </td>
+																<td> :</td>
+																<td><?= $w->hubungan_dengan_bayi; ?></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+
 											</div>
 									</center>
 								<?php } ?>
@@ -153,7 +180,7 @@
 											?>
 												<center>
 
-													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
+													Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
 													LURAH MENDAWAI
 
 												</center>
@@ -165,12 +192,9 @@
 									<div class="col-md-6 ">
 									</div>
 									<div class="col-md-6">
-										<?php
-										foreach ($data_kades as $k) {
-										?>
-											<div class="badan_surat isi_surat">
-												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
-											</div>
+										<div class="badan_surat isi_surat">
+											<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
+										</div>
 									</div>
 								</div>
 								<div class="row">
@@ -178,21 +202,22 @@
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-											<center>
-												<u><b><?= $k->nama; ?></b></u> <br>
-												NIP. <?= $k->nip; ?>
-											</center>
-										<?php } ?>
+											<?php
+											foreach ($data_kades as $k) {
+											?>
+												<center>
+													<u><b><?= $k->nama; ?></b></u> <br>
+													NIP. <?= $k->nip; ?>
+												</center>
+											<?php } ?>
 										</div>
 									</div>
 								</div>
 								</div>
 								<div class="card-footer">
 									<center>
-										<a href="<?= base_url() ?>warga/cetak_surat004/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
-											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-												Cetak</button>
-										</a>
+										<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+											Cetak</button>
 									</center>
 								</div>
 							</div>

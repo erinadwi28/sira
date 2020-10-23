@@ -27,6 +27,21 @@
 
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+	<style>
+		@media print {
+
+			.navbar-nav,
+			.preview,
+			.card_footer,
+			footer,
+			.col-md-2,
+			.btn {
+				display: none;
+			}
+		}
+	</style>
+
 </head>
 
 <body id="page-top">

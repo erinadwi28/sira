@@ -5,11 +5,89 @@ class M_warga extends CI_Model
 	protected $_table = 'warga';
 
 	// Cek NIK untuk login
-	public function cek_nik($nik)
+	public function cek_nik($nik, $status_delete)
 	{
-		$query = $this->db->get_where($this->_table, ['nik' => $nik]);
+		$query = $this->db->get_where($this->_table, ['nik' => $nik, 'status_delete' => $status_delete]);
 		return $query->row_array();
 	}
+
+	// ambil nama kades untuk dashboard
+    public function ambil_nama_kades()
+    {
+        $this->db->select('nama');
+        $this->db->from('kepala_desa');
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    
+    // ambil nama rt untuk dashboard
+    public function ambil_nama_rt()
+    {
+        $this->db->select('nama');
+        $this->db->from('rt');
+        $this->db->where('rt', $this->session->userdata('rt'));
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah permohonan masuk untuk dashboard
+    public function jumlah_persetujuan_rt()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_persetujuan_rt');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah permohonan disetujui untuk dashboard
+    public function jumlah_persetujuan_admin()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_persetujuan_admin');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah permohonan selesai untuk dashboard
+    public function jumlah_permohonan_selesai()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_permohonan_selesai');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Selesai');
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah Riwayat Permohonan untuk dashboard
+    public function jumlah_riwayat_permohonan()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_riwayat_permohonan');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 
 	// detail profil saya
     public function get_detail_profil_saya($detailhere, $tabel)
@@ -45,13 +123,6 @@ class M_warga extends CI_Model
 
         $hasil = $this->db->get();
         return $hasil;
-    }
-
-    // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
-    public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
-    {
-        $this->db->where('id_warga', $detailhere);
-        $this->db->update($table, $data);
     }
 
     //aksi ubah kata sandi profil saya

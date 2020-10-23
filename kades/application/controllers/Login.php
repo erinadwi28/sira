@@ -21,8 +21,11 @@ class Login extends CI_Controller {
     {
         $nik = $this->input->post('nik');
 		$kata_sandi = $this->input->post('kata_sandi');
-		$kata_sandi_hash = sha1($kata_sandi);
-		$kades = $this->m_kades->cek_nik($nik);
+        $kata_sandi_hash = sha1($kata_sandi);
+        $status_delete = $this->input->post('status_delete');
+
+
+		$kades = $this->m_kades->cek_nik($nik, $status_delete);
 		
         if ($kades) {
             //kades ada
@@ -45,7 +48,7 @@ class Login extends CI_Controller {
             }
         } else {
             //gagal login
-            $this->session->set_flashdata('error', '<b>NIK</b> salah');
+            $this->session->set_flashdata('error', '<b>NIK</b> tidak terdaftar sebagai Kepala Desa');
 			redirect('login');
         }
     }

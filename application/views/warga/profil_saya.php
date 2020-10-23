@@ -31,12 +31,15 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php 
+				<div class="card-body" style="padding: 15px;">
+					<center>
+						<?php 
 					foreach($foto_profil as $saya){ ?>
 					<img src="<?= base_url(); ?>/assets/uploads/warga/<?= $saya->foto_profil_warga; ?>" alt="foto profil"
 						class="img-fluid">
 					<?php } ?>
+					</center>
+					
 				</div>
 
 				<div class="card-footer py-3">
@@ -289,14 +292,10 @@
 					</table>
 				</div>
 				<div class="card-footer">
-					<div class="float-right">
-						<a href="<?= base_url() ?>warga/form_ubah_profil_saya/<?= $detail->id_warga ?>">
-							<button id="btn_ubah" class="btn btn-sm btn-primary" type="submit">
-								<i class="fa fa-edit nav-icon">
-								</i> Ubah
-							</button>
-						</a>
-					</div>
+				<em class="float-center small text-danger">*Anda bisa mengubah Kata Sandi serta Foto Profil, Foto KTP, dan Foto KK. <br> 
+				Untuk ubah data harap hubungi Nomor Telepon berikut : <br>
+				No Telepon : 085713609299</em>
+
 
 				</div>
 			</div>

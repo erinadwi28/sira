@@ -31,12 +31,15 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php 
+				<div class="card-body" style="padding: 10px;">
+				<center>
+				<?php 
 					foreach($foto_profil as $saya){ ?>
 					<img src="<?= base_url(); ?>../assets/uploads/rt/<?= $saya->foto_profil_rt; ?>" alt="foto profil"
 						class="img-fluid">
 					<?php } ?>
+				</center>
+					
 				</div>
 
 				<div class="card-footer py-3">

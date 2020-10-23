@@ -17,12 +17,20 @@ class Warga extends CI_Controller
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array(); 
 
-		$this->load->view('header', $data);
-		$this->load->view('warga/sidebar_warga', $data);
+		$data['data_kades'] = $this->m_warga->ambil_nama_kades()->result();
+        $data['data_rt'] = $this->m_warga->ambil_nama_rt()->result();
+        $data['jumlah_persetujuan_rt'] = $this->m_warga->jumlah_persetujuan_rt()->result();
+        $data['jumlah_persetujuan_admin'] = $this->m_warga->jumlah_persetujuan_admin()->result();
+        $data['jumlah_permohonan_selesai'] = $this->m_warga->jumlah_permohonan_selesai()->result();
+        $data['jumlah_riwayat_permohonan'] = $this->m_warga->jumlah_riwayat_permohonan()->result();
+
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga');
 		$this->load->view('topbar', $data);
 		$this->load->view('warga/dashboard_warga', $data);
 		$this->load->view('footer');
-	}
+	} 
 
 	//tampil profil saya
     public function profil_saya($id_warga)
@@ -44,54 +52,6 @@ class Warga extends CI_Controller
         $this->load->view('topbar', $data);
         $this->load->view('warga/profil_saya', $data_detail);
         $this->load->view('footer');
-	}
-
-	// tampil form ubah profil saya beserta datanya
-    public function form_ubah_profil_saya($id_warga)
-    {
-        $data['warga'] = $this->db->get_where('warga', ['id_warga' =>
-        $this->session->userdata('id_warga')])->row_array();
-
-        $detailhere = array('id_warga' => $id_warga);
-        $data_detail['detail_profil_saya'] = $this->m_warga->get_detail_profil_saya($detailhere,'warga')->result();
-
-        $this->load->view('header');
-        $this->load->view('warga/sidebar_warga');
-        $this->load->view('topbar', $data);
-        $this->load->view('warga/form_ubah_profil_saya', $data_detail);
-        $this->load->view('footer');
-	}
-	
-	// aksi ubah profil saya
-    public function aksi_ubah_profil_saya()
-    {
-        $data = array(
-            'nik' => $this->input->post('nik'),
-            'nama' => $this->input->post('nama'),
-            'alamat' => $this->input->post('alamat'),
-            'rt' => $this->input->post('rt'),
-            'kelurahan' => $this->input->post('kelurahan'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-            'agama' => $this->input->post('agama'),
-            'tempat_lahir' => $this->input->post('tempat_lahir'),
-            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-            'status_perkawinan' => $this->input->post('status_perkawinan'),
-            'pekerjaan' => $this->input->post('pekerjaan'),
-            'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-            'golongan_darah' => $this->input->post('golongan_darah'),
-            'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
-            'no_kk' => $this->input->post('no_kk'),
-            'status_hub_kel' => $this->input->post('status_hub_kel'),
-            'no_hp' => $this->input->post('no_hp'),
-        );
-
-        $detailhere = $this->input->post('id_warga');
-
-        $this->m_warga->aksi_ubah_data_profil_saya($detailhere, $data, 'warga');
-
-        $this->session->set_flashdata('success', 'diubah');
-        redirect('warga/profil_saya/' . $detailhere);
 	}
 	
 	// upload foto profil warga

@@ -10,7 +10,7 @@
 
 	<!-- Filter Tanggal Permohonan Surat -->
 	<div class="card shadow col-md-10 mb-2">
-		<div class="card-body">
+		<div class="card-body" style="padding: 15px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>

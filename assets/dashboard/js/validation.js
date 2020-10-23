@@ -60,8 +60,21 @@ const alasan_meninggal = document.getElementById("alasan_meninggal");
 const nama_anak = document.getElementById("nama_anak");
 const hari_lahir = document.getElementById("hari_lahir");
 const jam_lahir = document.getElementById("jam_lahir");
+const kelahiran = document.getElementById("kelahiran");
+const kembar_ke = document.getElementById("kembar_ke");
+const tempat_persalinan = document.getElementById("tempat_persalinan");
+const alamat_persalinan = document.getElementById("alamat_persalinan");
+const penolong_persalian = document.getElementById("penolong_persalian");
 const nama_ibu = document.getElementById("nama_ibu");
+const tanggal_lahir_ibu = document.getElementById("tanggal_lahir_ibu");
+const alamat_ibu = document.getElementById("alamat_ibu");
+const umur_ibu = document.getElementById("umur_ibu");
+const kewarganegaraan_ibu = document.getElementById("kewarganegaraan_ibu");
 const nama_ayah = document.getElementById("nama_ayah");
+const tanggal_lahir_ayah = document.getElementById("tanggal_lahir_ayah");
+const umur_ayah = document.getElementById("umur_ayah");
+const kewarganegaraan_ayah = document.getElementById("kewarganegaraan_ayah");
+const no_ktp = document.getElementById("no_ktp");
 const nama_pemohon = document.getElementById("nama_pemohon");
 const hubungan_dengan_bayi = document.getElementById("hubungan_dengan_bayi");
 
@@ -791,9 +804,22 @@ function checkInput10() {
 	const tanggal_lahirValue = tanggal_lahir.value.trim();
 	const jam_lahirValue = jam_lahir.value.trim();
 	const jenis_kelaminValue = jenis_kelamin.value.trim();
+	const kelahiranValue = kelahiran.value.trim();
+	const kembar_keValue = kembar_ke.value.trim();
+	const tempat_persalinanValue = tempat_persalinan.value.trim();
+	const alamat_persalinanValue = alamat_persalinan.value.trim();
+	const penolong_persalinanValue = penolong_persalinan.value.trim();
 	const nama_ibuValue = nama_ibu.value.trim();
-	const alamatValue = alamat.value.trim();
+	const alamat_ibuValue = alamat_ibu.value.trim();
+	const tanggal_lahir_ibuValue = tanggal_lahir_ibu.value.trim();
+	const umur_ibuValue = umur_ibu.value.trim();
+	const kewarganegaraan_ibuValue = kewarganegaraan_ibu.value.trim();
 	const nama_ayahValue = nama_ayah.value.trim();
+	const tanggal_lahir_ayahValue = tanggal_lahir_ayah.value.trim();
+	const umur_ayahValue = umur_ayah.value.trim();
+	const kewarganegaraan_ayahValue = kewarganegaraan_ayah.value.trim()
+	const no_kkValue = no_kk.value.trim();
+	const no_ktpValue = no_ktp.value.trim();
 	const nama_pemohonValue = nama_pemohon.value.trim();
 	const hubungan_dengan_bayiValue = hubungan_dengan_bayi.value.trim();
 
@@ -822,7 +848,6 @@ function checkInput10() {
 	} else {
 		setSuccessFor(tanggal_lahir);
 	}
-
 	if (jam_lahirValue === "") {
 		setErrorFor(jam_lahir, "Jam lahir tidak boleh kosong");
 		return (false);
@@ -835,23 +860,101 @@ function checkInput10() {
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
+	if (kelahiranValue === "Pilih kelahiran...") {
+		setErrorFor(kelahiran, "Kelahiran tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(kelahiran);
+	}
+	if (kembar_keValue === "Jika anak kelahiran kembar...") {
+		setErrorFor(kembar_ke, "Diisi sesuai kelahiran");
+		return(false);
+	} else {
+		setSuccessFor(kembar_ke);
+	}
+	if (tempat_persalinanValue === "Pilih tempat bersalin...") {
+		setErrorFor(tempat_persalinan, "Tempat bersalin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat_persalinan);
+	}
+	if (alamat_persalinanValue === "") {
+		setErrorFor(alamat_persalinan, "alamat bersalin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(alamat_persalinan);
+	}
+	if (penolong_persalinanValue === "Pilih penolong bersalin...") {
+		setErrorFor(penolong_persalinan, "penolong bersalin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(penolong_persalinan);
+	}
 	if (nama_ibuValue === "") {
 		setErrorFor(nama_ibu, "Nama ibu tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(nama_ibu);
 	}
-	if (alamatValue === "") {
-		setErrorFor(alamat, "Alamat tidak boleh kosong");
+	if (alamat_ibuValue === "") {
+		setErrorFor(alamat_ibu, "Alamat tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(alamat);
+		setSuccessFor(alamat_ibu);
+	}
+	if (tanggal_lahir_ibuValue === "") {
+		setErrorFor(tanggal_lahir_ibu, "Tanggal lahir ibu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir_ibu);
+	}
+	if (umur_ibuValue === "") {
+		setErrorFor(umur_ibu, "Umur Ibu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(umur_ibu);
+	}
+	if (kewarganegaraan_ibuValue === "Pilih kewarganegaraan ibu...") {
+		setErrorFor(kewarganegaraan_ibu, "Kewarganegaraan ibu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(kewarganegaraan_ibu);
 	}
 	if (nama_ayahValue === "") {
 		setErrorFor(nama_ayah, "Nama ayah tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(nama_ayah);
+	}
+	if (tanggal_lahir_ayahValue === "") {
+		setErrorFor(tanggal_lahir_ayah , "Tanggal lahir ayah tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir_ayah );
+	}
+	if (umur_ayahValue === "") {
+		setErrorFor(umur_ayah , "Umur ayah  tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(umur_ayah );
+	}
+	if (kewarganegaraan_ayahValue === "Pilih kewarganegaraan ayah...") {
+		setErrorFor(kewarganegaraan_ayah , "Kewarganegaraan ayah tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(kewarganegaraan_ayah );
+	}
+	if (no_kkValue === "") {
+		setErrorFor(no_kk, "No. kk pemohon tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(no_kk);
+	}
+	if (no_ktpValue === "") {
+		setErrorFor(no_ktp, "No. ktp pemohon tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(no_ktp);
 	}
 	if (nama_pemohonValue === "") {
 		setErrorFor(nama_pemohon, "Nama pemohon tidak boleh kosong");

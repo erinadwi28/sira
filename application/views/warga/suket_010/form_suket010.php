@@ -141,10 +141,31 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="tempat_bersalin" class="col-sm-3 col-form-label">Tempat Bersalin</label>
+										<label for="Kembar_ke" class="col-sm-3 col-form-label">Kembar ke</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<select class="form-control" id="tempat_bersalin" name="tempat_bersalin">
+												<select class="form-control" id="kembar_ke" name="kembar_ke">
+													<option value="Jika anak kelahiran kembar..." class="form-user-input">Jika anak kelahiran kembar...</option>
+													<option value="" class="form-user-input">1 </option>
+													<option value="" class="form-user-input">2 </option>
+													<option value="" class="form-user-input">3 </option>
+													<option value="" class="form-user-input">4 </option>
+													<option value="" class="form-user-input">5 </option>
+													<option value="" class="form-user-input">Tidak ada </option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="tempat_persalinan" class="col-sm-3 col-form-label">Tempat Bersalin</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<select class="form-control" id="tempat_persalinan" name="tempat_persalinan">
 													<option value="Pilih tempat bersalin..." class="form-user-input">Pilih tempat bersalin...</option>
 													<option value="Rumah Bersalin" class="form-user-input"> Rumah Bersalin
 													</option>
@@ -160,10 +181,10 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Alamat_Bersalin" class="col-sm-3 col-form-label">Alamat Persalinan</label>
+										<label for="Alamat_persalinan" class="col-sm-3 col-form-label">Alamat Persalinan</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alamat_bersalin" name="alamat_bersalin" rows="3"></textarea>
+												<textarea class="form-control" id="alamat_persalinan" name="alamat_persalinan" rows="3"></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -173,7 +194,7 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="penolong_persalinan" class="col-sm-3 col-form-label">Tempat Bersalin</label>
+										<label for="penolong_persalinan" class="col-sm-3 col-form-label">Penolong Bersalin</label>
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="penolong_persalinan" name="penolong_persalinan">
@@ -208,10 +229,10 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
+										<label for="Alamat_ibu" class="col-sm-3 col-form-label">Alamat Ibu</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Isikan alamat..."></textarea>
+												<textarea class="form-control" id="alamat_ibu" name="alamat_ibu" rows="3" placeholder="Isikan alamat..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -254,9 +275,9 @@
 											<div class="col-sm-8">
 												<div class="form-line">
 													<select class="form-control " id="kewarganegaraan_ibu" name="kewarganegaraan_ibu">
-														<option value="Pilih kewarganegaraan_ibu..." class="form-user-input">Pilih kewarganegaraan ibu...</option>
-														<option value="WNI" <?= ($detail->kewarganegaraan_ibu == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
-														<option value="WNA" <?= ($detail->kewarganegaraan_ibu == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
+														<option value="Pilih kewarganegaraan ibu..." class="form-user-input">Pilih kewarganegaraan ibu...</option>
+														<option value="WNI" class="form-user-input">WNI</option>
+														<option value="WNA" class="form-user-input">WNA</option>
 													</select>
 													<i class="fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
@@ -316,9 +337,9 @@
 											<div class="col-sm-8">
 												<div class="form-line">
 													<select class="form-control " id="kewarganegaraan_ayah" name="kewarganegaraan_ayah">
-														<option value="Pilih kewarganegaraan_ayah..." class="form-user-input">Pilih kewarganegaraan ayah...</option>
-														<option value="WNI" <?= ($detail->kewarganegaraan_ayah == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
-														<option value="WNA" <?= ($detail->kewarganegaraan_ayah == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
+														<option value="Pilih kewarganegaraan ayah..." class="form-user-input">Pilih kewarganegaraan ayah...</option>
+														<option value="WNI" class="form-user-input">WNI</option>
+														<option value="WNA" class="form-user-input">WNA</option>
 													</select>
 													<i class="fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>

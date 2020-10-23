@@ -69,6 +69,41 @@
 											<td><?= $w->jenis_kelamin ?></td>
 										</tr>
 										<tr>
+											<td><b>Kelahiran</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kelahiran ?></td>
+										</tr>
+										<tr>
+											<td><b>Kembar ke</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kembar_ke ?></td>
+										</tr>
+										<tr>
+											<td><b>Tempat Bersalin</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->tempat_persalinan ?></td>
+										</tr>
+										<tr>
+											<td><b>Alamat Persalinan</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->alamat_persalinan ?></td>
+										</tr>
+										<tr>
+											<td><b>Penolong Bersalin</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->penolong_persalinan ?></td>
+										</tr>
+										<tr>
 											<td><b>Nama Ibu</b></td>
 											<td> </td>
 											<td> </td>
@@ -76,11 +111,32 @@
 											<td><?= $w->nama_ibu ?></td>
 										</tr>
 										<tr>
-											<td><b>Alamat</b></td>
+											<td><b>Alamat Ibu </b></td>
 											<td> </td>
 											<td> </td>
 											<td> </td>
-											<td><?= $w->alamat ?></td>
+											<td><?= $w->alamat_ibu ?></td>
+										</tr>
+										<tr>
+											<td><b>Tanggal Lahir Ibu</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->tanggal_lahir_ibu ?></td>
+										</tr>
+										<tr>
+											<td><b>Umur Ibu</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->umur_ibu ?></td>
+										</tr>
+										<tr>
+											<td><b>Kewarganegaraan Ibu</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kewarganegaraan_ibu ?></td>
 										</tr>
 										<tr>
 											<td><b>Nama Ayah</b></td>
@@ -88,6 +144,41 @@
 											<td> </td>
 											<td> </td>
 											<td><?= $w->nama_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>Tanggal Lahir Ayah</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->tanggal_lahir_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>Umur Ayah</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->umur_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>Kewarganegaraan Ayah</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kewarganegaraan_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>No. KK</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->no_kk ?></td>
+										</tr>
+										<tr>
+											<td><b>No. KTP</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->no_ktp ?></td>
 										</tr>
 										<tr>
 											<td><b>Nama Pemohon</b></td>
@@ -217,6 +308,41 @@
 											<td><?= $w->jenis_kelamin ?></td>
 										</tr>
 										<tr>
+											<td><b>Kelahiran</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kelahiran ?></td>
+										</tr>
+										<tr>
+											<td><b>Kembar ke</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kembar_ke ?></td>
+										</tr>
+										<tr>
+											<td><b>Tempat Bersalin</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->tempat_persalinan ?></td>
+										</tr>
+										<tr>
+											<td><b>Alamat Persalinan</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->alamat_persalinan ?></td>
+										</tr>
+										<tr>
+											<td><b>Penolong Bersalin</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->penolong_persalinan ?></td>
+										</tr>
+										<tr>
 											<td><b>Nama Ibu</b></td>
 											<td> </td>
 											<td> </td>
@@ -224,11 +350,32 @@
 											<td><?= $w->nama_ibu ?></td>
 										</tr>
 										<tr>
-											<td><b>Alamat</b></td>
+											<td><b>Alamat Ibu </b></td>
 											<td> </td>
 											<td> </td>
 											<td> </td>
-											<td><?= $w->alamat ?></td>
+											<td><?= $w->alamat_ibu ?></td>
+										</tr>
+										<tr>
+											<td><b>Tanggal Lahir Ibu</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->tanggal_lahir_ibu ?></td>
+										</tr>
+										<tr>
+											<td><b>Umur Ibu</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->umur_ibu ?></td>
+										</tr>
+										<tr>
+											<td><b>Kewarganegaraan Ibu</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kewarganegaraan_ibu ?></td>
 										</tr>
 										<tr>
 											<td><b>Nama Ayah</b></td>
@@ -236,6 +383,41 @@
 											<td> </td>
 											<td> </td>
 											<td><?= $w->nama_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>Tanggal Lahir Ayah</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->tanggal_lahir_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>Umur Ayah</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->umur_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>Kewarganegaraan Ayah</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->kewarganegaraan_ayah ?></td>
+										</tr>
+										<tr>
+											<td><b>No. KK</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->no_kk ?></td>
+										</tr>
+										<tr>
+											<td><b>No. KTP</b></td>
+											<td> </td>
+											<td> </td>
+											<td> </td>
+											<td><?= $w->no_ktp ?></td>
 										</tr>
 										<tr>
 											<td><b>Nama Pemohon</b></td>

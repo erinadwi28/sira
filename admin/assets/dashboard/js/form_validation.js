@@ -106,6 +106,8 @@ function checkInputs() {
 	const kata_sandiValue = kata_sandi.value.trim();
 	const status_kepegawaianValue = status_kepegawaian.value.trim();
 
+	
+	
 	if (nikValue === "") {
 		setErrorFor(nik, "Nik tidak boleh kosong");
 		return(false);

@@ -20,7 +20,8 @@
 					<!-- <table class="table-responsive">
                                         
                                     </table> -->
-					<form role="form" action="<?= base_url('admin/aksi_tambah_kades') ?>" method="post" id="formTambah">
+					<form role="form" action="<?= base_url('admin/aksi_tambah_kades') ?>" method="post" id="formTambah" name="formTambah">
+					<input type="hidden" name="length" value="10">
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group">
@@ -30,7 +31,6 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-
 								<div class="form-group">
 									<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Nama" name="nama" id="nama">
@@ -245,13 +245,16 @@
 									<small>Error Message</small>
 								</div>
 								<div class="form-group">
+									
 									<label class="label-control" for="kata_sandi"><b>Kata
 											Sandi</b></label>
-									<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi">
+									<input type="text" class="form-control" name="row_password" id="kata_sandi" placeholder="Klik Acak Password" >&nbsp;
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
-									<input type="checkbox" class="form-checkbox" style="margin-top: 15px" /> Lihat kata sandi
+																		
+									<input style="margin-top: 15px;" type="button" class="button" value="Acak Password" onclick="generate();" tabindex="2">
+
 									<br />
 
 

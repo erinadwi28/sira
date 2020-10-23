@@ -123,9 +123,9 @@ if ( ! function_exists('create_captcha'))
 		// Do we have a "word" yet?
 		// -----------------------------------
 
-		if (empty($detailord))
+		if (empty($word))
 		{
-			$detailord = '';
+			$word = '';
 			$pool_length = strlen($pool);
 			$rand_max = $pool_length - 1;
 
@@ -134,21 +134,21 @@ if ( ! function_exists('create_captcha'))
 			{
 				try
 				{
-					for ($i = 0; $i < $detailord_length; $i++)
+					for ($i = 0; $i < $word_length; $i++)
 					{
-						$detailord .= $pool[random_int(0, $rand_max)];
+						$word .= $pool[random_int(0, $rand_max)];
 					}
 				}
 				catch (Exception $e)
 				{
 					// This means fallback to the next possible
 					// alternative to random_int()
-					$detailord = '';
+					$word = '';
 				}
 			}
 		}
 
-		if (empty($detailord))
+		if (empty($word))
 		{
 			// Nobody will have a larger character pool than
 			// 256 characters, but let's handle it just in case ...
@@ -169,8 +169,8 @@ if ( ! function_exists('create_captcha'))
 			// just try fetching as much bytes as we need at once.
 			if (($bytes = $security->get_random_bytes($pool_length)) !== FALSE)
 			{
-				$byte_index = $detailord_index = 0;
-				while ($detailord_index < $detailord_length)
+				$byte_index = $word_index = 0;
+				while ($word_index < $word_length)
 				{
 					// Do we have more random data to use?
 					// It could be exhausted by previous iterations
@@ -194,7 +194,7 @@ if ( ! function_exists('create_captcha'))
 						if ($bytes === FALSE)
 						{
 							// Sadly, this means fallback to mt_rand()
-							$detailord = '';
+							$word = '';
 							break;
 						}
 					}
@@ -205,28 +205,28 @@ if ( ! function_exists('create_captcha'))
 						continue;
 					}
 
-					$detailord .= $pool[$rand_index];
-					$detailord_index++;
+					$word .= $pool[$rand_index];
+					$word_index++;
 				}
 			}
 		}
 
-		if (empty($detailord))
+		if (empty($word))
 		{
-			for ($i = 0; $i < $detailord_length; $i++)
+			for ($i = 0; $i < $word_length; $i++)
 			{
-				$detailord .= $pool[mt_rand(0, $rand_max)];
+				$word .= $pool[mt_rand(0, $rand_max)];
 			}
 		}
-		elseif ( ! is_string($detailord))
+		elseif ( ! is_string($word))
 		{
-			$detailord = (string) $detailord;
+			$word = (string) $word;
 		}
 
 		// -----------------------------------
 		// Determine angle and position
 		// -----------------------------------
-		$length	= strlen($detailord);
+		$length	= strlen($word);
 		$angle	= ($length >= 6) ? mt_rand(-($length-6), ($length-6)) : 0;
 		$x_axis	= mt_rand(6, (360/$length)-16);
 		$y_axis = ($angle >= 0) ? mt_rand($img_height, $img_width) : mt_rand(6, $img_height);
@@ -299,13 +299,13 @@ if ( ! function_exists('create_captcha'))
 			if ($use_font === FALSE)
 			{
 				$y = mt_rand(0 , $img_height / 2);
-				imagestring($im, $font_size, $x, $y, $detailord[$i], $colors['text']);
+				imagestring($im, $font_size, $x, $y, $word[$i], $colors['text']);
 				$x += ($font_size * 2);
 			}
 			else
 			{
 				$y = mt_rand($img_height / 2, $img_height - 3);
-				imagettftext($im, $font_size, $angle, $x, $y, $colors['text'], $font_path, $detailord[$i]);
+				imagettftext($im, $font_size, $angle, $x, $y, $colors['text'], $font_path, $word[$i]);
 				$x += $font_size;
 			}
 		}
@@ -336,6 +336,6 @@ if ( ! function_exists('create_captcha'))
 		$img = '<img '.($img_id === '' ? '' : 'id="'.$img_id.'"').' src="'.$img_url.$img_filename.'" style="width: '.$img_width.'px; height: '.$img_height .'px; border: 0;" alt=" " />';
 		ImageDestroy($im);
 
-		return array('word' => $detailord, 'time' => $now, 'image' => $img, 'filename' => $img_filename);
+		return array('word' => $word, 'time' => $now, 'image' => $img, 'filename' => $img_filename);
 	}
 }

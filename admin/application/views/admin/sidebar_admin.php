@@ -62,7 +62,7 @@
 		<div id="menuwarga" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="<?= base_url('admin/list_data_warga') ?>">Data Warga</a>
-				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_rt') ?>">Ubah Password Warga</a>
+				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_warga') ?>">Ubah Password Warga</a>
 			</div>
 		</div>
 	</li>
@@ -73,13 +73,13 @@
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#">
+		<a class="nav-link collapsed" href="<?= base_url('admin/list_surat_masuk') ?>">
 			<i class="fa fa-book"></i>
 			<span>Data Surat Masuk</span>
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link " href="<?= base_url('admin/list_surat_keluar') ?>">
 			<i class="fa fa-book"></i>
 			<span>Data Surat Keluar</span>
 		</a>

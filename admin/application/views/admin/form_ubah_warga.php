@@ -1,10 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
-	<?php 
-							
-					foreach($detail_warga as $w){ 
-				?>
+	<?php foreach($detail_warga as $w){ ?>
 
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-2 text-gray-800">Ubah Data Warga</h1>

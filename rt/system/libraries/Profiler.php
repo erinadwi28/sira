@@ -531,7 +531,7 @@ class CI_profilr
 
 		if ($fields_displayed === 0) {
 			$output .= '<p style="border:1px solid #5a0099;padding:10px;margin:20px 0;background-color:#eee;">'
-				. $this->CI->lang->line('profilr_no_profils') . '</p>';
+				. $this->CI->lang->line('profiler_no_profiles') . '</p>';
 		}
 
 		return $output . '</div>';

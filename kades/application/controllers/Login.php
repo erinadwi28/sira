@@ -4,7 +4,7 @@ class Login extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		
-		$this->load->model('M_kepala_desa', 'm_kepala_desa');
+		$this->load->model('M_kades', 'm_kades');
 	}
 
 	public function index()
@@ -22,7 +22,7 @@ class Login extends CI_Controller {
         $nik = $this->input->post('nik');
 		$kata_sandi = $this->input->post('kata_sandi');
 		$kata_sandi_hash = sha1($kata_sandi);
-		$kades = $this->m_kepala_desa->cek_nik($nik);
+		$kades = $this->m_kades->cek_nik($nik);
 		
         if ($kades) {
             //kades ada

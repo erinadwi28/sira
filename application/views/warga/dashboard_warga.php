@@ -1,444 +1,370 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 
-</div>
+    </div>
 
-<!-- Content Row line 1-->
-<div class="row">
+    <!-- Content Row line 1-->
+
     <!-- SUKET USAHA -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. USAHA</h5>
+    <div class="row">
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. USAHA</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket001/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
                         </div>
                     </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <a class="btn btn-primary far fa-edit" href="form_pengajuan_surat.html" role="button">  Buat</a>
+                </div>
+            </div>
+        </div>
+        <!-- SUKET DOMISILI-->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+                    <?php if ($this->session->flashdata('success')) : ?>
+                    <?php endif; ?>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. DOMISILI</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket002/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SUKET BELUM MEMILIKI RUMAH -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SUKET. BELUM MEMILIKI RUMAH</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket003/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <!-- SUKET BEDA NAMA -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. BEDA NAMA</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket004/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUKET IZIN KERAMAIAN -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. IZIN KERAMAIAN</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket005/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUKET BELUM PERNAH MENIKAH -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SUKET. BELUM PERNAH MENIKAH</div>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket006/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <!-- SUKET TIDAK MAMPU -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. TIDAK MAMPU</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket007/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUKET JANDA -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. JANDA</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket008/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUKET KEMATIAN -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SUKET. KEMATIAN</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket009/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SUKET DOMISILI-->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. DOMISILI</h5>
+    <div class="row">
+        <!-- SUKET KELAHIRAN -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. KELAHIRAN</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket010/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
                         </div>
                     </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SUKET PENGANTAR KTP -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. PENGANTAR KTP</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket011/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SUKET PENGANTAR KK -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SUKET. PENGANTAR KK</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket012/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- SUKET PENGHASILAN -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. PENGHASILAN</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket013/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SUKET PINDAH -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-primary shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary ">SURAT KET. PINDAH</div> <br>
+
+                        </div>
+                        <div>
+                            <a class="btn btn-primary far fa-edit" href="<?= base_url() ?>warga/form_suket014/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SUKET KEPEMILIKAN TANAH -->
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
+
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        <h5>SUKET. KEPEMILIKAN TANAH</h5>
+    <div class="row">
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENYERAHAN WARIS </div>
+
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
                         </div>
                     </div>
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. AHLI WARIS</div> <br>
+
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENGANTAR NIKAH</div>
+
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. PENYERAHAN TANAH</div> <br>
 
-<div class="row">
-    <!-- SUKET BLM MEMILIKI RUMAH -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. BELUM MEMILIKI RUMAH</h5>
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
                         </div>
                     </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI IMB</div> <br>
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-3 mb-3">
+            <div class="card border-left-success shadow h-100 py-1">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI USAHA MIKRO KECIL</div>
+
+                        </div>
+                        <div>
+                            <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"> Unduh</i></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- SUKET BEDA NAMA -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. BEDA NAMA</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET PENYERAHAN WARIS -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. PENYERAHAN WARIS</h5>
-                            </div>		
-                    </div>
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
-</div>
-<div class="row">
-    <!-- SUKET IZIN KERAMAIAN-->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. IZIN KERAMAIAN</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET BLM MENIKAH-->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. BELUM MENIKAH</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET AHLI WARIS -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. AHLI WARIS</h5>
-                            </div>		
-                    </div>
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
-</div>
-<div class="row">
-    <!-- SUKET TIDAK MAMPU -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. TIDAK MAMPU </h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET JANDA -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. JANDA</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET PENGANTAR NIKAH -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. PENGANATR NIKAH</h5>
-                            </div>		
-                    </div>
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
-</div>
-<div class="row">
-    <!-- SUKET KEMATIAN -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. KEMATIAN</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET KELAHIRAN -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. KELAHIRAN</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET PENYERAHAN SEBIDANG TANAH -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. PENYERAHAN TANAH</h5>
-                            </div>		
-                    </div>
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
-</div>
-<div class="row">
-    <!-- SURAT PENGANTAR KTP -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT PENGANTAR KTP</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                    <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SURAT PENGANTAR KK-->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT PENGANTAR KK</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                    <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SURAT REK. IMB -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SURAT REKOMENDASI IMB</h5>
-                            </div>		
-                    </div>
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
-</div>
-<div class="row">
-    <!-- SURAT PINDAH -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. PINDAH </h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET PENGHASILAN -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET. PENGHASILAN</h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                    <button class="btn btn-primary far fa-edit">  Buat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUKET REKOMENDASI UMK -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <h5>SUKET REK.USAHA MIKRO KECIL </h5>
-                        </div>
-                    </div>
-                    <!-- <div class="col-auto">
-                        <i class="fa fa fa-user fa-2x text-gray-300"></i>
-                    </div> -->
-                    <div>
-                        <button class="btn btn-success"><i class="fa fa-download" aria-hidden="true">  Download</i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->

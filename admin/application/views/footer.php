@@ -43,6 +43,8 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('assets/dashboard/') ?>vendor/jquery/jquery.min.js"></script>
+
+
 <script src="<?= base_url('assets/dashboard/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
@@ -152,6 +154,68 @@
 		})
 
 	});
+</script>
+
+<!-- random password form tambah kades -->
+<script>
+
+function randomPassword(length) {
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+	var pass = " ";
+	for (var x = 0; x < length;x++) {
+		var i = Math.floor(Math.random() * chars.length);
+		pass += chars.charAt(i);
+	}
+	return pass;
+}
+
+function generate() {
+	formTambah.row_password.value = randomPassword(formTambah.length.value);
+	// formwarga.row_password.value = randomPassword(formwarga.length.value);
+}
+
+</script>
+
+</script>
+
+<!-- random password form tambah warga -->
+<script>
+
+function randomPassword1(length) {
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+	var pass = "";
+	for (var x = 0; x < length;x++) {
+		var i = Math.floor(Math.random() * chars.length);
+		pass += chars.charAt(i);
+	}
+	return pass;
+}
+
+function generate1() {
+	// formTambah.row_password.value = randomPassword(formTambah.length.value);
+	formwarga.row_password.value = randomPassword(formwarga.length.value);
+}
+
+</script>
+
+<!-- random password form tambah rt -->
+<script>
+
+function randomPassword2(length) {
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+	var pass = "";
+	for (var x = 0; x < length;x++) {
+		var i = Math.floor(Math.random() * chars.length);
+		pass += chars.charAt(i);
+	}
+	return pass;
+}
+
+function generate2() {
+	// formTambah.row_password.value = randomPassword(formTambah.length.value);
+	formrt.row_password.value = randomPassword(formrt.length.value);
+}
+
 </script>
 
 </body>

@@ -46,7 +46,6 @@
 ::after,
 ::before {
 	box-sizing: border-box
-	
 }
 
 html {
@@ -103,7 +102,7 @@ h6 {
 p {
 	margin-top: 0;
 	margin-bottom: 1rem;
-	
+
 }
 
 abbr[data-original-title],
@@ -2114,7 +2113,7 @@ textarea.form-control {
 }
 
 .form-group {
-	margin-bottom: 0.5rem
+	margin-bottom: 1.0rem
 }
 
 .form-text {

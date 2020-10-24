@@ -264,13 +264,6 @@ class Kades extends CI_Controller
                 $detailhere = array('id_kades' => $id_kades);
                 $data_detail['detail_profil_saya'] = $this->m_kades->get_detail_profil_saya($detailhere,'kepala_desa')->result();
 
-<<<<<<< HEAD
-                $result = array(
-                        'data_detail' => $data_profil,
-                        'page' => 'kades/form_ubah_profil',
-                );
-=======
->>>>>>> bcc51e88b7772678f6be5a44ae889c8416b93c4c
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
                 $this->load->view('topbar', $data);

@@ -253,7 +253,7 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								
-									<input style="margin-top: 15px;" type="button" class="button" value="Acak Password" onclick="generate1();" tabindex="2">
+									<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" value="Acak Password" onclick="generate1();" tabindex="2">
 									
 									<br />
 

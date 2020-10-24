@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4 responsive">
 		<h1 class="h3 mb-0 text-gray-800">Form Pengajuan Surat Keterangan Usaha</h1>
 		<a href="<?= base_url('warga') ?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
@@ -12,6 +12,7 @@
 		</a>
 	</div>
 
+
 	<!--Begin Content Profile-->
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
@@ -20,9 +21,8 @@
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
-
 					?>
-						<form class="form-horizontal" id="form_suket001" action="<?= base_url('warga/aksi_tambah_permohonan_suket001') ?>" method="POST">
+						<form class="form-horizontal" id="form1" action="<?= base_url('warga/aksi_tambah_permohonan_suket001') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
@@ -30,7 +30,7 @@
 											<label for="Nama" class="col-sm-3 col-form-label">Nama</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama" name="nama" required="" value="<?= $detail->nama; ?>">
+													<input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -61,7 +61,7 @@
 									<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 									<div class="col-sm-8">
 										<div class="form-line focused">
-											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -74,7 +74,7 @@
 									<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+											<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -87,7 +87,7 @@
 									<label for="Pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>" required="">
+											<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -100,7 +100,7 @@
 									<label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<textarea class="form-control" id="alamat" name="alamat" rows="3" required="Isikan Alamat"><?= $detail->alamat; ?></textarea>
+											<textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $detail->alamat; ?></textarea>
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -114,7 +114,7 @@
 										<label for="nama_usaha" class="col-sm-3 col-form-label">Nama Usaha</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_usaha" name="nama_usaha" value="" required="">
+												<input type="text" class="form-control" id="nama_usaha" name="nama_usaha">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -125,16 +125,10 @@
 							</div>
 							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="1">
 							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
-							<input type="hidden" class="form-control" id="status" name="status" required="" value="Menunggu Persetujuan RT">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="#">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
 						<a href="">
 							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 								<i class="far fa-save nav-icon">
@@ -151,8 +145,3 @@
 	</div>
 </div>
 <!-- End of Main Content -->
-<script type="text/javascript" src="jquery/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="jquery.validate.min.js"></script>
-<script type="text/javascript">
-	$("#form_suket001").validate()
-</script>

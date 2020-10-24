@@ -14,7 +14,7 @@
 
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item active">
-		<a class="nav-link" href="<?= base_url('warga') ?>">
+		<a class="nav-link" href="<?= base_url() ?>warga">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
 	</li>
@@ -28,20 +28,28 @@
 	</div>
 
 	<!-- Nav Item - Main Menu -->
-
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menupermohonan" for=""
+			aria-expanded="true" aria-controls="collapsePages">
 			<i class="fa fa-book"></i>
-			<span>History Permohonan</span>
+			<span>Permohonan Surat</span>
+		</a>
+		<div id="menupermohonan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="<?= base_url('warga/list_data_sedang_proses_rt') ?>">Sedang Proses Ketua RT</a>
+				<a class="collapse-item" href="<?= base_url('warga/list_data_sedang_proses_admin') ?>">Sedang Proses Kelurahan</a>
+				<a class="collapse-item" href="<?= base_url() ?>warga/list_data_permohonan_ditolak/<?= $warga['id_warga'] ?>">Ditolak</a>
+				<a class="collapse-item" href="<?= base_url() ?>warga/list_permohonan_selesai/<?= $warga['id_warga'] ?>">Selesai</a>
+			</div>
+		</div>
+	</li>
+	
+	<li class="nav-item">
+		<a class="nav-link " href="<?= base_url() ?>warga/list_history_permohonan/<?= $warga['id_warga'] ?>">
+			<i class="fa fa-book"></i>
+			<span>Riwayat Permohonan</span>
 		</a>
 	</li>
-	<li class="nav-item">
-		<a class="nav-link " href="#">
-			<i class="fa fa-book"></i>
-			<span>Surat Permohonan Selesai</span>
-		</a>
-	</li>
-
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
 

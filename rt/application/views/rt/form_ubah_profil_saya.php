@@ -1,24 +1,24 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <?php foreach ($detail_profil_saya as $detail) {?>
+	<!-- Page Heading -->
+	<?php foreach ($detail_profil_saya as $detail) { ?>
 
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Ubah Data Saya</h1>
-		<a href="<?= base_url()?>rt/profil_saya/<?= $detail->id_rt ?>">
-			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
-				<i class="fa fa-arrow-left">
-				</i> Kembali
-			</button>
-		</a>
-	</div>
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+			<h1 class="h3 mb-0 text-gray-800">Ubah Data Saya</h1>
+			<a href="<?= base_url() ?>rt/profil_saya/<?= $detail->id_rt ?>">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 
-	<!-- Content Row line 1-->
-	<div class="row">
-		<div class="col-md-12 mb-4">
-			<!-- Detail Data -->
-			<div class="card shadow mb-4">
-				<div class="card-body">
+		<!-- Content Row line 1-->
+		<div class="row">
+			<div class="col-md-12 mb-4">
+				<!-- Detail Data -->
+				<div class="card shadow mb-4">
+					<div class="card-body">
 						<!-- <table class="table-responsive">
                                         
                         </table> -->
@@ -27,27 +27,27 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="nik"><b>NIK</b></label>
-										<input type="text" class="form-control form-user-input" name="nik" id="nik" value="<?= $detail->nik; ?>">
-                                        <!-- <em class="small text-danger">*Perubahan <b>NIK</b> hanya dapat dilakukan oleh Kepala Desa</em> -->
-                                    </div>
+										<input type="text" class="form-control form-user-input" name="nik" id="nik" value="<?= $detail->nik; ?>" disabled>
+										<!-- <em class="small text-danger">*Perubahan <b>NIK</b> hanya dapat dilakukan oleh Kepala Desa</em> -->
+									</div>
 									<div class="form-group">
 										<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
-										<input type="text" class="form-control form-user-input" name="nama" id="nama" value="<?= $detail->nama; ?>">
+										<input type="text" class="form-control form-user-input" name="nama" id="nama" value="<?= $detail->nama; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="tempat_lahir"><b>Tempat
 												Lahir</b></label>
-										<input type="text" class="form-control form-user-input" name="tempat_lahir" id="tempat_lahir" value="<?= $detail->tempat_lahir; ?>">
+										<input type="text" class="form-control form-user-input" name="tempat_lahir" id="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="tanggal_lahir"><b>Tanggal
 												Lahir</b></label>
-										<input type="date" class="form-control form-user-input" name="tanggal_lahir" id="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>">
+										<input type="date" class="form-control form-user-input" name="tanggal_lahir" id="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="jenis_kelamin"><b>Jenis
 												Kelamin</b></label>
-										<select class="form-control form-user-input" name="jenis_kelamin" id="jenis_kelamin">
+										<select class="form-control form-user-input" name="jenis_kelamin" id="jenis_kelamin" disabled>
 											<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
 											</option>
 											<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
@@ -57,7 +57,7 @@
 									<div class="form-group">
 										<label class="label-control" for="goldar"><b>Golongan
 												Darah</b></label>
-										<select class="form-control form-user-input" name="golongan_darah" id="golongan_darah">
+										<select class="form-control form-user-input" name="golongan_darah" id="golongan_darah" disabled>
 											<option value="AB" <?= ($detail->golongan_darah == 'AB' ? ' selected' : ''); ?> class="form-user-input">AB</option>
 											<option value="A" <?= ($detail->golongan_darah == 'A' ? ' selected' : ''); ?> class="form-user-input">A</option>
 											<option value="B" <?= ($detail->golongan_darah == 'B' ? ' selected' : ''); ?> class="form-user-input">B</option>
@@ -66,7 +66,7 @@
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="agama"><b>Agama</b></label>
-										<select class="form-control form-user-input" name="agama" id="agama">
+										<select class="form-control form-user-input" name="agama" id="agama" disabled>
 											<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
 											<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
 											</option>
@@ -82,24 +82,24 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
-										<input type="text" class="form-control form-user-input" name="alamat" id="alamat" value="<?= $detail->alamat; ?>">
+										<input type="text" class="form-control form-user-input" name="alamat" id="alamat" value="<?= $detail->alamat; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="rt"><b>RT</b></label>
-										<input type="text" class="form-control form-user-input" name="rt" id="rt" value="<?= $detail->rt; ?>">
+										<input type="text" class="form-control form-user-input" name="rt" id="rt" value="<?= $detail->rt; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="kelurahan"><b>Kelurahan</b></label>
-										<input type="text" class="form-control form-user-input" name="kelurahan" id="kelurahan" value="<?= $detail->kelurahan; ?>">
+										<input type="text" class="form-control form-user-input" name="kelurahan" id="kelurahan" value="<?= $detail->kelurahan; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="kecamatan"><b>Kecamatan</b></label>
-										<input type="text" class="form-control form-user-input" name="kecamatan" id="kecamatan" value="<?= $detail->kecamatan; ?>">
+										<input type="text" class="form-control form-user-input" name="kecamatan" id="kecamatan" value="<?= $detail->kecamatan; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="status_perkawinan"><b>Status
 												Perkawinan</b></label>
-										<select class="form-control form-user-input" name="status_perkawinan" id="status_perkawinan">
+										<select class="form-control form-user-input" name="status_perkawinan" id="status_perkawinan" disabled>
 											<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin</option>
 											<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
 											</option>
@@ -107,11 +107,11 @@
 									</div>
 									<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
 									<div class="form-group">
-										<input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>">
+										<input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>" disabled>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
-										<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan">
+										<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan" disabled>
 											<option value="WNI" <?= ($detail->kewarganegaraan == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
 											<option value="WNA" <?= ($detail->kewarganegaraan == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
 										</select>
@@ -121,12 +121,12 @@
 									<div class="form-group">
 										<div class="form-group">
 											<label class="label-control" for="no_kk"><b>No KK</b></label>
-											<input type="text" class="form-control form-user-input" name="no_kk" id="no_kk" value="<?= $detail->no_kk; ?>">
+											<input type="text" class="form-control form-user-input" name="no_kk" id="no_kk" value="<?= $detail->no_kk; ?>" disabled>
 										</div>
 										<div class="form-group">
 											<label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
 													Terakhir</b></label>
-											<select class="form-control form-user-input" name="pendidikan_terakhir" id="pendidikan_terakhir">
+											<select class="form-control form-user-input" name="pendidikan_terakhir" id="pendidikan_terakhir" disabled>
 												<option value="TAMAT SD / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'TAMAT SD / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">
 													TAMAT SD /
 													SEDERAJAT</option>
@@ -157,7 +157,7 @@
 										</div>
 										<label class="label-control" for="status_hub_kel"><b>Status Hub
 												Keluarga</b></label>
-										<select class="form-control form-user-input" name="status_hub_kel" id="status_hub_kel">
+										<select class="form-control form-user-input" name="status_hub_kel" id="status_hub_kel" disabled>
 											<option value="Kepala Keluarga" <?= ($detail->status_hub_kel == 'Kepala Keluarga' ? ' selected' : ''); ?> class="form-user-input">Kepala
 												Keluarga
 											</option>
@@ -177,8 +177,8 @@
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="no_hp"><b>No HandPhone</b></label>
-										<input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>">
-                                    </div>
+										<input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>" disabled>
+									</div>
 									<div class="form-group">
 										<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
 										<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>" disabled>
@@ -201,10 +201,10 @@
 							<input type="hidden" class="form-control form-user-input " name="id_warga" id="id_warga" value="<?= $detail->id_warga; ?>">
 						</form>
 					<?php } ?>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- /.container-fluid -->
+		<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->

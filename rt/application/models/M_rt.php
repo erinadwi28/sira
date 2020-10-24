@@ -107,10 +107,10 @@ class M_rt extends CI_Model
         $this->db->from('permohonan_surat');
         $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
         $this->db->where('warga.rt', $this->session->userdata('rt'));
-        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
-        $this->db->or_where('permohonan_surat.status', 'Ditolak');
-        $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
-        $this->db->or_where('permohonan_surat.status', 'Selesai');
+        // $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
+        // $this->db->or_where('permohonan_surat.status', 'Ditolak');
+        // $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        // $this->db->or_where('permohonan_surat.status', 'Selesai');
         $this->db->where('permohonan_surat.status_delete', 0);
 
         $hasil = $this->db->get();

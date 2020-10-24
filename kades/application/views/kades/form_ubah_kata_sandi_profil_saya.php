@@ -35,20 +35,16 @@
 					<div class="card shadow mb-3">
 						<div class="card-body">
 							<label class="label-control" for="nik"><b>Masukkan Kata Sandi yang baru</b></label>
-							<form role="form" action="<?= base_url() ?>kades/aksi_ubah_kata_sandi_profil_saya/"
-								method="post" id="formUbah">
+							<form role="form" action="<?= base_url() ?>kades/aksi_ubah_kata_sandi_profil_saya/" method="post" id="formUbah">
 								<div class="row">
 									<div class="col-md-7">
 										<div class="form-group">
-											<input type="password" placeholder="masukkan disini..."
-												class="form-control form-user-input form-password" name="kata_sandi"
-												id="kata_sandi">
+											<input type="password" placeholder="masukkan disini..." class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi">
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
 
-											<input type="hidden" class="form-control form-user-input " name="id_kades"
-												id="id_kades" value="<?= $kades['id_kades'] ?>">
+											<input type="hidden" class="form-control form-user-input " name="id_kades" id="id_kades" value="<?= $kades['id_kades'] ?>">
 										</div>
 									</div>
 									<div class="col-md-3">

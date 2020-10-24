@@ -22,7 +22,7 @@
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form12" action="" method="">
+						<form class="form-horizontal" id="form_suket012" action="<?= base_url('warga/aksi_tambah_permohonan_suket012') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
@@ -76,6 +76,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
 													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
@@ -96,9 +97,9 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control " id="status_perkawinan" name="status_perkawinan">
-													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
+													<option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
 													</option>
-													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
+													<option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
 													</option>
 												</select>
 												<i class=" fas fa-check-circle"></i>
@@ -116,6 +117,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control form-user-input" name="agama" id="agama">
+													<option value="Pilih jenis agama..." class="form-user-input">Pilih jenis agama...</option>
 													<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
 													<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
 													</option>
@@ -141,6 +143,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control " id="kewarganegaraan" name="kewarganegaraan">
+													<option value="Pilih kewarganegaraan..." class="form-user-input">Pilih kewarganegaraan...</option>
 													<option value="WNI" <?= ($detail->kewarganegaraan == 'WNI' ? ' selected' : ''); ?> class="form-user-input">WNI</option>
 													<option value="WNA" <?= ($detail->kewarganegaraan == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
 												</select>
@@ -159,6 +162,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir">
+													<option value="Pilih pendidikan terakhir..." class="form-user-input">Pilih pendidikan terakhir...</option>
 													<option value="TAMAT SD / SEDERAJAT" <?= ($detail->pendidikan_terakhir == 'TAMAT SD / SEDERAJAT' ? ' selected' : ''); ?> class="form-user-input">
 														TAMAT SD /
 														SEDERAJAT</option>
@@ -231,7 +235,7 @@
 										<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal tinggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" value="">
+												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -289,10 +293,10 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="jumlah_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
+										<label for="jml_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="number" class="form-control" id="jumlah_pengikut" name="jumlah_pengikut">
+												<input type="number" class="form-control" id="jml_pengikut" name="jml_pengikut">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -301,16 +305,13 @@
 									</div>
 								</div>
 							</div>
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="12">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
 			</div>
 			<div class="card-footer">
 				<div class="float-right">
-					<a href="#">
-						<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-							<i class="fa fa-times nav-icon">
-							</i> Batal
-						</button>
-					</a>
 					<a href="#">
 						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
 							<i class="far fa-save nav-icon">

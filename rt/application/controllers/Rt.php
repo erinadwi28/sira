@@ -55,67 +55,6 @@ class Rt extends CI_Controller
         $this->load->view('rt/profil_saya', $data_detail);
         $this->load->view('footer');
 	}
-
-        // tampil form ubah profil saya beserta datanya
-        public function form_ubah_profil_saya($id_rt)
-        {
-                $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
-                $this->session->userdata('id_rt')])->row_array();
-
-                $detailhere = array('id_rt' => $id_rt);
-                $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere)->result();
-
-                $this->load->view('header');
-                $this->load->view('rt/sidebar_rt');
-                $this->load->view('topbar', $data);
-                $this->load->view('rt/form_ubah_profil_saya', $data_detail);
-                $this->load->view('footer');
-        }
-	
-	// aksi ubah data rt
-        public function aksi_ubah_profil_saya()
-        {
-                $id_rt = $this->input->post('id_rt');
-                $id_warga = $this->input->post('id_warga');
-
-                $data_rt = array(
-                        'id_warga' => $this->input->post('id_warga'),
-                        'rt' => $this->input->post('rt'),
-                        'nik' => $this->input->post('nik'),
-                        'nama' => $this->input->post('nama'),
-                );
-
-                $data_warga = array(
-                        'nik' => $this->input->post('nik'),
-                        'nama' => $this->input->post('nama'),
-                        'alamat' => $this->input->post('alamat'),
-                        'rt' => $this->input->post('rt'),
-                        'kelurahan' => $this->input->post('kelurahan'),
-                        'kecamatan' => $this->input->post('kecamatan'),
-                        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-                        'agama' => $this->input->post('agama'),
-                        'tempat_lahir' => $this->input->post('tempat_lahir'),
-                        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-                        'status_perkawinan' => $this->input->post('status_perkawinan'),
-                        'pekerjaan' => $this->input->post('pekerjaan'),
-                        'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-                        'golongan_darah' => $this->input->post('golongan_darah'),
-
-
-                        'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
-                        'no_kk' => $this->input->post('no_kk'),
-                        'status_hub_kel' => $this->input->post('status_hub_kel'),
-                        'no_hp' => $this->input->post('no_hp'),
-                );
-
-                $this->m_rt->aksi_ubah_profil_rt($id_rt, $data_rt);
-                $this->m_rt->aksi_ubah_profil_rt_warga($id_warga, $data_warga);
-
-                if ($this->m_rt->aksi_ubah_profil_rt($id_rt, $data_rt) && $this->m_rt->aksi_ubah_profil_rt_warga($id_warga, $data_warga)); {
-                        $this->session->set_flashdata('success', 'diubah');
-                        redirect('rt/profil_saya/' . $id_rt);
-                }
-        }
 	
         // upload foto profil rt
         public function upload_foto_profil()

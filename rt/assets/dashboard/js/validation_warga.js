@@ -21,6 +21,7 @@ const kata_sandiwarga = document.getElementById("kata_sandi");
 const status_kepegawaianwarga = document.getElementById("status_kepegawaian");
 
 
+
 formubah.addEventListener("submit", (e) => {
 	e.preventDefault();
 
@@ -171,6 +172,167 @@ function checkInputs() {
 	}
 
 
+}
+
+function setErrorFor(input, message) {
+	const formGroup = input.parentElement; //form-group
+	const small = formGroup.querySelector("small");
+
+	//add error message inside small
+	small.innerText = message;
+
+	//add error class
+	formGroup.className = "form-group error1";
+}
+
+function setSuccessFor(input) {
+	const formGroup = input.parentElement;
+	formGroup.className = "form-group success";
+}
+
+const formsuket001 = document.getElementById("suket001");
+const formsuket002 = document.getElementById("suket002");
+const formsuket003 = document.getElementById("suket003");
+const formsuket004 = document.getElementById("suket004");
+const formsuket005 = document.getElementById("suket005");
+const formsuket006 = document.getElementById("suket006");
+const formsuket007 = document.getElementById("suket007");
+const formsuket008 = document.getElementById("suket008");
+const formsuket009 = document.getElementById("suket009");
+const formsuket010 = document.getElementById("suket010");
+const formsuket011 = document.getElementById("suket011");
+const formsuket012 = document.getElementById("suket012");
+const formsuket013 = document.getElementById("suket013");
+const formsuket014 = document.getElementById("suket014");
+
+const nomor_surat_rt = document.getElementById("nomor_surat_rt");
+
+if (formsuket001 != null) {
+	formsuket001.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+				
+		
+	});
+}else if (formsuket002 != null) {
+	formsuket002.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket003 != null) {
+	formsuket003.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket004 != null) {
+	formsuket004.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket005 != null) {
+	formsuket005.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket006 != null) {
+	formsuket006.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket007 != null) {
+	formsuket007.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket008 != null) {
+	formsuket008.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket009 != null) {
+	formsuket009.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket010 != null) {
+	formsuket010.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket011 != null) {
+	formsuket011.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket012 != null) {
+	formsuket012.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket013 != null) {
+	formsuket013.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket014 != null) {
+	formsuket013.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} 
+
+function checkInput() {
+	const nomor_surat_rtValue = nomor_surat_rt.value.trim();
+	
+	if (nomor_surat_rtValue === "") {
+		setErrorFor(nomor_surat_rt, "Nomor Surat RT tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(nomor_surat_rt);
+	}
+
+	return (true);
 }
 
 function setErrorFor(input, message) {

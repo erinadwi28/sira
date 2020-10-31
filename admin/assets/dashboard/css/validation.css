@@ -1,0 +1,70 @@
+.form-group-surat {
+	position: relative;
+	padding-bottom: 5px;
+}
+
+.form-group-surat i {
+	position: absolute;
+	top: 10px;
+	right: 46px;
+	visibility: hidden;
+}
+
+.form-group-surat small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 10;
+	left: 0;
+}
+
+.form-group-surat.success input {
+	border-color: #2ecc71;
+}
+
+.form-group-surat.success textarea {
+	border-color: #2ecc71;
+}
+
+.form-group-surat.success select {
+	border-color: #2ecc71;
+}
+
+.custom-select.success {
+	border-color: #2ecc71;
+}
+
+.form-group-surat.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 10px;
+	left: 384px;
+
+}
+
+.form-group-surat.error1 input {
+	border-color: #e74c3c;
+}
+
+.form-group-surat.error1 textarea {
+	border-color: #e74c3c;
+}
+
+.form-group-surat.error1 select {
+	border-color: #e74c3c;
+}
+
+.form-group-surat.error1 i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	left: 384px;
+
+}
+
+.form-group-surat.error1 small {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: small;
+	margin-left: 20px;
+	margin-bottom: -18px;
+}

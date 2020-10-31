@@ -4,6 +4,7 @@ const formtambahwarga = document.getElementById("formwarga");
 const formubahwarga = document.getElementById("ubahwarga");
 const formtambahrt = document.getElementById("formrt");
 const formubahrt = document.getElementById("ubahrt");
+
 const nik = document.getElementById("nik");
 const nama = document.getElementById("nama");
 const tempat_lahir = document.getElementById("tempat_lahir");
@@ -25,6 +26,36 @@ const no_hp = document.getElementById("no_hp");
 const kata_sandi = document.getElementById("kata_sandi");
 const status_kepegawaian = document.getElementById("status_kepegawaian");
 const btn_simpan = document.getElementById("btn_simpan");
+
+const formsuket001 = document.getElementById("suket001");
+const formsuket002 = document.getElementById("suket002");
+const formsuket003 = document.getElementById("suket003");
+const formsuket004 = document.getElementById("suket004");
+const formsuket005 = document.getElementById("suket005");
+const formsuket006 = document.getElementById("suket006");
+const formsuket007 = document.getElementById("suket007");
+const formsuket008 = document.getElementById("suket008");
+const formsuket009 = document.getElementById("suket009");
+const formsuket010 = document.getElementById("suket010");
+const formsuket011 = document.getElementById("suket011");
+const formsuket012 = document.getElementById("suket012");
+const formsuket013 = document.getElementById("suket013");
+const formsuket014 = document.getElementById("suket014");
+
+const nomor_surat_admin = document.getElementById("nomor_surat_admin");
+
+const formSuratMasuk = document.getElementById("formSuratMasuk");
+const formSuratKeluar = document.getElementById("formSuratKeluar");
+const ubahSuratKeluar = document.getElementById("ubahSuratKeluar");
+const ubahSuratMasuk = document.getElementById("ubahSuratMasuk");
+const nomor_surat = document.getElementById("nomor_surat");
+const tanggal = document.getElementById("tanggal");
+const pengirim = document.getElementById("pengirim");
+const perihal = document.getElementById("perihal");
+const isi = document.getElementById("isi");
+const tujuan = document.getElementById("tujuan");
+
+
 
 if (formtambah != null) {
 	formtambah.addEventListener("submit", (e) => {
@@ -80,8 +111,259 @@ if (formtambah != null) {
 		} else 
 		e.preventDefault();
 	});
+}else if (formsuket001 != null) {
+	formsuket001.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+				
+		
+	});
+} else if (formsuket002 != null) {
+	formsuket002.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket003 != null) {
+	formsuket003.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket004 != null) {
+	formsuket004.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket005 != null) {
+	formsuket005.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket006 != null) {
+	formsuket006.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket007 != null) {
+	formsuket007.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket008 != null) {
+	formsuket008.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket009 != null) {
+	formsuket009.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket010 != null) {
+	formsuket010.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket011 != null) {
+	formsuket011.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket012 != null) {
+	formsuket012.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket013 != null) {
+	formsuket013.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formsuket014 != null) {
+	formsuket013.addEventListener("submit", (e) => {
+		if (checkInput() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formSuratMasuk != null) {
+	formSuratMasuk.addEventListener("submit", (e) => {
+		if (formSurat() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (formSuratKeluar != null) {
+	formSuratKeluar.addEventListener("submit", (e) => {
+		if (formSurat1() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (ubahSuratKeluar != null) {
+	ubahSuratKeluar.addEventListener("submit", (e) => {
+		if (formSurat1() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
+} else if (ubahSuratMasuk != null) {
+	ubahSuratMasuk.addEventListener("submit", (e) => {
+		if (formSurat() == true) {
+			e.target.submit();
+		} else 
+			e.preventDefault();
+		
+	});
 }
 
+function formSurat() {
+	
+	const nomor_suratValue = nomor_surat.value.trim();
+	const tanggalValue = tanggal.value.trim();
+	const pengirimValue = pengirim.value.trim();
+	const perihalValue = perihal.value.trim();
+	const isiValue = isi.value.trim();
+	
+	if (nomor_suratValue === "") {
+		setErrorFor(nomor_surat, "Nomor Surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(nomor_surat);
+	}
+
+	if (tanggalValue === "") {
+		setErrorFor(tanggal, "Tanggal surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(tanggal);
+	}
+
+	if (pengirimValue === "") {
+		setErrorFor(pengirim, "Pengirim surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(pengirim);
+	}
+
+	if (perihalValue === "") {
+		setErrorFor(perihal, "Perihal surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(perihal);
+	}
+
+	if (isiValue === "") {
+		setErrorFor(isi, "Isi surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(isi);
+	}
+
+	return (true);
+}
+
+function formSurat1() {
+	
+	const nomor_suratValue = nomor_surat.value.trim();
+	const tanggalValue = tanggal.value.trim();
+	const tujuanValue = tujuan.value.trim();
+	const perihalValue = perihal.value.trim();
+	const isiValue = isi.value.trim();
+	
+	if (nomor_suratValue === "") {
+		setErrorFor(nomor_surat, "Nomor Surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(nomor_surat);
+	}
+
+	if (tanggalValue === "") {
+		setErrorFor(tanggal, "Tanggal surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(tanggal);
+	}
+
+	if (tujuanValue === "") {
+		setErrorFor(tujuan, "Tujuan surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(tujuan);
+	}
+
+	if (perihalValue === "") {
+		setErrorFor(perihal, "Perihal surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(perihal);
+	}
+
+	if (isiValue === "") {
+		setErrorFor(isi, "Isi surat tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(isi);
+	}
+
+	return (true);
+}
+
+
+
+function checkInput() {
+	const nomor_surat_adminValue = nomor_surat_rt.value.trim();
+	
+	if (nomor_surat_adminValue === "") {
+		setErrorFor(nomor_surat_admin, "Nomor Surat RT tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(nomor_surat_admin);
+	}
+
+	return (true);
+}
 
 
 function checkInputs() {
@@ -743,4 +1025,8 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
 	const formGroup = input.parentElement;
 	formGroup.className = "form-group success";
+
+	
 }
+
+

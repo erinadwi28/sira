@@ -105,16 +105,17 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-								<div class="form-group">
+								
+						</div>
+						<div class="col-md-4">
+									<div class="form-group">
 									<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Alamat Anda" name="alamat" id="alamat">
 									<i class="fas fa-check-circle"></i>
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-						</div>
-						<div class="col-md-4">
-						<div class="form-group">
+								<div class="form-group">
 									<label class="label-control" for="rt"><b>RT</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="RT" name="rt" id="rt">
 									<i class="fas fa-check-circle"></i>
@@ -167,6 +168,10 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
+								
+								
+						</div>
+						<div class="col-md-4">
 								<div class="form-group">
 									<label class="label-control" for="no_kk"><b>No KK</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan No. KK" name="no_kk" id="no_kk">
@@ -210,9 +215,7 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-						</div>
-						<div class="col-md-4">
-						<div class="form-group">
+								<div class="form-group">
 									<label class="label-control" for="status_hub_kel"><b>Status Hub
 											Keluarga</b></label>
 									<select class="form-control form-user-input" name="status_hub_kel" id="status_hub_kel">

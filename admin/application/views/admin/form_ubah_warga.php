@@ -133,7 +133,11 @@
 								
 							</div>
 
-							<div class="form-group">
+							
+						</div>
+
+						<div class="col-md-4">
+						<div class="form-group">
 								<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Alamat Anda" name="alamat" id="alamat" value="<?= $w->alamat; ?>">
 									<i class="fas fa-check-circle"></i>
@@ -142,9 +146,6 @@
 
 								
 							</div>
-						</div>
-
-						<div class="col-md-4">
 							<div class="form-group">
 								<label class="label-control" for="rt"><b>RT</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="RT" name="rt" id="rt" value="<?= $w->rt; ?>">
@@ -215,7 +216,11 @@
 
 								
 							</div>
-							<div class="form-group">
+							
+							
+						</div>
+						<div class="col-md-4">
+						<div class="form-group">
 							<label class="label-control" for="no_kk"><b>No KK</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan No. KK" name="no_kk" id="no_kk" value="<?= $w->no_kk; ?>">
 									<i class="fas fa-check-circle"></i>
@@ -224,7 +229,7 @@
 
 								
 							</div>
-							<div class="form-group">
+						<div class="form-group">
 							<label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
 											Terakhir</b></label>
 									<select class="form-control form-user-input" name="pendidikan_terakhir" id="pendidikan_terakhir">
@@ -282,8 +287,6 @@
 
 								
 							</div>
-						</div>
-						<div class="col-md-4">
 							<div class="form-group">
 							<label class="label-control" for="status_hub_kel"><b>Status Hub
 											Keluarga</b></label>

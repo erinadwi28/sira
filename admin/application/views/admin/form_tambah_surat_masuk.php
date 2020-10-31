@@ -19,44 +19,90 @@
 			<div class="card shadow mb-4">
 				<div class="card-body">
 					<form role="form" action="<?= base_url('admin/aksi_tambah_surat_masuk') ?>"
-						enctype="multipart/form-data" method="post" accept-charset="utf-8">
-						<div class="form-group row">
-							<label for="nomor_surat" class="col-sm-3 col-form-label">Nomor Surat</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="">
+						enctype="multipart/form-data" method="post" accept-charset="utf-8" id="formSuratMasuk">
+
+						<div class="form-group-surat">
+							<div class="form-group row">
+								<label for="nomor_surat" class="col-sm-3 col-form-label">Nomor Surat</label>
+								<div class="col-sm-9">
+									<div class="form-line">
+										<input type="text" class="form-control" id="nomor_surat" name="nomor_surat">
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small> Error Message </small>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
-							<div class="col-sm-9">
-								<input type="date" class="form-control date" id="tanggal" name="tanggal" value="">
+
+						<div class="form-group-surat">
+							<div class="form-group row">
+								<label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
+								<div class="col-sm-9">
+									<div class="form-line">
+										<input type="date" class="form-control date" id="tanggal" name="tanggal">
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small> Error Message </small>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="pengirim" class="col-sm-3 col-form-label">Pengirim</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" id="pengirim" name="pengirim" value="">
+
+						<div class="form-group-surat">
+							<div class="form-group row">
+								<label for="pengirim" class="col-sm-3 col-form-label">Pengirim</label>
+								<div class="col-sm-9">
+									<div class="form-line">
+										<input type="text" class="form-control" id="pengirim" name="pengirim" value="">
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small> Error Message </small>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="perihal" class="col-sm-3 col-form-label">Perihal</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" id="perihal" name="perihal" value="">
+
+						<div class="form-group-surat">
+							<div class="form-group row">
+								<label for="perihal" class="col-sm-3 col-form-label">Perihal</label>
+								<div class="col-sm-9">
+									<div class="form-line">
+										<input type="text" class="form-control" id="perihal" name="perihal" value="">
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small> Error Message </small>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="isi_surat" class="col-sm-3 col-form-label">Isi Surat</label>
-							<div class="col-sm-9">
-								<textarea class="form-control" id="isi" name="isi" rows="3"></textarea>
+
+						<div class="form-group-surat">
+							<div class="form-group row">
+								<label for="isi_surat" class="col-sm-3 col-form-label">Isi Surat</label>
+								<div class="col-sm-9">
+									<div class="form-line">
+										<textarea class="form-control" id="isi" name="isi" rows="3"></textarea>
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small> Error Message </small>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="form-group row">
-							<div class="input-group">
-								<label class="col-sm-3 col-form-label">File Lampiran</label>
-								<div class="custom-file ml-3 mr-3">
-									<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
-									<input type="file" class="custom-file-input" id="file-upload-profil"
-										name="berkas[]">
+
+						<div class="form-group-surat">
+							<div class="form-group row">
+								<div class="input-group">
+									<label class="col-sm-3 col-form-label">File Lampiran</label>
+									<div class="custom-file ml-3 mr-3">
+										<div class="form-line">
+											<label class="custom-file-label" for="file-upload-profil">pilih
+												file...</label>
+											<input type="file" class="custom-file-input" id="file-upload-profil"
+												name="berkas[]">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

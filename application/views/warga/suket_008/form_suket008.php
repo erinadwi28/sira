@@ -134,10 +134,23 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group row" style="margin-left: 10px;">
+									<label for="alasan" class="col-sm-3 col-form-label">Alasan</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="text" placeholder="masukan alasan di sini" class="form-control" id="alasan" name="alasan" value="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group row" style="margin-left: 10px;">
 									<label for="Pekerjaan_suami" class="col-sm-3 col-form-label">Pekerjaan Suami</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="text" class="form-control" id="pekerjaan_suami" name="pekerjaan_suami" value="Pekerjaan Suami...">
+											<input type="text" class="form-control" id="pekerjaan_suami" name="pekerjaan_suami" value="" placeholder="masukan pekerjaan suami di sini">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -158,26 +171,6 @@
 									</div>
 								</div>
 							</div>
-
-							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="8">
-							<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
-							<input type="hidden" class="form-control" id="status" name="status" value="Menunggu Persetujuan RT">
-				</div>
-				<div class="card-footer">
-					<div class="float-right">
-						<a href="#">
-							<button id="btn_tolak" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
-						<a href="#">
-							<button id="btn_setuju" class="btn btn-sm btn-success" type="submit">
-								<i class="far fa-save nav-icon">
-								</i> Simpan
-							</button>
-						</a>
-					</div>
 				</div>
 				</form>
 			<?php } ?>

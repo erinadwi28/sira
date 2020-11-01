@@ -71,7 +71,7 @@
 						<tr>
 							<td><?php echo $no++ ?></td>
 							<td><?php echo $sk->nomor_surat ?></td>
-							<td><?php echo $sk->tanggal ?></td>
+							<td><?php echo format_indo(date($sk->tanggal)); ?></td>
 							<td><?php echo $sk->tujuan ?></td>
 							<td><?php echo $sk->perihal ?></td>
 							<td>

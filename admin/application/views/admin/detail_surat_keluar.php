@@ -95,7 +95,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tanggal; ?></td>
+								<td><?= format_indo(date($detail->tanggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Pengirim</b></td>

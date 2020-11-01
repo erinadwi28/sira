@@ -16,7 +16,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
@@ -85,7 +85,7 @@
 											<label for="Nama_kegiatan" class="col-sm-3 col-form-label">Nama Kegiatan</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Contoh : Pernikahan,Pengajian Akbar,dll..." value="">
+													<input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="contoh : Pernikahan,Pengajian Akbar,dll..." value="">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -100,6 +100,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="hari_kegiatan" name="hari_kegiatan">
+													<option value="pilih hari..." class="form-user-input">pilih hari...</option>
 													<option value="Senin" class="form-user-input">Senin</option>
 													<option value="Selasa" class="form-user-input">Selasa</option>
 													<option value="Rabu" class="form-user-input">Rabu</option>
@@ -134,7 +135,7 @@
 										<label for="tempat" class="col-sm-3 col-form-label">Tempat Kegiatan</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="tempat" name="tempat" rows="3" placeholder="Alamat Tempat kegiatan ditulis lengkap..."></textarea>
+												<textarea class="form-control" id="tempat" name="tempat" rows="3" placeholder="masukkan alamat disini dengan lengkap..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -147,7 +148,7 @@
 										<label for="jam" class="col-sm-3 col-form-label">Jam Kegiatan</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="jam" name="jam" placeholder="Isi Jam Kegiatan..." value="">
+												<input type="text" class="form-control" id="jam" name="jam" placeholder="masukkan jam kegiatan disini..." value="">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -159,7 +160,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group row" style="margin-left: 10px;">
-									<label class="col-sm-3 col-form-label" for="file-upload-profil">File Lampiran</label>
+									<label class="col-sm-3 col-form-label" for="file-upload-profil">File Lampiran KTP</label>
 									<div class="custom-file col-sm-7 ml-3">
 										<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
 										<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">

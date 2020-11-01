@@ -16,13 +16,13 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form_suket014" action="<?= base_url('warga/aksi_tambah_permohonan_suket014') ?>" method="POST">
+						<form class="form-horizontal" id="form14" action="<?= base_url('warga/aksi_tambah_permohonan_suket014') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
@@ -219,12 +219,11 @@
 										<label for="alamat_asal" class="col-sm-3 col-form-label">Alamat Asal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alamat_asal" name="alamat_asal" rows="3" placeholder="Alamat asal..."></textarea>
+												<textarea class="form-control" id="alamat_asal" name="alamat_asal" rows="3" placeholder="masukkan alamat asal disini..."></textarea>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
 											</div>
-
 										</div>
 									</div>
 								</div>
@@ -265,7 +264,7 @@
 										<label for="alamat_pindah" class="col-sm-3 col-form-label">Alamat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input class="form-control" id="alamat_pindah" name="alamat_pindah" rows="3" placeholder="Alamat pindah ..."></input>
+												<input class="form-control" id="alamat_pindah" name="alamat_pindah" rows="3" placeholder="masukkan alamat pindah disini..."></input>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -278,10 +277,10 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="kelurahan_pindah" class="col-sm-3 col-form-label">kelurahan Pindah</label>
+										<label for="kelurahan_pindah" class="col-sm-3 col-form-label">Kelurahan Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input class="form-control" id="kelurahan_pindah" name="kelurahan_pindah" rows="3" placeholder="Kelurahan pindah..."></input>
+												<input class="form-control" id="kelurahan_pindah" name="kelurahan_pindah" rows="3" placeholder="masukkan kelurahan pindah disini..."></input>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -294,10 +293,10 @@
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="kecamatan_pindah" class="col-sm-3 col-form-label">kecamatan Pindah</label>
+										<label for="kecamatan_pindah" class="col-sm-3 col-form-label">Kecamatan Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input class="form-control" id="kecamatan_pindah" name="kecamatan_pindah" rows="3" placeholder="Kecamatan pindah..."></input>
+												<input class="form-control" id="kecamatan_pindah" name="kecamatan_pindah" rows="3" placeholder="masukkan kecamatan pindah disini..."></input>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -313,7 +312,7 @@
 										<label for="kabupaten_pindah" class="col-sm-3 col-form-label">Kabupaten Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input class="form-control" id="kabupaten_pindah" name="kabupaten_pindah" rows="3" placeholder="Kabupaten pindah..."></input>
+												<input class="form-control" id="kabupaten_pindah" name="kabupaten_pindah" rows="3" placeholder="masukkan kabupaten pindah disini..."></input>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -329,7 +328,7 @@
 										<label for="provinsi_pindah" class="col-sm-3 col-form-label">Provinsi Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input class="form-control" id="provinsi_pindah" name="provinsi_pindah" rows="3" placeholder="Provinsi pindah..."></input>
+												<input class="form-control" id="provinsi_pindah" name="provinsi_pindah" rows="3" placeholder="masukkan provinsi pindah disini..."></input>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -360,7 +359,7 @@
 										<label for="alasan_pindah" class="col-sm-3 col-form-label">Alasan Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alasan_pindah" name="alasan_pindah" rows="3" placeholder="Alasan Pindah... "></textarea>
+												<textarea class="form-control" id="alasan_pindah" name="alasan_pindah" rows="3" placeholder="masukkan alasan pindah disini... "></textarea>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -376,7 +375,7 @@
 										<label for="jumlah_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="number" class="form-control" id="jumlah_pengikut" placeholder="Jumlah pengikut..." name="jumlah_pengikut">
+												<input type="number" class="form-control" id="jumlah_pengikut" placeholder="masukkan jumlah pengikut disini..." name="jumlah_pengikut">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -389,8 +388,7 @@
 							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
 							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
-			</div>
-			<div class="card-footer">
+				<div class="card-footer">
 				<div class="float-right">
 					<a href="#">
 						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
@@ -399,9 +397,12 @@
 						</button>
 					</a>
 				</div>
+			</div>
+			</div>
+			
 				</form>
 			<?php } ?>
-			</div>
+			
 		</div>
 		<!--End Content Profile-->
 	</div>

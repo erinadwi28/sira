@@ -73,7 +73,7 @@
 						<tr>
 							<td><?php echo $no++ ?></td>
 							<td><?php echo $sm->nomor_surat ?></td>
-							<td><?php echo $sm->tanggal ?></td>
+							<td><?php echo format_indo(date($sm->tanggal)); ?></td>
 							<td><?php echo $sm->pengirim ?></td>
 							<td><?php echo $sm->perihal ?></td>
 							<td>

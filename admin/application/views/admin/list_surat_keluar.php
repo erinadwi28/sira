@@ -9,7 +9,7 @@
 	</div>
 
 	<!-- Filter Tanggal Permohonan Surat -->
-	<div class="card shadow col-md-10 mb-2">
+	<div class="card shadow col-md-10 mb-4">
 		<div class="card-body" style="padding: 15px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
@@ -19,6 +19,7 @@
 				method="post" accept-charset="utf-8">
 
 				<div class="row">
+
 					<div class="col-md-2 mt-2">
 						<label class="label-control" for="tanggal_mulai"><b>Tanggal
 								Mulai</b></label>
@@ -44,6 +45,14 @@
 				</div>
 			</form>
 		</div>
+		<hr>
+		<div>
+			<a href="<?= base_url() ?>admin/list_surat_keluar">
+				<button id="btn_kembali" class="btn btn-sm btn-warning float-right mb-2 mr-2 mt-0" type="">
+					<i class="fas fa-sync-alt"></i> Reset
+				</button>
+			</a>
+		</div>
 	</div>
 
 	<!-- DataTables Warga -->
@@ -61,7 +70,7 @@
 						<tr>
 							<th>No</th>
 							<th>Nomor Surat</th>
-							<th>Tanggal</th>
+							<th>Tanggal Dikeluarkan</th>
 							<th>Tujuan</th>
 							<th>Perihal</th>
 							<th>Actions</th>
@@ -74,7 +83,7 @@
 						<tr>
 							<td><?php echo $no++ ?></td>
 							<td><?php echo $sk->nomor_surat ?></td>
-							<td><?php echo $sk->tanggal ?></td>
+							<td><?php echo format_indo(date($sk->tanggal)); ?></td>
 							<td><?php echo $sk->tujuan ?></td>
 							<td><?php echo $sk->perihal ?></td>
 							<td>

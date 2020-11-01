@@ -87,7 +87,7 @@
 		</div>
 	</div>
 
-	<!-- Content Row line 2 -->
+	<!-- Content Row line 1 -->
 	<div class="row">
 
 		<!-- Data Permohonan Masuk -->
@@ -97,7 +97,7 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-0">
 							<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-								Menunggu Persetujuan Ketua RT</div>
+								Proses Ketua RT</div>
 							<?php 
 							foreach($jumlah_persetujuan_rt as $rt){ ?>
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $rt->total_persetujuan_rt; ?></div>
@@ -126,7 +126,7 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-0">
 							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-								Menunggu Persetujuan Admin</div>
+								Proses Kelurahan</div>
 							<?php 
 							foreach($jumlah_persetujuan_admin as $admin){ ?>
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $admin->total_persetujuan_admin; ?>
@@ -170,7 +170,7 @@
 					<div class="row mt-3">
 						<div class="col-md-12">
 							<center>
-								<a href="<?= base_url('warga/list_data_permohonan_selesai') ?>"
+								<a href="<?= base_url(); ?>/warga/list_permohonan_selesai/<?= $warga['id_warga']; ?>"
 									class="badge badge-success">Selengkapnya <i class="fas fa-arrow-right"></i></a>
 							</center>
 						</div>
@@ -186,6 +186,39 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-0">
 							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+								Permohonan Ditolak</div>
+							<?php 
+							foreach($jumlah_permohonan_ditolak as $permohonan){ ?>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">
+								<?= $permohonan->total_permohonan_ditolak; ?></div>
+							<?php } ?>
+						</div>
+						<div class="col-auto">
+							<i class="fa fa fa-book fa-2x text-gray-300"></i>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-md-12">
+							<center>
+								<a href="<?= base_url('warga/list_data_permohonan_ditolak') ?>"
+									class="badge badge-info">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+							</center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Content Row line 2 -->
+	<div class="row">
+		<!-- Riwayat Permohonan -->
+		<div class="col-xl-3 col-md-6 mb-4">
+			<div class="card border-left-danger shadow h-100 p-0">
+				<div class="card-body px-3 py-3 ">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-0">
+							<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
 								Riwayat Permohonan</div>
 							<?php 
 							foreach($jumlah_riwayat_permohonan as $riwayat){ ?>
@@ -200,14 +233,15 @@
 					<div class="row mt-3">
 						<div class="col-md-12">
 							<center>
-								<a href="<?= base_url('admin/list_riwayat_permohonan') ?>"
-									class="badge badge-info">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+								<a href="<?= base_url() ?>warga/list_history_permohonan/<?= $warga['id_warga'] ?>"
+									class="badge badge-danger">Selengkapnya <i class="fas fa-arrow-right"></i></a>
 							</center>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 	<!-- Page Heading Data Surat-->

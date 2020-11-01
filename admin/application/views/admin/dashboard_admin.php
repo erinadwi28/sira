@@ -33,7 +33,7 @@
 							<?php } ?>
 						</div>
 						<div class="col-auto">
-							<i class="fa fa fa-user fa-2x text-gray-300"></i>
+							<i class="fa fa fa-user fa-2x text-gray-300 btn-sm"></i>
 						</div>
 					</div>
 					<div class="row mt-3">

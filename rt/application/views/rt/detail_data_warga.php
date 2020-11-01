@@ -27,11 +27,14 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
+				<div class="card-body" style="padding: 15px;">
+				<center>
 					<?php 
 					foreach($foto_profil as $p){ ?>
 					<img src="<?= base_url(); ?>../assets/uploads/warga/<?= $p->foto_profil_warga; ?>" alt="foto profil" class="img-fluid">
 				<?php } ?>
+				</center>
+					
 				</div>
 			</div>
 			
@@ -106,7 +109,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $w->tanggal_lahir; ?></td>
+								<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>

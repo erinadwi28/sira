@@ -341,7 +341,7 @@
                                     ?>
                                         <center>
                                             Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?> <br>
-                                            Yang Mengisis Data <br><br><br><br><br><br><br><br><br>
+                                            Yang Mengisis Data <br><br><br><br><br><br><br>
                                         </center>
                                     <?php } ?>
                                     <?php

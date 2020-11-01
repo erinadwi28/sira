@@ -44,7 +44,7 @@ class M_admin extends CI_Model
     public function jumlah_permohonan_masuk()
     {
         $this->db->select('id_permohonan_surat, COUNT(id_permohonan_surat) as total_permohonan_masuk');
-        $this->db->where('status', 'Menunggu Persetujuan Admin');
+        $this->db->where('status', 'Menunggu Persetujuan Kelurahan');
         $this->db->where('status_delete', 0);
 
         $hasil = $this->db->get('permohonan_surat');
@@ -515,7 +515,7 @@ class M_admin extends CI_Model
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
-        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
         $this->db->where('permohonan_surat.status_delete', 0);
         $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
 
@@ -798,6 +798,24 @@ class M_admin extends CI_Model
         $hasil = $this->db->get();
 
         return $hasil;
+    }
+
+    //setujui permohonan => ubah status
+    public function update_status_permohonan($detailhere, $data, $table){
+        $this->db->where('id_permohonan_surat', $detailhere);
+        $this->db->update($table, $data);
+    }
+
+    //setujui permohonan => ubah nomor rt
+    public function update_nomor_admin_surat($detailhere, $data, $table){
+        $this->db->where('id_permohonan_surat', $detailhere);
+        $this->db->update($table, $data);
+    }
+
+    //tolak permohonan
+    public function tolak_permohonan($detailhere, $data, $table){
+        $this->db->where('id_permohonan_surat', $detailhere);
+        $this->db->update($table, $data);
     }
 
     // list data surat masuk

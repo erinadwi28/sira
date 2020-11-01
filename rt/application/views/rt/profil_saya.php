@@ -189,7 +189,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>
@@ -294,8 +294,12 @@
 						</table>
 				</div>
 				<div class="card-footer">
-					<div class="float-right">
+					<div class="">
 						<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $detail->id_warga; ?>">
+						<em class="float-center small text-danger">*Anda bisa mengubah Kata Sandi serta Foto Profil, Foto
+						KTP, dan Foto KK. <br>
+						Untuk ubah data harap hubungi Nomor Telepon berikut : <br>
+						No Telepon : 085713609299</em>
 					</div>
 				<?php } ?>
 				</div>

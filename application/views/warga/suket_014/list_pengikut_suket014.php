@@ -12,7 +12,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-12">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<!-- /.card-header -->
 				<div class="card-body">
 					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>

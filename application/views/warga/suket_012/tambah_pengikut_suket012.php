@@ -10,7 +10,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card mb-5">
 				<div class="body">
 					<form class="form-horizontal" id="form_tambah_pengikut_suket012" action="<?= base_url('warga/aksi_tambah_pengikut_suket012') ?>" method="POST">
 						<div class="form-group">
@@ -20,7 +20,7 @@
 										<label for="Nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" placeholder="masukan nama... " id="nama" name="nama" value="" required="">
+												<input type="text" class="form-control" placeholder="masukan nama lengkap disini... " id="nama" name="nama" value="" required="">
 											</div>
 										</div>
 									</div>
@@ -30,7 +30,7 @@
 										<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukan tempat lahir... " value="" required="">
+												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukan tempat lahir disini... " value="" required="">
 											</div>
 										</div>
 									</div>
@@ -40,7 +40,7 @@
 										<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukan tanggal lahir... " value="" required="">
+												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukan tanggal lahir disini... " value="" required="">
 											</div>
 										</div>
 									</div>
@@ -116,7 +116,7 @@
 											<label for="Nama_ortu" class="col-sm-3 col-form-label">Nama Ortu</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama_ortu" name="nama_ortu" placeholder="masukan nama orang tua... " value="" required="">
+													<input type="text" class="form-control" id="nama_ortu" name="nama_ortu" placeholder="masukan nama orang tua disini... " value="" required="">
 												</div>
 											</div>
 										</div>

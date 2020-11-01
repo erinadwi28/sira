@@ -159,12 +159,12 @@ class M_kades extends CI_Model
         return $hasil;
     }
 
-    // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
-    public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
-    {
-        $this->db->where('id_kades', $detailhere);
-        $this->db->update($table, $data);
-    }
+    // // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
+    // public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
+    // {
+    //     $this->db->where('id_kades', $detailhere);
+    //     $this->db->update($table, $data);
+    // }
 
     //aksi ubah kata sandi profil saya
     public function ubah_kata_sandi_profil_saya($where, $data, $table)

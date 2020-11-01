@@ -5,12 +5,15 @@
 		<h1 class="h3 mb-0 text-gray-800">Riwayat Permohonan Surat</h1>
 	</div>
 	<!-- Filter Tanggal Permohonan Surat -->
-	<div class="card shadow col-md-10 mb-2">
-		<div class="card-body">
-			<h5>Filter Tanggal</h5>
-			<form class="form-horizontal" id="filter_history_permohonan"
-				action="<?= base_url('warga/filter_tanggal_list_history_permohonan') ?>" method="POST">
-				<div class="row">
+	<div class="card shadow col-md-10 mb-4">
+		<div class="card-body row" style="padding: 15px;">
+			<div class="col-md-12">
+				<h5>Filter Tanggal</h5>
+				<form role="form" action="<?= base_url('warga/filter_riwayat_permohonan') ?>" enctype="multipart/form-data"
+					method="post" accept-charset="utf-8">
+
+					<div class="row">
+
 					<div class="col-md-2 mt-2">
 						<label class="label-control" for="tanggal_mulai"><b>Tanggal
 								Mulai</b></label>
@@ -25,8 +28,6 @@
 					<div class="col-md-3 mb-2">
 						<input type="date" class="form-control form-user-input" name="tanggal_akhir" id="tanggal_akhir">
 					</div>
-					<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga"
-						value="<?= $warga['id_warga'] ?>">
 					<div class="col-md-2 mt-1">
 						<center>
 							<button class="btn btn-sm btn-primary" type="submit">
@@ -36,7 +37,16 @@
 						</center>
 					</div>
 				</div>
-			</form>
+				</form>
+			</div>
+		</div>
+		<hr>
+		<div>
+			<a href="<?= base_url() ?>warga/list_history_permohonan/<?= $warga['id_warga'] ?>">
+				<button id="btn_kembali" class="btn btn-sm btn-warning float-right mb-2 mr-2 mt-0" type="">
+					<i class="fas fa-sync-alt"></i> Reset
+				</button>
+			</a>
 		</div>
 	</div>
 	<!-- DataTables Warga -->
@@ -68,7 +78,7 @@
 							<td><?= $w->tgl_permohonan_surat ?></td>
 							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') {
 								?><td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-																																} elseif ($w->status == 'Menunggu Persetujuan Admin') {
+																																} elseif ($w->status == 'Menunggu Persetujuan Kelurahan') {
 																																	?><td><label class="badge badge-info"><i class="far fa-clock"></i>
 									<?= $w->status ?></label></td><?php
 																																																									} elseif ($w->status == 'Ditolak') {

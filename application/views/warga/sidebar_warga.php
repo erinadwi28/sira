@@ -36,10 +36,10 @@
 		</a>
 		<div id="menupermohonan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="<?= base_url('warga/list_data_sedang_proses_rt') ?>">Sedang Proses Ketua RT</a>
-				<a class="collapse-item" href="<?= base_url('warga/list_data_sedang_proses_admin') ?>">Sedang Proses Kelurahan</a>
-				<a class="collapse-item" href="<?= base_url() ?>warga/list_data_permohonan_ditolak/<?= $warga['id_warga'] ?>">Ditolak</a>
+				<a class="collapse-item" href="<?= base_url('warga/list_data_sedang_proses_rt') ?>">Proses Ketua RT</a>
+				<a class="collapse-item" href="<?= base_url('warga/list_data_sedang_proses_admin') ?>">Proses Kelurahan</a>
 				<a class="collapse-item" href="<?= base_url() ?>warga/list_permohonan_selesai/<?= $warga['id_warga'] ?>">Selesai</a>
+				<a class="collapse-item" href="<?= base_url() ?>warga/list_data_permohonan_ditolak/<?= $warga['id_warga'] ?>">Ditolak</a>
 			</div>
 		</div>
 	</li>

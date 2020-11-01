@@ -147,6 +147,20 @@
                                 </div>
                             </div>
                             <div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+
+									</div>
+								</div>
+                            <div class="form-group">
                                 <div class="form-group row" style="margin-left: 10px;">
                                     <label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-8">

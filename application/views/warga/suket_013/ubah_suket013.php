@@ -21,7 +21,7 @@
     <div class="row clearfix">
         <div class="col-xs-12 col-sm-2"></div>
         <div class="col-xs-12 col-sm-8">
-            <div class="card">
+            <div class="card shadow mb-5">
                 <div class="body">
 
                     <form class="form-horizontal" id="form_suket013" action="<?= base_url('warga/aksi_ubah_suket013') ?>" method="POST">
@@ -123,6 +123,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Terbilang" class="col-sm-3 col-form-label">Terbilang</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="text" class="form-control" id="terbilang" name="terbilang" value="<?= $detail->terbilang ?>" required="">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
                         <input type="hidden" class="form-control" id="id_surat" name="id_surat" required="" value="<?= $detail->id_surat ?>">
                         <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
                 </div>

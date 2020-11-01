@@ -162,6 +162,25 @@
 				});
 	</script>
 
+<script>
+
+function randomPassword1(length) {
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+	var pass = "";
+	for (var x = 0; x < length;x++) {
+		var i = Math.floor(Math.random() * chars.length);
+		pass += chars.charAt(i);
+	}
+	return pass;
+}
+
+function generate1() {
+	// formTambah.row_password.value = randomPassword(formTambah.length.value);
+	formwarga.row_password.value = randomPassword(formwarga.length.value);
+}
+
+</script>
+
 	</body>
 
 	</html>

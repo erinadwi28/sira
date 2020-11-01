@@ -58,54 +58,54 @@ class Kades extends CI_Controller
         $this->load->view('footer');
 	}
 
-        // tampil form ubah profil saya beserta datanya
-        public function form_ubah_profil_saya($id_kades)
-        {
-                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+        // // tampil form ubah profil saya beserta datanya
+        // public function form_ubah_profil_saya($id_kades)
+        // {
+        //         $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
+        //         $this->session->userdata('id_kades')])->row_array();
 
-                $detailhere = array('id_kades' => $id_kades);
-                $data_detail['detail_profil_saya'] = $this->m_kades->get_detail_profil_saya($detailhere,'kepala_desa')->result();
+        //         $detailhere = array('id_kades' => $id_kades);
+        //         $data_detail['detail_profil_saya'] = $this->m_kades->get_detail_profil_saya($detailhere,'kepala_desa')->result();
 
-                $this->load->view('header');
-                $this->load->view('kades/sidebar_kades');
-                $this->load->view('topbar', $data);
-                $this->load->view('kades/form_ubah_profil_saya', $data_detail);
-                $this->load->view('footer');
-        }
+        //         $this->load->view('header');
+        //         $this->load->view('kades/sidebar_kades');
+        //         $this->load->view('topbar', $data);
+        //         $this->load->view('kades/form_ubah_profil_saya', $data_detail);
+        //         $this->load->view('footer');
+        // }
 	
-	// aksi ubah profil saya
-        public function aksi_ubah_profil_saya()
-        {
-        $data = array(
-                'nik' => $this->input->post('nik'),
-                'nip' => $this->input->post('nip'),
-                'nama' => $this->input->post('nama'),
-                'alamat' => $this->input->post('alamat'),
-                'rt' => $this->input->post('rt'),
-                'kelurahan' => $this->input->post('kelurahan'),
-                'kecamatan' => $this->input->post('kecamatan'),
-                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-                'agama' => $this->input->post('agama'),
-                'tempat_lahir' => $this->input->post('tempat_lahir'),
-                'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-                'status_perkawinan' => $this->input->post('status_perkawinan'),
-                'pekerjaan' => $this->input->post('pekerjaan'),
-                'golongan_darah' => $this->input->post('golongan_darah'),
-                'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-                'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
-                'no_kk' => $this->input->post('no_kk'),
-                'status_hub_kel' => $this->input->post('status_hub_kel'),
-                'no_hp' => $this->input->post('no_hp'),
-        );
+	// // aksi ubah profil saya
+        // public function aksi_ubah_profil_saya()
+        // {
+        // $data = array(
+        //         'nik' => $this->input->post('nik'),
+        //         'nip' => $this->input->post('nip'),
+        //         'nama' => $this->input->post('nama'),
+        //         'alamat' => $this->input->post('alamat'),
+        //         'rt' => $this->input->post('rt'),
+        //         'kelurahan' => $this->input->post('kelurahan'),
+        //         'kecamatan' => $this->input->post('kecamatan'),
+        //         'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+        //         'agama' => $this->input->post('agama'),
+        //         'tempat_lahir' => $this->input->post('tempat_lahir'),
+        //         'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+        //         'status_perkawinan' => $this->input->post('status_perkawinan'),
+        //         'pekerjaan' => $this->input->post('pekerjaan'),
+        //         'golongan_darah' => $this->input->post('golongan_darah'),
+        //         'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+        //         'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
+        //         'no_kk' => $this->input->post('no_kk'),
+        //         'status_hub_kel' => $this->input->post('status_hub_kel'),
+        //         'no_hp' => $this->input->post('no_hp'),
+        // );
 
-        $detailhere = $this->input->post('id_kades');
+        // $detailhere = $this->input->post('id_kades');
 
-        $this->m_kades->aksi_ubah_data_profil_saya($detailhere, $data, 'kepala_desa');
+        // $this->m_kades->aksi_ubah_data_profil_saya($detailhere, $data, 'kepala_desa');
 
-        $this->session->set_flashdata('success', 'diubah');
-        redirect('kades/profil_saya/' . $detailhere);
-	}
+        // $this->session->set_flashdata('success', 'diubah');
+        // redirect('kades/profil_saya/' . $detailhere);
+	// }
 	
         // upload foto profil kades
         public function upload_foto_profil()

@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Data Permohonan Dalam Proses</h1>
+		<h1 class="h3 mb-0 text-gray-800">Data Permohonan Surat Dalam Proses Kelurahan</h1>
 	</div>
 
 	<!-- DataTables Warga -->
@@ -19,6 +19,7 @@
 						<tr>
 							<th>No</th>
 							<th>Tanggal Permohonan</th>
+							<th>Tanggal Disetujui Ketua RT</th>
 							<th>Nama Surat</th>
 							<th>Status</th>
 							<th>Actions</th>
@@ -32,6 +33,7 @@
 						<tr>
 							<td><?= $no++ ?></td>
 							<td><?= $permohonan->tgl_permohonan_surat ?></td>
+							<td><?= $permohonan->tanggal_persetujuan_rt ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
 							<td><label class="badge badge-info"><i class="far fa-clock"></i>
 									<?= $permohonan->status ?></label></td>

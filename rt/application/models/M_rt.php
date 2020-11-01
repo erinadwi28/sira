@@ -79,7 +79,7 @@ class M_rt extends CI_Model
         $this->db->from('permohonan_surat');
         $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
         $this->db->where('warga.rt', $this->session->userdata('rt'));
-        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
         $this->db->where('permohonan_surat.status_delete', 0);
 
         $hasil = $this->db->get();
@@ -107,10 +107,10 @@ class M_rt extends CI_Model
         $this->db->from('permohonan_surat');
         $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
         $this->db->where('warga.rt', $this->session->userdata('rt'));
-        // $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
-        // $this->db->or_where('permohonan_surat.status', 'Ditolak');
-        // $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
-        // $this->db->or_where('permohonan_surat.status', 'Selesai');
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
+        $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
+        $this->db->or_where('permohonan_surat.status', 'Selesai');
+        $this->db->or_where('permohonan_surat.status', 'Ditolak');
         $this->db->where('permohonan_surat.status_delete', 0);
 
         $hasil = $this->db->get();
@@ -252,13 +252,13 @@ class M_rt extends CI_Model
     }
 
     //detail permohonan masuk surat 001
-    public function get_detail_001($id_permohonan_masuk)
+    public function get_detail_001($id_permohonan_surat)
     {
         $this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_usaha.*');
         $this->db->from('permohonan_surat');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->join('srt_ket_usaha', 'permohonan_surat.id_permohonan_surat = srt_ket_usaha.id_permohonan_surat', 'INNER');
-        $this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+        $this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_surat);
         $this->db->where('permohonan_surat.status_delete', 0);
 
         $hasil = $this->db->get();
@@ -485,7 +485,7 @@ class M_rt extends CI_Model
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->where('warga.rt', $this->session->userdata('rt'));
-        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
         $this->db->where('permohonan_surat.status_delete', 0);
         $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'desc');
 
@@ -518,7 +518,7 @@ class M_rt extends CI_Model
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->where('warga.rt', $this->session->userdata('rt'));
         $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
-        $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
         $this->db->or_where('permohonan_surat.status', 'Selesai');
         $this->db->or_where('permohonan_surat.status', 'Ditolak');
         $this->db->where('permohonan_surat.status_delete', 0);

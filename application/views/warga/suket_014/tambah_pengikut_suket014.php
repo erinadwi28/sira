@@ -10,7 +10,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<form class="form-horizontal" id="form_tambah_pengikut_suket012" action="<?= base_url('warga/aksi_tambah_pengikut_suket014') ?>" method="POST">
 						<div class="form-group">
@@ -20,7 +20,7 @@
 										<label for="Nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" placeholder="masukan nama... " id="nama" name="nama" value="" required="">
+												<input type="text" class="form-control" placeholder="masukan nama disini... " id="nama" name="nama" value="" required="">
 											</div>
 										</div>
 									</div>
@@ -30,7 +30,7 @@
 										<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukan tempat lahir... " value="" required="">
+												<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukan tempat lahir disini... " value="" required="">
 											</div>
 										</div>
 									</div>
@@ -40,7 +40,7 @@
 										<label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukan tanggal lahir... " value="" required="">
+												<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukan tanggal lahir disini... " value="" required="">
 											</div>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 										<label for="Jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required="">
 													<option class="form-user-input">pilih jenis kelamin...
 													</option>
 													<option value="Laki-Laki" class="form-user-input">Laki-Laki
@@ -67,7 +67,7 @@
 										<label for="umur" class="col-sm-3 col-form-label">Umur</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="umur" name="umur" placeholder="masukan umur..." value="" required="">
+												<input type="text" class="form-control" id="umur" name="umur" placeholder="masukan umur disini..." value="" required="">
 											</div>
 										</div>
 									</div>
@@ -113,10 +113,10 @@
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
-											<label for="Nama_ortu" class="col-sm-3 col-form-label">Nama Ortu</label>
+											<label for="Nama_ortu" class="col-sm-3 col-form-label">Nama Orang Tua</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama_ortu" name="nama_ortu" placeholder="masukan nama orang tua... " value="" required="">
+													<input type="text" class="form-control" id="nama_ortu" name="nama_ortu" placeholder="masukan nama orang tua disini... " value="" required="">
 												</div>
 											</div>
 										</div>
@@ -125,7 +125,7 @@
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
-											<label for="status_hub_kk" class="col-sm-3 col-form-label">Hubungan dgn KK</label>
+											<label for="status_hub_kk" class="col-sm-3 col-form-label">Status Hubungan Keluarga</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
 													<select class="form-control form-user-input" name="status_hub_kk" id="status_hub_kk">

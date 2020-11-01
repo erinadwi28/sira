@@ -17,15 +17,13 @@
 
 				<!-- Nav Item - Alerts -->
 				<li class="nav-item dropdown no-arrow mx-1">
-					<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
 						<span class="badge badge-danger badge-counter">1+</span>
 					</a>
 					<!-- Dropdown - Alerts -->
-					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-						aria-labelledby="alertsDropdown">
+					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
 						<h6 class="dropdown-header">
 							Permohonan Surat Baru
 						</h6>
@@ -50,8 +48,7 @@
 
 				<!-- Nav Item - User Information -->
 				<li class="nav-item dropdown no-arrow">
-					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $admin['nama']; ?></span>
 						<!-- <img class="img-profile rounded-circle" src="<?= base_url('assets/dashboard/') ?>img/wkwk.jpg"> -->
 						<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $admin['foto_profil_admin']; ?>" alt="foto profil" class="img-profile rounded-circle img-fluid">

@@ -183,7 +183,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $w->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>

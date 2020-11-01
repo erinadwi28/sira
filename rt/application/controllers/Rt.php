@@ -433,7 +433,7 @@ class Rt extends CI_Controller
                 $this->load->view('footer');        
         }
 
-        // filter tanggal riwayat permohonan
+	// filter tanggal riwayat permohonan
         public function filter_riwayat_permohonan()
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
@@ -445,7 +445,7 @@ class Rt extends CI_Controller
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_rt->filter_riwayat($tgl_awal, $tgl_akhir)->result();
 
                 $this->load->view('header');
-                $this->load->view('rt/sidebar_rt');
+                $this->load->view('rt/sidebar_rt', $data);
                 $this->load->view('topbar', $data);
                 $this->load->view('rt/list_data_riwayat_permohonan', $data_permohonan);
                 $this->load->view('footer');

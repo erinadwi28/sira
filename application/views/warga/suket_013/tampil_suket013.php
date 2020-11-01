@@ -68,7 +68,7 @@
 												<div class="isi_surat paragraf">
 													<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut Selatan,
 														Kabupaten Kotawaringin Barat, Propinsi Kalimantan Tengah,
-														menerangkan dengan sebenarnya bahwa : :</p>
+														menerangkan dengan sebenarnya bahwa :</p>
 												</div>
 												<div class="isi_surat identitas">
 													<table class="table-responsive">
@@ -129,7 +129,7 @@
 														bahwa nama tersebut diatas memang benar penduduk RT. <?= $warga['rt'] ?> Kelurahan Mendawai,
 														Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat, dan menurut pengakuan
 														yang bersangkutan tersebut mempunyai penghasilan sebulan Rp. <?= $w->penghasilan; ?>,-
-														(Dua Juta Lima Ratus Ribu Rupiah ).
+														( <?= $w->terbilang; ?> ).
 													</p>
 
 													<p>

@@ -11,7 +11,7 @@
 				</i> Kembali
 			</button>
 		</a>
-		<?php } elseif($detail->status == "Menunggu Persetujuan Admin") {?>
+		<?php } elseif($detail->status == "Menunggu Persetujuan Kelurahan") {?>
 		<a href="<?= base_url('rt/list_data_permohonan_disetujui')?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 				<i class="fa fa-arrow-left">
@@ -47,11 +47,10 @@
 			<div class="card shadow mb-4">
 				<div class="card-body">
 					<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_013') ?>" method="post">
-						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat RT
-							melanjutkan No Surat Terakhir</em>
+						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat Ketua RT</em>
 						<div class="row">
 							<div class="col-md-12">
-								<center> <b><label for="nomor_surat_rt">Masukkan Nomor Surat RT Untuk
+								<center> <b><label for="nomor_surat_rt">Masukkan Nomor Surat Ketua RT Untuk
 											Menyetujui</label></b>
 								</center>
 							</div>
@@ -64,7 +63,7 @@
 								<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
 									id="nomor_surat_rt">
 								<input type="hidden" class="form-control form-user-input" name="status" id="status"
-									value="Menunggu Persetujuan Admin">
+									value="Menunggu Persetujuan Kelurahan">
 								<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat"
 									id="id_permohonan_surat" value="<?= $detail->id_permohonan_surat; ?>">
 							</div>
@@ -100,7 +99,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Pekerjaan</b></td>
@@ -124,11 +123,18 @@
 									<td>Rp <?= $detail->penghasilan; ?></td>
 								</tr>
 								<tr>
+									<td><b>Terbilang</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->terbilang; ?></td>
+								</tr>
+								<tr>
 									<td><b>Tanggal Permohonan</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_permohonan_surat; ?></td>
+									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Surat Yang Dimohon</b></td>
@@ -152,22 +158,43 @@
 					</form>
 					<div class="float-right">
 						<a href="<?= base_url() ?>rt/form_alasan_tolak/<?= $detail->id_permohonan_surat ?>">
-								<button id="btn_tolak" class="btn btn-sm btn-danger" type="submit">
-									<i class="fa fa-times nav-icon">
-									</i> Tolak
-								</button>
-							</a>
+							<button id="btn_tolak" class="btn btn-sm btn-danger" type="submit">
+								<i class="fa fa-times nav-icon">
+								</i> Tolak
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
 			<?php } else { ?>
 			<div class="card shadow mb-2">
 				<div class="card-body">
+					<?php if($detail->no_registrasi != null && $detail->no_kelurahan  != null && $detail->no_bulan != null && $detail->no_tahun != null ) { ?>
 					<form action="">
 						<div class="row">
 							<div class="col-md-12">
-								<center> <b><label for="nomor_surat_rt">Nomor Surat RT Untuk
-											Menyetujui</label></b>
+								<center> <b><label for="nomor_surat_admin">Nomor Surat Kelurahan</label></b>
+								</center>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
+									id="nomor_surat_admin"
+									value="<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>"
+									style="text-align: center;" disabled>
+							</div>
+							<div class="col-md-3">
+							</div>
+						</div>
+					</form>
+					<?php } ?>
+					<form action="">
+						<div class="row">
+							<div class="col-md-12">
+								<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
 								</center>
 							</div>
 						</div>
@@ -177,7 +204,7 @@
 							</div>
 							<div class="col-md-6 mb-3">
 								<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-									id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled>
+									id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
 							</div>
 							<div class="col-md-3">
 
@@ -212,7 +239,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tanggal_lahir; ?></td>
+								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
@@ -236,11 +263,34 @@
 								<td>Rp <?= $detail->penghasilan; ?></td>
 							</tr>
 							<tr>
+								<td><b>Terbilang</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= $detail->terbilang; ?></td>
+							</tr>
+							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tgl_permohonan_surat; ?></td>
+								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
+							</tr>
+							<?php if ($detail->status ==  'Selesai') { ?>
+							<tr>
+								<td><b>Tanggal Surat</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+							</tr>
+							<?php } ?>
+							<tr>
+								<td><b>Tanggal Disetujui Ketua RT</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Surat Yang Dimohon</b></td>

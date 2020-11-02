@@ -18,7 +18,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
@@ -46,7 +46,7 @@
 										<label for="Nama_dokumen_benar" class="col-sm-3 col-form-label">Dokumen Benar</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nama_dokumen_benar" value="KTP, KK, Ijazah dll..." name="nama_dokumen_benar" value="">
+												<input type="text" class="form-control" id="nama_dokumen_benar" placeholder="KTP, KK, Ijazah dll..." name="nama_dokumen_benar" value="">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -76,7 +76,7 @@
 										<label for="nama_dokumen_salah" class="col-sm-3 col-form-label">Dokumen Salah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nama_dokumen_salah" value="KTP, KK, Ijazah dll..." name="nama_dokumen_salah">
+												<input type="text" class="form-control" id="nama_dokumen_salah" placeholder="KTP, KK, Ijazah dll..." name="nama_dokumen_salah">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>

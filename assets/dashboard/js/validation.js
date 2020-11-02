@@ -93,7 +93,7 @@ const kewarganegaraaan = document.getElementById("kewarganegaraan");
 const kepindahan_dari = document.getElementById("kepindahan_dari");
 const jumlah_pengikut = document.getElementById("jumlah_pengikut");
 
-const penghasilan = document.getElementById("penghasilan");
+
 
 const alamat_asal = document.getElementById("alamat_asal");
 const tanggal_kk = document.getElementById("tanggal_kk");
@@ -127,7 +127,17 @@ const kata_sandiwarga = document.getElementById("kata_sandi");
 
 const tanggal_permohonan = document.getElementById("tanggal_permohonan");
 
+const tempat = document.getElementById("tempat")
+const jam = document.getElementById("jam")
+const file_upload_profile = document.getElementById("file-upload-profil")
 
+const no_surat_pindah = document.getElementById("no_surat_pindah")
+const tgl_surat_pindah = document.getElementById("tgl_surat_pindah")
+
+const penghasilan = document.getElementById("penghasilan");
+const terbilang = document.getElementById("terbilang")
+
+const alasan_pindah = document.getElementById("alasan_pindah")
 
 
 if (form1 != null) {
@@ -217,9 +227,10 @@ if (form1 != null) {
 	});
 } else if (form13 != null) {
 	form13.addEventListener("submit", (e) => {
-		e.preventDefault();
-		checkInput13() === "";
-		e.target.submit();
+		if (checkInput13() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
 	});
 } else if (form14 != null) {
 	form14.addEventListener("submit", (e) => {
@@ -486,10 +497,11 @@ function checkInput5() {
 	const alamatValue = alamat.value.trim();
 	const nama_kegiatanValue = nama_kegiatan.value.trim();
 	const hari_kegiatanValue = hari_kegiatan.value.trim();
-	const tempat_kegiatanValue = tempat_kegiatan.value.trim();
 	const tanggal_kegiatanValue = tanggal_kegiatan.value.trim();
-	const jam_kegiatanValue = jam_kegiatan.value.trim();
-	const foto_ktpValue = foto_ktp.value.trim();
+	const tempatValue = tempat.value.trim();
+	
+	const jamValue = jam.value.trim();
+	const file_upload_profileValue = file_upload_profile.value.trim();
 
 
 	if (namaValue === "") {
@@ -528,30 +540,31 @@ function checkInput5() {
 	} else {
 		setSuccessFor(hari_kegiatan);
 	}
-	if (tempat_kegiatanValue === "") {
-		setErrorFor(tempat_kegiatan, " tidak boleh kosong");
-		return (false);
-	} else {
-		setSuccessFor(tempat_kegiatan);
-	}
 	if (tanggal_kegiatanValue === "") {
 		setErrorFor(tanggal_kegiatan, " tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(tanggal_kegiatan);
+
 	}
-	if (jam_kegiatanValue === "") {
-		setErrorFor(jam_kegiatan, " tidak boleh kosong");
+	if (tempatValue === "") {
+		setErrorFor(tempat, " tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(jam_kegiatan);
+		setSuccessFor(tempat);
 	}
-	if (foto_ktpValue === "Upload Foto KTP") {
-		setErrorFor(foto_ktp, " tidak boleh kosong");
+	if (jamValue === "") {
+		setErrorFor(jam, " tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(foto_ktp);
+		setSuccessFor(jam);
 	}
+	// if (file_upload_profileValue === "Upload Foto KTP") {
+	// 	setErrorFor(file_upload_profile, " tidak boleh kosong");
+	// 	return (false);
+	// } else {
+	// 	setSuccessFor(file_upload_profile);
+	// }
 	return (true);
 }
 
@@ -986,8 +999,8 @@ function checkInput11() {
 	const golongan_darahValue = golongan_darah.value.trim();
 	const no_kkValue = no_kk.value.trim();
 	const tanggal_tinggalValue = tanggal_tinggal.value.trim();
-	const pas_fotoValue = pas_foto.value.trim();
-	const foto_kkValue = foto_kk.value.trim();
+	const no_surat_pindahValue = no_surat_pindah.value.trim();
+	const tgl_surat_pindahValue = tgl_surat_pindah.value.trim();
 
 
 	if (nikValue === "") {
@@ -1074,17 +1087,17 @@ function checkInput11() {
 	} else {
 		setSuccessFor(tanggal_tinggal);
 	}
-	if (pas_fotoValue === "") {
-		setErrorFor(pas_foto, "Pas foto tidak boleh kosong");
+	if (no_surat_pindahValue === "") {
+		setErrorFor(no_surat_pindah, "Nomor surat tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(pas_foto);
+		setSuccessFor(no_surat_pindah);
 	}
-	if (foto_kkValue === "") {
-		setErrorFor(foto_kk, "Foto kk tidak boleh kosong");
+	if (tgl_surat_pindahValue === "") {
+		setErrorFor(tgl_surat_pindah, "Tanggal surat pindah tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(foto_kk);
+		setSuccessFor(tgl_surat_pindah);
 	}
 	return (true);
 }
@@ -1211,6 +1224,7 @@ function checkInput13() {
 	const pekerjaanValue = pekerjaan.value.trim();
 	const alamat_tinggalValue = alamat_tinggal.value.trim();
 	const penghasilanValue = penghasilan.value.trim();
+	const terbilangValue = terbilang.value.trim();
 
 	if (namaValue === "") {
 		setErrorFor(nama, "Nama tidak boleh kosong");
@@ -1255,6 +1269,12 @@ function checkInput13() {
 	} else {
 		setSuccessFor(penghasilan);
 	}
+	if (terbilangValue === "") {
+		setErrorFor(terbilang, "nominal penghasilan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(terbilang);
+	}
 	return (true);
 }
 
@@ -1263,11 +1283,12 @@ function checkInput14() {
 	const tempat_lahirValue = tempat_lahir.value.trim();
 	const tanggal_lahirValue = tanggal_lahir.value.trim();
 	const jenis_kelaminValue = jenis_kelamin.value.trim();
-	const status_perkawinanValue = status_perkawinan.value.trim();
+	// 
 	const agamaValue = agama.value.trim();
 	const kewarganegaraanValue = kewarganegaraaan.value.trim();
 	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
 	const pekerjaanValue = pekerjaan.value.trim();
+	const status_perkawinanValue = status_perkawinan.value.trim();
 	const alamat_asalValue = alamat_asal.value.trim();
 	const no_kkValue = no_kk.value.trim();
 	const tanggal_kkValue = tanggal_kk.value.trim();
@@ -1277,6 +1298,7 @@ function checkInput14() {
 	const kabupaten_pindahValue = kabupaten_pindah.value.trim();
 	const provinsi_pindahValue = provinsi_pindah.value.trim();
 	const tanggal_pindahValue = tanggal_pindah.value.trim();
+	const alasan_pindahValue = alasan_pindah.value.trim();
 	const jumlah_pengikutValue = jumlah_pengikut.value.trim();
 
 
@@ -1304,12 +1326,7 @@ function checkInput14() {
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
-	if (status_perkawinanValue === "Pilih status perkawinan...") {
-		setErrorFor(status_perkawinan, "Status perkawinan tidak boleh kosong");
-		return (false);
-	} else {
-		setSuccessFor(status_perkawinan);
-	}
+	
 	if (agamaValue === "Pilih jenis agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
 		return (false);
@@ -1334,6 +1351,13 @@ function checkInput14() {
 	} else {
 		setSuccessFor(pekerjaan);
 	}
+	if (status_perkawinanValue === "Pilih status perkawinan...") {
+			setErrorFor(status_perkawinan, "Status perkawinan tidak boleh kosong");
+			return (false);
+		} else {
+			setSuccessFor(status_perkawinan);
+		}
+
 	if (alamat_asalValue === "") {
 		setErrorFor(alamat_asal, "Alamat Asal tidak boleh kosong");
 		return (false);
@@ -1387,6 +1411,12 @@ function checkInput14() {
 		return (false);
 	} else {
 		setSuccessFor(tanggal_pindah);
+	}
+	if (alasan_pindahValueValue === "") {
+		setErrorFor(alasan_pindah, "Jumlah pengikut tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(alasan_pindah);
 	}
 	if (jumlah_pengikutValue === "") {
 		setErrorFor(jumlah_pengikut, "Jumlah pengikut tidak boleh kosong");

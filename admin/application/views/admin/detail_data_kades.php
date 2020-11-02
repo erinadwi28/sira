@@ -32,10 +32,12 @@
 				</div>
 
 				<div class="card-body" style="padding: 20px;">
-					<?php
+					<center>
+						<?php
 					foreach ($foto_profil as $kades) { ?>
 						<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_profil_kades; ?>" alt="foto profil" class="img-fluid">
 					<?php } ?>
+					</center>
 				</div>
 
 				<div class="card-footer py-3">
@@ -204,6 +206,13 @@
 									<td><?= $detail->nik; ?></td>
 								</tr>
 								<tr>
+									<td><b>NIP</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->nip; ?></td>
+								</tr>
+								<tr>
 									<td><b>Nama Lengkap</b></td>
 									<td> </td>
 									<td> </td>
@@ -222,7 +231,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>

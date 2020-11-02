@@ -67,8 +67,10 @@
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
+											
 										</div>
 										<br />
+										<input type="hidden" class="form-control " id="status_delete" name="status_delete" value="0" />
 										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">
 											Login
 										</button>

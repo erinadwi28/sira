@@ -22,8 +22,9 @@ class Login extends CI_Controller {
         $nik = $this->input->post('nik');
         $kata_sandi = $this->input->post('kata_sandi');
         $kata_sandi_hash = sha1($kata_sandi);
+        $status_delete = $this->input->post('status_delete');
         
-		$admin = $this->m_admin->cek_nik($nik);
+		$admin = $this->m_admin->cek_nik($nik, $status_delete);
 		
         if ($admin) {
             //admin ada
@@ -46,7 +47,7 @@ class Login extends CI_Controller {
             }
         } else {
             //gagal login
-            $this->session->set_flashdata('error', '<b>NIK</b> salah');
+            $this->session->set_flashdata('error', '<b>NIK</b> tidak terdaftar sebagai Admin');
 			redirect('login');
         }
     }

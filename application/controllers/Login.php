@@ -21,10 +21,10 @@ class Login extends CI_Controller {
     {
         $nik = $this->input->post('nik');
         $kata_sandi = $this->input->post('kata_sandi');
-        $kata_sandi_hash = sha1($kata_sandi);
-        // $level_user = $this->input->post('level_user');
+        $kata_sandi_hash = sha1($kata_sandi); 
+        $status_delete = $this->input->post('status_delete');
 		
-		$warga = $this->m_warga->cek_nik($nik);
+		$warga = $this->m_warga->cek_nik($nik, $status_delete);
 		
         if ($warga) {
             //admin ada
@@ -35,6 +35,7 @@ class Login extends CI_Controller {
                     'nik' => $warga['nik'],
                     'nama' => $warga['nama'],
                     'id_warga' => $warga['id_warga'],
+                    'rt' => $warga['rt'],
                     'role_warga' => $warga['role_warga'],
                 ];
 
@@ -48,7 +49,7 @@ class Login extends CI_Controller {
             }
         } else {
             //gagal login
-            $this->session->set_flashdata('error', '<b>NIK</b> salah');
+            $this->session->set_flashdata('error', '<b>NIK</b> tidak terdaftar sebagai Warga');
 			redirect('login');
         }
     }

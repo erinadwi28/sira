@@ -418,8 +418,10 @@
 						</div>
 						<!-- <div class="card-footer">
 									<center>
-										<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-											Cetak</button>
+										<a href="<?= base_url() ?>warga/cetak_surat010/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+												Cetak</button>
+										</a>
 									</center>
 								</div> -->
 

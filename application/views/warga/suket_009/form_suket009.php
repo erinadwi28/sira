@@ -16,7 +16,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
@@ -29,7 +29,7 @@
 										<label for="Nama_alm" class="col-sm-3 col-form-label">Nama Alm/Almh</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_alm" name="nama_alm" placeholder="Isi nama alm/almh...">
+												<input type="text" class="form-control" id="nama_alm" name="nama_alm" placeholder="masukkan nama alm/almh disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -43,7 +43,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
+													<option value="pilih jenis kelamin..." class="form-user-input">pilih jenis kelamin...</option>
 													<option value="Laki-Laki" class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" class="form-user-input">Perempuan
@@ -61,7 +61,7 @@
 										<label for="Tempat_kematian" class="col-sm-3 col-form-label">Tempat Meninggal</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<textarea class="form-control" id="tempat_meninggal" name="tempat_meninggal" rows="3" placeholder="Isikan Tempat kematian..."></textarea>
+												<textarea class="form-control" id="tempat_meninggal" name="tempat_meninggal" rows="3" placeholder="masukkan tempat meninggal disini..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -74,7 +74,7 @@
 										<label for="Umur" class="col-sm-3 col-form-label">Umur</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="umur" name="umur" placeholder="Isikan umur alm/almh...">
+												<input type="text" class="form-control" id="umur" name="umur" placeholder="masukkan umur alm/almh disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -87,7 +87,7 @@
 										<label for="Tempat_kediaman" class="col-sm-3 col-form-label">Tempat Kediaman</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<textarea class="form-control" id="tempat_kediaman" name="tempat_kediaman" rows="3" placeholder="Isikan alamat alm/amlh..."></textarea>
+												<textarea class="form-control" id="tempat_kediaman" name="tempat_kediaman" rows="3" placeholder="masukkan alamat alm/amlh disini..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -101,7 +101,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="hari_meninggal" name="hari_meninggal">
-													<option value="Pilih hari meninggal..." class="form-user-input">Pilih hari meninggal...</option>
+													<option value="pilih hari meninggal..." class="form-user-input">pilih hari meninggal...</option>
 													<option value="Senin" class="form-user-input">Senin</option>
 													<option value="Selasa" class="form-user-input">Selasa</option>
 													<option value="Rabu" class="form-user-input">Rabu</option>
@@ -135,7 +135,7 @@
 										<label for="Alasan_meninggal" class="col-sm-3 col-form-label">Alasan Meninggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alasan_meninggal" name="alasan_meninggal" rows="3" placeholder="Contoh : sakit,dll..."></textarea>
+												<textarea class="form-control" id="alasan_meninggal" name="alasan_meninggal" rows="3" placeholder="contoh : sakit,dll..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>

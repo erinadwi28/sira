@@ -68,7 +68,7 @@
 												<div class="isi_surat paragraf">
 													<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut Selatan,
 														Kabupaten Kotawaringin Barat, Propinsi Kalimantan Tengah,
-														menerangkan dengan sebenarnya bahwa : :</p>
+														menerangkan dengan sebenarnya bahwa :</p>
 												</div>
 												<div class="isi_surat identitas">
 													<table class="table-responsive">
@@ -95,7 +95,7 @@
 																<td> </td>
 																<td> </td>
 																<td>:</td>
-																<td><?= $w->tempat_lahir; ?>, <?= $w->tanggal_lahir; ?>
+																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?>
 																</td>
 															</tr>
 															<tr>
@@ -125,11 +125,11 @@
 												<div class="isi_surat paragraf">
 													<p>
 														Berdasarkan Surat Keterangan dari Ketua Rukun Tetangga ( RT )
-														<?= $warga['rt'] ?> Kelurahan Mendawai, tanggal <?php foreach ($detail_permohonan as $d) { ?> <?= $d->tanggal_persetujuan_rt; ?> <?php } ?> Nomor : <?= $w->nomor_surat_rt; ?>,
+														<?= $warga['rt'] ?> Kelurahan Mendawai, tanggal <?php foreach ($detail_permohonan as $d) { ?> <?= format_indo(date($d->tanggal_persetujuan_rt)); ?> <?php } ?> Nomor : <?= $w->nomor_surat_rt; ?>,
 														bahwa nama tersebut diatas memang benar penduduk RT. <?= $warga['rt'] ?> Kelurahan Mendawai,
 														Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat, dan menurut pengakuan
 														yang bersangkutan tersebut mempunyai penghasilan sebulan Rp. <?= $w->penghasilan; ?>,-
-														(Dua Juta Lima Ratus Ribu Rupiah ).
+														( <?= $w->terbilang; ?> ).
 													</p>
 
 													<p>
@@ -151,7 +151,7 @@
 											?>
 												<center>
 
-													Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
 													LURAH MENDAWAI
 
 												</center>
@@ -164,9 +164,12 @@
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-											<center>
-												<img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png">
-											</center>
+											<?php
+											foreach ($data_kades as $k) {
+											?>
+												<center>
+													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+												</center>
 										</div>
 									</div>
 								</div>
@@ -175,22 +178,21 @@
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-											<?php
-											foreach ($data_kades as $k) {
-											?>
-												<center>
-													<u><b><?= $k->nama; ?></b></u> <br>
-													NIP. <?= $k->nip; ?>
-												</center>
-											<?php } ?>
+											<center>
+												<u><b><?= $k->nama; ?></b></u> <br>
+												NIP. <?= $k->nip; ?>
+											</center>
+										<?php } ?>
 										</div>
 									</div>
 								</div>
 								</div>
 								<div class="card-footer">
 									<center>
-										<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-											Cetak</button>
+										<a href="<?= base_url() ?>warga/cetak_surat013/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+												Cetak</button>
+										</a>
 									</center>
 								</div>
 							</div>

@@ -1,72 +1,57 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-            <!-- Page Heading -->
-            <div
-              class="d-sm-flex align-items-center justify-content-between mb-4"
-            >
-              <h1 class="h3 mb-0 text-gray-800">List Data Ketua RT</h1>
-              
-            </div>
+	<!-- Page Heading -->
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 class="h3 mb-0 text-gray-800">Data Ketua RT</h1>
+	</div>
 
-            <!-- DataTables Warga -->
-            <div class="card shadow mb-4">
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered table-hover"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
-                    <thead>
-                      <tr>
-                        <th>NIK</th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>Kelurahan</th>
-                        <th>Foto</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>0001000110011000</td>
-                        <td>Hasan</td>
-                        <td>RT 5 Kelurahan, Mendawai, Arut Selatan</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                           <a href="detail_data_ketua_rt_kades.html">
-                          <button class="btn btn-sm btn-info" type="submit">
-                            <i class="far fa-eye nav-icon"></i>
-                            Detail
-                          </button></a>
-                          <br />
-                          
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>0001000110011000</td>
-                        <td>Erina</td>
-                        <td>RT 5 Kelurahan, Mendawai, Arut Selatan</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <a href="detail_data_ketua_rt_kades.html">
-                          <button class="btn btn-sm btn-info" type="submit">
-                            <i class="far fa-eye nav-icon"></i>
-                            Detail
-                          </button></a>
-                          <br />
-    
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
+	<!-- DataTables Warga -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+			<?php if ($this->session->flashdata('success')) : ?>
+			<?php endif; ?>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>NIK</th>
+							<th>Nama</th>
+							<th>Alamat</th>
+							<th>Status Kepegawaian</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<?php
+						$no = 1;
+						foreach ($data_rt as $rt) {
+						?>
+						<tr>
+							<td><?php echo $no++ ?></td>
+							<td><?php echo $rt->nik ?></td>
+							<td><?php echo $rt->nama ?></td>
+							<td><?php echo $rt->alamat ?></td>
+							<td><label class="badge badge-success"><i class="fas fa-user-check"></i>
+									<?php echo $rt->status_kepegawaian ?></label></td>
+							<td>
+								<div>
+									<a href="<?= base_url() ?>kades/detail_data_rt/<?= $rt->id_rt ?>"
+										class="btn btn-primary btn-sm">
+										<i class="far fa-eye nav-icon"></i>
+										Detail
+									</a>
+								</div>
+							</td>
+							<?php } ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->

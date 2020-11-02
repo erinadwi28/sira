@@ -17,13 +17,13 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form_suket011" action="<?= base_url('warga/aksi_tambah_permohonan_suket011') ?>" method="POST">
+						<form class="form-horizontal" id="form11" action="<?= base_url('warga/aksi_tambah_permohonan_suket011') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group">
 									<div class="form-group row" style="margin-top: 15px; margin-left: 10px;">
@@ -149,6 +149,20 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
+										<label for="pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
+										<div class="col-sm-8">
+											<div class="form-line">
+												<input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>">
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-group row" style="margin-left: 10px;">
 										<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
@@ -229,8 +243,10 @@
 										<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal Tinggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" value="">
-
+												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" >
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -240,8 +256,10 @@
 										<label for="No_surat_pindah" class="col-sm-3 col-form-label">No. Surat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="Isikan nomor surat pindah..." value="">
-
+												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="masukkan nomor surat pindah disini..." >
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>
@@ -251,8 +269,10 @@
 										<label for="Tgl_surat_pindah" class="col-sm-3 col-form-label">Tgl Surat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah" value="">
-
+												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah" >
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
 											</div>
 										</div>
 									</div>

@@ -23,6 +23,7 @@ class Login extends CI_Controller {
         $kata_sandi = $this->input->post('kata_sandi');
         $kata_sandi_hash = sha1($kata_sandi);
         $status_delete = $this->input->post('status_delete');
+        
 		$rt = $this->m_rt->cek_nik($nik, $status_delete);
 		
         if ($rt) {
@@ -32,7 +33,8 @@ class Login extends CI_Controller {
 
                 $data = [
                     'nik' => $rt['nik'],
-					'id_rt' => $rt['id_rt'],
+                    'id_rt' => $rt['id_rt'],
+                    'rt' => $rt['rt'],
 					'role_rt' => $rt['role_rt'],
                 ];
 
@@ -46,7 +48,7 @@ class Login extends CI_Controller {
             }
         } else {
             //gagal login
-            $this->session->set_flashdata('error', '<b>NIK</b> salah');
+            $this->session->set_flashdata('error', '<b>NIK</b> tidak terdaftar sebagai Ketua RT');
 			redirect('login');
         }
     }

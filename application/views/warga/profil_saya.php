@@ -26,7 +26,7 @@
 			<!-- Foto Profil -->
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<center>
+					<center> 
 						<h6 class="m-0 font-weight-bold text-primary">Foto Profil</h6>
 					</center>
 				</div>

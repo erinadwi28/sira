@@ -20,12 +20,14 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
+				<div class="card-body" style="padding: 15px;">
+				<center>
 					<?php
 							foreach ($detail_suket as $foto) { ?>
 					<img src="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $foto->foto_ktp; ?>" alt="foto KTP"
 						class="img-fluid">
 					<?php } ?>
+				</center>
 				</div>
 
 				<div class="card-footer py-3">
@@ -205,12 +207,14 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php
-							foreach ($detail_suket as $foto) { ?>
-					<img src="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $foto->foto_ktp; ?>" alt="foto KTP"
-						class="img-fluid">
-					<?php } ?>
+				<div class="card-body" style="padding: 15px;">
+					<center>
+						<?php
+								foreach ($detail_suket as $foto) { ?>
+						<img src="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $foto->foto_ktp; ?>" alt="foto KTP"
+							class="img-fluid">
+						<?php } ?>
+					</center>
 				</div>
 			</div>
 		</div>
@@ -301,7 +305,7 @@
 							</tr>
 
 							<!-- tanggal rt -->
-							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
+							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
@@ -309,7 +313,7 @@
 									<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>
-							<?php } elseif($d->status ==  'Ditolak') { ?>
+							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
@@ -328,7 +332,7 @@
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
-							<?php } elseif($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null ) { ?>
+							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>

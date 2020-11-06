@@ -233,21 +233,21 @@ class Rt extends CI_Controller
         }
 
         // aksi ubah kata sandi profil saya
-        public function aksi_ubah_kata_sandi_profil_saya()
-        {
-                $kata_sandi = $this->input->post('kata_sandi');
-                $kata_sandi_hash = sha1($kata_sandi);
-                $data = array(
-                'kata_sandi' => $kata_sandi_hash,
-                );
+	public function aksi_ubah_kata_sandi_profil_saya()
+	{
+		$kata_sandi = $this->input->post('kata_sandi');
+		$kata_sandi_hash = sha1($kata_sandi);
+		$data = array(
+			'kata_sandi' => $kata_sandi_hash,
+		);
 
-                $where = $this->input->post('id_rt');
+		$where = $this->input->post('id_rt');
 
-                if ($this->m_rt->ubah_kata_sandi_profil_saya($where, $data, 'rt')); {
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('rt/form_ubah_kata_sandi_profil_saya/'.$where);
-                }
-        }
+		if ($this->m_rt->ubah_kata_sandi_profil_saya($where, $data, 'rt')); {
+			$this->session->set_flashdata('success', 'diubah');
+			redirect('rt/form_ubah_kata_sandi_profil_saya/' . $where);
+		}
+	}
 
         public function list_data_warga()
         {

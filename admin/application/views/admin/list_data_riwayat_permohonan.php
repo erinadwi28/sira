@@ -89,16 +89,13 @@
 							<td><?= $permohonan->tgl_permohonan_surat ?></td>
 							<td><?= $permohonan->nama ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
-							<?php if($permohonan->status == "Ditolak") { ?>
+							<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
 							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
 									<?= $permohonan->status ?></label></td>
-							<?php } elseif($permohonan->status == "Menunggu Persetujuan Ketua RT") { ?>
-							<td><label class="badge badge-warning"><i class="far fa-clock"></i>
-									<?= $permohonan->status ?></label></td>
-							<?php } elseif($permohonan->status == "Menunggu Persetujuan Admin") { ?>
+							<?php } elseif($permohonan->status == "Menunggu Persetujuan Kelurahan") { ?>
 							<td><label class="badge badge-info"><i class="far fa-clock"></i>
 									<?= $permohonan->status ?></label></td>
-							<?php } else { ?>
+							<?php } elseif($permohonan->status == "Selesai") { ?>
 							<td><label class="badge badge-success"><i class="far fa-check-circle"></i>
 									<?= $permohonan->status ?></label></td>
 							<?php } ?>

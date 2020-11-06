@@ -78,7 +78,7 @@
 
 				<div class="card-body" style="padding: 20px;">
 					<?php foreach ($foto_ktp as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_ktp_warga; ?>" data-lightbox="mygallery" data-title="Foto KTP" data-toggle="lightbox">
+						<a href="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_ktp_warga; ?>"data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
 							<img src="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_ktp_warga; ?>" alt="foto profil" class="img-fluid">
 						</a>
 					<?php } ?>
@@ -296,7 +296,7 @@
 				<div class="card-footer">
 					<div class="">
 						<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $detail->id_warga; ?>">
-						<em class="float-center small text-danger">*Anda bisa mengubah Kata Sandi serta Foto Profil, Foto
+						<em class="float-center small text-danger">*Anda bisa mengubah Kata Sandi, Foto Profil, Foto
 						KTP, dan Foto KK. <br>
 						Untuk ubah data harap hubungi Nomor Telepon berikut : <br>
 						No Telepon : 085713609299</em>

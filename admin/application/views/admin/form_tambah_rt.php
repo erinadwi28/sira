@@ -245,7 +245,7 @@
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error Message</small>																		
-												<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" value="Acak Password" onclick="generate2();" tabindex="2">
+												<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" name="kata_sandi" value="Acak Password" onclick="generate2();" tabindex="2">
 												<br />
 
 											</div>

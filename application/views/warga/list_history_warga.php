@@ -76,25 +76,22 @@
 							<td><?= $no++ ?></td>
 							<td><?= $w->nama_surat ?></td>
 							<td><?= $w->tgl_permohonan_surat ?></td>
-							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') {
-								?><td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-																																} elseif ($w->status == 'Menunggu Persetujuan Kelurahan') {
-																																	?><td><label class="badge badge-info"><i class="far fa-clock"></i>
-									<?= $w->status ?></label></td><?php
-																																																									} elseif ($w->status == 'Ditolak') {
-																																																										?><td><label class="badge badge-danger"><i
-										class="far fa-times-circle"></i> <?= $w->status ?></label></td><?php
-																																																																																				} elseif ($w->status == 'Selesai') {
-																																																																																					?><td><label
-									class="badge badge-success"><i class="far fa-check-circle"></i>
-									<?= $w->status ?></label></td><?php
-																																																																																																															} elseif ($w->status == 'Belum Tuntas') {
-																																																																																																																?><td>
-								<label class="badge badge-dark"><i class="far fa-times-circle"></i>
-									<?= $w->status ?></label></td>
-							<?php
-																																																																																																																																									} ?>
-							<td><?= $w->keterangan ?></td>
+
+							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') { ?>
+								<td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Menunggu Persetujuan Kelurahan') { ?>
+								<td><label class="badge badge-info"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Ditolak Ketua RT') { ?>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Selesai') { ?>
+								<td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Belum Tuntas') { ?>
+								<td> <label class="badge badge-dark"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Ditolak Kelurahan') { ?>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } ?>
+
+							<td><?= character_limiter($w->keterangan, 20); ?></td>
 							<td>
 								<div>
 									<a href="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>"

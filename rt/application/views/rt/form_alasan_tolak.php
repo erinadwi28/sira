@@ -27,15 +27,14 @@
 							<em class="float-center small text-danger">*Masukkan alasan dengan lengkap, alasan ini akan
 								dikirim ke pemohon agar mengetahuinya</em>
 
-							<form role="form" action="<?= base_url('rt/aksi_tolak_permohonan') ?>" method="post"
-								id="formUbah">
+							<form role="form" action="<?= base_url('rt/aksi_tolak_permohonan') ?>" method="post">
 								<div class="form-row align-items-center">
 									<div class="col-md-2"></div>
 									<div class="col-md-8 mt-4 mb-2">
 										<textarea type="text" class="form-control mb-2" name="keterangan" id="keterangan"
 											placeholder="Masukan alasan disini..."></textarea>
 										<input type="hidden" class="form-control form-user-input" name="status"
-											id="status" value="Ditolak">
+											id="status" value="Ditolak Ketua RT">
 										<input type="hidden" class="form-control form-user-input"
 											name="id_permohonan_surat" id="id_permohonan_surat"
 											value="<?= $id_permohonan_surat['id_permohonan_surat']; ?>">

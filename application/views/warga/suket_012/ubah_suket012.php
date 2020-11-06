@@ -21,7 +21,7 @@
     <div class="row clearfix">
         <div class="col-xs-12 col-sm-2"></div>
         <div class="col-xs-12 col-sm-8">
-            <div class="card">
+            <div class="card shadow mb-5">
                 <div class="body">
 
                     <form class="form-horizontal" id="form_suket012" action="<?= base_url('warga/aksi_ubah_suket012') ?>" method="POST">
@@ -306,8 +306,7 @@
                         <input type="hidden" class="form-control" id="id_surat" name="id_surat" required="" value="<?= $detail->id_surat ?>">
                         <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
                 </div>
-            </div>
-            <div class="card-footer">
+                <div class="card-footer">
                 <div class="float-right">
                     <a href="#">
                         <button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
@@ -317,6 +316,8 @@
                     </a>
                 </div>
             </div>
+            </div>
+            
             </form>
         <?php } ?>
         </div>

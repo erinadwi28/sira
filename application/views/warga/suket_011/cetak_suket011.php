@@ -70,13 +70,14 @@
 
         .img_ttd {
             width: 165px;
+            margin-right: 90px;
         }
 
         .ttd_kades {
             display: block;
             position: absolute;
             float: left;
-            margin-top: 10px;
+            margin-top: 30px;
             margin-right: -400px;
         }
 
@@ -105,7 +106,8 @@
             position: absolute;
             float: left;
             margin-top: 100px;
-            margin-right: -830px;
+            /* margin-right: -830px; */
+            margin-right: -600px;
         }
 
         .pemohon {

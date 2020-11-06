@@ -11,17 +11,27 @@ class Admin extends CI_Controller
                 if (!$this->session->userdata('role_admin')) {
                         redirect('login');
                 }
-        }
+        } 
 
         public function index()
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
+                $data_jumlah['data_kades'] = $this->m_admin->ambil_nama_kades()->result();
+                $data_jumlah['jumlah_rt'] = $this->m_admin->jumlah_rt()->result();
+                $data_jumlah['jumlah_warga'] = $this->m_admin->jumlah_warga()->result();
+                $data_jumlah['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data_jumlah['jumlah_permohonan_ditolak'] = $this->m_admin->jumlah_permohonan_ditolak()->result();
+                $data_jumlah['jumlah_permohonan_selesai'] = $this->m_admin->jumlah_permohonan_selesai()->result();
+                $data_jumlah['jumlah_riwayat_permohonan'] = $this->m_admin->jumlah_riwayat_permohonan()->result();
+                $data_jumlah['jumlah_surat_masuk'] = $this->m_admin->jumlah_surat_masuk()->result();
+                $data_jumlah['jumlah_surat_keluar'] = $this->m_admin->jumlah_surat_keluar()->result();
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
-                $this->load->view('admin/dashboard_admin');
+                $this->load->view('admin/dashboard_admin', $data_jumlah);
                 $this->load->view('footer');
         }
 
@@ -115,7 +125,7 @@ class Admin extends CI_Controller
                 $config['upload_path']          = './../assets/uploads/admin/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$config['file_name'] 	        = 'foto_profil_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
                 
                 $this->load->library('upload',$config);
                 $id_admin = $this->input->post('id_admin');
@@ -168,7 +178,7 @@ class Admin extends CI_Controller
                 $config['upload_path']          = './../assets/uploads/admin/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$config['file_name'] 	        = 'foto_ktp_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
                 
                 $this->load->library('upload',$config);
                 $id_admin = $this->input->post('id_admin');
@@ -221,7 +231,7 @@ class Admin extends CI_Controller
                 $config['upload_path']          = './../assets/uploads/admin/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
 		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$config['file_name'] 	        = 'foto_kk_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
                 
                 $this->load->library('upload',$config);
                 $id_admin = $this->input->post('id_admin');
@@ -346,10 +356,11 @@ class Admin extends CI_Controller
         // aksi tambah data kepala desa
         public function aksi_tambah_kades()
         {
-                $kata_sandi = $this->input->post('kata_sandi');
+                $kata_sandi = $this->input->post('row_password');
                 $kata_sandi_hash = sha1($kata_sandi);
                 $data = array(
                         'nik' => $this->input->post('nik'),
+                        'nip' => $this->input->post('nip'),
                         'nama' => $this->input->post('nama'),
                         'alamat' => $this->input->post('alamat'),
                         'rt' => $this->input->post('rt'),
@@ -396,6 +407,7 @@ class Admin extends CI_Controller
         {
                 $data = array(
                         'nik' => $this->input->post('nik'),
+                        'nip' => $this->input->post('nip'),
                         'nama' => $this->input->post('nama'),
                         'alamat' => $this->input->post('alamat'),
                         'rt' => $this->input->post('rt'),
@@ -1097,7 +1109,7 @@ class Admin extends CI_Controller
         // aksi tambah data warga
         public function aksi_tambah_warga() 
         {       
-                $kata_sandi = $this->input->post('kata_sandi');
+                $kata_sandi = $this->input->post('row_password');
                 $kata_sandi_hash = sha1($kata_sandi);
                 $data = array(
                         'nik' => $this->input->post('nik'),
@@ -1226,7 +1238,19 @@ class Admin extends CI_Controller
 		}
 	}
 
-	// upload foto ktp warga
+        // upload foto ktp warga
+	public function upload_foto_ktp_rt()
+	{
+                $where_rt = $this->input->post('id_rt');
+                $where = $this->input->post('id_warga');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_ktp($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_rt/' . $where_rt);
+        }
+        
+        // upload foto ktp warga
 	public function upload_foto_ktp()
 	{
 		$where = $this->input->post('id_warga');
@@ -1276,6 +1300,18 @@ class Admin extends CI_Controller
 		}
 	}
 
+        // upload foto kk warga
+	public function upload_foto_kk_rt()
+	{
+                $where_rt = $this->input->post('id_rt');
+		$where = $this->input->post('id_warga');
+		if ($_FILES != null) {
+			$this->aksi_upload_foto_kk($_FILES);
+		}
+		$this->session->set_flashdata('success', 'diubah');
+		redirect('admin/detail_data_rt/' . $where_rt);
+        }
+        
 	// upload foto kk warga
 	public function upload_foto_kk()
 	{
@@ -1336,14 +1372,603 @@ class Admin extends CI_Controller
 		
         }
 
-        public function list_data_permohonan()
+        //tampil form cari nik ubah password warga
+        public function form_cari_nik_ubah_kata_sandi_warga()
         {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/list_data_permohonan');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/form_cari_nik_ubah_kata_sandi_warga');
                 $this->load->view('footer');
         }
+
+        //aksi cari nik ubah password kades
+        public function aksi_cari_nik_ubah_kata_sandi_warga()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $nik_kades = $this->input->post('nik');
+                $detailhere = array('nik' => $nik_kades);
+                $data_detail['detail_warga'] = $this->m_admin->cari_nik_warga($detailhere, 'warga')->result();
+
+                if ($this->m_admin->cari_nik_warga($detailhere, 'warga')) {
+                        // $this->session->set_flashdata('success', 'ditemukan');
+
+                        $this->load->view('header');
+                        $this->load->view('admin/sidebar_admin');
+                        $this->load->view('topbar', $data);
+                        $this->load->view('admin/form_ubah_kata_sandi_warga', $data_detail);
+                        $this->load->view('footer');
+                } else {
+                        $this->session->set_flashdata('error', 'tidak ditemukan');
+                }
+        }
+
+        // aksi ubah kata sandi kades
+        public function aksi_ubah_kata_sandi_warga()
+        {
+                $kata_sandi = $this->input->post('kata_sandi');
+                $kata_sandi_hash = sha1($kata_sandi);
+                $data = array(
+                        'kata_sandi' => $kata_sandi_hash,
+                );
+
+                $detailhere = $this->input->post('id_warga');
+
+                if ($this->m_admin->aksi_ubah_kata_sandi_warga($detailhere, $data, 'warga')); {
+                        $this->session->set_flashdata('success', 'diubah');
+                        redirect('admin/list_data_warga');
+                }
+        }
+
+        //list data permohonan
+        public function list_data_permohonan()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_permohonan['data_permohonan_masuk'] = $this->m_admin->get_list_permohonan_masuk()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_permohonan', $data_permohonan);
+                $this->load->view('footer');        
+        }
+
+        //detail data permohonan
+        public function detail_data_permohonan($id_permohonan_surat, $id_nama_surat)
+	{       
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                if($id_nama_surat == 1){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 2){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_002($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 3){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_003($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 4){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_004($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 5){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_005($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 6){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_006($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 7){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_007($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 8){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_008($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 9){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_009($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 10){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_010($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 11){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_011($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 12){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_012($id_permohonan_surat)->result();
+                        $data_detail['detail_pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 13){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_013($id_permohonan_surat)->result();
+                } elseif($id_nama_surat == 14){
+                        $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_014($id_permohonan_surat)->result();
+                        $data_detail['detail_pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
+                } 
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                if($id_nama_surat == 1){
+                $this->load->view('admin/suket_001/detail_permohonan_001', $data_detail);
+                } elseif($id_nama_surat == 2) {
+                $this->load->view('admin/suket_002/detail_permohonan_002', $data_detail);
+                } elseif($id_nama_surat == 3) {
+                $this->load->view('admin/suket_003/detail_permohonan_003', $data_detail);
+                } elseif($id_nama_surat == 4) {
+                $this->load->view('admin/suket_004/detail_permohonan_004', $data_detail);
+                } elseif($id_nama_surat == 5) {
+                $this->load->view('admin/suket_005/detail_permohonan_005', $data_detail);
+                } elseif($id_nama_surat == 6) {
+                $this->load->view('admin/suket_006/detail_permohonan_006', $data_detail);
+                } elseif($id_nama_surat == 7) {
+                $this->load->view('admin/suket_007/detail_permohonan_007', $data_detail);
+                } elseif($id_nama_surat == 8) {
+                $this->load->view('admin/suket_008/detail_permohonan_008', $data_detail);
+                } elseif($id_nama_surat == 9) {
+                $this->load->view('admin/suket_009/detail_permohonan_009', $data_detail);
+                } elseif($id_nama_surat == 10) {
+                $this->load->view('admin/suket_010/detail_permohonan_010', $data_detail);
+                } elseif($id_nama_surat == 11) {
+                $this->load->view('admin/suket_011/detail_permohonan_011', $data_detail);
+                } elseif($id_nama_surat == 12) {
+                $this->load->view('admin/suket_012/detail_permohonan_012', $data_detail);
+                } elseif($id_nama_surat == 13) {
+                $this->load->view('admin/suket_013/detail_permohonan_013', $data_detail);
+                } elseif($id_nama_surat == 14) {
+                $this->load->view('admin/suket_014/detail_permohonan_014', $data_detail);
+                } 
+                $this->load->view('footer');
+        }
+
+        //data permohonan ditolak
+        public function list_data_permohonan_ditolak()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_permohonan['data_permohonan_ditolak'] = $this->m_admin->get_list_permohonan_ditolak()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_permohonan_ditolak', $data_permohonan);
+                $this->load->view('footer');        
+        }
+
+        //data permohonan selesai
+        public function list_data_permohonan_selesai()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_permohonan['data_permohonan_selesai'] = $this->m_admin->get_list_permohonan_selesai()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_permohonan_selesai', $data_permohonan);
+                $this->load->view('footer');        
+        }
+
+        // list riwayat permohonan
+        public function list_riwayat_permohonan()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_admin->get_list_riwayat_permohonan()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_riwayat_permohonan', $data_permohonan);
+                $this->load->view('footer');        
+        }
+
+        // filter tanggal riwayat permohonan
+        public function filter_riwayat_permohonan()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $tgl_awal = $this->input->post('tanggal_mulai');
+                $tgl_akhir = $this->input->post('tanggal_akhir');
+                
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_admin->filter_riwayat($tgl_awal, $tgl_akhir)->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_riwayat_permohonan', $data_permohonan);
+                $this->load->view('footer');
+        }
+
+        //tampil form tolak permohonan
+        public function form_alasan_tolak($id_permohonan_surat)
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['id_permohonan_surat'] = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' =>
+                $id_permohonan_surat])->row_array();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/form_alasan_tolak', $data_detail);
+                $this->load->view('footer');
+        }
+
+        //aksi tolak permohonan
+        public function aksi_tolak_permohonan()
+        {
+                $data = array(
+                        'keterangan' => $this->input->post('keterangan'),
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->tolak_permohonan($detailhere, $data, 'permohonan_surat');
+
+                if ($this->m_admin->tolak_permohonan($detailhere, $data, 'permohonan_surat')); {
+                        $this->session->set_flashdata('success', 'ditolak');
+                        redirect('admin/list_data_permohonan_ditolak');
+                }
+        }
+
+        // aksi setujui data permohonan 001
+        public function aksi_setujui_permohonan_001()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_usaha');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_usaha')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 002
+        public function aksi_setujui_permohonan_002()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_domisili');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_domisili')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 003
+        public function aksi_setujui_permohonan_003()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 004
+        public function aksi_setujui_permohonan_004()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_beda_nama');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_beda_nama')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 005
+        public function aksi_setujui_permohonan_005()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_izin_keramaian');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_izin_keramaian')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 006
+        public function aksi_setujui_permohonan_006()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 007
+        public function aksi_setujui_permohonan_007()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 008
+        public function aksi_setujui_permohonan_008()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_janda');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_janda')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 009
+        public function aksi_setujui_permohonan_009()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kematian');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kematian')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 010
+        public function aksi_setujui_permohonan_010()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kelahiran');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kelahiran')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 011
+        public function aksi_setujui_permohonan_011()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_pengantar_ktp');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_pengantar_ktp')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 012
+        public function aksi_setujui_permohonan_012()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') ); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 013
+        public function aksi_setujui_permohonan_013()
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_penghasilan');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_penghasilan')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        // aksi setujui data permohonan 014
+        public function aksi_setujui_permohonan_014() 
+        {
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                );
+
+                $data_surat = array(
+                        'no_registrasi' => $this->input->post('no_registrasi'),
+                        'no_bulan' => $this->input->post('no_bulan'),
+                        'no_tahun' => $this->input->post('no_tahun'),
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+                $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_pindah');
+
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
+                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_pindah')); {
+                        $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
 
         //list surat masuk
         public function list_surat_masuk()

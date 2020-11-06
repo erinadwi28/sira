@@ -106,7 +106,7 @@
 												</div>
 												<br>
 												<div class="isi_surat paragraf">
-													<p>Adalah istri sah dari : </p>
+													<p>Adalah isteri sah dari : </p>
 												</div>
 												<div class="isi_surat identitas">
 													<table class="table-responsive">
@@ -138,7 +138,7 @@
 												<br>
 												<!-- untuk fild alasan bisa dilempar kesini -->
 												<div class="isi_surat paragraf">
-													<p><?= $w->alasan; ?>
+													<p>Telah pergi meninggalkan isterinya karena <?= $w->alasan; ?>
 													</p>
 													<p>Demikian Surat Keterangan Izin Keramaian kami buat, agar dapat dipergunakan sebagaimana mestinya.</p>
 												</div>

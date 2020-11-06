@@ -13,9 +13,9 @@
 						</center>
 					</div>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-1">
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-10">
 							<div class="card shadow mb-4">
 								<div class="card-body">
 									<center>
@@ -63,7 +63,7 @@
 													<center>
 														<p><u>SURAT KETERANGAN PINDAH</u><br>
 
-															Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
+															Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_keterangan; ?> /<?= $w->no_tahun; ?></p>
 													</center>
 												</div>
 												<br>
@@ -297,7 +297,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-1">
 						</div>
 					</div>
 				</div>

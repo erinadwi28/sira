@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white shadow">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
 			<span>Copyright © sira.com 2020</span>
@@ -42,36 +42,38 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?= base_url('assets/dashboard/') ?>vendor/jquery/jquery.min.js"></script>
-
-
-<script src="<?= base_url('assets/dashboard/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/jquery/jquery.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="<?= base_url('assets/dashboard/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="<?= base_url('assets/dashboard/') ?>js/demo/chart-area-demo.js"></script>
-<script src="<?= base_url('assets/dashboard/') ?>js/demo/chart-pie-demo.js"></script>
-<script src="<?= base_url('assets/dashboard/') ?>js/form_validation.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>js/demo/chart-area-demo.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>js/demo/chart-pie-demo.js"></script>
 
 <!-- Page level plugins -->
-<script src="<?= base_url('assets/dashboard/') ?>vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= base_url('assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="<?= base_url('assets/dashboard/') ?>js/demo/datatables-demo.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>js/demo/datatables-demo.js"></script>
 
 
 <!-- Sweet alert -->
-<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="<?= base_url('../assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
+<!-- Lightbox Ekko -->
+<script src="<?= base_url('../assets/dashboard/') ?>vendor/lightbox/dist/ekko-lightbox.min.js"></script>
+
+<!-- Validation -->
+<script src="<?= base_url('assets/dashboard/') ?>js/form_validation.js"></script>
 <!--lihat kata sandi -->
 <script>
 	$(document).ready(function() {
@@ -155,13 +157,20 @@
 
 	});
 </script>
+<!-- Script Lightbox Ekko -->
+<script>
+	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+</script>
 
 <!-- random password form tambah kades -->
 <script>
 
 function randomPassword(length) {
-	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
-	var pass = " ";
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890";
+	var pass = "";
 	for (var x = 0; x < length;x++) {
 		var i = Math.floor(Math.random() * chars.length);
 		pass += chars.charAt(i);
@@ -182,7 +191,7 @@ function generate() {
 <script>
 
 function randomPassword1(length) {
-	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890";
 	var pass = "";
 	for (var x = 0; x < length;x++) {
 		var i = Math.floor(Math.random() * chars.length);
@@ -202,7 +211,7 @@ function generate1() {
 <script>
 
 function randomPassword2(length) {
-	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890";
 	var pass = "";
 	for (var x = 0; x < length;x++) {
 		var i = Math.floor(Math.random() * chars.length);

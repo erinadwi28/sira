@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<!-- Page Heading -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Tambah Data Kepala Desa</h1>
+			<h1 class="h3 mb-0 text-gray-800">Form Tambah Data Kepala Desa</h1>
 			<a href="<?= base_url('admin/list_data_kades') ?>">
 				<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
 					<i class="fa fa-arrow-left">
@@ -26,14 +26,14 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="nik"><b>NIK</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan NIK Anda" name="nik" id="nik">
+										<input type="text" class="form-control form-user-input" placeholder="masukan NIK di sini" name="nik" id="nik">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan Nama" name="nama" id="nama">
+										<input type="text" class="form-control form-user-input" placeholder="masukan nama lengkap di sini" name="nama" id="nama">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
@@ -41,7 +41,7 @@
 									<div class="form-group">
 										<label class="label-control" for="tempat_lahir"><b>Tempat
 												Lahir</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan Tempat Lahir" name="tempat_lahir" id="tempat_lahir">
+										<input type="text" class="form-control form-user-input" placeholder="masukan tempat lahir di sini" name="tempat_lahir" id="tempat_lahir">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
@@ -101,32 +101,32 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan Alamat Anda" name="alamat" id="alamat">
+										<input type="text" class="form-control form-user-input" placeholder="masukan alamat lengkap di sini" name="alamat" id="alamat">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="rt"><b>RT</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="RT" name="rt" id="rt">
+										<input type="text" class="form-control form-user-input" placeholder="masukan RT di sini" name="rt" id="rt">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="kelurahan"><b>Kelurahan</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Kelurahan" name="kelurahan" id="kelurahan">
+										<input type="text" class="form-control form-user-input" placeholder="masukan kelurahan di sini" name="kelurahan" id="kelurahan">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="kecamatan"><b>Kecamatan</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Kecamatan" name="kecamatan" id="kecamatan">
+										<input type="text" class="form-control form-user-input" placeholder="masukan kecamatan di sini" name="kecamatan" id="kecamatan">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
@@ -147,7 +147,7 @@
 
 									<div class="form-group">
 										<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan Pekerjaan Anda" name="pekerjaan" id="pekerjaan">
+										<input type="text" class="form-control form-user-input" placeholder="masukan pekerjaan di sini" name="pekerjaan" id="pekerjaan">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
@@ -163,9 +163,14 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
+								</div>
+								<!-- <div class="col-md-4">
+
+								</div> -->
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="no_kk"><b>No KK</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan No. KK" name="no_kk" id="no_kk">
+										<input type="text" class="form-control form-user-input" placeholder="masukan No. KK di sini" name="no_kk" id="no_kk">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
@@ -206,12 +211,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-								</div>
-								<!-- <div class="col-md-4">
-
-								</div> -->
-								<div class="col-md-4">
-
 									<div class="form-group">
 										<label class="label-control" for="status_hub_kel"><b>Status Hub
 												Keluarga</b></label>
@@ -239,7 +238,7 @@
 									</div>
 									<div class="form-group">
 										<label class="label-control" for="no_hp"><b>No HandPhone</b></label>
-										<input type="text" class="form-control form-user-input" placeholder="Isikan No. HP Anda" name="no_hp" id="no_hp">
+										<input type="text" class="form-control form-user-input" placeholder="masukan No. HP di sini" name="no_hp" id="no_hp">
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
@@ -248,69 +247,18 @@
 										
 										<label class="label-control" for="kata_sandi"><b>Kata
 												Sandi</b></label>
-										<input type="text" class="form-control" name="row_password" id="kata_sandi" placeholder="Klik Acak Password" >&nbsp;
+										<input type="text" class="form-control" name="row_password" id="kata_sandi" placeholder="klik acak kata sandi" >&nbsp;
 										<i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 																			
-										<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" value="Acak Password" onclick="generate();" tabindex="2">
+										<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" value="Acak Kata Sandi" onclick="generate();" tabindex="2">
 
 										<br />
 
 
 									</div>
-									<div class="form-group">
-										<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
-										<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian">
-										<i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-
-									</div>
-									<em class="small text-danger">*Foto Profil, Foto KTP, dan Foto KK bisa dikosongi terlebih dahulu apabila
-										belum ada</em>
-									<div class="form-group">
-										<label class="label-control" for="foto_profil"><b>Foto
-												Profil</b></label>
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_admin" name="foto_admin" value="">
-												<label class="custom-file-label upload-area" for="exampleInputFile">pilih file...</label>
-											</div>
-										</div>
-										<i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-									</div>
-
-									<div class="form-group">
-										<label class="label-control" for="foto_ktp"><b>Foto
-												KTP</b></label>
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp" value="">
-												<label class="custom-file-label upload-area" for="exampleInputFile">pilih
-													file...</label>
-											</div>
-										</div>
-										<i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-									</div>
-									<div class="form-group">
-										<label class="label-control" for="foto_kk"><b>Foto
-												KK</b></label>
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_kk" name="foto_kk">
-												<label class="custom-file-label upload-area" for="exampleInputFile">pilih
-													file...</label>
-											</div>
-										</div>
-										<i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-									</div>
+									
 								</div>
 							</div>
 							<br>

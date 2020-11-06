@@ -5,12 +5,147 @@ class M_warga extends CI_Model
 	protected $_table = 'warga';
 
 	// Cek NIK untuk login
-	public function cek_nik($nik)
+	public function cek_nik($nik, $status_delete)
 	{
-		$query = $this->db->get_where($this->_table, ['nik' => $nik]);
+		$query = $this->db->get_where($this->_table, ['nik' => $nik, 'status_delete' => $status_delete]);
 		return $query->row_array();
 	}
 
+	// ambil nama kades untuk dashboard
+    public function ambil_nama_kades()
+    {
+        $this->db->select('nama');
+        $this->db->from('kepala_desa');
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    
+    // ambil nama rt untuk dashboard
+    public function ambil_nama_rt()
+    {
+        $this->db->select('nama');
+        $this->db->from('rt');
+        $this->db->where('rt', $this->session->userdata('rt'));
+        $this->db->where('status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah permohonan masuk untuk dashboard
+    public function jumlah_persetujuan_rt()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_persetujuan_rt');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah permohonan disetujui untuk dashboard
+    public function jumlah_persetujuan_admin()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_persetujuan_admin');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah permohonan selesai untuk dashboard
+    public function jumlah_permohonan_selesai()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_permohonan_selesai');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Selesai');
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+	}
+	
+    // hitung jumlah permohonan selesai untuk dashboard
+    public function jumlah_permohonan_ditolak()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_permohonan_ditolak');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+		$this->db->where('permohonan_surat.status', 'Ditolak');
+		$this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
+        $this->db->where('permohonan_surat.status_delete', 0);
+		
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    // hitung jumlah Riwayat Permohonan untuk dashboard
+    public function jumlah_riwayat_permohonan()
+    {
+        $this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_riwayat_permohonan');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status_delete', 0);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+	// detail profil saya
+    public function get_detail_profil_saya($detailhere, $tabel)
+    {
+        return $this->db->get_where($tabel, $detailhere);
+    }
+
+    //ambil foto profil profil saya
+    public function get_foto_profil_profil_saya($id_warga){
+        $this->db->select('foto_profil_warga');
+        $this->db->from('warga');
+        $this->db->where('id_warga', $id_warga);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //ambil foto ktp profil saya
+    public function get_foto_ktp_profil_saya($id_warga){
+        $this->db->select('foto_ktp_warga');
+        $this->db->from('warga');
+        $this->db->where('id_warga', $id_warga);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //ambil foto kk profil saya
+    public function get_foto_kk_profil_saya($id_warga){
+        $this->db->select('foto_kk_warga');
+        $this->db->from('warga');
+        $this->db->where('id_warga', $id_warga);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //aksi ubah kata sandi profil saya
+    public function ubah_kata_sandi_profil_saya($where, $data, $table)
+    {
+        $this->db->where('id_warga', $where);
+        $this->db->update($table, $data);
+    }
 	public function get_data_kades()
 	{
 		$this->db->select('*');
@@ -21,56 +156,11 @@ class M_warga extends CI_Model
 
 		return $hasil;
 	}
-	// detail profil saya
-	public function get_detail_profil_saya($detailhere, $tabel)
-	{
-		return $this->db->get_where($tabel, $detailhere);
-	}
-
-	//ambil foto profil profil saya
-	public function get_foto_profil_profil_saya($id_warga)
-	{
-		$this->db->select('foto_profil_warga');
-		$this->db->from('warga');
-		$this->db->where('id_warga', $id_warga);
-
-		$hasil = $this->db->get();
-		return $hasil;
-	}
-
-	//ambil foto ktp profil saya
-	public function get_foto_ktp_profil_saya($id_warga)
-	{
-		$this->db->select('foto_ktp_warga');
-		$this->db->from('warga');
-		$this->db->where('id_warga', $id_warga);
-
-		$hasil = $this->db->get();
-		return $hasil;
-	}
-
-	//ambil foto kk profil saya
-	public function get_foto_kk_profil_saya($id_warga)
-	{
-		$this->db->select('foto_kk_warga');
-		$this->db->from('warga');
-		$this->db->where('id_warga', $id_warga);
-
-		$hasil = $this->db->get();
-		return $hasil;
-	}
 
 	// aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
 	public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
 	{
 		$this->db->where('id_warga', $detailhere);
-		$this->db->update($table, $data);
-	}
-
-	//aksi ubah kata sandi profil saya
-	public function ubah_kata_sandi_profil_saya($where, $data, $table)
-	{
-		$this->db->where('id_warga', $where);
 		$this->db->update($table, $data);
 	}
 
@@ -146,8 +236,6 @@ class M_warga extends CI_Model
 		$hasil = $this->db->get();
 		return $hasil;
 	}
-
-
 
 	//ambil pas foto suket 005
 	public function get_pas_foto_suket005($id_siurat, $tabel)
@@ -255,6 +343,56 @@ class M_warga extends CI_Model
 		return $this->db->get();
 	}
 
+	//get data sedang proses rt
+	public function get_data_sedang_proses_rt()
+	{
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
+		$this->db->from('permohonan_surat');
+        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+        $this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
+		$this->db->where('permohonan_surat.status_delete', 0);
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
+		$this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
+		
+        $hasil = $this->db->get();
+        return $hasil;
+	}
+
+	//get data sedang proses admin
+	public function get_data_sedang_proses_admin()
+	{
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
+		$this->db->from('permohonan_surat');
+        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+        $this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
+		$this->db->where('permohonan_surat.status_delete', 0);
+        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
+		$this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
+		
+        $hasil = $this->db->get();
+        return $hasil;
+	}
+
+	    //list data permohonan ditolak
+    public function get_list_permohonan_ditolak()
+    {
+        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->from('warga');
+        $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
+        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+        $this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
+        $this->db->where('permohonan_surat.status', 'Ditolak');
+        $this->db->where('permohonan_surat.status_delete', 0);
+        $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
+		
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+
 	//get history permohonan selesai
 	public function get_history_permohonan_selesai($id_warga)
 	{
@@ -268,19 +406,28 @@ class M_warga extends CI_Model
 		return $this->db->get();
 	}
 
-	// filter_tanggal_list_history_permohonan
-	public function filter_tanggal_list_history_permohonan($id_warga, $tgl_awal, $tgl_akhir)
-	{
-		$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
-		$this->db->from('permohonan_surat');
-		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
-		$this->db->where('permohonan_surat.id_warga', $id_warga);
-		$this->db->where('permohonan_surat.tgl_permohonan_surat >=', $tgl_awal);
-		$this->db->where('permohonan_surat.tgl_permohonan_surat <=', $tgl_akhir);
-		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'DESC');
+    // list data filter riwayat permohonan surat
+    public function filter_riwayat($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->from('warga');
+        $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
+        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+        $this->db->where('permohonan_surat.tgl_permohonan_surat >=', $tgl_awal);
+        $this->db->where('permohonan_surat.tgl_permohonan_surat <=', $tgl_akhir);
 
-		return $this->db->get();
-	}
+        // $this->db->where('warga.rt', $this->session->userdata('rt'));
+        // $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
+        // $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
+        // $this->db->or_where('permohonan_surat.status', 'Selesai');
+        // $this->db->or_where('permohonan_surat.status', 'Ditolak');
+        $this->db->where('permohonan_surat.status_delete', 0);
+        $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
 
 	// filter_tanggal_list_history_permohonan selesai
 	public function filter_tanggal_list_history_permohonan_selesai($id_warga, $tgl_awal, $tgl_akhir)

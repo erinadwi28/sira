@@ -671,6 +671,9 @@ pre code {
 .col-lg-9,
 .col-lg-auto,
 .col-md,
+.col-md-0,
+.col-md-02,
+.col-md-01,
 .col-md-1,
 .col-md-10,
 .col-md-11,
@@ -1089,6 +1092,32 @@ pre code {
 		max-width: 100%
 	}
 
+	/* custom surat */
+
+
+	.col-md-0 {
+		flex: 0 0 11.53333%;
+		max-width: 11.53333%
+	}
+
+	.col-md-01 {
+		flex: 0 0 10.83333%;
+		max-width: 10.83333%
+	}
+	
+	.col-md-02 {
+		flex: 0 0 10.63333%;
+		max-width: 10.63333%
+	}
+
+	/* custom surat 005 */
+	.col-md-03 {
+		flex: 0 0 10.33333%;
+		max-width: 10.33333%
+	}
+	
+
+	
 	.col-md-1 {
 		flex: 0 0 8.33333%;
 		max-width: 8.33333%

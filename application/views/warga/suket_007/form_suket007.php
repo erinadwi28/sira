@@ -16,7 +16,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
@@ -114,7 +114,7 @@
 									<label for="Keperluan" class="col-sm-3 col-form-label">Keperluan</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<textarea class="form-control" id="keperluan" name="keperluan" rows="3" placeholder="Cth.: Perpanjang BPJS,Pendaftaran Sekolah, Pengajuan Beasiswa, dll... "></textarea>
+											<textarea class="form-control" id="keperluan" name="keperluan" rows="3" placeholder="contoh : Perpanjang BPJS,Pendaftaran Sekolah, Pengajuan Beasiswa, dll... "></textarea>
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>

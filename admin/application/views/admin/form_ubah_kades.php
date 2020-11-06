@@ -36,6 +36,14 @@
 									</div>
 
 									<div class="form-group">
+										<label class="label-control" for="nip"><b>NIP</b></label>
+										<input type="text" class="form-control form-user-input" name="nip" id="nip" value="<?= $detail->nip; ?>">
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
+									</div>
+
+									<div class="form-group">
 										<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
 										<input type="text" class="form-control form-user-input" name="nama" id="nama" value="<?= $detail->nama; ?>">
 										<i class="fas fa-check-circle"></i>
@@ -84,6 +92,8 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="agama"><b>Agama</b></label>
 										<select class="form-control form-user-input" name="agama" id="agama">
@@ -109,8 +119,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="rt"><b>RT</b></label>
 										<input type="text" class="form-control form-user-input" name="rt" id="rt" value="<?= $detail->rt; ?>">
@@ -151,6 +159,8 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
 										<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan">
@@ -203,8 +213,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="status_hub_kel"><b>Status Hub
 												Keluarga</b></label>
@@ -236,60 +244,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-									<div class="form-group">
-										<label class="label-control" for="kata_sandi"><b>Kata
-												Sandi</b></label>
-										<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi" value="<?= $detail->kata_sandi; ?>">
-										<i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-										<input type="checkbox" class="form-checkbox" /> lihat
-										kata sandi
-										<br />
-									</div>
-									<div class="form-group">
-										<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
-										<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>">
-										<i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-									</div>
-									<em class="small text-danger">*Foto Profil, Foto KTP, dan Foto KK bisa dikosongi terlebih dahulu apabila
-										belum ada</em>
-									<div class="form-group">
-										<label class="label-control" for="foto_profil"><b>Foto
-												Profil</b></label>
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_admin" name="foto_admin">
-												<label class="custom-file-label upload-area" for="exampleInputFile">pilih
-													file...</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="label-control" for="foto_ktp"><b>Foto
-												KTP</b></label>
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_ktp" name="foto_ktp">
-												<label class="custom-file-label upload-area" for="exampleInputFile">pilih
-													file...</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="label-control" for="foto_kk"><b>Foto
-												KK</b></label>
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="foto_kk" name="foto_kk">
-												<label class="custom-file-label upload-area" for="exampleInputFile">pilih
-													file...</label>
-											</div>
-										</div>
-										
-								</div>
 							</div>
 							<br>
 

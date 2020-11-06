@@ -31,13 +31,17 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php
-					foreach ($foto_profil as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" data-lightbox="mygallery" data-title="Foto Profil">
-							<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" alt="foto profil" class="img-fluid">
-						</a>
+				<div class="card-body" style="padding: 15px;">
+				<center>
+					<?php 
+					foreach($foto_profil as $saya){ ?>
+					<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" data-gallery="mygallery" data-title="Foto Profil" data-toggle="lightbox">
+					<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" alt="foto profil"
+						class="img-fluid">
 					<?php } ?>
+					</a>
+				</center>
+					
 				</div>
 
 				<div class="card-footer py-3">
@@ -75,7 +79,7 @@
 
 				<div class="card-body" style="padding: 20px;">
 					<?php foreach ($foto_ktp as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" data-lightbox="mygallery" data-title="Foto KK">
+						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
 							<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" alt="foto profil" class="img-fluid">
 						</a>
 					<?php } ?>
@@ -118,7 +122,7 @@
 					<?php
 					foreach ($foto_kk as $saya) {
 					?>
-						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" data-lightbox="mygallery" data-title="Foto KK">
+						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
 							<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" alt="foto kk" class="img-fluid">
 						</a>
 					<?php } ?>
@@ -191,7 +195,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>

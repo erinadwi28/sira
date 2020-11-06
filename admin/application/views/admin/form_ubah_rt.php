@@ -84,6 +84,8 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
                                     </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="agama"><b>Agama</b></label>
                                         <select class="form-control form-user-input" name="agama" id="agama">
@@ -101,8 +103,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
                                         <input type="text" class="form-control form-user-input" name="alamat" id="alamat" value="<?= $detail->alamat; ?>">
@@ -143,7 +143,8 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
                                     </div>
-                                    
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
                                         <input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>">
@@ -161,8 +162,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label-control" for="no_kk"><b>No KK</b></label>
                                         <input type="text" class="form-control form-user-input" name="no_kk" id="no_kk" value="<?= $detail->no_kk; ?>">
@@ -232,13 +231,6 @@
                                     <div class="form-group">
                                         <label class="label-control" for="no_hp"><b>No HandPhone</b></label>
                                         <input type="text" class="form-control form-user-input" name="no_hp" id="no_hp" value="<?= $detail->no_hp; ?>">
-                                        <i class="fas fa-check-circle"></i>
-										<i class="fas fa-exclamation-circle"></i>
-										<small>Error Message</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
-                                        <input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>" disabled>
                                         <i class="fas fa-check-circle"></i>
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>

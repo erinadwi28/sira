@@ -106,6 +106,9 @@
 
 								
 							</div>
+						</div>
+
+						<div class="col-md-4">
 							<div class="form-group">
 							<label class="label-control" for="agama"><b>Agama</b></label>
 									<select class="form-control form-user-input" name="agama" id="agama">
@@ -132,12 +135,7 @@
 
 								
 							</div>
-
-							
-						</div>
-
-						<div class="col-md-4">
-						<div class="form-group">
+							<div class="form-group">
 								<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Alamat Anda" name="alamat" id="alamat" value="<?= $w->alamat; ?>">
 									<i class="fas fa-check-circle"></i>
@@ -192,6 +190,8 @@
 								
 							</div>
 							
+						</div>
+						<div class="col-md-4">
 							<div class="form-group">
 							<label class="label-control" for="pekerjaan"><b>Pekerjaan</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan Pekerjaan Anda" name="pekerjaan" id="pekerjaan" value="<?= $w->pekerjaan; ?>">
@@ -227,7 +227,6 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 
-								
 							</div>
 						<div class="form-group">
 							<label class="label-control" for="pendidikan_terakhir" selected><b>Pendidikan
@@ -344,18 +343,7 @@
 								
 							</div>
 
-							<div class="form-group">
-									<label class="label-control" for="kata_sandi"><b>Kata
-											Sandi</b></label>
-									<input type="password" class="form-control form-user-input form-password" name="kata_sandi" id="kata_sandi" value="<?= $w->kata_sandi; ?>">
-									<i class="fas fa-check-circle"></i>
-									<i class="fas fa-exclamation-circle"></i>
-									<small>Error Message</small>
-									<input type="checkbox" class="form-checkbox" style="margin-top: 15px" /> Lihat kata sandi
-									<br />
-
-
-								</div>
+							
 							<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga"
 								value="<?= $w->id_warga; ?>">
 						</div>

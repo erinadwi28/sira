@@ -17,54 +17,56 @@
 	left: 0;
 }
 
-.form-group-surat.success input {
+.form-group-surat.success2 input {
 	border-color: #2ecc71;
 }
 
-.form-group-surat.success textarea {
+.form-group-surat.success2 textarea {
 	border-color: #2ecc71;
 }
 
-.form-group-surat.success select {
+.form-group-surat.success2 select {
 	border-color: #2ecc71;
 }
 
-.custom-select.success {
+.custom-select.success2 {
 	border-color: #2ecc71;
 }
 
-.form-group-surat.success i.fa-check-circle {
+.form-group-surat.success2 i.fa-check-circle {
 	color: #2ecc71;
 	visibility: visible;
 	top: 10px;
-	left: 384px;
+	right: 20px;
+	/* left: 384px; */
 
 }
 
-.form-group-surat.error1 input {
+.form-group-surat.error2 input {
 	border-color: #e74c3c;
 }
 
-.form-group-surat.error1 textarea {
+.form-group-surat.error2 textarea {
 	border-color: #e74c3c;
 }
 
-.form-group-surat.error1 select {
+.form-group-surat.error2 select {
 	border-color: #e74c3c;
 }
 
-.form-group-surat.error1 i.fa-exclamation-circle {
+.form-group-surat.error2 i.fa-exclamation-circle {
 	color: #e74c3c;
 	visibility: visible;
 	top: 10px;
-	left: 384px;
+	right: 20px;
+	/* left: 384px; */
 
 }
 
-.form-group-surat.error1 small {
+.form-group-surat.error2 small {
 	color: #e74c3c;
 	visibility: visible;
 	font-size: small;
-	margin-left: 20px;
+	margin-left: 0px;
 	margin-bottom: -18px;
 }

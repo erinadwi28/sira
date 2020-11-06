@@ -180,7 +180,7 @@
 															<td> </td>
 															<td> </td>
 															<td>:</td>
-															<td><?= $w->jam; ?> WITA</td>
+															<td><?= $w->jam; ?> WIB</td>
 														</tr>
 													</tbody>
 												</table>

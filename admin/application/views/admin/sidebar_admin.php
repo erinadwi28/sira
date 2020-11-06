@@ -14,7 +14,7 @@
 
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item active">
-		<a class="nav-link" href="<?= base_url('admin') ?>">
+		<a class="nav-link" href="<?= base_url('admin') ?>"> 
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
 	</li>
@@ -67,53 +67,37 @@
 		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link " href="#">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menupermohonan" for=""
+			aria-expanded="true" aria-controls="collapsePages">
 			<i class="fa fa-book"></i>
-			<span>Data Permohonan</span>
+			<span>Arsip Permohonan Surat</span>
 		</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="<?= base_url('admin/list_surat_masuk') ?>">
-			<i class="fa fa-book"></i>
-			<span>Data Surat Masuk</span>
-		</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link " href="<?= base_url('admin/list_surat_keluar') ?>">
-			<i class="fa fa-book"></i>
-			<span>Data Surat Keluar</span>
-		</a>
-	</li>
-
-
-
-
-	<!-- Divider -->
-	<hr class="sidebar-divider">
-
-	<!-- Heading -->
-	<div class="sidebar-heading">
-		LAPORAN
-	</div>
-
-	<!-- Nav Item - Menu Laporan -->
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-			<i class="fas fa-fw fa-folder"></i>
-			<span>Laporan</span>
-		</a>
-		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+		<div id="menupermohonan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="login.html">Laporan Data Permohonan</a>
-				<a class="collapse-item" href="register.html">Arsip Surat Masuk</a>
-				<a class="collapse-item" href="forgot-password.html">Surat Keluar</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan') ?>">Permohonan Masuk</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan_ditolak') ?>">Permohonan Ditolak</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan_selesai') ?>">Permohonan Selesai</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_riwayat_permohonan') ?>">Riwayat Permohonan</a>
+			</div>
+		</div>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menukedinasan" for=""
+			aria-expanded="true" aria-controls="collapsePages">
+			<i class="fa fa-book"></i>
+			<span>Arsip Surat Kedinasan</span>
+		</a>
+		<div id="menukedinasan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="<?= base_url('admin/list_surat_masuk') ?>">Data Surat Masuk</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_surat_keluar') ?>">Data Surat Keluar</a>
 			</div>
 		</div>
 	</li>
 
 	<!-- Divider -->
-	<hr class="sidebar-divider d-none d-md-block">
-
+	<hr class="sidebar-divider">
+	
 	<!-- Sidebar Toggler (Sidebar) -->
 	<div class="text-center d-none d-md-inline">
 		<button class="rounded-circle border-0" id="sidebarToggle"></button>

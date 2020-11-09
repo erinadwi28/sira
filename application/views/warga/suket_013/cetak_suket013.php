@@ -70,13 +70,14 @@
 
         .img_ttd {
             width: 200px;
+            margin-right: 90px;
         }
 
         .ttd_kades {
             display: block;
             position: absolute;
             float: left;
-            margin-top: 40px;
+            margin-top: 50px;
             margin-right: -400px;
         }
 
@@ -104,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 175px;
-            margin-right: -750px;
+            margin-top: 145px;
+            margin-right: -535px;
         }
     </style>
 
@@ -171,7 +172,7 @@
                                     <div class="isi_surat paragraf">
                                         <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut Selatan,
                                             Kabupaten Kotawaringin Barat, Propinsi Kalimantan Tengah,
-                                            menerangkan dengan sebenarnya bahwa : :</p>
+                                            menerangkan dengan sebenarnya bahwa :</p>
                                     </div>
                                     <div class="isi_surat identitas">
                                         <table class="table-responsive">
@@ -232,7 +233,7 @@
                                             bahwa nama tersebut diatas memang benar penduduk RT. <?= $warga['rt'] ?> Kelurahan Mendawai,
                                             Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat, dan menurut pengakuan
                                             yang bersangkutan tersebut mempunyai penghasilan sebulan Rp. <?= $w->penghasilan; ?>,-
-                                            (Dua Juta Lima Ratus Ribu Rupiah ).
+                                            ( <?= $w->terbilang; ?> ).
                                         </p>
 
                                         <p>

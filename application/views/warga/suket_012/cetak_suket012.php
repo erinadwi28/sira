@@ -313,7 +313,7 @@
                                 <div class="isi_surat paragraf">
                                     <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian data yang kami isikan merupakan data yang sebenarnya, dan bilamana
                                         terbukti saya memberikan data yang tidak sebenarnya / memalsukan data tersebut
-                                        maka saya sanggup dan bersedia untuk dituntut sesuao peraturan perundang-undangan
+                                        maka saya sanggup dan bersedia untuk dituntut sesuai peraturan perundang-undangan
                                         yang berlaku tanpa melibatkan pihak yang telah memproses data saya tersebut diatas.
                                     </p>
                                 </div>
@@ -341,7 +341,7 @@
                                     ?>
                                         <center>
                                             Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?> <br>
-                                            Yang Mengisis Data <br><br><br><br><br><br><br><br><br>
+                                            Yang Mengisis Data <br><br><br><br><br><br><br>
                                         </center>
                                     <?php } ?>
                                     <?php

@@ -70,13 +70,14 @@
 
         .img_ttd {
             width: 200px;
+            margin-right: 90px;
         }
 
         .ttd_kades {
             display: block;
             position: absolute;
             float: left;
-            margin-top: 40px;
+            margin-top: 50px;
             margin-right: -400px;
         }
 
@@ -104,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 175px;
-            margin-right: -730px;
+            margin-top: 145px;
+            margin-right: -535px;
         }
     </style>
 
@@ -208,7 +209,7 @@
                                         </table>
                                     </div>
                                     <div class="isi_surat paragraf">
-                                        <p>Adalah istri sah dari : </p>
+                                        <p>Adalah isteri sah dari : </p>
                                     </div>
                                     <div class="isi_surat identitas">
                                         <table class="table-responsive">
@@ -240,9 +241,9 @@
                                     <br>
                                     <!-- untuk fild alasan bisa dilempar kesini -->
                                     <div class="isi_surat paragraf">
-                                        <p><?= $w->alasan; ?>
+                                        <p>Telah pergi meninggalkan isterinya karena <?= $w->alasan; ?>
                                         </p>
-                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian Surat Keterangan Izin Keramaian kami buat, agar dapat dipergunakan sebagaimana mestinya.</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian Surat Keterangan ini kami buat, agar dapat dipergunakan sebagaimana mestinya.</p>
                                     </div>
                                 </div>
                         </center>

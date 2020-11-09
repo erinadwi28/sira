@@ -23,7 +23,16 @@ class Warga extends CI_Controller
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$this->load->view('header', $data);
+		$data['data_kades'] = $this->m_warga->ambil_nama_kades()->result();
+		$data['data_rt'] = $this->m_warga->ambil_nama_rt()->result();
+		$data['jumlah_persetujuan_rt'] = $this->m_warga->jumlah_persetujuan_rt()->result();
+		$data['jumlah_persetujuan_admin'] = $this->m_warga->jumlah_persetujuan_admin()->result();
+		$data['jumlah_permohonan_selesai'] = $this->m_warga->jumlah_permohonan_selesai()->result();
+		$data['jumlah_permohonan_ditolak'] = $this->m_warga->jumlah_permohonan_ditolak()->result();
+		$data['jumlah_riwayat_permohonan'] = $this->m_warga->jumlah_riwayat_permohonan()->result();
+
+
+		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
 		$this->load->view('warga/dashboard_warga', $data);
@@ -250,14 +259,7 @@ class Warga extends CI_Controller
 		$this->load->view('warga/ubah_profil_warga');
 		$this->load->view('footer');
 	}
-	public function list_history_warga()
-	{
-		$this->load->view('header');
-		$this->load->view('warga/sidebar_warga');
-		$this->load->view('topbar');
-		$this->load->view('warga/list_history_warga');
-		$this->load->view('footer');
-	}
+
 
 	//tampil form suket001
 	public function form_suket001($id_warga)
@@ -1465,6 +1467,7 @@ class Warga extends CI_Controller
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'golongan_darah' => $this->input->post('golongan_darah'),
 			'agama' => $this->input->post('agama'),
+			'pekerjaan' => $this->input->post('pekerjaan'),
 			'status_perkawinan' => $this->input->post('status_perkawinan'),
 			'no_kk' => $this->input->post('no_kk'),
 			'alamat' => $this->input->post('alamat'),
@@ -1671,6 +1674,7 @@ class Warga extends CI_Controller
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'golongan_darah' => $this->input->post('golongan_darah'),
 			'agama' => $this->input->post('agama'),
+			'pekerjaan' => $this->input->post('pekerjaan'),
 			'status_perkawinan' => $this->input->post('status_perkawinan'),
 			'no_kk' => $this->input->post('no_kk'),
 			'alamat' => $this->input->post('alamat'),
@@ -1962,6 +1966,7 @@ class Warga extends CI_Controller
 			'pekerjaan' => $this->input->post('pekerjaan'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'penghasilan' => $this->input->post('penghasilan'),
+			'terbilang' => $this->input->post('terbilang'),
 		);
 
 		$id_surat = $this->m_warga->tambah_suket($data_surat, 'srt_ket_penghasilan');
@@ -2017,6 +2022,7 @@ class Warga extends CI_Controller
 			'pekerjaan' => $this->input->post('pekerjaan'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'penghasilan' => $this->input->post('penghasilan'),
+			'terbilang' => $this->input->post('terbilang'),
 		);
 
 		$this->m_warga->ubah_suket($data_surat, 'srt_ket_penghasilan', $id_surat);
@@ -2274,7 +2280,7 @@ class Warga extends CI_Controller
 	}
 
 	//update status permohonan
-	public function update_status_permohonan($id_permohonan_surat, $id_warga)
+	public function update_status_permohonan($id_permohonan_surat)
 	{
 		$data = array(
 			'status' => 'Menunggu Persetujuan Ketua RT',
@@ -2283,7 +2289,7 @@ class Warga extends CI_Controller
 		$this->m_warga->update_status_permohonan($id_permohonan_surat, $data, 'permohonan_surat');
 
 		$this->session->set_flashdata('success', 'diajukan');
-		redirect('warga/list_history_permohonan/' . $id_warga);
+		redirect('warga/list_data_sedang_proses_rt/');
 	}
 
 	//list histori permohonan
@@ -2302,7 +2308,7 @@ class Warga extends CI_Controller
 		$this->load->view('footer');
 	}
 
-	//list histori permohonan selesai
+	//list permohonan selesai
 	public function list_permohonan_selesai($id_warga)
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
@@ -2318,18 +2324,61 @@ class Warga extends CI_Controller
 		$this->load->view('footer');
 	}
 
-	// filter tanggal history permohonan
-	public function filter_tanggal_list_history_permohonan()
+	//list permohonan sedang proses di rt
+	public function list_data_sedang_proses_rt()
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_permohonan['data_sedang_proses'] = $this->m_warga->get_data_sedang_proses_rt()->result();
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_data_permohonan_sedang_proses_rt', $data_permohonan);
+		$this->load->view('footer');
+	}
+
+	//list permohonan sedang proses di admin
+	public function list_data_sedang_proses_admin()
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_permohonan['data_sedang_proses'] = $this->m_warga->get_data_sedang_proses_admin()->result();
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_data_permohonan_sedang_proses_admin', $data_permohonan);
+		$this->load->view('footer');
+	}
+
+	//data permohonan ditolak
+	public function list_data_permohonan_ditolak()
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$data_permohonan['data_permohonan_ditolak'] = $this->m_warga->get_list_permohonan_ditolak()->result();
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_data_permohonan_ditolak', $data_permohonan);
+		$this->load->view('footer');
+	}
+
+	// filter tanggal riwayat permohonan
+	public function filter_riwayat_permohonan()
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
 		$tgl_awal = $this->input->post('tanggal_mulai');
 		$tgl_akhir = $this->input->post('tanggal_akhir');
-		$id_warga = $this->input->post('id_warga');
 
-		$data_permohonan['permohonan'] = $this->m_warga->filter_tanggal_list_history_permohonan($id_warga, $tgl_awal, $tgl_akhir)->result();
-
+		$data_permohonan['permohonan'] = $this->m_warga->filter_riwayat($tgl_awal, $tgl_akhir)->result();
 
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
@@ -2696,7 +2745,7 @@ class Warga extends CI_Controller
 
 		$html = $this->load->view('warga/suket_010/cetak_suket010', $data_detail, true);
 		$dompdf->loadHtml($html);
-		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->setPaper('A4', 'landscape');
 		$dompdf->render();
 		$dompdf->stream('Surat Keterangan Kelahiran');
 	}

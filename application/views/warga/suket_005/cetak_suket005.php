@@ -70,13 +70,14 @@
 
         .img_ttd {
             width: 200px;
+            margin-right: 90px;
         }
 
         .ttd_kades {
             display: block;
             position: absolute;
             float: left;
-            margin-top: 40px;
+            margin-top: 50px;
             margin-right: -400px;
         }
 
@@ -104,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 175px;
-            margin-right: -730px;
+            margin-top: 145px;
+			margin-right: -535px;
         }
     </style>
 
@@ -281,7 +282,7 @@
                                                 <td> </td>
                                                 <td> </td>
                                                 <td>:</td>
-                                                <td><?= $w->jam; ?> WITA</td>
+                                                <td><?= $w->jam; ?> WIB</td>
                                             </tr>
                                         </tbody>
                                     </table>

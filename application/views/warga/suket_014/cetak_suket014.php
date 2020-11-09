@@ -70,13 +70,14 @@
 
         .img_ttd {
             width: 200px;
+            margin-right: 90px;
         }
 
         .ttd_kades {
             display: block;
             position: absolute;
             float: left;
-            margin-top: 40px;
+            margin-top: 50px;
             margin-right: -400px;
         }
 
@@ -104,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 175px;
-            margin-right: -800px;
+            margin-top: 145px;
+			margin-right: -535px;
         }
 
         .table {
@@ -187,7 +188,7 @@
                                         <center>
                                             <p><u>SURAT KETERANGAN PINDAH</u><br>
 
-                                                Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
+                                                Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_keterangan; ?> /<?= $w->no_tahun; ?></p>
                                         </center>
                                     </div>
                                     <br>

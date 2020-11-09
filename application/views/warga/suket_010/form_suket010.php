@@ -16,7 +16,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
@@ -29,7 +29,7 @@
 										<label for="Nama_anak" class="col-sm-3 col-form-label">Nama Anak</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_anak" name="nama_anak" placeholder="Isikan nama anak...">
+												<input type="text" class="form-control" id="nama_anak" name="nama_anak" placeholder="masukkan nama anak disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -44,7 +44,7 @@
 									<div class="col-sm-8">
 										<div class="form-line">
 											<select class="form-control" id="hari_lahir" name="hari_lahir">
-												<option value="Pilih hari lahir..." class="form-user-input">Pilih hari lahir...</option>
+												<option value="pilih hari lahir..." class="form-user-input">pilih hari lahir...</option>
 												<option value="Senin" class="form-user-input">Senin</option>
 												<option value="Selasa" class="form-user-input">Selasa</option>
 												<option value="Rabu" class="form-user-input">Rabu</option>
@@ -65,7 +65,7 @@
 									<label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
 									<div class="col-sm-8">
 										<div class="form-line focused">
-											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Isikan tempat lahir anak...">
+											<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukkan tempat lahir anak disini...">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -93,7 +93,7 @@
 										<label for="Jam_lahir" class="col-sm-3 col-form-label">Jam Lahir</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="jam_lahir" name="jam_lahir" placeholder="Isikan jam lahir anak...">
+												<input type="text" class="form-control" id="jam_lahir" name="jam_lahir" placeholder="masukkan jam lahir anak disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -107,7 +107,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
+													<option value="pilih jenis kelamin..." class="form-user-input">pilih jenis kelamin...</option>
 													<option value="Laki-Laki" class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" class="form-user-input">Perempuan
@@ -126,7 +126,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="kelahiran" name="kelahiran">
-													<option value="Pilih kelahiran..." class="form-user-input">Pilih kelahiran...</option>
+													<option value="pilih kelahiran..." class="form-user-input">pilih kelahiran...</option>
 													<option value="Tunggal" class="form-user-input">Tunggal
 													</option>
 													<option value="Kembar" class="form-user-input">Kembar
@@ -146,12 +146,12 @@
 											<div class="form-line">
 												<select class="form-control" id="kembar_ke" name="kembar_ke">
 													<option value="Jika anak kelahiran kembar..." class="form-user-input">Jika anak kelahiran kembar...</option>
-													<option value="" class="form-user-input">1 </option>
-													<option value="" class="form-user-input">2 </option>
-													<option value="" class="form-user-input">3 </option>
-													<option value="" class="form-user-input">4 </option>
-													<option value="" class="form-user-input">5 </option>
-													<option value="" class="form-user-input">Tidak ada </option>
+													<option value="1" class="form-user-input">1 </option>
+													<option value="2" class="form-user-input">2 </option>
+													<option value="3" class="form-user-input">3 </option>
+													<option value="4" class="form-user-input">4 </option>
+													<option value="5" class="form-user-input">5 </option>
+													<option value="Tidak ada" class="form-user-input">Tidak ada </option>
 												</select>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
@@ -166,7 +166,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="tempat_persalinan" name="tempat_persalinan">
-													<option value="Pilih tempat bersalin..." class="form-user-input">Pilih tempat bersalin...</option>
+													<option value="pilih tempat bersalin..." class="form-user-input">pilih tempat bersalin...</option>
 													<option value="Rumah Bersalin" class="form-user-input"> Rumah Bersalin
 													</option>
 													<option value="Bukan Rumah Bersalin" class="form-user-input">Bukan Rumah Bersalin
@@ -184,7 +184,7 @@
 										<label for="Alamat_persalinan" class="col-sm-3 col-form-label">Alamat Persalinan</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alamat_persalinan" name="alamat_persalinan" rows="3"></textarea>
+												<textarea class="form-control" id="alamat_persalinan" name="alamat_persalinan" rows="3" placeholder="masukkan alamat persalinan disini..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -198,7 +198,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="penolong_persalinan" name="penolong_persalinan">
-													<option value="Pilih penolong bersalin..." class="form-user-input">Pilih penolong bersalin...</option>
+													<option value="pilih penolong bersalin..." class="form-user-input">pilih penolong bersalin...</option>
 													<option value="Dokter" class="form-user-input"> Dokter</option>
 													<option value="Bidan/Perawat" class="form-user-input"> Bidan/Perawat</option>
 													<option value="Dukun" class="form-user-input"> Dukun</option>
@@ -218,7 +218,7 @@
 											<label for="Nama_ibu" class="col-sm-3 col-form-label">Nama Ibu</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="Isikan nama ibu...">
+													<input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="masukkan nama ibu disini...">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -232,7 +232,7 @@
 										<label for="Alamat_ibu" class="col-sm-3 col-form-label">Alamat Ibu</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="alamat_ibu" name="alamat_ibu" rows="3" placeholder="Isikan alamat..."></textarea>
+												<textarea class="form-control" id="alamat_ibu" name="alamat_ibu" rows="3" placeholder="masukkan alamat disini..."></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -259,7 +259,7 @@
 											<label for="umur_ibu" class="col-sm-3 col-form-label">Umur Ibu</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="number" class="form-control" id="umur_ibu" name="umur_ibu">
+													<input type="number" class="form-control" id="umur_ibu" name="umur_ibu" placeholder="masukkan umur ibu disini...">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -275,7 +275,7 @@
 											<div class="col-sm-8">
 												<div class="form-line">
 													<select class="form-control " id="kewarganegaraan_ibu" name="kewarganegaraan_ibu">
-														<option value="Pilih kewarganegaraan ibu..." class="form-user-input">Pilih kewarganegaraan ibu...</option>
+														<option value="pilih kewarganegaraan ibu..." class="form-user-input">pilih kewarganegaraan ibu...</option>
 														<option value="WNI" class="form-user-input">WNI</option>
 														<option value="WNA" class="form-user-input">WNA</option>
 													</select>
@@ -293,7 +293,7 @@
 											<label for="Nama_ayah" class="col-sm-3 col-form-label">Nama Ayah</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Isikan nama ayah...">
+													<input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="masukkan nama ayah disini...">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -321,7 +321,7 @@
 											<label for="umur_ayah" class="col-sm-3 col-form-label">Umur Ayah</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="number" class="form-control" id="umur_ayah" name="umur_ayah">
+													<input type="number" class="form-control" id="umur_ayah" name="umur_ayah" placeholder="masukkan umur ayah disini...">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>
@@ -337,7 +337,7 @@
 											<div class="col-sm-8">
 												<div class="form-line">
 													<select class="form-control " id="kewarganegaraan_ayah" name="kewarganegaraan_ayah">
-														<option value="Pilih kewarganegaraan ayah..." class="form-user-input">Pilih kewarganegaraan ayah...</option>
+														<option value="pilih kewarganegaraan ayah..." class="form-user-input">pilih kewarganegaraan ayah...</option>
 														<option value="WNI" class="form-user-input">WNI</option>
 														<option value="WNA" class="form-user-input">WNA</option>
 													</select>
@@ -354,7 +354,7 @@
 										<label for="No_kk" class="col-sm-3 col-form-label">No. KK</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_kk" name="no_kk" value="">
+												<input type="text" class="form-control" id="no_kk" name="no_kk" value="" placeholder="masukkan NO KK disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -367,7 +367,7 @@
 										<label for="No_ktp" class="col-sm-3 col-form-label">No. KTP</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_ktp" name="no_ktp" value="">
+												<input type="text" class="form-control" id="no_ktp" name="no_ktp" value="" placeholder="masukkan NO KTP disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -396,7 +396,7 @@
 											<label for="Hubungan_dengan_bayi" class="col-sm-3 col-form-label">Hubungan dgn Bayi</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
-													<input type="text" class="form-control" id="hubungan_dengan_bayi" name="hubungan_dengan_bayi" placeholder="Isikan hubungan pemohon dengan bayi...">
+													<input type="text" class="form-control" id="hubungan_dengan_bayi" name="hubungan_dengan_bayi" placeholder="masukkan hubungan pemohon dengan bayi disini...">
 													<i class=" fas fa-check-circle"></i>
 													<i class="fas fa-exclamation-circle"></i>
 													<small>Error massage</small>

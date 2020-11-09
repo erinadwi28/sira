@@ -16,13 +16,13 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card mb-4">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
 
 					?>
-						<form class="form-horizontal" id="form_suket012" action="<?= base_url('warga/aksi_tambah_permohonan_suket012') ?>" method="POST">
+						<form class="form-horizontal" id="form12" action="<?= base_url('warga/aksi_tambah_permohonan_suket012') ?>" method="POST">
 							<div class="form-group">
 								<div class="form-group" style="margin-top: 20px;">
 									<div class="form-group row" style="margin-left: 10px;">
@@ -250,7 +250,7 @@
 										<label for="kepindahan_dari" class="col-sm-3 col-form-label">Kepindahan dari</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<textarea class="form-control" id="kepindahan_dari" name="kepindahan_dari" rows="3" placeholder="Alamat Lengkap"></textarea>
+												<textarea class="form-control" id="kepindahan_dari" name="kepindahan_dari" rows="3" placeholder="masukkan alamat kepindahan dari secara lengkap disini..."></textarea>
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Tidak boleh kosong</small>
@@ -266,7 +266,7 @@
 										<label for="Nama_ayah" class="col-sm-3 col-form-label">Nama ayah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Nama Lengkap Ayah">
+												<input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="masukkan nama lengkap ayah disini...">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -281,7 +281,7 @@
 										<label for="Nama_ibu" class="col-sm-3 col-form-label">Nama Ibu</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="Nama Lengkap Ibu">
+												<input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="masukkan nama lengkap ibu disini...">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -296,7 +296,7 @@
 										<label for="jml_pengikut" class="col-sm-3 col-form-label">Jml Pengikut</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="number" class="form-control" id="jml_pengikut" name="jml_pengikut">
+												<input type="number" class="form-control" id="jumlah_pengikut" name="jml_pengikut" placeholder="masukkan jumlah pengikut disini...">
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -309,8 +309,7 @@
 							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
 							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
-			</div>
-			<div class="card-footer">
+				<div class="card-footer">
 				<div class="float-right">
 					<a href="#">
 						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
@@ -320,6 +319,8 @@
 					</a>
 				</div>
 			</div>
+			</div>
+			
 			</form>
 		<?php } ?>
 		</div>

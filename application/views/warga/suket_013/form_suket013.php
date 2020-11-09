@@ -17,7 +17,7 @@
 	<div class="row clearfix">
 		<div class="col-xs-12 col-sm-2"></div>
 		<div class="col-xs-12 col-sm-8">
-			<div class="card">
+			<div class="card shadow mb-5">
 				<div class="body">
 					<?php
 					foreach ($detail_profil as $detail) {
@@ -115,7 +115,20 @@
 									<label for="Penghasilan" class="col-sm-3 col-form-label">Penghasilan/bln</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="text" class="form-control" id="penghasilan" name="penghasilan" value="">
+											<input type="text" class="form-control" id="penghasilan" name="penghasilan">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group row" style="margin-left: 10px;">
+									<label for="Terbilang" class="col-sm-3 col-form-label">Terbilang</label>
+									<div class="col-sm-8">
+										<div class="form-line">
+											<input type="text" class="form-control" id="terbilang" name="terbilang">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>

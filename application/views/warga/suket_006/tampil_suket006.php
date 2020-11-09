@@ -126,7 +126,7 @@
 														dan yang bersangkutan memang benar Belum Pernah Menikah baik secara tercatat maupun tidak tercatat.
 													</p>
 													<p>
-														Demikian Surat Keterangan beda nama ini kami buat, agar dapat dipergunakan sebagaimana mestinya.
+														Demikian Surat Keterangan ini kami buat, agar dapat dipergunakan sebagaimana mestinya.
 													</p>
 												</div>
 											</div>

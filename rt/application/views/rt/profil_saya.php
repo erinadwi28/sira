@@ -31,13 +31,16 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php
-					foreach ($foto_profil as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/rt/<?= $saya->foto_profil_rt; ?>" data-lightbox="mygallery" data-title="Foto Profil">
-							<img id="foto_profil_rt" src="<?= base_url(); ?>../assets/uploads/rt/<?= $saya->foto_profil_rt; ?>" alt="foto profil" class="img-fluid">
-						</a>
+				<div class="card-body" style="padding: 15px;">
+				<center>
+				<?php 
+					foreach($foto_profil as $saya){ ?>
+					<a href="<?= base_url(); ?>../assets/uploads/rt/<?= $saya->foto_profil_rt; ?>" data-gallery="mygallery" data-title="Foto Profil" data-toggle="lightbox">
+					<img src="<?= base_url(); ?>../assets/uploads/rt/<?= $saya->foto_profil_rt; ?>" alt="foto profil" class="img-fluid">
+					</a>
 					<?php } ?>
+				</center>
+					
 				</div>
 
 				<div class="card-footer py-3">
@@ -75,7 +78,7 @@
 
 				<div class="card-body" style="padding: 20px;">
 					<?php foreach ($foto_ktp as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_ktp_warga; ?>" data-lightbox="mygallery" data-title="Foto KTP">
+						<a href="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_ktp_warga; ?>" data-lightbox="mygallery" data-title="Foto KTP" data-toggle="lightbox">
 							<img src="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_ktp_warga; ?>" alt="foto profil" class="img-fluid">
 						</a>
 					<?php } ?>
@@ -118,7 +121,7 @@
 					<?php
 					foreach ($foto_kk as $saya) {
 					?>
-						<a href="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_kk_warga; ?>" data-lightbox="mygallery" data-title="Foto KK">
+						<a href="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_kk_warga; ?>" data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
 							<img src="<?= base_url(); ?>../assets/uploads/warga/<?= $saya->foto_kk_warga; ?>" alt="foto kk" class="img-fluid">
 						</a>
 					<?php } ?>
@@ -186,7 +189,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>
@@ -291,8 +294,12 @@
 						</table>
 				</div>
 				<div class="card-footer">
-					<div class="float-right">
+					<div class="">
 						<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $detail->id_warga; ?>">
+						<em class="float-center small text-danger">*Anda bisa mengubah Kata Sandi serta Foto Profil, Foto
+						KTP, dan Foto KK. <br>
+						Untuk ubah data harap hubungi Nomor Telepon berikut : <br>
+						No Telepon : 085713609299</em>
 					</div>
 				<?php } ?>
 				</div>

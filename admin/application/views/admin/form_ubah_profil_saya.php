@@ -68,6 +68,8 @@
 											<option value="O" <?= ($detail->golongan_darah == 'O' ? ' selected' : ''); ?> class="form-user-input">O</option>
 										</select>
 									</div>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="agama"><b>Agama</b></label>
 										<select class="form-control form-user-input" name="agama" id="agama">
@@ -82,8 +84,6 @@
 											</option>
 										</select>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
 										<input type="text" class="form-control form-user-input" name="alamat" id="alamat" value="<?= $detail->alamat; ?>">
@@ -113,6 +113,8 @@
 									<div class="form-group">
 										<input type="text" class="form-control form-user-input" name="pekerjaan" id="pekerjaan" value="<?= $detail->pekerjaan; ?>">
 									</div>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
 										<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan">
@@ -120,8 +122,6 @@
 											<option value="WNA" <?= ($detail->kewarganegaraan == 'WNA' ? ' selected' : ''); ?> class="form-user-input">WNA</option>
 										</select>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
 										<div class="form-group">
 											<label class="label-control" for="no_kk"><b>No KK</b></label>
@@ -186,10 +186,6 @@
                                     <div class="form-group">
 										<label class="label-control" for="kata_sandi"><b>Jabatan</b></label>
 										<input type="text" class="form-control form-user-input " name="jabatan" id="jabatan" value="<?= $detail->jabatan; ?>">
-									</div>
-									<div class="form-group">
-										<label class="label-control" for="kata_sandi"><b>Status Kepegawaian</b></label>
-										<input type="text" class="form-control form-user-input " name="status_kepegawaian" id="status_kepegawaian" value="<?= $detail->status_kepegawaian; ?>" disabled>
 									</div>
 								</div>
 							</div>

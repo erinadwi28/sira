@@ -22,13 +22,13 @@
 					<div class="col-md-5">
 						<div class="card-body">
 							<center>
-								<div class="kopsurat row " style="margin-top: 50px"> <br> <br> <br> <br>
+								<!-- <div class="kopsurat row " style="margin-top: 50px"> <br> <br> <br> <br>
 									<div class="col-md-12 mb-3">
 										<object data="" type="image">
 											<img class="img-fluid" alt="logo_kop_surat" src="<?= base_url('assets/dashboard/') ?>img/KOP.png">
 										</object>
 									</div>
-								</div>
+								</div> -->
 
 								<!-- <hr class="hr_kop"> -->
 								<?php
@@ -65,6 +65,9 @@
 									<div class="badan_surat">
 										<div class="no_surat">
 											<center>
+												<b>
+													<p>UNTUK ARSIP KELURAHAN</p>
+												</b>
 												<p><u>SURAT KELAHIRAN</u><br>
 													Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
 											</center>
@@ -87,7 +90,7 @@
 														<td> </td>
 														<td> </td>
 														<td> :</td>
-														<td><?= $w->tanggal_lahir; ?></td>
+														<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 													</tr>
 													<tr>
 														<td><b>Di</b></td>
@@ -174,11 +177,6 @@
 
 									</div>
 									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
 							</center>
 						<?php } ?>
 						<div class="row">
@@ -191,7 +189,7 @@
 									?>
 										<center>
 
-											Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+											Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
 											LURAH MENDAWAI
 
 										</center>
@@ -203,9 +201,12 @@
 							<div class="col-md-6 ">
 							</div>
 							<div class="col-md-6">
-								<div class="badan_surat isi_surat">
-									<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
-								</div>
+								<?php
+								foreach ($data_kades as $k) {
+								?>
+									<div class="badan_surat isi_surat">
+										<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+									</div>
 							</div>
 						</div>
 						<div class="row">
@@ -214,9 +215,10 @@
 							<div class="col-md-6">
 								<div class="badan_surat isi_surat">
 									<center>
-										<u><b>RAHADIAN SYAHMI, S.Hut</b></u> <br>
-										NIP. 19780211 200604 1 009
+										<u><b><?= $k->nama; ?></b></u> <br>
+										NIP. <?= $k->nip; ?>
 									</center>
+								<?php } ?>
 								</div>
 							</div>
 						</div>
@@ -226,15 +228,18 @@
 					<div class="col-md-7">
 						<div class="card-body">
 							<center>
-								<div class="kopsurat row">
+								<!-- <div class="kopsurat row">
 									<div class="col-md-12 mb-3">
 										<object data="" type="image">
 											<img class="img-fluid" alt="logo_kop_surat" src="<?= base_url('assets/dashboard/') ?>img/KOP.png">
 										</object>
 									</div>
-								</div>
+								</div> -->
 								<!-- <hr class="hr_kop"> -->
 								<div class="badan_surat">
+									<b>
+										<p style="float: right;">ARSIP KECAMATAN</p> <br><br>
+									</b>
 									<div class="no_surat">
 										<center>
 											<p><u>SURAT KELAHIRAN</u><br>
@@ -242,17 +247,17 @@
 										</center>
 									</div>
 
-									<div class="isi_surat identitas">
+									<div class="isi_surat identitas" style="margin-top: -50px;">
 										<table class="table-responsive">
 											<tbody>
 												<tr>
 													<td>
 														<p style="text-align: center">
-															<h5 style="margin-left: 180px">
+															<h6 style="margin-left: 180px">
 																<center>
 																	BAYI
 																</center>
-															</h5>
+															</h6>
 														</p>
 													</td>
 												</tr>
@@ -270,7 +275,7 @@
 												<tr>
 													<td>3.<b> Dilahirkan</b></td>
 
-													<td>:<?= $w->tempat_lahir; ?>, <?= $w->tanggal_lahir ?></td>
+													<td>:<?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 
 												</tr>
 												<tr>
@@ -305,11 +310,11 @@
 												<tr>
 													<td>
 														<p style="text-align: center">
-															<h5 style="margin-left: 180px">
+															<h6 style="margin-left: 180px">
 																<center>
 																	IBU
 																</center>
-															</h5>
+															</h6>
 														</p>
 													</td>
 												</tr>
@@ -325,7 +330,7 @@
 												<tr>
 													<td>9.<b> Dilahirkan</b></td>
 
-													<td>:<?= $w->tanggal_lahir_ibu; ?> <b>Umur</b> : <?= $w->umur_ibu; ?> th</td>
+													<td>:<?= format_indo(date($w->tanggal_lahir_ibu)); ?> <b>Umur</b> : <?= $w->umur_ibu; ?> th</td>
 												</tr>
 												<tr>
 													<td>10.<b> Kewarganegaraan</b></td>
@@ -336,11 +341,11 @@
 												<tr>
 													<td>
 														<p style="text-align: center">
-															<h5 style="margin-left: 180px">
+															<h6 style="margin-left: 180px">
 																<center>
 																	AYAH
 																</center>
-															</h5>
+															</h6>
 														</p>
 													</td>
 												</tr>
@@ -350,7 +355,7 @@
 												</tr>
 												<tr>
 													<td>12.<b> Dilahirkan</b></td>
-													<td>:<?= $w->tanggal_lahir_ayah; ?> <b>Umur</b> : <?= $w->umur_ayah; ?> th</td>
+													<td>:<?= format_indo(date($w->tanggal_lahir_ayah)); ?> <b>Umur</b> : <?= $w->umur_ayah; ?> th</td>
 												</tr>
 												<tr>
 													<td>13.<b> Kewarganegaraan</b></td>
@@ -398,9 +403,12 @@
 								<div class="col-md-6 ">
 								</div>
 								<div class="col-md-6">
-									<div class="badan_surat isi_surat">
-										<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url('assets/dashboard/') ?>img/ttd_stempel_daak.png"></center>
-									</div>
+									<?php
+									foreach ($data_kades as $k) {
+									?>
+										<div class="badan_surat isi_surat">
+											<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+										</div>
 								</div>
 							</div>
 							<div class="row">
@@ -409,29 +417,27 @@
 								<div class="col-md-6">
 									<div class="badan_surat isi_surat">
 										<center>
-											<u><b>RAHADIAN SYAHMI, S.Hut</b></u> <br>
-											NIP. 19780211 200604 1 009
+											<u><b><?= $k->nama; ?></b></u> <br>
+											NIP. <?= $k->nip; ?>
 										</center>
+									<?php } ?>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- <div class="card-footer">
-									<center>
-										<a href="<?= base_url() ?>warga/cetak_surat010/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
-											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-												Cetak</button>
-										</a>
-									</center>
-								</div> -->
-
-
 					</div>
 				</div>
 				<div class="card-footer">
 					<center>
-						<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
-							Cetak</button>
+						<a href="<?= base_url() ?>warga/cetak_surat010/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+							<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+								Cetak</button>
+						</a>
+						<!-- <a href="#">
+											<button class="btn btn-sm btn-success" onclick="window.print()" type="submit"><i class="fa fa-print"></i>
+												Cetak</button>
+										</a> -->
+
 					</center>
 				</div>
 			</div>

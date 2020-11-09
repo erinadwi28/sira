@@ -10,7 +10,7 @@
     <div class="row clearfix">
         <div class="col-xs-12 col-sm-2"></div>
         <div class="col-xs-12 col-sm-8">
-            <div class="card">
+            <div class="card shadow mb-5">
                 <div class="body">
                     <?php
                     foreach ($detail_pengikut as $detail) {

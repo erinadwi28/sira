@@ -160,17 +160,22 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group row" style="margin-left: 10px;">
-									<label class="col-sm-3 col-form-label" for="file-upload-profil">File Lampiran KTP</label>
+									<label class="col-sm-3 col-form-label" for="file-upload-profil">Lampiran KTP</label>
 									<div class="custom-file col-sm-7 ml-3">
-										<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
-										<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
+										<div class="form-line-upload">
+											<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
+											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
+											<i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error massage</small>
+										</div>
 									</div>
 								</div>
 							</div>
 
-							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="5">
-							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
-							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="5">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">

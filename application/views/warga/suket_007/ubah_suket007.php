@@ -24,7 +24,7 @@
             <div class="card shadow mb-5">
                 <div class="body">
 
-                    <form class="form-horizontal" id="form_suket007" action="<?= base_url('warga/aksi_ubah_suket007') ?>" method="POST">
+                    <form class="form-horizontal" id="form_ubah_suket007" action="<?= base_url('warga/aksi_ubah_suket007') ?>" method="POST">
                         <div class="form-group">
                             <div class="form-group">
                                 <div class="form-group" style="margin-top: 15px;">

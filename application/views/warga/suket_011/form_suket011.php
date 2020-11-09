@@ -110,7 +110,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-													<option value="Pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
+													<option value="pilih jenis kelamin..." class="form-user-input">Pilih jenis kelamin...</option>
 													<option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
 													</option>
 													<option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
@@ -243,7 +243,7 @@
 										<label for="Tanggal_tinggal" class="col-sm-3 col-form-label">Tanggal Tinggal</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal" >
+												<input type="date" class="form-control" id="tanggal_tinggal" name="tanggal_tinggal">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -256,7 +256,8 @@
 										<label for="No_surat_pindah" class="col-sm-3 col-form-label">No. Surat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="masukkan nomor surat pindah disini..." >
+												<input type="text" class="form-control" id="no_surat_pindah" name="no_surat_pindah" placeholder="masukkan nomor surat pindah disini...">
+												<em class="float-center small text-danger">*Optional</em>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -269,7 +270,8 @@
 										<label for="Tgl_surat_pindah" class="col-sm-3 col-form-label">Tgl Surat Pindah</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah" >
+												<input type="date" class="form-control" id="tgl_surat_pindah" name="tgl_surat_pindah">
+												<em class="float-center small text-danger">*Optional</em>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -278,9 +280,9 @@
 									</div>
 								</div>
 
-								<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="11">
-								<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
-								<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
+								<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="11">
+								<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
+								<input type="hidden" class="form-control" id="status" name="status" value="Belum Tuntas">
 							</div>
 				</div>
 				<div class="card-footer">

@@ -421,7 +421,9 @@
 				</div>
 				<div class="card-body" style="padding: 20px;">
 					<div class="mb-2">
-						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_005/<?= $detail->foto_ktp; ?>" alt="foto ktp" class="img-fluid">
+					<a href="<?= base_url(); ?>../assets/uploads/warga/suket_005/<?= $detail->foto_ktp; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
+					<img src="<?= base_url(); ?>../assets/uploads/warga/suket_005/<?= $detail->foto_ktp; ?>" alt="foto ktp" class="img-fluid">
+								</a>
 					</div>
 				</div>
 			</div>

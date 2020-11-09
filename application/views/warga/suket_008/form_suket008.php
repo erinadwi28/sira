@@ -97,7 +97,11 @@
 										<label for="Nama_suami" class="col-sm-3 col-form-label">Nama Suami</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
+<<<<<<< HEAD
 												<input type="text" class="form-control" id="nama_suami" name="nama_suami" placeholder="masukan nama lengkap suami di sini..." value="">
+=======
+												<input type="text" class="form-control" id="nama_suami" name="nama_suami" placeholder="masukan nama lengkap suami di sini...">
+>>>>>>> 0b25ed4f1ae6b270584140ac138d0cf3a1f9c20c
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -112,7 +116,11 @@
 										Suami</label>
 									<div class="col-sm-8">
 										<div class="form-line focused">
+<<<<<<< HEAD
 											<input type="text" class="form-control" id="tempat_lahir_suami" name="tempat_lahir_suami" placeholder="masukan tempat lahir suami di sini..." value="">
+=======
+											<input type="text" class="form-control" id="tempat_lahir_suami" name="tempat_lahir_suami" placeholder="masukan tempat lahir suami di sini...">
+>>>>>>> 0b25ed4f1ae6b270584140ac138d0cf3a1f9c20c
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -126,7 +134,11 @@
 										Suami</label>
 									<div class="col-sm-8">
 										<div class="form-line">
+<<<<<<< HEAD
 											<input type="date" class="form-control" id="tanggal_lahir_suami" name="tanggal_lahir_suami" value="">
+=======
+											<input type="date" class="form-control" id="tanggal_lahir_suami" name="tanggal_lahir_suami">
+>>>>>>> 0b25ed4f1ae6b270584140ac138d0cf3a1f9c20c
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -139,7 +151,11 @@
 									<label for="Pekerjaan_suami" class="col-sm-3 col-form-label">Pekerjaan Suami</label>
 									<div class="col-sm-8">
 										<div class="form-line">
+<<<<<<< HEAD
 											<input type="text" class="form-control" id="pekerjaan_suami" name="pekerjaan_suami" value="" placeholder="masukan pekerjaan suami di sini...">
+=======
+											<input type="text" class="form-control" id="pekerjaan_suami" name="pekerjaan_suami" placeholder="masukan pekerjaan suami di sini...">
+>>>>>>> 0b25ed4f1ae6b270584140ac138d0cf3a1f9c20c
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -152,16 +168,26 @@
 									<label for="alasan" class="col-sm-3 col-form-label">Telah pergi meninggalkan isterinya karena</label>
 									<div class="col-sm-8">
 										<div class="form-line">
+<<<<<<< HEAD
 											<input type="text" class="form-control" id="alasan" name="alasan" placeholder="masukan alasan di sini..." value="">
+=======
+											<textarea class="form-control" id="alasan" name="alasan" rows="3" placeholder="masukan alasan di sini..."></textarea>
+>>>>>>> 0b25ed4f1ae6b270584140ac138d0cf3a1f9c20c
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
 										</div>
 									</div>
 								</div>
+<<<<<<< HEAD
 								<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="8">
 								<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
 								<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
+=======
+								<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="8">
+								<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
+								<input type="hidden" class="form-control" id="status" name="status" value="Belum Tuntas">
+>>>>>>> 0b25ed4f1ae6b270584140ac138d0cf3a1f9c20c
 							</div>
 				</div>
 				<div class="card-footer">

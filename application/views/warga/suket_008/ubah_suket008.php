@@ -24,7 +24,7 @@
 			<div class="card shadow mb-5">
 				<div class="body">
 
-					<form class="form-horizontal" id="form_suket008"
+					<form class="form-horizontal" id="form_ubah_suket008"
 						action="<?= base_url('warga/aksi_ubah_suket008') ?>" method="POST">
 						<div class="form-group">
 							<div class="form-group">
@@ -35,7 +35,7 @@
 											<div class="form-line focused">
 												<input type="text" class="form-control" id="nama_istri"
 													name="nama_istri" placeholder="Nama Lengkap"
-													value="<?= $detail->nama_istri; ?>" required="">
+													value="<?= $detail->nama_istri; ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -51,7 +51,7 @@
 											<div class="form-line focused">
 												<input type="text" class="form-control" id="tempat_lahir_istri"
 													name="tempat_lahir_istri" placeholder="Tempat Lahir Istri"
-													value="<?= $detail->tempat_lahir_istri; ?>" required="">
+													value="<?= $detail->tempat_lahir_istri; ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -67,7 +67,7 @@
 											<div class="form-line">
 												<input type="date" class="form-control" id="tanggal_lahir_istri"
 													name="tanggal_lahir_istri"
-													value="<?= $detail->tanggal_lahir_istri; ?>" required="">
+													value="<?= $detail->tanggal_lahir_istri; ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -83,7 +83,7 @@
 											<div class="form-line">
 												<input type="text" class="form-control" id="pekerjaan_istri"
 													name="pekerjaan_istri" value="<?= $detail->pekerjaan_istri; ?>"
-													required="">
+													>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -114,7 +114,7 @@
 											<div class="form-line focused">
 												<input type="text" class="form-control" id="nama_suami"
 													name="nama_suami" placeholder="Nama Lengkap Suami..."
-													value="<?= $detail->nama_suami ?>" required="">
+													value="<?= $detail->nama_suami ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -130,7 +130,7 @@
 											<div class="form-line focused">
 												<input type="text" class="form-control" id="tempat_lahir_suami"
 													name="tempat_lahir_suami" placeholder="Tempat Lahir Suami..."
-													value="<?= $detail->tempat_lahir_suami ?>" required="">
+													value="<?= $detail->tempat_lahir_suami ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -146,7 +146,7 @@
 											<div class="form-line">
 												<input type="date" class="form-control" id="tanggal_lahir_suami"
 													name="tanggal_lahir_suami"
-													value="<?= $detail->tanggal_lahir_suami ?>" required="">
+													value="<?= $detail->tanggal_lahir_suami ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -162,7 +162,7 @@
 											<div class="form-line">
 												<input type="text" class="form-control" id="pekerjaan_suami"
 													name="pekerjaan_suami" placeholder="Pekerjaan Suami..."
-													value="<?= $detail->pekerjaan_suami ?>" required="">
+													value="<?= $detail->pekerjaan_suami ?>" >
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -176,7 +176,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<textarea class="form-control" id="alasan" name="alasan" rows="3"
-													placeholder="Meninggal Dunia,dll..."><?= $detail->alasan ?></textarea>
+													placeholder="masukan alasan di sini..."><?= $detail->alasan ?></textarea>
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -188,10 +188,10 @@
 
 
 							<?php } ?>
-							<input type="hidden" class="form-control" id="id_surat" name="id_surat" required=""
+							<input type="hidden" class="form-control" id="id_surat" name="id_surat" 
 								value="<?= $detail->id_surat ?>">
 							<input type="hidden" class="form-control" id="id_permohonan_surat"
-								name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
+								name="id_permohonan_surat"  value="<?= $detail->id_permohonan_surat; ?>">
 
 						</div>
 						

@@ -28,43 +28,85 @@
 										</div>
 										<!-- <hr class="hr_kop"> -->
 										<div class="badan_surat">
-											<div class="no_surat">
-												<?php
-												foreach ($detail_suket as $w) {
-												?>
-													<?php
-													if ($w->no_bulan == 1) {
-														$bulan = 'I';
-													} elseif ($w->no_bulan == 2) {
-														$bulan = 'II';
-													} elseif ($w->no_bulan == 3) {
-														$bulan = 'III';
-													} elseif ($w->no_bulan == 4) {
-														$bulan = 'IV';
-													} elseif ($w->no_bulan == 5) {
-														$bulan = 'V';
-													} elseif ($w->no_bulan == 6) {
-														$bulan = 'VI';
-													} elseif ($w->no_bulan == 7) {
-														$bulan = 'VII';
-													} elseif ($w->no_bulan == 8) {
-														$bulan = 'VIII';
-													} elseif ($w->no_bulan == 9) {
-														$bulan = 'IX';
-													} elseif ($w->no_bulan == 10) {
-														$bulan = 'X';
-													} elseif ($w->no_bulan == 11) {
-														$bulan = 'XI';
-													} elseif ($w->no_bulan == 12) {
-														$bulan = 'XII';
-													} else {
-														$bulan = '';
-													} ?>
-													<center>
-														<p><u>SURAT KETERANGAN IZIN KERAMAIAN</u><br>
-															Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
-													</center>
-											</div>
+											<div class="row">
+												<div class="col-6">
+													<div class="no_surat">
+														<?php
+														foreach ($detail_suket as $w) {
+														?>
+															<?php
+															if ($w->no_bulan == 1) {
+																$bulan = 'I';
+															} elseif ($w->no_bulan == 2) {
+																$bulan = 'II';
+															} elseif ($w->no_bulan == 3) {
+																$bulan = 'III';
+															} elseif ($w->no_bulan == 4) {
+																$bulan = 'IV';
+															} elseif ($w->no_bulan == 5) {
+																$bulan = 'V';
+															} elseif ($w->no_bulan == 6) {
+																$bulan = 'VI';
+															} elseif ($w->no_bulan == 7) {
+																$bulan = 'VII';
+															} elseif ($w->no_bulan == 8) {
+																$bulan = 'VIII';
+															} elseif ($w->no_bulan == 9) {
+																$bulan = 'IX';
+															} elseif ($w->no_bulan == 10) {
+																$bulan = 'X';
+															} elseif ($w->no_bulan == 11) {
+																$bulan = 'XI';
+															} elseif ($w->no_bulan == 12) {
+																$bulan = 'XII';
+															} else {
+																$bulan = '';
+															} ?>
+
+															<table class="table-responsive">
+																<tbody>
+																	<tr>
+																		<td>Nomor</td>
+																		<td></td>
+																		<td>:</td>
+																		<td><?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></td>
+																	</tr>
+																	<tr>
+																		<td>Lampiran</td>
+																		<td></td>
+																		<td>:</td>
+																		<td>Foto KTP</td>
+																	</tr>
+																	<tr>
+																		<td>Perihal</td>
+																		<td></td>
+																		<td>:</td>
+																		<td>Permohonan izin keramaian</td>
+																	</tr>
+																</tbody>
+															</table>
+													</div>
+												</div>
+												<div class="col-6">
+													<table class="table-responsive">
+														<tbody>
+															<tr>
+																<td>Kepada</td>
+															</tr>
+															<tr>
+																<td>Yth.Kepala Kepolisian Resort</td>
+
+															</tr>
+															<tr>
+																<td>Di Pangkalan Bun</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div> <br>
+
+
+
 											<div class="isi_surat paragraf">
 												<p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
 													Selatan, Kabupaten Kotawaringin Barat, Provinsi Kalimantan Tengah : </p>
@@ -72,7 +114,7 @@
 											<div class="isi_surat identitas">
 												<table class="table-responsive">
 													<?php
-													foreach ($data_kades as $k) {
+															foreach ($data_kades as $k) {
 													?>
 														<tbody>
 															<tr>
@@ -155,18 +197,11 @@
 															<td><?= $w->nama_kegiatan; ?></td>
 														</tr>
 														<tr>
-															<td><b>Hari</b></td>
+															<td><b>Hari,Tgl</b></td>
 															<td> </td>
 															<td> </td>
 															<td>:</td>
-															<td><?= $w->hari_kegiatan; ?></td>
-														</tr>
-														<tr>
-															<td><b>Tanggal</b></td>
-															<td> </td>
-															<td> </td>
-															<td>:</td>
-															<td><?= format_indo(date($w->tanggal_kegiatan)); ?></td>
+															<td><?= $w->hari_kegiatan; ?>,<?= format_indo(date($w->tanggal_kegiatan)); ?></td>
 														</tr>
 														<tr>
 															<td><b>Tempat</b></td>

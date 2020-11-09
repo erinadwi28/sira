@@ -24,14 +24,14 @@
             <div class="card shadow mb-5">
                 <div class="body">
 
-                    <form class="form-horizontal" id="form_suket009" action="<?= base_url('warga/aksi_ubah_suket009') ?>" method="POST">
+                    <form class="form-horizontal" id="form_ubah_suket009" action="<?= base_url('warga/aksi_ubah_suket009') ?>" method="POST">
                         <div class="form-group">
                             <div class="form-group" style="margin-top: 15px;">
                                 <div class="form-group row" style="margin-left: 10px;">
                                     <label for="Nama_alm" class="col-sm-3 col-form-label">Nama Alm/Almh</label>
                                     <div class="col-sm-8">
                                         <div class="form-line focused">
-                                            <input type="text" class="form-control" id="nama_alm" name="nama_alm" placeholder="Isi nama alm/almh..." value="<?= $detail->nama_alm; ?>" required="">
+                                            <input type="text" class="form-control" id="nama_alm" name="nama_alm" placeholder="Isi nama alm/almh..." value="<?= $detail->nama_alm; ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -75,7 +75,7 @@
                                     <label for="Umur" class="col-sm-3 col-form-label">Umur</label>
                                     <div class="col-sm-8">
                                         <div class="form-line focused">
-                                            <input type="text" class="form-control" id="umur" name="umur" placeholder="Isikan umur alm/almh..." value="<?= $detail->umur; ?>" required="">
+                                            <input type="text" class="form-control" id="umur" name="umur" placeholder="Isikan umur alm/almh..." value="<?= $detail->umur; ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -122,7 +122,7 @@
                                     <label for="Tanggal_Meninggal" class="col-sm-3 col-form-label">Tanggal Meninggal</label>
                                     <div class="col-sm-8">
                                         <div class="form-line">
-                                            <input type="date" class="form-control" id="tanggal_meninggal" name="tanggal_meninggal" value="<?= $detail->tanggal_meninggal; ?>" required="">
+                                            <input type="date" class="form-control" id="tanggal_meninggal" name="tanggal_meninggal" value="<?= $detail->tanggal_meninggal; ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -144,8 +144,8 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" class="form-control" id="id_surat" name="id_surat" required="" value="<?= $detail->id_surat ?>">
-                        <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
+                        <input type="hidden" class="form-control" id="id_surat" name="id_surat"  value="<?= $detail->id_surat ?>">
+                        <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat"  value="<?= $detail->id_permohonan_surat; ?>">
                 </div>
                 <div class="card-footer">
                     <div class="float-right">

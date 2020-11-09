@@ -145,7 +145,7 @@
 										<div class="col-sm-8">
 											<div class="form-line">
 												<select class="form-control" id="kembar_ke" name="kembar_ke">
-													<option value="Jika anak kelahiran kembar..." class="form-user-input">Jika anak kelahiran kembar...</option>
+													<option value="jika anak kelahiran kembar..." class="form-user-input">Jika anak kelahiran kembar...</option>
 													<option value="1" class="form-user-input">1 </option>
 													<option value="2" class="form-user-input">2 </option>
 													<option value="3" class="form-user-input">3 </option>

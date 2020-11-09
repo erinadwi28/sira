@@ -115,7 +115,7 @@
 									<label for="Penghasilan" class="col-sm-3 col-form-label">Penghasilan/bln</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="text" class="form-control" id="penghasilan" name="penghasilan">
+											<input type="text" class="form-control" id="penghasilan" name="penghasilan" placeholder="masukkan angka penghasilan disini...">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>
@@ -128,7 +128,7 @@
 									<label for="Terbilang" class="col-sm-3 col-form-label">Terbilang</label>
 									<div class="col-sm-8">
 										<div class="form-line">
-											<input type="text" class="form-control" id="terbilang" name="terbilang">
+											<input type="text" class="form-control" id="terbilang" name="terbilang" placeholder="masukkan huruf terbilang disini... ">
 											<i class=" fas fa-check-circle"></i>
 											<i class="fas fa-exclamation-circle"></i>
 											<small>Error massage</small>

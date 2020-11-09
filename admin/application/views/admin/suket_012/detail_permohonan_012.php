@@ -39,7 +39,7 @@
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
 			<div class="card shadow mb-2">
 				<div class="card-body">
-					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_012') ?>" method="post">
+					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_012') ?>" method="post" id="suket12">
 						<div class="row">
 							<div class="col-md-12">
 								<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>

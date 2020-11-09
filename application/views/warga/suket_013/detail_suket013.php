@@ -91,7 +91,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= format_indo(date($w->tgl_permohonan_surat)); ?></td>
+								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 							<?php } ?>
 						</tbody>

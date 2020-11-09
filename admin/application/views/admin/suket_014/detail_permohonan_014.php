@@ -39,7 +39,7 @@
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
 			<div class="card shadow mb-2">
 				<div class="card-body">
-					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_014') ?>" method="post">
+					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_014') ?>" method="post" id="suket14">
 						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat</em>
                         <div class="row">
 							<div class="col-md-12">
@@ -54,38 +54,59 @@
 							<div class="col-md-1 mr-1">
 							</div>
 							<div class="col-md-01">
+								<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_tupoksi"
 									id="no_tupoksi" value="475" disabled> 
+									<small>Error Message</small>
+								</div>
 							</div>
 							<h3>/</h3>							
 							<div class="col-md-0">
-								<input type="text" class="form-control form-user-input" name="no_registrasi"
+							<div class="form-group">
+									<input type="text" class="form-control form-user-input" name="no_registrasi"
 									id="no_registrasi"> 
+									<small>Error Message</small>
+								</div>
 							</div>
 							<h3>/</h3>
 							<div class="col-md-01">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_kelurahan"
-									id="no_kelurahan" value="KM" disabled> 
+								id="no_kelurahan" value="KM" disabled> 
+								<small>Error Message</small>
+							</div> 
 							</div>
 							<h3>/</h3>
 							<div class="col-md-01">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_kecamatan"
 									id="no_kecamatan" value="AS" disabled> 
+								<small>Error Message</small>
+							</div> 
 							</div>
 							<h3>/</h3>
 							<div class="col-md-01">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_bulan"
 									id="no_bulan" value="<?php echo date("m"); ?>"> 
+								<small>Error Message</small>
+							</div>
 							</div>
 							<h3>/</h3>
 							<div class="col-md-01">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_keterangan"
-									id="no_keterangan" value="PEM" disabled> 
+									id="no_keterangan" value="PEM" disabled>
+									<small>Error Message</small>
+							</div>
 							</div>
 							<h3>/</h3>
 							<div class="col-md-0">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_tahun"
-									id="no_tahun" value="<?php echo date("Y"); ?>"> 
+									id="no_tahun" value="<?php echo date("Y"); ?>">
+								<small>Error Message</small> 
+							</div>
 							</div>
 						</div>
 

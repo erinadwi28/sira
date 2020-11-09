@@ -28,12 +28,17 @@
 								dikirim ke pemohon agar mengetahuinya</em>
 
 							<form role="form" action="<?= base_url('rt/aksi_tolak_permohonan') ?>" method="post"
-								id="formUbah">
+								id="formalasan">
 								<div class="form-row align-items-center">
 									<div class="col-md-2"></div>
 									<div class="col-md-8 mt-4 mb-2">
-										<textarea type="text" class="form-control mb-2" name="keterangan" id="keterangan"
+										<div class="form-group-surat">
+										<textarea type="text" class="form-control mb-2" name="keterangan" id="keteranganditolak"
 											placeholder="Masukan alasan disini..."></textarea>
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small> Error Message </small>
+											</div>
 										<input type="hidden" class="form-control form-user-input" name="status"
 											id="status" value="Ditolak">
 										<input type="hidden" class="form-control form-user-input"

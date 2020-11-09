@@ -45,7 +45,7 @@
 				<?php if ($detail->status == "Menunggu Persetujuan Ketua RT") { ?>
 					<div class="card shadow mb-2">
 						<div class="card-body">
-							<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_005') ?>" method="post">
+							<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_005') ?>" method="post" id="suket005">
 								<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat Ketua RT</em>
 								<div class="row">
 									<div class="col-md-12">
@@ -59,7 +59,14 @@
 
 									</div>
 									<div class="col-md-6 mb-3">
-										<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt">
+										<div class="form-group-surat">
+											<div class="form-line">
+												<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt">
+												<i class="fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small> Error Message </small>
+											</div>
+										</div>
 										<input type="hidden" class="form-control form-user-input" name="status" id="status" value="Menunggu Persetujuan Kelurahan">
 										<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $detail->id_permohonan_surat; ?>">
 									</div>

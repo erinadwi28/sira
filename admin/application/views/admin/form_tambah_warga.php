@@ -181,7 +181,6 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">

@@ -31,48 +31,68 @@
 		<?php if ($this->session->flashdata('success')) : ?>
 		<?php endif; ?>
 
-		<!-- Content Row line 1-->
-		<div class="row">
-			<div class="col-md-9 mb-4">
-				<!-- Detail Data -->
-				<?php if ($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
-					<div class="card shadow mb-2">
-						<div class="card-body">
-							<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_011') ?>" method="post">
-								<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat</em>
-								<div class="row">
-									<div class="col-md-12">
-										<center> <b><label for="nomor_surat_admin">Masukkan Nomor Surat Kelurahan Untuk
-													Menyetujui</label></b> <br>
-											<em class="small text-danger">Format Nomor Surat : 474.4 / No.Registrasi / KM /
-												Bulan / Tahun</em>
-										</center>
-									</div>
-								</div>
+	<!-- Content Row line 1-->
+	<div class="row">
+		<div class="col-md-9 mb-4">
+			<!-- Detail Data -->
+			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
+			<div class="card shadow mb-2">
+				<div class="card-body">
+					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_011') ?>" method="post" id="suket11">
+						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat</em>
+						<div class="row">
+							<div class="col-md-12">
+								<center> <b><label for="nomor_surat_admin">Masukkan Nomor Surat Kelurahan Untuk
+											Menyetujui</label></b> <br>
+									<em class="small text-danger">Format Nomor Surat : 474.4 / No.Registrasi / KM /
+										Bulan / Tahun</em>
+								</center>
+							</div>
+						</div>
 
-								<div class="row">
-									<div class="col-md-2">
-									</div>
-									<div class="col-md-03 ml-4">
-										<input type="text" class="form-control form-user-input" name="no_tupoksi" id="no_tupoksi" value="474.4" disabled>
-									</div>
-									<h3> /</h3>
-									<div class="col-md-0">
-										<input type="text" class="form-control form-user-input" name="no_registrasi" id="no_registrasi">
-									</div>
-									<h3>/</h3>
-									<div class="col-md-01">
-										<input type="text" class="form-control form-user-input" name="no_kelurahan" id="no_kelurahan" value="KM" disabled>
-									</div>
-									<h3>/</h3>
-									<div class="col-md-01">
-										<input type="text" class="form-control form-user-input" name="no_bulan" id="no_bulan" value="<?php echo date("m"); ?>">
-									</div>
-									<h3>/</h3>
-									<div class="col-md-03">
-										<input type="text" class="form-control form-user-input" name="no_tahun" id="no_tahun" value="<?php echo date("Y"); ?>">
-									</div>
-								</div>
+						<div class="row">
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-03 ml-4">
+							<div class="form-group">
+								<input type="text" class="form-control form-user-input" name="no_tupoksi"
+									id="no_tupoksi" value="474.4" disabled>
+									<small>Error Message</small>
+							</div>
+							</div>
+							<h3> /</h3>
+							<div class="col-md-0">
+							<div class="form-group">
+										<input type="text" class="form-control form-user-input" name="no_registrasi"
+										id="no_registrasi"> 
+										<small>Error Message</small>
+							</div> 
+							</div>
+							<h3>/</h3>
+							<div class="col-md-01">
+							<div class="form-group">
+								<input type="text" class="form-control form-user-input" name="no_kelurahan"
+								id="no_kelurahan" value="KM" disabled> 
+								<small>Error Message</small>
+							</div> 
+							</div>
+							<h3>/</h3>
+							<div class="col-md-01">
+							<div class="form-group">
+								<input type="text" class="form-control form-user-input" name="no_bulan"
+									id="no_bulan" value="<?php echo date("m"); ?>"> 
+								<small>Error Message</small> 
+							</div>
+							</div>
+							<h3>/</h3>
+							<div class="col-md-03">
+							<div class="form-group">
+								<input type="text" class="form-control form-user-input" name="no_tahun"
+									id="no_tahun" value="<?php echo date("Y"); ?>">
+								<small>Error Message</small> 
+							</div>
+							</div>
+						</div>
 
 								<div class="row">
 									<div class="col-md-12">

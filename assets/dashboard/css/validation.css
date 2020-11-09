@@ -1,7 +1,7 @@
 .form-line i {
 	position: absolute;
 	top: 10px;
-	right: 46px;
+	right: 36px;
 	visibility: hidden;
 }
 
@@ -61,7 +61,7 @@
 	color: #2ecc71;
 	visibility: visible;
 	top: 10px;
-	left: 410px;
+	left: 495px;
 
 }
 
@@ -93,8 +93,7 @@
 	color: #e74c3c;
 	visibility: visible;
 	top: 10px;
-	left: 410px;
-
+	left: 495px;
 }
 
 .form-line.errormsg small {

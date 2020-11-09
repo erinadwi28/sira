@@ -144,9 +144,9 @@
 									</div>
 								</div>
 							</div>
-							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="9">
-							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
-							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat"  value="9">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga"  value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status"  value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">

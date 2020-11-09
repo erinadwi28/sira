@@ -49,7 +49,20 @@
 
         .no_surat {
             font-weight: bold;
-            font-size: 14pt;
+            font-size: 12pt;
+        }
+
+        .col-6a {
+            margin-left: 0px;
+        }
+
+        .kepada {
+            font-family: 'Book Antiqua';
+            font-size: 12pt;
+        }
+
+        .col-6b {
+            margin-left: 400px;
         }
 
         .paragraf {
@@ -106,7 +119,7 @@
             position: absolute;
             float: left;
             margin-top: 145px;
-			margin-right: -535px;
+            margin-right: -535px;
         }
     </style>
 
@@ -129,46 +142,101 @@
                                         <img class="img-fluid" alt="logo_kop_surat" src="<?= base_url('assets/dashboard/') ?>img/KOP.png">
                                     </object>
                                 </div>
-                            </div>
+                            </div> <br>
                             <!-- <hr class="hr_kop"> -->
                             <div class="badan_surat">
-                                <div class="no_surat">
-                                    <?php
-                                    foreach ($detail_suket as $w) {
-                                    ?>
-                                        <?php
-                                        if ($w->no_bulan == 1) {
-                                            $bulan = 'I';
-                                        } elseif ($w->no_bulan == 2) {
-                                            $bulan = 'II';
-                                        } elseif ($w->no_bulan == 3) {
-                                            $bulan = 'III';
-                                        } elseif ($w->no_bulan == 4) {
-                                            $bulan = 'IV';
-                                        } elseif ($w->no_bulan == 5) {
-                                            $bulan = 'V';
-                                        } elseif ($w->no_bulan == 6) {
-                                            $bulan = 'VI';
-                                        } elseif ($w->no_bulan == 7) {
-                                            $bulan = 'VII';
-                                        } elseif ($w->no_bulan == 8) {
-                                            $bulan = 'VIII';
-                                        } elseif ($w->no_bulan == 9) {
-                                            $bulan = 'IX';
-                                        } elseif ($w->no_bulan == 10) {
-                                            $bulan = 'X';
-                                        } elseif ($w->no_bulan == 11) {
-                                            $bulan = 'XI';
-                                        } elseif ($w->no_bulan == 12) {
-                                            $bulan = 'XII';
-                                        } else {
-                                            $bulan = '';
-                                        } ?>
-                                        <center>
-                                            <p><u>SURAT KETERANGAN IZIN KERAMAIAN</u><br>
-                                                Nomor : <?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
-                                        </center>
+                                <div class="row-md6">
+                                    <div class="col-6a">
+                                        <div class="no_surat">
+                                            <?php
+                                            foreach ($detail_suket as $w) {
+                                            ?>
+                                                <?php
+                                                if ($w->no_bulan == 1) {
+                                                    $bulan = 'I';
+                                                } elseif ($w->no_bulan == 2) {
+                                                    $bulan = 'II';
+                                                } elseif ($w->no_bulan == 3) {
+                                                    $bulan = 'III';
+                                                } elseif ($w->no_bulan == 4) {
+                                                    $bulan = 'IV';
+                                                } elseif ($w->no_bulan == 5) {
+                                                    $bulan = 'V';
+                                                } elseif ($w->no_bulan == 6) {
+                                                    $bulan = 'VI';
+                                                } elseif ($w->no_bulan == 7) {
+                                                    $bulan = 'VII';
+                                                } elseif ($w->no_bulan == 8) {
+                                                    $bulan = 'VIII';
+                                                } elseif ($w->no_bulan == 9) {
+                                                    $bulan = 'IX';
+                                                } elseif ($w->no_bulan == 10) {
+                                                    $bulan = 'X';
+                                                } elseif ($w->no_bulan == 11) {
+                                                    $bulan = 'XI';
+                                                } elseif ($w->no_bulan == 12) {
+                                                    $bulan = 'XII';
+                                                } else {
+                                                    $bulan = '';
+                                                } ?>
+
+                                                <table class="table-responsive">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Nomor</td>
+                                                            <td></td>
+                                                            <td>:</td>
+                                                            <td><?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></td>
+                                                            <td></td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>Kepada</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Lampiran</td>
+                                                            <td></td>
+                                                            <td>:</td>
+                                                            <td>Foto KTP</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>Yth.Kepala Kepolisian Resort</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Perihal</td>
+                                                            <td></td>
+                                                            <td>:</td>
+                                                            <td>Permohonan izin keramaian</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>Di Pangkalan Bun</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                    </div>
                                 </div>
+
+
                                 <div class="isi_surat paragraf">
                                     <p> Yang bertanda tangan dibawah ini, Lurah Mendawai, Kecamatan Arut
                                         Selatan, Kabupaten Kotawaringin Barat, Provinsi Kalimantan Tengah : </p>
@@ -176,7 +244,7 @@
                                 <div class="isi_surat identitas">
                                     <table class="table-responsive">
                                         <?php
-                                        foreach ($data_kades as $k) {
+                                                foreach ($data_kades as $k) {
                                         ?>
                                             <tbody>
                                                 <tr>
@@ -257,18 +325,11 @@
                                                 <td><?= $w->nama_kegiatan; ?></td>
                                             </tr>
                                             <tr>
-                                                <td><b>Hari</b></td>
+                                                <td><b>Hari,Tgl</b></td>
                                                 <td> </td>
                                                 <td> </td>
                                                 <td>:</td>
-                                                <td><?= $w->hari_kegiatan; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Tanggal</b></td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td>:</td>
-                                                <td><?= format_indo(date($w->tanggal_kegiatan)); ?></td>
+                                                <td><?= $w->hari_kegiatan; ?>, <?= format_indo(date($w->tanggal_kegiatan)); ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Tempat</b></td>

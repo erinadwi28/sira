@@ -16,7 +16,7 @@
                     foreach ($detail_pengikut as $detail) {
 
                     ?>
-                        <form class="form-horizontal" id="form_tambah_pengikut_suket012" action="<?= base_url('warga/aksi_ubah_pengikut') ?>" method="POST">
+                        <form class="form-horizontal" id="form_ubah_pengikut_suket012" action="<?= base_url('warga/aksi_ubah_pengikut') ?>" method="POST">
                             <div class="form-group">
                                 <div class="form-group" style="margin-top: 15px;">
                                     <div class="form-group">
@@ -24,8 +24,11 @@
                                             <label for="Nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                             <div class="col-sm-8">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" placeholder="masukan nama... " id="nama" name="nama" value="<?= $detail->nama; ?>" required="">
-                                                </div>
+                                                    <input type="text" class="form-control" placeholder="masukan nama... " id="nama" name="nama" value="<?= $detail->nama; ?>" >
+													<i class="fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -34,7 +37,10 @@
                                             <label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
                                             <div class="col-sm-8">
                                                 <div class="form-line focused">
-                                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukan tempat lahir... " value="<?= $detail->tempat_lahir; ?>" required="">
+													<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="masukan tempat lahir... " value="<?= $detail->tempat_lahir; ?>" >
+													<i class="fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -44,7 +50,10 @@
                                             <label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                             <div class="col-sm-8">
                                                 <div class="form-line">
-                                                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukan tanggal lahir... " value="<?= $detail->tanggal_lahir; ?>" required="">
+													<input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukan tanggal lahir... " value="<?= $detail->tanggal_lahir; ?>" >
+													<i class="fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +83,10 @@
                                             <label for="umur" class="col-sm-3 col-form-label">Umur</label>
                                             <div class="col-sm-8">
                                                 <div class="form-line focused">
-                                                    <input type="text" class="form-control" id="umur" name="umur" placeholder="masukan umur..." value="<?= $detail->umur; ?>" required="">
+													<input type="text" class="form-control" id="umur" name="umur" placeholder="masukan umur..." value="<?= $detail->umur; ?>" >
+													<i class="fas fa-check-circle"></i>
+													<i class="fas fa-exclamation-circle"></i>
+													<small>Error massage</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,7 +159,10 @@
                                                 <label for="Nama_ortu" class="col-sm-3 col-form-label">Nama Ortu</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-line focused">
-                                                        <input type="text" class="form-control" id="nama_ortu" name="nama_ortu" placeholder="masukan nama orang tua... " value="<?= $detail->nama_ortu; ?>" required="">
+														<input type="text" class="form-control" id="nama_ortu" name="nama_ortu" placeholder="masukan nama orang tua... " value="<?= $detail->nama_ortu; ?>" >
+														<i class="fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Error massage</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,7 +188,10 @@
                                                             </option>
                                                             <option value="Pembantu" <?= ($detail->status_hub_kk == 'Pembantu' ? 'selected' : ''); ?> class="form-user-input">Pembantu
                                                             </option>
-                                                        </select>
+														</select>
+														<i class="fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Error massage</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,8 +199,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
-                            <input type="hidden" class="form-control" id="id_pengikut" name="id_pengikut" required="" value="<?= $detail->id_pengikut; ?>">
+                            <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat"  value="<?= $detail->id_permohonan_surat; ?>">
+                            <input type="hidden" class="form-control" id="id_pengikut" name="id_pengikut"  value="<?= $detail->id_pengikut; ?>">
                 </div>
                 <div class="card-footer">
                     <div class="float-right">

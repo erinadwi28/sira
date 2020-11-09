@@ -16,16 +16,45 @@
 	border-color: #2ecc71;
 }
 
+
+.form-line.errormsg input {
+	border-color: #e74c3c;
+}
+
 .form-line.success textarea {
 	border-color: #2ecc71;
+}
+
+.form-line.errormsg textarea {
+	border-color: #e74c3c;
 }
 
 .form-line.success select {
 	border-color: #2ecc71;
 }
 
+.form-line.errormsg select {
+	border-color: #e74c3c;
+}
+
 .custom-select.success {
 	border-color: #2ecc71;
+}
+
+.custom-file-input.success {
+	border-color: #2ecc71;
+}
+
+.custom-file-input.errormsg {
+	border-color: #e74c3c;
+}
+
+.custom-file-input.errormsg {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	left: 410px;
+
 }
 
 .form-line.success i.fa-check-circle {
@@ -36,18 +65,6 @@
 
 }
 
-.form-line.errormsg input {
-	border-color: #e74c3c;
-}
-
-.form-line.errormsg textarea {
-	border-color: #e74c3c;
-}
-
-.form-line.errormsg select {
-	border-color: #e74c3c;
-}
-
 .form-line.errormsg i.fa-exclamation-circle {
 	color: #e74c3c;
 	visibility: visible;
@@ -56,7 +73,39 @@
 
 }
 
+.custom-file-input.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 10px;
+	left: 410px;
+
+}
+
+.form-line.custom-file-input.errormsg i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	left: 410px;
+
+}
+
+.form-line-upload.custom-file-input.errormsg i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	left: 410px;
+
+}
+
 .form-line.errormsg small {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: small;
+	margin-left: 20px;
+	margin-bottom: -18px;
+}
+
+.form-line-upload.errormsg small {
 	color: #e74c3c;
 	visibility: visible;
 	font-size: small;

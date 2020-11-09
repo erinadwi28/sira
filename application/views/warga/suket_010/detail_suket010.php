@@ -29,168 +29,168 @@
 								<td><b>Nama Anak</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_anak ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->hari_lahir ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_lahir ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Jam Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->jam_lahir ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->jenis_kelamin ?></td>
 							</tr>
 							<tr>
 								<td><b>Kelahiran</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kelahiran ?></td>
 							</tr>
 							<tr>
 								<td><b>Kembar ke</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kembar_ke ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Bersalin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_persalinan ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat Persalinan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->alamat_persalinan ?></td>
 							</tr>
 							<tr>
 								<td><b>Penolong Bersalin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->penolong_persalinan ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat Ibu </b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->alamat_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_lahir_ibu)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->umur_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Kewarganegaraan Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kewarganegaraan_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_ayah ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_lahir_ayah)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->umur_ayah ?></td>
 							</tr>
 							<tr>
 								<td><b>Kewarganegaraan Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kewarganegaraan_ayah ?></td>
 							</tr>
 							<tr>
 								<td><b>No. KK</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->no_kk ?></td>
 							</tr>
 							<tr>
 								<td><b>No. KTP</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->no_ktp ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Pemohon</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_pemohon ?></td>
 							</tr>
 							<tr>
 								<td><b>Hubungan dgn Bayi</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->hubungan_dengan_bayi ?></td>
 							</tr>
 
@@ -199,7 +199,7 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 							<?php if($d->keterangan != null) { ?>
@@ -207,7 +207,7 @@
 								<td><b>Keterangan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $d->keterangan; ?></td>
 							</tr>
 							<?php } ?>
@@ -218,7 +218,7 @@
 								<td><b>Nomor Surat Kelurahan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>
 								</td>
 							</tr>
@@ -229,7 +229,7 @@
 								<td><b>Nomor Surat Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nomor_surat_rt; ?></td>
 							</tr>
 							<?php } ?>
@@ -299,168 +299,168 @@
 								<td><b>Nama Anak</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_anak ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->hari_lahir ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_lahir ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Jam Lahir</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->jam_lahir ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->jenis_kelamin ?></td>
 							</tr>
 							<tr>
 								<td><b>Kelahiran</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kelahiran ?></td>
 							</tr>
 							<tr>
 								<td><b>Kembar ke</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kembar_ke ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Bersalin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_persalinan ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat Persalinan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->alamat_persalinan ?></td>
 							</tr>
 							<tr>
 								<td><b>Penolong Bersalin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->penolong_persalinan ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat Ibu </b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->alamat_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_lahir_ibu)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->umur_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Kewarganegaraan Ibu</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kewarganegaraan_ibu ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_ayah ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_lahir_ayah)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->umur_ayah ?></td>
 							</tr>
 							<tr>
 								<td><b>Kewarganegaraan Ayah</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->kewarganegaraan_ayah ?></td>
 							</tr>
 							<tr>
 								<td><b>No. KK</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->no_kk ?></td>
 							</tr>
 							<tr>
 								<td><b>No. KTP</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->no_ktp ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Pemohon</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_pemohon ?></td>
 							</tr>
 							<tr>
 								<td><b>Hubungan dgn Bayi</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->hubungan_dengan_bayi ?></td>
 							</tr>
 							
@@ -470,7 +470,7 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 
@@ -499,7 +499,7 @@
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } elseif($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null ) { ?>
@@ -517,7 +517,7 @@
 								<td><b>Keterangan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $d->keterangan; ?></td>
 							</tr>
 							<?php } ?>
@@ -528,7 +528,7 @@
 								<td><b>Nomor Surat Kelurahan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>
 								</td>
 							</tr>
@@ -539,7 +539,7 @@
 								<td><b>Nomor Surat Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nomor_surat_rt; ?></td>
 							</tr>
 							<?php } ?>

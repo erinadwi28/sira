@@ -1,19 +1,42 @@
 const form = document.getElementById("form");
 const form1 = document.getElementById("form1");
+const form1_ubah_suket = document.getElementById("form_ubah_suket001");
 const form2 = document.getElementById("form2");
+const form2_ubah_suket = document.getElementById("form_ubah_suket002");
 const form3 = document.getElementById("form3");
+const form3_ubah_suket = document.getElementById("form_ubah_suket003");
 const form4 = document.getElementById("form4");
+const form4_ubah_suket = document.getElementById("form_ubah_suket004");
 const form5 = document.getElementById("form5");
+const form5_ubah_suket = document.getElementById("form_ubah_suket005");
 const form6 = document.getElementById("form6");
+const form6_ubah_suket = document.getElementById("form_ubah_suket006");
 const form7 = document.getElementById("form7");
+const form7_ubah_suket = document.getElementById("form_ubah_suket007");
 const form8 = document.getElementById("form8");
+const form8_ubah_suket = document.getElementById("form_ubah_suket008");
 const form9 = document.getElementById("form9");
+const form9_ubah_suket = document.getElementById("form_ubah_suket009");
 const form10 = document.getElementById("form10");
+const form10_ubah_suket = document.getElementById("form_ubah_suket010");
 const form11 = document.getElementById("form11");
-const form12 = document.getElementById("form12");
-const form13 = document.getElementById("form13");
-const form14 = document.getElementById("form14");
+const form11_ubah_suket = document.getElementById("form_ubah_suket011");
 
+const form12 = document.getElementById("form12");
+const form_tambah_pengikut_suket012 = document.getElementById("form_tambah_pengikut_suket012");
+const form12_ubah_suket = document.getElementById("form_ubah_suket012");
+const form12_ubah_pengikut = document.getElementById("form_ubah_pengikut_suket012");
+
+const form13 = document.getElementById("form13");
+const form13_ubah_suket = document.getElementById("form_ubah_suket013");
+
+const form14 = document.getElementById("form14");
+const form_tambah_pengikut_suket014 = document.getElementById("form_tambah_pengikut_suket014");
+const form14_ubah_suket = document.getElementById("form_ubah_suket014");
+const form14_ubah_pengikut = document.getElementById("form_ubah_pengikut_suket014");
+
+
+//suket01
 const nama = document.getElementById("nama");
 const jenis_kelamin = document.getElementById("jenis_kelamin");
 const tempat_lahir = document.getElementById("tempat_lahir");
@@ -21,24 +44,25 @@ const tanggal_lahir = document.getElementById("tanggal_lahir");
 const pekerjaan = document.getElementById("pekerjaan");
 const alamat = document.getElementById("alamat");
 const usaha = document.getElementById("nama_usaha");
-
+//suket02
 const agama = document.getElementById("agama");
 const alamat_tinggal = document.getElementById("alamat_tinggal");
 const alamat_kk = document.getElementById("alamat_kk");
 const keperluan = document.getElementById("keperluan");
-
+//suket03
 const nama_benar = document.getElementById("nama_benar");
 const dokumen_benar = document.getElementById("dokumen_benar");
 const nama_salah = document.getElementById("nama_salah");
 const dokumen_salah = document.getElementById("dokumen_salah");
-
+//suket04
 const nama_kegiatan = document.getElementById("nama_kegiatan");
 const hari_kegiatan = document.getElementById("hari_kegiatan");
 const tempat_kegiatan = document.getElementById("tempat_kegiatan");
 const tanggal_kegiatan = document.getElementById("tanggal_kegiatan");
 const jam_kegiatan = document.getElementById("jam_kegiatan");
-const foto_ktp = document.getElementById("foto_ktp");
+const file_upload_profil = document.getElementsByClassName("custom-file-input");
 
+//suket05
 const nama_istri = document.getElementById("nama_istri");
 const tempat_lahir_istri = document.getElementById("tempat_lahir_istri");
 const tanggal_lahir_istri = document.getElementById("tanggal_lahir_istri");
@@ -48,7 +72,7 @@ const tempat_lahir_suami = document.getElementById("tempat_lahir_suami");
 const tanggal_lahir_suami = document.getElementById("tanggal_lahir_suami");
 const pekerjaan_suami = document.getElementById("pekerjaan_suami");
 const alasan = document.getElementById("alasan");
-
+//suket06
 const nama_alm = document.getElementById("nama_alm");
 const tempat_meninggal = document.getElementById("tempat_meninggal");
 const umur = document.getElementById("umur");
@@ -56,7 +80,7 @@ const tempat_kediaman = document.getElementById("tempat_kediaman");
 const hari_meninggal = document.getElementById("hari_meninggal");
 const tanggal_meninggal = document.getElementById("tanggal_meninggal");
 const alasan_meninggal = document.getElementById("alasan_meninggal");
-
+//suket07
 const nama_anak = document.getElementById("nama_anak");
 const hari_lahir = document.getElementById("hari_lahir");
 const jam_lahir = document.getElementById("jam_lahir");
@@ -77,7 +101,7 @@ const kewarganegaraan_ayah = document.getElementById("kewarganegaraan_ayah");
 const no_ktp = document.getElementById("no_ktp");
 const nama_pemohon = document.getElementById("nama_pemohon");
 const hubungan_dengan_bayi = document.getElementById("hubungan_dengan_bayi");
-
+//suket08
 const nik = document.getElementById("nik");
 const rt = document.getElementById("rt");
 const kelurahan = document.getElementById("kelurahan");
@@ -88,13 +112,11 @@ const no_kk = document.getElementById("no_kk");
 const tanggal_tinggal = document.getElementById("tanggal_tinggal");
 const pas_foto = document.getElementById("pas_foto");
 const foto_kk = document.getElementById("foto_kk");
-
+//suket09
 const kewarganegaraaan = document.getElementById("kewarganegaraan");
 const kepindahan_dari = document.getElementById("kepindahan_dari");
 const jumlah_pengikut = document.getElementById("jumlah_pengikut");
-
-
-
+//suket10
 const alamat_asal = document.getElementById("alamat_asal");
 const tanggal_kk = document.getElementById("tanggal_kk");
 const alamat_pindah = document.getElementById("alamat_pindah");
@@ -103,7 +125,7 @@ const kecamatan_pindah = document.getElementById("kecamatan_pindah");
 const kabupaten_pindah = document.getElementById("kabupaten_pindah");
 const provinsi_pindah = document.getElementById("provinsi_pindah");
 const tanggal_pindah = document.getElementById("tanggal_pindah");
-
+//suket//11
 const formubah = document.getElementById("formUbah");
 const nikwarga = document.getElementById("nik");
 const namawarga = document.getElementById("nama");
@@ -127,19 +149,26 @@ const kata_sandiwarga = document.getElementById("kata_sandi");
 
 const tanggal_permohonan = document.getElementById("tanggal_permohonan");
 
-const tempat = document.getElementById("tempat")
-const jam = document.getElementById("jam")
-const file_upload_profile = document.getElementById("file-upload-profil")
+const tempat = document.getElementById("tempat");
+const jam = document.getElementById("jam");
+const file_upload_profile = document.getElementById("file-upload-profil");
 
-const no_surat_pindah = document.getElementById("no_surat_pindah")
-const tgl_surat_pindah = document.getElementById("tgl_surat_pindah")
+//suket12
+const no_surat_pindah = document.getElementById("no_surat_pindah");
+const tgl_surat_pindah = document.getElementById("tgl_surat_pindah");
+const nama_pengikut = document.getElementById("nama");
+const nama_ortu = document.getElementById("nama_ortu");
+const status_hub_kk = document.getElementById("status_hub_kk");
 
+//suket 13
 const penghasilan = document.getElementById("penghasilan");
-const terbilang = document.getElementById("terbilang")
+const terbilang = document.getElementById("terbilang");
+//suket 14
 
 const alasan_pindah = document.getElementById("alasan_pindah")
 
 
+// validasi untuk surat
 if (form1 != null) {
 	form1.addEventListener("submit", (e) => {
 		if (checkInput1() == true) {
@@ -239,14 +268,140 @@ if (form1 != null) {
 		} else
 			e.preventDefault();
 	});
-} else if (formubah != null) {
-	formubah.addEventListener("submit", (e) => {
-		if (checkInputsWarga() == true) {
+}
+//validasi ubah suket
+else if (form1_ubah_suket != null) {
+	form1_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput1() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form2_ubah_suket != null) {
+	form2_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput2() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form3_ubah_suket != null) {
+	form3_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput3() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form4_ubah_suket != null) {
+	form4_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput4() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form5_ubah_suket != null) {
+	form5_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput5() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form6_ubah_suket != null) {
+	form6_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput6() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form7_ubah_suket != null) {
+	form7_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput7() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form8_ubah_suket != null) {
+	form8_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput8() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form9_ubah_suket != null) {
+	form9_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput9() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form10_ubah_suket != null) {
+	form10_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput10() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form11_ubah_suket != null) {
+	form11_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput11() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form12_ubah_suket != null) {
+	form12_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput12() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form13_ubah_suket != null) {
+	form13_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput13() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form14_ubah_suket != null) {
+	form14_ubah_suket.addEventListener("submit", (e) => {
+		if (checkInput14() == true) {
 			e.target.submit();
 		} else
 			e.preventDefault();
 	});
 }
+// validasi tambah pengikut
+else if (form_tambah_pengikut_suket012 != null) {
+	form_tambah_pengikut_suket012.addEventListener("submit", (e) => {
+		if (checkInputTambahPengikut12() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form_tambah_pengikut_suket014 != null) {
+	form_tambah_pengikut_suket014.addEventListener("submit", (e) => {
+		if (checkInputTambahPengikut14() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+}
+// validasi ubah pengikut
+else if (form12_ubah_pengikut != null) {
+	form12_ubah_pengikut.addEventListener("submit", (e) => {
+		if (checkInputTambahPengikut12() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+} else if (form14_ubah_pengikut != null) {
+	form14_ubah_pengikut.addEventListener("submit", (e) => {
+		if (checkInputTambahPengikut14() == true) {
+			e.target.submit();
+		} else
+			e.preventDefault();
+	});
+}
+
 
 
 
@@ -444,7 +599,7 @@ function checkInput4() {
 	} else {
 		setSuccessFor(nama_benar);
 	}
-	if (nama_dokumen_benarValue === "KTP, KK, Ijazah dll...") {
+	if (nama_dokumen_benarValue === "") {
 		setErrorFor(nama_dokumen_benar, "Dokumen benar tidak boleh kosong");
 		return (false);
 	} else {
@@ -456,7 +611,7 @@ function checkInput4() {
 	} else {
 		setSuccessFor(nama_salah);
 	}
-	if (nama_dokumen_salahValue === "KTP, KK, Ijazah dll...") {
+	if (nama_dokumen_salahValue === "") {
 		setErrorFor(nama_dokumen_salah, "Dokumen salah tidak boleh kosong");
 		return (false);
 
@@ -499,7 +654,6 @@ function checkInput5() {
 	const hari_kegiatanValue = hari_kegiatan.value.trim();
 	const tanggal_kegiatanValue = tanggal_kegiatan.value.trim();
 	const tempatValue = tempat.value.trim();
-	
 	const jamValue = jam.value.trim();
 	const file_upload_profileValue = file_upload_profile.value.trim();
 
@@ -534,37 +688,37 @@ function checkInput5() {
 	} else {
 		setSuccessFor(nama_kegiatan);
 	}
-	if (hari_kegiatanValue === "Pilih Hari") {
+	if (hari_kegiatanValue === "pilih hari...") {
 		setErrorFor(hari_kegiatan, "Hari kegiatan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(hari_kegiatan);
 	}
 	if (tanggal_kegiatanValue === "") {
-		setErrorFor(tanggal_kegiatan, " tidak boleh kosong");
+		setErrorFor(tanggal_kegiatan, "Tanggal kegiatan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(tanggal_kegiatan);
 
 	}
 	if (tempatValue === "") {
-		setErrorFor(tempat, " tidak boleh kosong");
+		setErrorFor(tempat, "Tempat tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(tempat);
 	}
 	if (jamValue === "") {
-		setErrorFor(jam, " tidak boleh kosong");
+		setErrorFor(jam, "Jam tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(jam);
 	}
-	// if (file_upload_profileValue === "Upload Foto KTP") {
-	// 	setErrorFor(file_upload_profile, " tidak boleh kosong");
-	// 	return (false);
-	// } else {
-	// 	setSuccessFor(file_upload_profile);
-	// }
+	if (file_upload_profileValue === "") {
+		setErrorFor(file_upload_profile, "Foto KTP tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(file_upload_profile);
+	}
 	return (true);
 }
 
@@ -733,7 +887,7 @@ function checkInput8() {
 	} else {
 		setSuccessFor(tanggal_lahir_suami);
 	}
-	if (pekerjaan_suamiValue === "Pekerjaan Suami...") {
+	if (pekerjaan_suamiValue === "") {
 		setErrorFor(pekerjaan_suami, "Pekerjaan suami tidak boleh kosong");
 		return (false);
 	} else {
@@ -765,7 +919,7 @@ function checkInput9() {
 	} else {
 		setSuccessFor(nama_alm);
 	}
-	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
 		return (false);
 	} else {
@@ -789,7 +943,7 @@ function checkInput9() {
 	} else {
 		setSuccessFor(tempat_kediaman);
 	}
-	if (hari_meninggalValue === "Pilih hari meninggal...") {
+	if (hari_meninggalValue === "pilih hari meninggal...") {
 		setErrorFor(hari_meninggal, "Hari meninggal tidak boleh kosong");
 		return (false);
 	} else {
@@ -843,7 +997,7 @@ function checkInput10() {
 	} else {
 		setSuccessFor(nama_anak);
 	}
-	if (hari_lahirValue === "Pilih hari lahir...") {
+	if (hari_lahirValue === "pilih hari lahir...") {
 		setErrorFor(hari_lahir, "Hari lahir tidak boleh kosong");
 		return (false);
 	} else {
@@ -867,38 +1021,38 @@ function checkInput10() {
 	} else {
 		setSuccessFor(jam_lahir);
 	}
-	if (jenis_kelaminValue === "Pilih jenis kelamin...") {
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
-	if (kelahiranValue === "Pilih kelahiran...") {
+	if (kelahiranValue === "pilih kelahiran...") {
 		setErrorFor(kelahiran, "Kelahiran tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(kelahiran);
 	}
-	if (kembar_keValue === "Jika anak kelahiran kembar...") {
+	if (kembar_keValue === "jika anak kelahiran kembar...") {
 		setErrorFor(kembar_ke, "Diisi sesuai kelahiran");
-		return(false);
+		return (false);
 	} else {
 		setSuccessFor(kembar_ke);
 	}
-	if (tempat_persalinanValue === "Pilih tempat bersalin...") {
+	if (tempat_persalinanValue === "pilih tempat bersalin...") {
 		setErrorFor(tempat_persalinan, "Tempat bersalin tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(tempat_persalinan);
 	}
 	if (alamat_persalinanValue === "") {
-		setErrorFor(alamat_persalinan, "alamat bersalin tidak boleh kosong");
+		setErrorFor(alamat_persalinan, "Alamat bersalin tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(alamat_persalinan);
 	}
-	if (penolong_persalinanValue === "Pilih penolong bersalin...") {
-		setErrorFor(penolong_persalinan, "penolong bersalin tidak boleh kosong");
+	if (penolong_persalinanValue === "pilih penolong bersalin...") {
+		setErrorFor(penolong_persalinan, "Penolong bersalin tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(penolong_persalinan);
@@ -927,7 +1081,7 @@ function checkInput10() {
 	} else {
 		setSuccessFor(umur_ibu);
 	}
-	if (kewarganegaraan_ibuValue === "Pilih kewarganegaraan ibu...") {
+	if (kewarganegaraan_ibuValue === "pilih kewarganegaraan ibu...") {
 		setErrorFor(kewarganegaraan_ibu, "Kewarganegaraan ibu tidak boleh kosong");
 		return (false);
 	} else {
@@ -940,22 +1094,22 @@ function checkInput10() {
 		setSuccessFor(nama_ayah);
 	}
 	if (tanggal_lahir_ayahValue === "") {
-		setErrorFor(tanggal_lahir_ayah , "Tanggal lahir ayah tidak boleh kosong");
+		setErrorFor(tanggal_lahir_ayah, "Tanggal lahir ayah tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(tanggal_lahir_ayah );
+		setSuccessFor(tanggal_lahir_ayah);
 	}
 	if (umur_ayahValue === "") {
-		setErrorFor(umur_ayah , "Umur ayah  tidak boleh kosong");
+		setErrorFor(umur_ayah, "Umur ayah  tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(umur_ayah );
+		setSuccessFor(umur_ayah);
 	}
-	if (kewarganegaraan_ayahValue === "Pilih kewarganegaraan ayah...") {
-		setErrorFor(kewarganegaraan_ayah , "Kewarganegaraan ayah tidak boleh kosong");
+	if (kewarganegaraan_ayahValue === "pilih kewarganegaraan ayah...") {
+		setErrorFor(kewarganegaraan_ayah, "Kewarganegaraan ayah tidak boleh kosong");
 		return (false);
 	} else {
-		setSuccessFor(kewarganegaraan_ayah );
+		setSuccessFor(kewarganegaraan_ayah);
 	}
 	if (no_kkValue === "") {
 		setErrorFor(no_kk, "No. kk pemohon tidak boleh kosong");
@@ -993,14 +1147,15 @@ function checkInput11() {
 	const kecamatanValue = kecamatan.value.trim();
 	const jenis_kelaminValue = jenis_kelamin.value.trim();
 	const agamaValue = agama.value.trim();
+	const pekerjaanValue = pekerjaan.value.trim();
 	const tempat_lahirValue = tempat_lahir.value.trim();
 	const tanggal_lahirValue = tanggal_lahir.value.trim();
 	const status_perkawinanValue = status_perkawinan.value.trim();
 	const golongan_darahValue = golongan_darah.value.trim();
 	const no_kkValue = no_kk.value.trim();
 	const tanggal_tinggalValue = tanggal_tinggal.value.trim();
-	const no_surat_pindahValue = no_surat_pindah.value.trim();
-	const tgl_surat_pindahValue = tgl_surat_pindah.value.trim();
+	// const no_surat_pindahValue = no_surat_pindah.value.trim();
+	// const tgl_surat_pindahValue = tgl_surat_pindah.value.trim();
 
 
 	if (nikValue === "") {
@@ -1051,6 +1206,12 @@ function checkInput11() {
 	} else {
 		setSuccessFor(agama);
 	}
+	if (pekerjaanValue === "") {
+		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(pekerjaan);
+	}
 	if (tempat_lahirValue === "") {
 		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
 		return (false);
@@ -1087,18 +1248,18 @@ function checkInput11() {
 	} else {
 		setSuccessFor(tanggal_tinggal);
 	}
-	if (no_surat_pindahValue === "") {
-		setErrorFor(no_surat_pindah, "Nomor surat tidak boleh kosong");
-		return (false);
-	} else {
-		setSuccessFor(no_surat_pindah);
-	}
-	if (tgl_surat_pindahValue === "") {
-		setErrorFor(tgl_surat_pindah, "Tanggal surat pindah tidak boleh kosong");
-		return (false);
-	} else {
-		setSuccessFor(tgl_surat_pindah);
-	}
+	// if (no_surat_pindahValue === "") {
+	// 	setErrorFor(no_surat_pindah, "Nomor surat tidak boleh kosong");
+	// 	return (false);
+	// } else {
+	// 	setSuccessFor(no_surat_pindah);
+	// }
+	// if (tgl_surat_pindahValue === "") {
+	// 	setErrorFor(tgl_surat_pindah, "Tanggal surat pindah tidak boleh kosong");
+	// 	return (false);
+	// } else {
+	// 	setSuccessFor(tgl_surat_pindah);
+	// }
 	return (true);
 }
 
@@ -1147,7 +1308,7 @@ function checkInput12() {
 	}
 
 	if (status_perkawinanValue === "Pilih status perkawinan...") {
-		setErrorFor(status_perkawinan, "Jenis kelamin tidak boleh kosong");
+		setErrorFor(status_perkawinan, "Status perkawinan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(status_perkawinan);
@@ -1159,19 +1320,19 @@ function checkInput12() {
 		setSuccessFor(agama);
 	}
 	if (kewarganegaraanValue === "Pilih kewarganegaraan...") {
-		setErrorFor(kewarganegaraan, "Jenis kelamin tidak boleh kosong");
+		setErrorFor(kewarganegaraan, "Kewarganegaraan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(kewarganegaraan);
 	}
 	if (pendidikan_terakhirValue === "Pilih pendidikan terakhir...") {
-		setErrorFor(pendidikan_terakhir, "Jenis kelamin tidak boleh kosong");
+		setErrorFor(pendidikan_terakhir, "Pendidikan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(pendidikan_terakhir);
 	}
 	if (pekerjaanValue === "") {
-		setErrorFor(pekerjaan, "Jenis kelamin tidak boleh kosong");
+		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(pekerjaan);
@@ -1211,6 +1372,141 @@ function checkInput12() {
 		return (false);
 	} else {
 		setSuccessFor(jumlah_pengikut);
+	}
+	return (true);
+}
+
+function checkInputTambahPengikut12() {
+	const namaValue = nama.value.trim();
+	const tempat_lahirValue = tempat_lahir.value.trim();
+	const tanggal_lahirValue = tanggal_lahir.value.trim();
+	const jenis_kelaminValue = jenis_kelamin.value.trim();
+	const umurValue = umur.value.trim();
+	const status_perkawinanValue = status_perkawinan.value.trim();
+	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
+	const nama_ortuValue = nama_ortu.value.trim();
+	const status_hub_kkValue = status_hub_kk.value.trim();
+
+	if (namaValue === "") {
+		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama);
+	}
+	if (tempat_lahirValue === "") {
+		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat_lahir);
+	}
+	if (tanggal_lahirValue === "") {
+		setErrorFor(tanggal_lahir, "Tanggal tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir);
+	}
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
+		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(jenis_kelamin);
+	}
+	if (umurValue === "") {
+		setErrorFor(umur, "Umur tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(umur);
+	}
+	if (status_perkawinanValue === "pilih status perkawinan...") {
+		setErrorFor(status_perkawinan, "status perkawinan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_perkawinan);
+	}
+	if (pendidikan_terakhirValue === "pilih pendidikan terakhir...") {
+		setErrorFor(pendidikan_terakhir, "Pendidikan terakhir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(pendidikan_terakhir);
+	}
+	if (nama_ortuValue === "") {
+		setErrorFor(nama_ortu, "Nama ortu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama_ortu);
+	}
+	if (status_hub_kkValue === "pilih status hubungan keluarga...") {
+		setErrorFor(status_hub_kk, "Status hubungan kk tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_hub_kk);
+	}
+	return (true);
+}
+function checkInputUbahPengikut12() {
+	const namaValue = nama.value.trim();
+	const tempat_lahirValue = tempat_lahir.value.trim();
+	const tanggal_lahirValue = tanggal_lahir.value.trim();
+	const jenis_kelaminValue = jenis_kelamin.value.trim();
+	const umurValue = umur.value.trim();
+	const status_perkawinanValue = status_perkawinan.value.trim();
+	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
+	const nama_ortuValue = nama_ortu.value.trim();
+	const status_hub_kkValue = status_hub_kk.value.trim();
+
+	if (namaValue === "") {
+		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama);
+	}
+	if (tempat_lahirValue === "") {
+		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat_lahir);
+	}
+	if (tanggal_lahirValue === "") {
+		setErrorFor(tanggal_lahir, "Tanggal tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir);
+	}
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
+		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(jenis_kelamin);
+	}
+	if (umurValue === "") {
+		setErrorFor(umur, "Umur tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(umur);
+	}
+	if (status_perkawinanValue === "pilih status perkawinan...") {
+		setErrorFor(status_perkawinan, "status perkawinan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_perkawinan);
+	}
+	if (pendidikan_terakhirValue === "pilih pendidikan terakhir...") {
+		setErrorFor(pendidikan_terakhir, "Pendidikan terakhir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(pendidikan_terakhir);
+	}
+	if (nama_ortuValue === "") {
+		setErrorFor(nama_ortu, "Nama ortu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama_ortu);
+	}
+	if (status_hub_kkValue === "pilih status hubungan keluarga...") {
+		setErrorFor(status_hub_kk, "Status hubungan kk tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_hub_kk);
 	}
 	return (true);
 }
@@ -1264,13 +1560,13 @@ function checkInput13() {
 		setSuccessFor(alamat_tinggal);
 	}
 	if (penghasilanValue === "") {
-		setErrorFor(penghasilan, "penghasilan tidak boleh kosong");
+		setErrorFor(penghasilan, "Nominal angka penghasilan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(penghasilan);
 	}
 	if (terbilangValue === "") {
-		setErrorFor(terbilang, "nominal penghasilan tidak boleh kosong");
+		setErrorFor(terbilang, "Nominal huruf penghasilan tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(terbilang);
@@ -1283,7 +1579,6 @@ function checkInput14() {
 	const tempat_lahirValue = tempat_lahir.value.trim();
 	const tanggal_lahirValue = tanggal_lahir.value.trim();
 	const jenis_kelaminValue = jenis_kelamin.value.trim();
-	// 
 	const agamaValue = agama.value.trim();
 	const kewarganegaraanValue = kewarganegaraaan.value.trim();
 	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
@@ -1326,7 +1621,7 @@ function checkInput14() {
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
-	
+
 	if (agamaValue === "Pilih jenis agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
 		return (false);
@@ -1352,11 +1647,11 @@ function checkInput14() {
 		setSuccessFor(pekerjaan);
 	}
 	if (status_perkawinanValue === "Pilih status perkawinan...") {
-			setErrorFor(status_perkawinan, "Status perkawinan tidak boleh kosong");
-			return (false);
-		} else {
-			setSuccessFor(status_perkawinan);
-		}
+		setErrorFor(status_perkawinan, "Status perkawinan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_perkawinan);
+	}
 
 	if (alamat_asalValue === "") {
 		setErrorFor(alamat_asal, "Alamat Asal tidak boleh kosong");
@@ -1412,8 +1707,8 @@ function checkInput14() {
 	} else {
 		setSuccessFor(tanggal_pindah);
 	}
-	if (alasan_pindahValueValue === "") {
-		setErrorFor(alasan_pindah, "Jumlah pengikut tidak boleh kosong");
+	if (alasan_pindahValue === "") {
+		setErrorFor(alasan_pindah, "Alasan pindah tidak boleh kosong");
 		return (false);
 	} else {
 		setSuccessFor(alasan_pindah);
@@ -1426,6 +1721,146 @@ function checkInput14() {
 	}
 	return (true);
 }
+
+function checkInputTambahPengikut14() {
+
+	const namaValue = nama.value.trim();
+	const tempat_lahirValue = tempat_lahir.value.trim();
+	const tanggal_lahirValue = tanggal_lahir.value.trim();
+	const jenis_kelaminValue = jenis_kelamin.value.trim();
+	const umurValue = umur.value.trim();
+	const status_perkawinanValue = status_perkawinan.value.trim();
+	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
+	const nama_ortuValue = nama_ortu.value.trim();
+	const status_hub_kkValue = status_hub_kk.value.trim();
+
+	if (namaValue === "") {
+		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama);
+	}
+	if (tempat_lahirValue === "") {
+		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat_lahir);
+	}
+	if (tanggal_lahirValue === "") {
+		setErrorFor(tanggal_lahir, "Tanggal tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir);
+	}
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
+		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(jenis_kelamin);
+	}
+	if (umurValue === "") {
+		setErrorFor(umur, "Umur tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(umur);
+	}
+	if (status_perkawinanValue === "pilih status perkawinan...") {
+		setErrorFor(status_perkawinan, "status perkawinan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_perkawinan);
+	}
+	if (pendidikan_terakhirValue === "pilih pendidikan terakhir...") {
+		setErrorFor(pendidikan_terakhir, "Pendidikan terakhir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(pendidikan_terakhir);
+	}
+	if (nama_ortuValue === "") {
+		setErrorFor(nama_ortu, "Nama ortu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama_ortu);
+	}
+	if (status_hub_kkValue === "pilih status hubungan keluarga...") {
+		setErrorFor(status_hub_kk, "Status hubungan kk tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_hub_kk);
+	}
+	return (true);
+}
+function checkInputUbahPengikut14() {
+
+	const namaValue = nama.value.trim();
+	const tempat_lahirValue = tempat_lahir.value.trim();
+	const tanggal_lahirValue = tanggal_lahir.value.trim();
+	const jenis_kelaminValue = jenis_kelamin.value.trim();
+	const umurValue = umur.value.trim();
+	const status_perkawinanValue = status_perkawinan.value.trim();
+	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
+	const nama_ortuValue = nama_ortu.value.trim();
+	const status_hub_kkValue = status_hub_kk.value.trim();
+
+	if (namaValue === "") {
+		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama);
+	}
+	if (tempat_lahirValue === "") {
+		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat_lahir);
+	}
+	if (tanggal_lahirValue === "") {
+		setErrorFor(tanggal_lahir, "Tanggal tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir);
+	}
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
+		setErrorFor(jenis_kelamin, "Jenis kelamin tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(jenis_kelamin);
+	}
+	if (umurValue === "") {
+		setErrorFor(umur, "Umur tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(umur);
+	}
+	if (status_perkawinanValue === "pilih status perkawinan...") {
+		setErrorFor(status_perkawinan, "status perkawinan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_perkawinan);
+	}
+	if (pendidikan_terakhirValue === "pilih pendidikan terakhir...") {
+		setErrorFor(pendidikan_terakhir, "Pendidikan terakhir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(pendidikan_terakhir);
+	}
+	if (nama_ortuValue === "") {
+		setErrorFor(nama_ortu, "Nama ortu tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama_ortu);
+	}
+	if (status_hub_kkValue === "pilih status hubungan keluarga...") {
+		setErrorFor(status_hub_kk, "Status hubungan kk tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(status_hub_kk);
+	}
+	return (true);
+}
+
+
+
 
 
 function setErrorFor(input, message) {

@@ -1782,7 +1782,7 @@ class Warga extends CI_Controller
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
-		$this->load->view('warga/suket_012/tambah_pengikut_suket012', $data_permohonan);
+		$this->load->view('warga/suket_012/form_tambah_pengikut_suket012', $data_permohonan);
 		$this->load->view('footer');
 	}
 
@@ -1870,7 +1870,7 @@ class Warga extends CI_Controller
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
-		$this->load->view('warga/suket_012/ubah_suket012', $data_detail);
+		$this->load->view('warga/suket_012/form_ubah_suket012', $data_detail);
 		$this->load->view('footer');
 	}
 
@@ -2126,7 +2126,7 @@ class Warga extends CI_Controller
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
-		$this->load->view('warga/suket_014/tambah_pengikut_suket014', $data_permohonan);
+		$this->load->view('warga/suket_014/form_tambah_pengikut_suket014', $data_permohonan);
 		$this->load->view('footer');
 	}
 
@@ -2231,7 +2231,7 @@ class Warga extends CI_Controller
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
-		$this->load->view('warga/suket_014/ubah_suket014', $data_detail);
+		$this->load->view('warga/suket_014/form_ubah_suket014', $data_detail);
 		$this->load->view('footer');
 	}
 
@@ -2764,7 +2764,7 @@ class Warga extends CI_Controller
 
 		$html = $this->load->view('warga/suket_011/cetak_suket011', $data_detail, true);
 		$dompdf->loadHtml($html);
-		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->setPaper('F4', 'portrait');
 		$dompdf->render();
 		$dompdf->stream('Surat Pengantar KTP');
 	}

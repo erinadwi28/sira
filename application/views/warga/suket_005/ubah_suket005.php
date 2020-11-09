@@ -24,7 +24,7 @@
             <div class="card shadow mb-5">
                 <div class="body">
 
-                    <form class="form-horizontal" id="form_suket005" enctype="multipart/form-data" action="<?= base_url('warga/aksi_ubah_suket005') ?>" method="POST">
+                    <form class="form-horizontal" id="form_ubah_suket005" enctype="multipart/form-data" action="<?= base_url('warga/aksi_ubah_suket005') ?>" method="POST">
                         <div class="form-group">
                             <div class="form-group">
                                 <div class="form-group" style="margin-top: 15px;">
@@ -32,7 +32,7 @@
                                         <label for="Nama" class="col-sm-3 col-form-label">Nama</label>
                                         <div class="col-sm-8">
                                             <div class="form-line focused">
-                                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" required="">
+                                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" >
                                                 <i class=" fas fa-check-circle"></i>
                                                 <i class="fas fa-exclamation-circle"></i>
                                                 <small>Error massage</small>
@@ -46,7 +46,7 @@
                                     <label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-8">
                                         <div class="form-line focused">
-                                            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+                                            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -59,7 +59,7 @@
                                     <label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-8">
                                         <div class="form-line">
-                                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+                                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -87,7 +87,7 @@
                                         <label for="Nama_kegiatan" class="col-sm-3 col-form-label">Nama Kegiatan</label>
                                         <div class="col-sm-8">
                                             <div class="form-line focused">
-                                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Contoh : Pernikahan,Pengajian Akbar,dll..." value="<?= $detail->nama_kegiatan ?>" required="">
+                                                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Contoh : Pernikahan,Pengajian Akbar,dll..." value="<?= $detail->nama_kegiatan ?>" >
                                                 <i class=" fas fa-check-circle"></i>
                                                 <i class="fas fa-exclamation-circle"></i>
                                                 <small>Error massage</small>
@@ -123,7 +123,7 @@
                                         Kegiatan</label>
                                     <div class="col-sm-8">
                                         <div class="form-line focused">
-                                            <input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan" placeholder="Isi Tanggal Kegiatan..." value="<?= $detail->tanggal_kegiatan ?>" required="">
+                                            <input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan" placeholder="Isi Tanggal Kegiatan..." value="<?= $detail->tanggal_kegiatan ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -149,7 +149,7 @@
                                     <label for="jam" class="col-sm-3 col-form-label">Jam Kegiatan</label>
                                     <div class="col-sm-8">
                                         <div class="form-line focused">
-                                            <input type="text" class="form-control" id="jam" name="jam" placeholder="Isi Jam Kegiatan..." value="<?= $detail->jam ?>" required="">
+                                            <input type="text" class="form-control" id="jam" name="jam" placeholder="Isi Jam Kegiatan..." value="<?= $detail->jam ?>" >
                                             <i class=" fas fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
                                             <small>Error massage</small>
@@ -158,8 +158,8 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" class="form-control" id="id_surat" name="id_surat" required="" value="<?= $detail->id_surat ?>">
-                        <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
+                        <input type="hidden" class="form-control" id="id_surat" name="id_surat"  value="<?= $detail->id_surat ?>">
+                        <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat"  value="<?= $detail->id_permohonan_surat; ?>">
                 </div>
                 <div class="card-footer">
                     <div class="float-right">

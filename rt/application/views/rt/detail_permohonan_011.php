@@ -450,8 +450,9 @@
 				<div class="card-body" style="padding: 10px;">
 					<center>
 						<div class="mb-2">
-							<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>"
-								alt="foto ktp" class="img-fluid">
+						<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>" data-title="Foto KTP" data-toggle="lightbox">
+							<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>" alt="foto ktp" class="img-fluid">
+						</a>
 						</div>
 					</center>
 
@@ -467,8 +468,9 @@
 				</div>
 				<div class="card-body" style="padding: 20px;">
 					<div class="mb-2">
-						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>"
-							alt="foto kk" class="img-fluid">
+					<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>" data-title="Foto KK" data-toggle="lightbox">
+						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>" alt="foto kk" class="img-fluid">
+					</a>	
 					</div>
 				</div>
 			</div>
@@ -482,8 +484,10 @@
 				</div>
 				<div class="card-body" style="padding: 20px;">
 					<div class="mb-2">
-						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>"
-							alt="foto kk" class="img-fluid">
+					<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>" data-title="Foto Surat Pindah" data-toggle="lightbox">
+						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>" alt="foto kk" class="img-fluid">
+					</a>
+						
 					</div>
 				</div>
 			</div>

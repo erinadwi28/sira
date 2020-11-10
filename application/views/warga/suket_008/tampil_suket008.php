@@ -140,7 +140,7 @@
 												<div class="isi_surat paragraf">
 													<p>Telah pergi meninggalkan isterinya karena <?= $w->alasan; ?>
 													</p>
-													<p>Demikian Surat Keterangan Izin Keramaian kami buat, agar dapat dipergunakan sebagaimana mestinya.</p>
+													<p>Demikian Surat Keterangan ini kami buat, agar dapat dipergunakan sebagaimana mestinya.</p>
 												</div>
 											</div>
 									</center>

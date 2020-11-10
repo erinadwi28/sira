@@ -1,4 +1,9 @@
 <?php
+
+require '../vendor/autoload.php';
+
+use Dompdf\Dompdf;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
@@ -11,7 +16,7 @@ class Admin extends CI_Controller
                 if (!$this->session->userdata('role_admin')) {
                         redirect('login');
                 }
-        } 
+        }
 
         public function index()
         {
@@ -64,7 +69,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
 
                 $detailhere = array('id_admin' => $id_admin);
-                $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere,'admin')->result();
+                $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -113,31 +118,30 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_admin');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_profil_profil_saya($_FILES);
+                        $this->aksi_upload_foto_profil_profil_saya($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/profil_saya/'.$where);
+                redirect('admin/profil_saya/' . $where);
         }
 
         //upload foto profil profil saya
         private function aksi_upload_foto_profil_profil_saya($id_admin)
         {
                 $config['upload_path']          = './../assets/uploads/admin/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_profil_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_profil_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_admin = $this->input->post('id_admin');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
                                 if ($this->upload->do_upload('file')) {
@@ -146,8 +150,8 @@ class Admin extends CI_Controller
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['foto_profil_admin'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -155,10 +159,10 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_admin', $id_admin);
-                                        $this->db->update('admin',$data);
-				}
-			}
-		}
+                                        $this->db->update('admin', $data);
+                                }
+                        }
+                }
         }
 
         // upload foto ktp profil saya
@@ -166,31 +170,30 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_admin');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_ktp_profil_saya($_FILES);
+                        $this->aksi_upload_foto_ktp_profil_saya($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/profil_saya/'.$where);
+                redirect('admin/profil_saya/' . $where);
         }
 
         // upload foto ktp profil saya
         private function aksi_upload_foto_ktp_profil_saya($id_admin)
         {
                 $config['upload_path']          = './../assets/uploads/admin/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_ktp_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_ktp_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_admin = $this->input->post('id_admin');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
                                 if ($this->upload->do_upload('file')) {
@@ -199,8 +202,8 @@ class Admin extends CI_Controller
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['foto_ktp_admin'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -208,10 +211,10 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_admin', $id_admin);
-                                        $this->db->update('admin',$data);
-				}
-			}
-		}
+                                        $this->db->update('admin', $data);
+                                }
+                        }
+                }
         }
 
         // upload foto kk profil saya
@@ -219,31 +222,30 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_admin');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_kk_profil_saya($_FILES);
+                        $this->aksi_upload_foto_kk_profil_saya($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/profil_saya/'.$where);
+                redirect('admin/profil_saya/' . $where);
         }
 
         //upload foto kk profil saya
         private function aksi_upload_foto_kk_profil_saya($id_admin)
         {
                 $config['upload_path']          = './../assets/uploads/admin/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_kk_admin-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_kk_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_admin = $this->input->post('id_admin');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
                                 if ($this->upload->do_upload('file')) {
@@ -252,8 +254,8 @@ class Admin extends CI_Controller
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['foto_kk_admin'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -261,10 +263,10 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_admin', $id_admin);
-                                        $this->db->update('admin',$data);
-				}
-			}
-		}
+                                        $this->db->update('admin', $data);
+                                }
+                        }
+                }
         }
 
         // tampil form ubah kata sandi profil saya
@@ -274,7 +276,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
 
                 $detailhere = array('id_admin' => $id_admin);
-                $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere,'admin')->result();
+                $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -296,7 +298,7 @@ class Admin extends CI_Controller
 
                 if ($this->m_admin->ubah_kata_sandi_profil_saya($where, $data, 'admin')); {
                         $this->session->set_flashdata('success', 'diubah');
-                        redirect('admin/form_ubah_kata_sandi_profil_saya/'.$where);
+                        redirect('admin/form_ubah_kata_sandi_profil_saya/' . $where);
                 }
         }
 
@@ -314,7 +316,7 @@ class Admin extends CI_Controller
                 $this->load->view('admin/list_data_kades', $data_kades);
                 $this->load->view('footer');
         }
-        
+
         //detail data kepala desa
         public function detail_data_kades($id_kades)
         {
@@ -339,7 +341,7 @@ class Admin extends CI_Controller
                 $this->load->view('admin/detail_data_kades', $data_detail);
                 $this->load->view('footer');
         }
-        
+
         //tampil form tambah kades
         public function form_tambah_kades()
         {
@@ -393,7 +395,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
 
                 $detailhere = array('id_kades' => $id_kades);
-                $data_detail['detail_kades'] = $this->m_admin->get_detail_kades($detailhere,'kepala_desa')->result();
+                $data_detail['detail_kades'] = $this->m_admin->get_detail_kades($detailhere, 'kepala_desa')->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -440,206 +442,206 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_kades');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_profil_kades($_FILES);
+                        $this->aksi_upload_foto_profil_kades($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_kades/'.$where);
+                redirect('admin/detail_data_kades/' . $where);
         }
 
         //upload foto profil kades
         private function aksi_upload_foto_profil_kades($id_kades)
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_kades = $this->input->post('id_kades');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+                $this->load->library('upload', $config);
+                $id_kades = $this->input->post('id_kades');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-				if ($this->upload->do_upload('file')) {
+                                if ($this->upload->do_upload('file')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
+                                        $uploadData = $this->upload->data();
 
-					$data['foto_profil_kades'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $data['foto_profil_kades'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
-					// $data_detail = $this->input->post('id_warga');
+                                        // $data_detail = $this->input->post('id_warga');
 
-					$this->db->where('id_kades', $id_kades);
-					$this->db->update('kepala_desa', $data);
-				}
-			}
-		}
-	}
+                                        $this->db->where('id_kades', $id_kades);
+                                        $this->db->update('kepala_desa', $data);
+                                }
+                        }
+                }
+        }
 
-	// upload foto ktp kades
-	public function upload_foto_ktp_kades()
-	{
-		$where = $this->input->post('id_kades');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_ktp_kades($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_kades/' . $where);
-	}
+        // upload foto ktp kades
+        public function upload_foto_ktp_kades()
+        {
+                $where = $this->input->post('id_kades');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_ktp_kades($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_kades/' . $where);
+        }
 
-	// upload foto ktp kades
-	private function aksi_upload_foto_ktp_kades($id_kades)
-	{
-		$config['upload_path']          = './../assets/uploads/kades/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        // upload foto ktp kades
+        private function aksi_upload_foto_ktp_kades($id_kades)
+        {
+                $config['upload_path']          = './../assets/uploads/kades/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_kades = $this->input->post('id_kades');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+                $this->load->library('upload', $config);
+                $id_kades = $this->input->post('id_kades');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-				if ($this->upload->do_upload('file')) {
+                                if ($this->upload->do_upload('file')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
+                                        $uploadData = $this->upload->data();
 
-					$data['foto_ktp_kades'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $data['foto_ktp_kades'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
-					// $data_detail = $this->input->post('id_warga');
+                                        // $data_detail = $this->input->post('id_warga');
 
-					$this->db->where('id_kades', $id_kades);
-					$this->db->update('kepala_desa', $data);
-				}
-			}
-		}
-	}
+                                        $this->db->where('id_kades', $id_kades);
+                                        $this->db->update('kepala_desa', $data);
+                                }
+                        }
+                }
+        }
 
-	// upload foto kk kades
-	public function upload_foto_kk_kades()
-	{
-		$where = $this->input->post('id_kades');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_kk_kades($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_kades/' . $where);
-	}
+        // upload foto kk kades
+        public function upload_foto_kk_kades()
+        {
+                $where = $this->input->post('id_kades');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_kk_kades($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_kades/' . $where);
+        }
 
-	//upload foto kk kades
-	private function aksi_upload_foto_kk_kades($id_kades)
-	{
-		$config['upload_path']          = './../assets/uploads/kades/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        //upload foto kk kades
+        private function aksi_upload_foto_kk_kades($id_kades)
+        {
+                $config['upload_path']          = './../assets/uploads/kades/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_kades = $this->input->post('id_kades');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+                $this->load->library('upload', $config);
+                $id_kades = $this->input->post('id_kades');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-				if ($this->upload->do_upload('file')) {
+                                if ($this->upload->do_upload('file')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
+                                        $uploadData = $this->upload->data();
 
-					$data['foto_kk_kades'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $data['foto_kk_kades'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
-					// $data_detail = $this->input->post('id_warga');
+                                        // $data_detail = $this->input->post('id_warga');
 
-					$this->db->where('id_kades', $id_kades);
-					$this->db->update('kepala_desa', $data);
-				}
-			}
-		}
-	}
+                                        $this->db->where('id_kades', $id_kades);
+                                        $this->db->update('kepala_desa', $data);
+                                }
+                        }
+                }
+        }
 
-	// upload foto ttd kades
-	public function upload_foto_ttd_kades()
-	{
-		$where = $this->input->post('id_kades');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_ttd_kades($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_kades/' . $where);
-	}
+        // upload foto ttd kades
+        public function upload_foto_ttd_kades()
+        {
+                $where = $this->input->post('id_kades');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_ttd_kades($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_kades/' . $where);
+        }
 
-	//upload foto ttd kades
-	private function aksi_upload_foto_ttd_kades($id_kades)
-	{
-		$config['upload_path']          = './../assets/uploads/kades/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        //upload foto ttd kades
+        private function aksi_upload_foto_ttd_kades($id_kades)
+        {
+                $config['upload_path']          = './../assets/uploads/kades/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_kades = $this->input->post('id_kades');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                $this->load->library('upload', $config);
+                $id_kades = $this->input->post('id_kades');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-				if ($this->upload->do_upload('file')) {
+                                if ($this->upload->do_upload('file')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
+                                        $uploadData = $this->upload->data();
 
-					$data['foto_ttd_kades'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $data['foto_ttd_kades'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
-					// $data_detail = $this->input->post('id_warga');
+                                        // $data_detail = $this->input->post('id_warga');
 
-					$this->db->where('id_kades', $id_kades);
-					$this->db->update('kepala_desa', $data);
-				}
-			}
-		}
+                                        $this->db->where('id_kades', $id_kades);
+                                        $this->db->update('kepala_desa', $data);
+                                }
+                        }
+                }
         }
 
         // aksi hapus data kepala desa
@@ -647,7 +649,7 @@ class Admin extends CI_Controller
         {
                 $this->m_admin->hapus_kades($id_kades);
 
-                $this->session->set_flashdata('success', 'dihapus');
+                $this->session->set_flashdata('success', 'dinonaktifkan');
                 redirect('admin/list_data_kades');
         }
 
@@ -877,41 +879,40 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_rt');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_profil_rt($_FILES);
+                        $this->aksi_upload_foto_profil_rt($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_rt/'.$where);
+                redirect('admin/detail_data_rt/' . $where);
         }
 
         //upload foto profil warga
         private function aksi_upload_foto_profil_rt($id_rt)
         {
                 $config['upload_path']          = './../assets/uploads/rt/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_rt-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_rt-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_rt = $this->input->post('id_rt');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
- 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+
+                                if ($this->upload->do_upload('file')) {
 
                                         // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['foto_profil_rt'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -919,10 +920,10 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_rt', $id_rt);
-                                        $this->db->update('rt',$data);
-				}
-			}
-		}
+                                        $this->db->update('rt', $data);
+                                }
+                        }
+                }
         }
 
         // aksi hapus data rt
@@ -1073,7 +1074,7 @@ class Admin extends CI_Controller
 
         //detail data warga
         public function detail_data_warga($id_warga)
-	{       
+        {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
@@ -1095,7 +1096,7 @@ class Admin extends CI_Controller
 
         //tampil form tambah data warga
         public function form_tambah_warga()
-	{
+        {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
@@ -1107,8 +1108,8 @@ class Admin extends CI_Controller
         }
 
         // aksi tambah data warga
-        public function aksi_tambah_warga() 
-        {       
+        public function aksi_tambah_warga()
+        {
                 $kata_sandi = $this->input->post('row_password');
                 $kata_sandi_hash = sha1($kata_sandi);
                 $data = array(
@@ -1145,13 +1146,13 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
 
                 $where = array('id_warga' => $id_warga);
-                $data_detail['detail_warga'] = $this->m_admin->get_detail_warga($where,'warga')->result();
+                $data_detail['detail_warga'] = $this->m_admin->get_detail_warga($where, 'warga')->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
                 $this->load->view('admin/form_ubah_warga', $data_detail);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         // aksi ubah warga
@@ -1181,9 +1182,9 @@ class Admin extends CI_Controller
 
                 $where = $this->input->post('id_warga');
 
-                $this->m_admin->aksi_ubah_data_warga($where,$data,'warga');
+                $this->m_admin->aksi_ubah_data_warga($where, $data, 'warga');
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_warga/'.$where);
+                redirect('admin/detail_data_warga/' . $where);
         }
 
         // upload foto profil warga
@@ -1191,185 +1192,183 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_warga');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_profil($_FILES);
+                        $this->aksi_upload_foto_profil($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_data_warga/'.$where);
+                redirect('admin/detail_data_warga/' . $where);
         }
 
         //upload foto profil warga
         private function aksi_upload_foto_profil($id_warga)
         {
                 $config['upload_path']          = './../assets/uploads/warga/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_warga = $this->input->post('id_warga');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+                $this->load->library('upload', $config);
+                $id_warga = $this->input->post('id_warga');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-				if ($this->upload->do_upload('file')) {
+                                if ($this->upload->do_upload('file')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
+                                        $uploadData = $this->upload->data();
 
-					$data['foto_profil_warga'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $data['foto_profil_warga'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
-					// $data_detail = $this->input->post('id_warga');
+                                        // $data_detail = $this->input->post('id_warga');
 
-					$this->db->where('id_warga', $id_warga);
-					$this->db->update('warga', $data);
-				}
-			}
-		}
-	}
+                                        $this->db->where('id_warga', $id_warga);
+                                        $this->db->update('warga', $data);
+                                }
+                        }
+                }
+        }
 
         // upload foto ktp warga
-	public function upload_foto_ktp_rt()
-	{
+        public function upload_foto_ktp_rt()
+        {
                 $where_rt = $this->input->post('id_rt');
                 $where = $this->input->post('id_warga');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_ktp($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_rt/' . $where_rt);
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_ktp($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_rt/' . $where_rt);
         }
-        
+
         // upload foto ktp warga
-	public function upload_foto_ktp()
-	{
-		$where = $this->input->post('id_warga');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_ktp($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_warga/' . $where);
-	}
+        public function upload_foto_ktp()
+        {
+                $where = $this->input->post('id_warga');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_ktp($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_warga/' . $where);
+        }
 
-	//upload foto ktp warga
-	private function aksi_upload_foto_ktp($id_warga)
-	{
-		$config['upload_path']          = './../assets/uploads/warga/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        //upload foto ktp warga
+        private function aksi_upload_foto_ktp($id_warga)
+        {
+                $config['upload_path']          = './../assets/uploads/warga/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_warga = $this->input->post('id_warga');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+                $this->load->library('upload', $config);
+                $id_warga = $this->input->post('id_warga');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-				if ($this->upload->do_upload('file')) {
+                                if ($this->upload->do_upload('file')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
+                                        $uploadData = $this->upload->data();
 
-					$data['foto_ktp_warga'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $data['foto_ktp_warga'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
                                         $this->db->where('id_warga', $id_warga);
-                                        $this->db->update('warga',$data);
-				}
-			}
-		}
-	}
+                                        $this->db->update('warga', $data);
+                                }
+                        }
+                }
+        }
 
         // upload foto kk warga
-	public function upload_foto_kk_rt()
-	{
+        public function upload_foto_kk_rt()
+        {
                 $where_rt = $this->input->post('id_rt');
-		$where = $this->input->post('id_warga');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_kk($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_rt/' . $where_rt);
+                $where = $this->input->post('id_warga');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_kk($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_rt/' . $where_rt);
         }
-        
-	// upload foto kk warga
-	public function upload_foto_kk()
-	{
-		$where = $this->input->post('id_warga');
-		if ($_FILES != null) {
-			$this->aksi_upload_foto_kk($_FILES);
-		}
-		$this->session->set_flashdata('success', 'diubah');
-		redirect('admin/detail_data_warga/' . $where);
-	}
 
-	//upload foto kk warga
-	private function aksi_upload_foto_kk($id_warga)
-	{
-		$config['upload_path']          = './../assets/uploads/warga/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        // upload foto kk warga
+        public function upload_foto_kk()
+        {
+                $where = $this->input->post('id_warga');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_kk($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_warga/' . $where);
+        }
 
-		$this->load->library('upload', $config);
-		$id_warga = $this->input->post('id_warga');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+        //upload foto kk warga
+        private function aksi_upload_foto_kk($id_warga)
+        {
+                $config['upload_path']          = './../assets/uploads/warga/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-				if ($this->upload->do_upload('file')) {
+                $this->load->library('upload', $config);
+                $id_warga = $this->input->post('id_warga');
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                if ($this->upload->do_upload('file')) {
 
-					$uploadData = $this->upload->data();
+                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
+                                        // $r = $ambil->row();
+                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$data['foto_kk_warga'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
+                                        $uploadData = $this->upload->data();
+
+                                        $data['foto_kk_warga'] = $uploadData['file_name'];
+                                        // $data['keterangan'] = $keterangan[$i];
+                                        // $data['id_warga'] = $id_warga;
 
                                         $this->db->where('id_warga', $id_warga);
-                                        $this->db->update('warga',$data);
-				}
-			}
-		}
-	}
+                                        $this->db->update('warga', $data);
+                                }
+                        }
+                }
+        }
 
-	// aksi hapus data warga
-	public function aksi_hapus_warga($id_warga)
-	{
+        // aksi hapus data warga
+        public function aksi_hapus_warga($id_warga)
+        {
 
-		$this->m_admin->hapus_warga($id_warga);
-		$this->session->set_flashdata('success', 'dihapus');
+                $this->m_admin->hapus_warga($id_warga);
+                $this->session->set_flashdata('success', 'dihapus');
                 redirect('admin/list_data_warga');
-		
         }
 
         //tampil form cari nik ubah password warga
@@ -1438,79 +1437,79 @@ class Admin extends CI_Controller
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
                 $this->load->view('admin/list_data_permohonan', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         //detail data permohonan
         public function detail_data_permohonan($id_permohonan_surat, $id_nama_surat)
-	{       
+        {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                if($id_nama_surat == 1){
+                if ($id_nama_surat == 1) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 2){
+                } elseif ($id_nama_surat == 2) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_002($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 3){
+                } elseif ($id_nama_surat == 3) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_003($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 4){
+                } elseif ($id_nama_surat == 4) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_004($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 5){
+                } elseif ($id_nama_surat == 5) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_005($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 6){
+                } elseif ($id_nama_surat == 6) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_006($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 7){
+                } elseif ($id_nama_surat == 7) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_007($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 8){
+                } elseif ($id_nama_surat == 8) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_008($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 9){
+                } elseif ($id_nama_surat == 9) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_009($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 10){
+                } elseif ($id_nama_surat == 10) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_010($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 11){
+                } elseif ($id_nama_surat == 11) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_011($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 12){
+                } elseif ($id_nama_surat == 12) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_012($id_permohonan_surat)->result();
                         $data_detail['detail_pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 13){
+                } elseif ($id_nama_surat == 13) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_013($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 14){
+                } elseif ($id_nama_surat == 14) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_014($id_permohonan_surat)->result();
                         $data_detail['detail_pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
-                } 
+                }
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
-                if($id_nama_surat == 1){
-                $this->load->view('admin/suket_001/detail_permohonan_001', $data_detail);
-                } elseif($id_nama_surat == 2) {
-                $this->load->view('admin/suket_002/detail_permohonan_002', $data_detail);
-                } elseif($id_nama_surat == 3) {
-                $this->load->view('admin/suket_003/detail_permohonan_003', $data_detail);
-                } elseif($id_nama_surat == 4) {
-                $this->load->view('admin/suket_004/detail_permohonan_004', $data_detail);
-                } elseif($id_nama_surat == 5) {
-                $this->load->view('admin/suket_005/detail_permohonan_005', $data_detail);
-                } elseif($id_nama_surat == 6) {
-                $this->load->view('admin/suket_006/detail_permohonan_006', $data_detail);
-                } elseif($id_nama_surat == 7) {
-                $this->load->view('admin/suket_007/detail_permohonan_007', $data_detail);
-                } elseif($id_nama_surat == 8) {
-                $this->load->view('admin/suket_008/detail_permohonan_008', $data_detail);
-                } elseif($id_nama_surat == 9) {
-                $this->load->view('admin/suket_009/detail_permohonan_009', $data_detail);
-                } elseif($id_nama_surat == 10) {
-                $this->load->view('admin/suket_010/detail_permohonan_010', $data_detail);
-                } elseif($id_nama_surat == 11) {
-                $this->load->view('admin/suket_011/detail_permohonan_011', $data_detail);
-                } elseif($id_nama_surat == 12) {
-                $this->load->view('admin/suket_012/detail_permohonan_012', $data_detail);
-                } elseif($id_nama_surat == 13) {
-                $this->load->view('admin/suket_013/detail_permohonan_013', $data_detail);
-                } elseif($id_nama_surat == 14) {
-                $this->load->view('admin/suket_014/detail_permohonan_014', $data_detail);
-                } 
+                if ($id_nama_surat == 1) {
+                        $this->load->view('admin/suket_001/detail_permohonan_001', $data_detail);
+                } elseif ($id_nama_surat == 2) {
+                        $this->load->view('admin/suket_002/detail_permohonan_002', $data_detail);
+                } elseif ($id_nama_surat == 3) {
+                        $this->load->view('admin/suket_003/detail_permohonan_003', $data_detail);
+                } elseif ($id_nama_surat == 4) {
+                        $this->load->view('admin/suket_004/detail_permohonan_004', $data_detail);
+                } elseif ($id_nama_surat == 5) {
+                        $this->load->view('admin/suket_005/detail_permohonan_005', $data_detail);
+                } elseif ($id_nama_surat == 6) {
+                        $this->load->view('admin/suket_006/detail_permohonan_006', $data_detail);
+                } elseif ($id_nama_surat == 7) {
+                        $this->load->view('admin/suket_007/detail_permohonan_007', $data_detail);
+                } elseif ($id_nama_surat == 8) {
+                        $this->load->view('admin/suket_008/detail_permohonan_008', $data_detail);
+                } elseif ($id_nama_surat == 9) {
+                        $this->load->view('admin/suket_009/detail_permohonan_009', $data_detail);
+                } elseif ($id_nama_surat == 10) {
+                        $this->load->view('admin/suket_010/detail_permohonan_010', $data_detail);
+                } elseif ($id_nama_surat == 11) {
+                        $this->load->view('admin/suket_011/detail_permohonan_011', $data_detail);
+                } elseif ($id_nama_surat == 12) {
+                        $this->load->view('admin/suket_012/detail_permohonan_012', $data_detail);
+                } elseif ($id_nama_surat == 13) {
+                        $this->load->view('admin/suket_013/detail_permohonan_013', $data_detail);
+                } elseif ($id_nama_surat == 14) {
+                        $this->load->view('admin/suket_014/detail_permohonan_014', $data_detail);
+                }
                 $this->load->view('footer');
         }
 
@@ -1526,7 +1525,7 @@ class Admin extends CI_Controller
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
                 $this->load->view('admin/list_data_permohonan_ditolak', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         //data permohonan selesai
@@ -1541,7 +1540,7 @@ class Admin extends CI_Controller
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
                 $this->load->view('admin/list_data_permohonan_selesai', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         // list riwayat permohonan
@@ -1556,7 +1555,7 @@ class Admin extends CI_Controller
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
                 $this->load->view('admin/list_data_riwayat_permohonan', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         // filter tanggal riwayat permohonan
@@ -1567,14 +1566,36 @@ class Admin extends CI_Controller
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
-                
+
+                $data_permohonan['tgl_awal'] = $tgl_awal;
+                $data_permohonan['tgl_akhir'] =  $tgl_akhir;
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_admin->filter_riwayat($tgl_awal, $tgl_akhir)->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
-                $this->load->view('admin/list_data_riwayat_permohonan', $data_permohonan);
+                $this->load->view('admin/list_data_riwayat_permohonan1', $data_permohonan);
                 $this->load->view('footer');
+        }
+
+        //cetak laporan riwayat permohonan
+        public function cetak_laporan_riwayat_permohonan($tgl_awal, $tgl_akhir)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_permohonan['tgl_awal'] = $tgl_awal;
+                $data_permohonan['tgl_akhir'] =  $tgl_akhir;
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_admin->filter_riwayat($tgl_awal, $tgl_akhir)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/cetak_riwayat_permohonan', $data_permohonan, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'landscape');
+                $dompdf->render();
+                $dompdf->stream("Laporan Pelayanan Surat Kelurahan Mendawai(Periode " . $tgl_awal . " - " . $tgl_akhir . ")");
         }
 
         //tampil form tolak permohonan
@@ -1631,8 +1652,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_usaha');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_usaha')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_usaha')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1657,8 +1680,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_domisili');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_domisili')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_domisili')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1683,8 +1708,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1709,8 +1736,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_beda_nama');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_beda_nama')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_beda_nama')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1735,8 +1764,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_izin_keramaian');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_izin_keramaian')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_izin_keramaian')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1761,8 +1792,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1787,8 +1820,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1813,8 +1848,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_janda');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_janda')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_janda')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1839,8 +1876,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kematian');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kematian')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kematian')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1865,8 +1904,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kelahiran');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kelahiran')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kelahiran')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1891,8 +1932,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_pengantar_ktp');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_pengantar_ktp')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_pengantar_ktp')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1911,7 +1954,7 @@ class Admin extends CI_Controller
 
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') ); {
+                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -1936,15 +1979,17 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_penghasilan');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_penghasilan')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_penghasilan')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
         }
 
         // aksi setujui data permohonan 014
-        public function aksi_setujui_permohonan_014() 
+        public function aksi_setujui_permohonan_014()
         {
                 $data = array(
                         'status' => $this->input->post('status'),
@@ -1962,8 +2007,10 @@ class Admin extends CI_Controller
                 $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_pindah');
 
-                if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_pindah')); {
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_pindah')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
@@ -2030,7 +2077,7 @@ class Admin extends CI_Controller
                 $id_sm = $this->m_admin->tambah_surat_masuk($data);
 
                 if ($_FILES != null) {
-                $this->aksi_insert_lampiran_surat_masuk($id_sm);
+                        $this->aksi_insert_lampiran_surat_masuk($id_sm);
                 }
 
                 $this->session->set_flashdata('success', 'ditambahkan');
@@ -2041,19 +2088,18 @@ class Admin extends CI_Controller
         private function aksi_insert_lampiran_surat_masuk($id_sm)
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sm/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'lampiran_surat_masuk-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'lampiran_surat_masuk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
                                 if ($this->upload->do_upload('file')) {
@@ -2062,8 +2108,8 @@ class Admin extends CI_Controller
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['lampiran'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -2071,10 +2117,10 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_sm', $id_sm);
-                                        $this->db->update('surat_masuk',$data);
-				}
-			}
-		}
+                                        $this->db->update('surat_masuk', $data);
+                                }
+                        }
+                }
         }
 
         //tampil form ubah surat masuk
@@ -2084,7 +2130,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
 
                 $detailhere = array('id_sm' => $id_sm);
-                $data_detail['detail_surat_masuk'] = $this->m_admin->get_detail_surat_masuk($detailhere,'surat_masuk')->result();
+                $data_detail['detail_surat_masuk'] = $this->m_admin->get_detail_surat_masuk($detailhere, 'surat_masuk')->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -2117,30 +2163,29 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_sm');
                 if ($_FILES != null) {
-                $this->aksi_upload_lampiran_surat_masuk($_FILES);
+                        $this->aksi_upload_lampiran_surat_masuk($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_surat_masuk/'.$where);
+                redirect('admin/detail_surat_masuk/' . $where);
         }
 
         //upload ubah lampiran surat masuk
         private function aksi_upload_lampiran_surat_masuk($id_sm)
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sm/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'lampiran_surat_masuk-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'lampiran_surat_masuk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_sm = $this->input->post('id_sm');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
                                 if ($this->upload->do_upload('file')) {
@@ -2149,8 +2194,8 @@ class Admin extends CI_Controller
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['lampiran'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -2158,26 +2203,26 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_sm', $id_sm);
-                                        $this->db->update('surat_masuk',$data);
-				}
-			}
-		}
+                                        $this->db->update('surat_masuk', $data);
+                                }
+                        }
+                }
         }
 
         //download lampiran surat masuk
         function download_lampiran_surat_masuk($id_sm)
-	{
-		$data = $this->db->get_where('surat_masuk',['id_sm'=>$id_sm])->row();
-		force_download('../assets/uploads/admin/lampiran_sm/'.$data->lampiran,NULL);
+        {
+                $data = $this->db->get_where('surat_masuk', ['id_sm' => $id_sm])->row();
+                force_download('../assets/uploads/admin/lampiran_sm/' . $data->lampiran, NULL);
         }
-        
+
         // aksi hapus surat masuk
-        public function aksi_hapus_surat_masuk($id_sm){
+        public function aksi_hapus_surat_masuk($id_sm)
+        {
 
                 $this->m_admin->hapus_surat_masuk($id_sm);
-		$this->session->set_flashdata('success', 'dihapus');
+                $this->session->set_flashdata('success', 'dihapus');
                 redirect('admin/list_surat_masuk');
-		
         }
 
         // filter tanggal surat masuk
@@ -2188,15 +2233,38 @@ class Admin extends CI_Controller
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
-                        
+
+                $data_list['tgl_awal'] = $tgl_awal;
+                $data_list['tgl_akhir'] =  $tgl_akhir;
                 $data_list['data_surat_masuk'] = $this->m_admin->filter_surat_masuk($tgl_awal, $tgl_akhir)->result();
 
                 // redirect('admin/list_surat_masuk');
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
-                $this->load->view('admin/list_surat_masuk', $data_list);
+                $this->load->view('admin/list_surat_masuk1', $data_list);
                 $this->load->view('footer');
+        }
+
+        //cetak list surat masuk
+        public function cetak_list_surat_masuk($tgl_awal, $tgl_akhir)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_list['tgl_awal'] = $tgl_awal;
+                $data_list['tgl_akhir'] =  $tgl_akhir;
+                $data_list['data_surat_masuk'] = $this->m_admin->filter_surat_masuk($tgl_awal, $tgl_akhir)->result();
+
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/cetak_list_surat_masuk', $data_list, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'landscape');
+                $dompdf->render();
+                $dompdf->stream("Laporan Surat Masuk Kedinasan Kelurahan Mendawai(Periode " . $tgl_awal . " - " . $tgl_akhir . ")");
         }
 
         //list surat keluar
@@ -2259,7 +2327,7 @@ class Admin extends CI_Controller
                 $id_sk = $this->m_admin->tambah_surat_keluar($data);
 
                 if ($_FILES != null) {
-                $this->aksi_insert_lampiran_surat_keluar($id_sk);
+                        $this->aksi_insert_lampiran_surat_keluar($id_sk);
                 }
 
                 $this->session->set_flashdata('success', 'ditambahkan');
@@ -2270,19 +2338,18 @@ class Admin extends CI_Controller
         private function aksi_insert_lampiran_surat_keluar($id_sk)
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sk/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'lampiran_surat_keluar-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'lampiran_surat_keluar-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
                                 if ($this->upload->do_upload('file')) {
@@ -2291,8 +2358,8 @@ class Admin extends CI_Controller
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['lampiran'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -2300,10 +2367,10 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_sk', $id_sk);
-                                        $this->db->update('surat_keluar',$data);
-				}
-			}
-		}
+                                        $this->db->update('surat_keluar', $data);
+                                }
+                        }
+                }
         }
 
         //tampil form ubah surat keluar
@@ -2313,7 +2380,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
 
                 $detailhere = array('id_sk' => $id_sk);
-                $data_detail['detail_surat_keluar'] = $this->m_admin->get_detail_surat_keluar($detailhere,'surat_keluar')->result();
+                $data_detail['detail_surat_keluar'] = $this->m_admin->get_detail_surat_keluar($detailhere, 'surat_keluar')->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -2346,40 +2413,39 @@ class Admin extends CI_Controller
         {
                 $where = $this->input->post('id_sk');
                 if ($_FILES != null) {
-                $this->aksi_upload_lampiran_surat_keluar($_FILES);
+                        $this->aksi_upload_lampiran_surat_keluar($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('admin/detail_surat_keluar/'.$where);
+                redirect('admin/detail_surat_keluar/' . $where);
         }
 
         //upload ubah lampiran surat keluar
         private function aksi_upload_lampiran_surat_keluar($id_sk)
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sk/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'lampiran_surat_keluar-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
+                // $config['max_size']             = 2048;
+                $config['file_name']                 = 'lampiran_surat_keluar-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_sk = $this->input->post('id_sk');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for($i = 0; $i < $jumlah_berkas;$i++)
-		{
-                if(!empty($_FILES['berkas']['name'][$i])){
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
+                $jumlah_berkas = count($_FILES['berkas']['name']);
+                for ($i = 0; $i < $jumlah_berkas; $i++) {
+                        if (!empty($_FILES['berkas']['name'][$i])) {
+                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
+                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
+                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
+                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
                                 $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                
-				if($this->upload->do_upload('file')){
+
+                                if ($this->upload->do_upload('file')) {
 
                                         // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
                                         // $r = $ambil->row();
                                         // unlink(".../assets/uploads/warga/".$r->nama_foto);
 
-					$uploadData = $this->upload->data();
-                        
+                                        $uploadData = $this->upload->data();
+
                                         $data['lampiran'] = $uploadData['file_name'];
                                         // $data['keterangan'] = $keterangan[$i];
                                         // $data['id_warga'] = $id_warga;
@@ -2387,28 +2453,28 @@ class Admin extends CI_Controller
                                         // $data_detail = $this->input->post('id_warga');
 
                                         $this->db->where('id_sk', $id_sk);
-                                        $this->db->update('surat_keluar',$data);
-				}
-			}
-		}
+                                        $this->db->update('surat_keluar', $data);
+                                }
+                        }
+                }
         }
 
         //download lampiran surat keluar
         function download_lampiran_surat_keluar($id_sk)
-	{
-		$data = $this->db->get_where('surat_keluar',['id_sk'=>$id_sk])->row();
-		force_download('../assets/uploads/admin/lampiran_sk/'.$data->lampiran,NULL);
+        {
+                $data = $this->db->get_where('surat_keluar', ['id_sk' => $id_sk])->row();
+                force_download('../assets/uploads/admin/lampiran_sk/' . $data->lampiran, NULL);
         }
 
         // aksi hapus surat masuk
-        public function aksi_hapus_surat_keluar($id_sk){
+        public function aksi_hapus_surat_keluar($id_sk)
+        {
 
                 $this->m_admin->hapus_surat_keluar($id_sk);
-		$this->session->set_flashdata('success', 'dihapus');
+                $this->session->set_flashdata('success', 'dihapus');
                 redirect('admin/list_surat_keluar');
-		
         }
-        
+
         // filter tanggal surat keluar
         public function filter_surat_keluar()
         {
@@ -2417,14 +2483,382 @@ class Admin extends CI_Controller
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
-                        
+
+                $data_list['tgl_awal'] = $tgl_awal;
+                $data_list['tgl_akhir'] =  $tgl_akhir;
                 $data_list['data_surat_keluar'] = $this->m_admin->filter_surat_keluar($tgl_awal, $tgl_akhir)->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
                 $this->load->view('topbar', $data);
-                $this->load->view('admin/list_surat_keluar', $data_list);
+                $this->load->view('admin/list_surat_keluar1', $data_list);
                 $this->load->view('footer');
+        }
+
+        //cetak list surat keluar
+        public function cetak_list_surat_keluar($tgl_awal, $tgl_akhir)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_list['tgl_awal'] = $tgl_awal;
+                $data_list['tgl_akhir'] =  $tgl_akhir;
+                $data_list['data_surat_keluar'] = $this->m_admin->filter_surat_keluar($tgl_awal, $tgl_akhir)->result();
+
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/cetak_list_surat_keluar', $data_list, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'landscape');
+                $dompdf->render();
+                $dompdf->stream("Laporan Surat Keluar Kedinasan Kelurahan Mendawai(Periode " . $tgl_awal . " - " . $tgl_akhir . ")");
+        }
+
+        public function lihat_surat($id_permohonan_surat, $id_nama_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+
+                if ($id_nama_surat == 1) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 2) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_002($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 3) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_003($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 4) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_004($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 5) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_005($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 6) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_006($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 7) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_007($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 8) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_008($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 9) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_009($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 10) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_010($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 11) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_011($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 12) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_012($id_permohonan_surat)->result();
+                        $data_detail['pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 13) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_013($id_permohonan_surat)->result();
+                } elseif ($id_nama_surat == 14) {
+                        $data_detail['detail_suket'] = $this->m_admin->get_detail_014($id_permohonan_surat)->result();
+                        $data_detail['pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
+                }
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                if ($id_nama_surat == 1) {
+                        $this->load->view('admin/suket_001/tampil_suket001', $data_detail);
+                } elseif ($id_nama_surat == 2) {
+                        $this->load->view('admin/suket_002/tampil_suket002', $data_detail);
+                } elseif ($id_nama_surat == 3) {
+                        $this->load->view('admin/suket_003/tampil_suket003', $data_detail);
+                } elseif ($id_nama_surat == 4) {
+                        $this->load->view('admin/suket_004/tampil_suket004', $data_detail);
+                } elseif ($id_nama_surat == 5) {
+                        $this->load->view('admin/suket_005/tampil_suket005', $data_detail);
+                } elseif ($id_nama_surat == 6) {
+                        $this->load->view('admin/suket_006/tampil_suket006', $data_detail);
+                } elseif ($id_nama_surat == 7) {
+                        $this->load->view('admin/suket_007/tampil_suket007', $data_detail);
+                } elseif ($id_nama_surat == 8) {
+                        $this->load->view('admin/suket_008/tampil_suket008', $data_detail);
+                } elseif ($id_nama_surat == 9) {
+                        $this->load->view('admin/suket_009/tampil_suket009', $data_detail);
+                } elseif ($id_nama_surat == 10) {
+                        $this->load->view('admin/suket_010/tampil_suket010', $data_detail);
+                } elseif ($id_nama_surat == 11) {
+                        $this->load->view('admin/suket_011/tampil_suket011', $data_detail);
+                } elseif ($id_nama_surat == 12) {
+                        $this->load->view('admin/suket_012/tampil_suket012', $data_detail);
+                } elseif ($id_nama_surat == 13) {
+                        $this->load->view('admin/suket_013/tampil_suket013', $data_detail);
+                } elseif ($id_nama_surat == 14) {
+                        $this->load->view('admin/suket_014/tampil_suket014', $data_detail);
+                }
+                $this->load->view('footer');
+        }
+
+        public function cetak_surat($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_001/cetak_suket001', $data_detail, true);
+                $dompdf->set_base_path("../../assets/dashboard/css");
+                // $html .= '<link href="../../assets/dashboard/css/sb-admin-2.min.css" rel="stylesheet" />';
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Usaha');
+        }
+
+        public function cetak_surat002($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_002($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_002/cetak_suket002', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Domisili');
+        }
+
+        public function cetak_surat003($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_003($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_003/cetak_suket003', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Belum Memiliki Rumah');
+        }
+
+        public function cetak_surat004($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_004($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_004/cetak_suket004', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Beda Nama');
+        }
+
+        public function cetak_surat005($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_005($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_005/cetak_suket005', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Izin Keramaian');
+        }
+
+        public function cetak_surat006($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_006($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_006/cetak_suket006', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Belum Pernah Menikah');
+        }
+
+        public function cetak_surat007($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_007($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_007/cetak_suket007', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Tidak Mampu');
+        }
+
+        public function cetak_surat008($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_008($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_008/cetak_suket008', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Janda');
+        }
+
+        public function cetak_surat009($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_009($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_009/cetak_suket009', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Kematian');
+        }
+
+        public function cetak_surat010($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_010($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_010/cetak_suket010', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'landscape');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Kelahiran');
+        }
+
+        public function cetak_surat011($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_011($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_011/cetak_suket011', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('F4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Pengantar KTP');
+        }
+
+        public function cetak_surat012($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_012($id_permohonan_surat)->result();
+                $data_detail['pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_012/cetak_suket012', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Pengantar KK');
+        }
+
+        public function cetak_surat013($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_013($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_013/cetak_suket013', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Penghasilan');
+        }
+
+        public function cetak_surat014($id_permohonan_surat)
+        {
+
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
+                $data_detail['detail_suket'] = $this->m_admin->get_detail_014($id_permohonan_surat)->result();
+                $data_detail['pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
+
+                $dompdf = new Dompdf();
+
+                $html = $this->load->view('admin/suket_014/cetak_suket014', $data_detail, true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $dompdf->stream('Surat Keterangan Pindah');
         }
 
         //list data feedback

@@ -118,7 +118,8 @@ class M_admin extends CI_Model
     }
 
     //ambil foto profil profil saya
-    public function get_foto_profil_profil_saya($id_admin){
+    public function get_foto_profil_profil_saya($id_admin)
+    {
         $this->db->select('foto_profil_admin');
         $this->db->from('admin');
         $this->db->where('id_admin', $id_admin);
@@ -128,7 +129,8 @@ class M_admin extends CI_Model
     }
 
     //ambil foto ktp profil saya
-    public function get_foto_ktp_profil_saya($id_admin){
+    public function get_foto_ktp_profil_saya($id_admin)
+    {
         $this->db->select('foto_ktp_admin');
         $this->db->from('admin');
         $this->db->where('id_admin', $id_admin);
@@ -138,7 +140,8 @@ class M_admin extends CI_Model
     }
 
     //ambil foto kk profil saya
-    public function get_foto_kk_profil_saya($id_admin){
+    public function get_foto_kk_profil_saya($id_admin)
+    {
         $this->db->select('foto_kk_admin');
         $this->db->from('admin');
         $this->db->where('id_admin', $id_admin);
@@ -213,7 +216,8 @@ class M_admin extends CI_Model
     }
 
     //ambil foto profil kades
-    public function get_foto_profil_kades($id_kades){
+    public function get_foto_profil_kades($id_kades)
+    {
         $this->db->select('foto_profil_kades');
         $this->db->from('kepala_desa');
         $this->db->where('id_kades', $id_kades);
@@ -234,7 +238,8 @@ class M_admin extends CI_Model
     }
 
     //ambil foto kk kades
-    public function get_foto_kk_kades($id_kades){
+    public function get_foto_kk_kades($id_kades)
+    {
         $this->db->select('foto_kk_kades');
         $this->db->from('kepala_desa');
         $this->db->where('id_kades', $id_kades);
@@ -321,7 +326,8 @@ class M_admin extends CI_Model
     }
 
     //ambil foto profil rt
-    public function get_foto_profil_rt($id_rt){
+    public function get_foto_profil_rt($id_rt)
+    {
         $this->db->select('foto_profil_rt');
         $this->db->from('rt');
         $this->db->where('id_rt', $id_rt);
@@ -515,7 +521,7 @@ class M_admin extends CI_Model
     //list data permohonan masuk
     public function get_list_permohonan_masuk()
     {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->select('permohonan_surat.*, warga.nama, warga.nik, nama_surat.nama_surat');
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
@@ -738,7 +744,7 @@ class M_admin extends CI_Model
     //list data permohonan ditolak
     public function get_list_permohonan_ditolak()
     {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->select('permohonan_surat.*, warga.nama, warga.nik, nama_surat.nama_surat');
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
@@ -755,7 +761,7 @@ class M_admin extends CI_Model
     //list data permohonan selesai
     public function get_list_permohonan_selesai()
     {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->select('permohonan_surat.*, warga.nama, warga.nik, nama_surat.nama_surat');
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
@@ -771,7 +777,7 @@ class M_admin extends CI_Model
     //list data riwayat permohonan
     public function get_list_riwayat_permohonan()
     {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->select('permohonan_surat.*, warga.nama, warga.nik, nama_surat.nama_surat');
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
@@ -788,7 +794,7 @@ class M_admin extends CI_Model
     // list data filter riwayat permohonan surat
     public function filter_riwayat($tgl_awal, $tgl_akhir)
     {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->select('permohonan_surat.*, warga.nama, warga.nik, nama_surat.nama_surat');
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
@@ -810,19 +816,22 @@ class M_admin extends CI_Model
     }
 
     //setujui permohonan => ubah status
-    public function update_status_permohonan($detailhere, $data, $table){
+    public function update_status_permohonan($detailhere, $data, $table)
+    {
         $this->db->where('id_permohonan_surat', $detailhere);
         $this->db->update($table, $data);
     }
 
     //setujui permohonan => ubah nomor rt
-    public function update_nomor_admin_surat($detailhere, $data, $table){
+    public function update_nomor_admin_surat($detailhere, $data, $table)
+    {
         $this->db->where('id_permohonan_surat', $detailhere);
         $this->db->update($table, $data);
     }
 
     //tolak permohonan
-    public function tolak_permohonan($detailhere, $data, $table){
+    public function tolak_permohonan($detailhere, $data, $table)
+    {
         $this->db->where('id_permohonan_surat', $detailhere);
         $this->db->update($table, $data);
     }
@@ -861,7 +870,8 @@ class M_admin extends CI_Model
     }
 
     //ambil lampiran surat masuk
-    public function get_lampiran($id_sm){
+    public function get_lampiran($id_sm)
+    {
         $this->db->select('*');
         $this->db->from('surat_masuk');
         $this->db->where('id_sm', $id_sm);
@@ -871,13 +881,14 @@ class M_admin extends CI_Model
     }
 
     //hapus surat masuk
-    public function hapus_surat_masuk($id_sm){
+    public function hapus_surat_masuk($id_sm)
+    {
         $data = array(
             'status_delete' => 1
         );
 
-        $this->db->where('id_sm',$id_sm);
-        $this->db->update('surat_masuk',$data);
+        $this->db->where('id_sm', $id_sm);
+        $this->db->update('surat_masuk', $data);
     }
 
     // list data filter surat masuk
@@ -900,7 +911,7 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_keluar');
         $this->db->where('status_delete', 0);
-        
+        $this->db->order_by('tanggal', 'desc');
 
         $hasil = $this->db->get();
 
@@ -928,7 +939,8 @@ class M_admin extends CI_Model
     }
 
     //ambil lampiran surat keluar
-    public function get_lampiran_surat_keluar($id_sk){
+    public function get_lampiran_surat_keluar($id_sk)
+    {
         $this->db->select('*');
         $this->db->from('surat_keluar');
         $this->db->where('id_sk', $id_sk);
@@ -938,13 +950,14 @@ class M_admin extends CI_Model
     }
 
     //hapus surat masuk
-    public function hapus_surat_keluar($id_sk){
+    public function hapus_surat_keluar($id_sk)
+    {
         $data = array(
             'status_delete' => 1
         );
 
-        $this->db->where('id_sk',$id_sk);
-        $this->db->update('surat_keluar',$data);
+        $this->db->where('id_sk', $id_sk);
+        $this->db->update('surat_keluar', $data);
     }
 
     // list data filter surat keluar
@@ -958,6 +971,18 @@ class M_admin extends CI_Model
 
         $hasil = $this->db->get();
 
+        return $hasil;
+    }
+
+    //get data pemohon
+    public function get_data_pemohon($id_permohonan_masuk)
+    {
+        $this->db->select('permohonan_surat.id_warga, warga.rt');
+        $this->db->from('permohonan_surat');
+        $this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+        $this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+
+        $hasil = $this->db->get();
         return $hasil;
     }
 
@@ -978,4 +1003,6 @@ class M_admin extends CI_Model
     {
         return $this->db->get_where($tabel, $detailhere);
     }
+
+
 }

@@ -440,9 +440,9 @@
 				</div>
 				<div class="card-body" style="padding: 15px;">
 					<div class="mb-2">
-						<center>
-							<img src="<?= base_url(); ?>../assets/uploads/warga/suket_005/<?= $detail->foto_ktp; ?>" alt="foto ktp" class="img-fluid">
-						</center>
+					<a href="<?= base_url(); ?>../assets/uploads/warga/suket_005/<?= $detail->foto_ktp; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
+					<img src="<?= base_url(); ?>../assets/uploads/warga/suket_005/<?= $detail->foto_ktp; ?>" alt="foto ktp" class="img-fluid">
+								</a>
 					</div>
 				</div>
 			</div>

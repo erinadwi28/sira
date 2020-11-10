@@ -6,7 +6,7 @@
 	</div>
 
 	<!-- Filter Tanggal Permohonan Surat -->
-	<div class="card shadow col-md-10 mb-2">
+	<div class="card shadow col-md-10 mb-4">
 		<div class="card-body" style="padding: 15px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
@@ -54,12 +54,6 @@
 
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-        <div class="card-header">
-			<span>
-				<button class="btn btn-sm btn-primary float-right ml-1" type="submit"><i class="fa fa-print"></i>
-					Cetak</button>
-			</span>
-		</div>
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">

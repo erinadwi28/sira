@@ -31,7 +31,7 @@
 										<label for="Nama_benar" class="col-sm-3 col-form-label">Nama benar</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_benar" name="nama_benar" placeholder="Isi nama benar..." value="">
+												<input type="text" class="form-control" id="nama_benar" name="nama_benar" placeholder="Isi nama benar...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -46,7 +46,7 @@
 										<label for="Nama_dokumen_benar" class="col-sm-3 col-form-label">Dokumen Benar</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="nama_dokumen_benar" placeholder="KTP, KK, Ijazah dll..." name="nama_dokumen_benar" value="">
+												<input type="text" class="form-control" id="nama_dokumen_benar" placeholder="KTP, KK, Ijazah dll..." name="nama_dokumen_benar">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -137,9 +137,9 @@
 									</div>
 								</div>
 							</div>
-							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" required="" value="4">
-							<input type="hidden" class="form-control" id="id_warga" name="id_warga" required="" value="<?= $detail->id_warga; ?>">
-							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
+							<input type="hidden" class="form-control" id="id_nama_surat" name="id_nama_surat" value="4">
+							<input type="hidden" class="form-control" id="id_warga" name="id_warga" value="<?= $detail->id_warga; ?>">
+							<input type="hidden" class="form-control" id="status" name="status" value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
 					<div class="float-right">

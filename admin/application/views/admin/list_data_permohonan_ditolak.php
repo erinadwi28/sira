@@ -19,8 +19,9 @@
 							<th>No</th>
 							<th>Tanggal Permohonan</th>
 							<th>Tanggal Ditolak</th>
-							<th>Nama</th>
 							<th>Nama Surat</th>
+							<th>NIK Pemohon</th>
+							<th>Nama Pemohon</th>
 							<th>Status</th>
 							<th>Keterangan</th>
 							<th>Actions</th>
@@ -40,10 +41,10 @@
 								<?php } elseif($permohonan->status == "Ditolak Kelurahan" && $permohonan->tgl_persetujuan_admin != null ){ ?>
 								<td><?= $permohonan->tgl_persetujuan_admin ?></td>
 								<?php } ?>
-
-								<td><?= $permohonan->nama ?></td>
 								<td><?= $permohonan->nama_surat ?></td>
-                                <td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
+								<td><?= $permohonan->nik ?></td>
+								<td><?= $permohonan->nama ?></td>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
 								<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
 								<td>
 									<div>

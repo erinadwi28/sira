@@ -9,34 +9,33 @@
 		<div class="card-body row" style="padding: 15px;">
 			<div class="col-md-12">
 				<h5>Filter Tanggal</h5>
-				<form role="form" action="<?= base_url('warga/filter_riwayat_permohonan') ?>" enctype="multipart/form-data"
-					method="post" accept-charset="utf-8">
+				<form role="form" action="<?= base_url('warga/filter_riwayat_permohonan') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 
 					<div class="row">
 
-					<div class="col-md-2 mt-2">
-						<label class="label-control" for="tanggal_mulai"><b>Tanggal
-								Mulai</b></label>
+						<div class="col-md-2 mt-2">
+							<label class="label-control" for="tanggal_mulai"><b>Tanggal
+									Mulai</b></label>
+						</div>
+						<div class="col-md-3 mb-2">
+							<input type="date" class="form-control form-user-input" name="tanggal_mulai" id="tanggal_mulai">
+						</div>
+						<div class="col-md-2 mt-2">
+							<label class="label-control" for="tanggal_akhir"><b>Tanggal
+									Akhir</b></label>
+						</div>
+						<div class="col-md-3 mb-2">
+							<input type="date" class="form-control form-user-input" name="tanggal_akhir" id="tanggal_akhir">
+						</div>
+						<div class="col-md-2 mt-1">
+							<center>
+								<button class="btn btn-sm btn-primary" type="submit">
+									<i class="fa fa-search nav-icon"></i>
+									Tampilkan
+								</button>
+							</center>
+						</div>
 					</div>
-					<div class="col-md-3 mb-2">
-						<input type="date" class="form-control form-user-input" name="tanggal_mulai" id="tanggal_mulai">
-					</div>
-					<div class="col-md-2 mt-2">
-						<label class="label-control" for="tanggal_akhir"><b>Tanggal
-								Akhir</b></label>
-					</div>
-					<div class="col-md-3 mb-2">
-						<input type="date" class="form-control form-user-input" name="tanggal_akhir" id="tanggal_akhir">
-					</div>
-					<div class="col-md-2 mt-1">
-						<center>
-							<button class="btn btn-sm btn-primary" type="submit">
-								<i class="fa fa-search nav-icon"></i>
-								Tampilkan
-							</button>
-						</center>
-					</div>
-				</div>
 				</form>
 			</div>
 		</div>

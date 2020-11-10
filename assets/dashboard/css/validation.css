@@ -1,7 +1,7 @@
 .form-line i {
 	position: absolute;
 	top: 10px;
-	right: 36px;
+	right: 33px;
 	visibility: hidden;
 }
 
@@ -16,46 +16,109 @@
 	border-color: #2ecc71;
 }
 
-.form-line.success textarea {
-	border-color: #2ecc71;
-}
-
-.form-line.success select {
-	border-color: #2ecc71;
-}
-
-.custom-select.success {
-	border-color: #2ecc71;
-}
-
-.form-line.success i.fa-check-circle {
-	color: #2ecc71;
-	visibility: visible;
-	top: 10px;
-	left: 495px;
-
-}
 
 .form-line.errormsg input {
 	border-color: #e74c3c;
+}
+
+.form-line.success textarea {
+	border-color: #2ecc71;
 }
 
 .form-line.errormsg textarea {
 	border-color: #e74c3c;
 }
 
+.form-line.success select {
+	border-color: #2ecc71;
+}
+
 .form-line.errormsg select {
 	border-color: #e74c3c;
+}
+
+.custom-select.success {
+	border-color: #2ecc71;
+}
+
+.custom-file-input.success {
+	border-color: #2ecc71;
+}
+
+.custom-file-input.errormsg {
+	border-color: #e74c3c;
+}
+
+.custom-file-input.errormsg {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	left: 370px;
+
+}
+
+.form-line.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 10px;
+	left: 370px;
+
 }
 
 .form-line.errormsg i.fa-exclamation-circle {
 	color: #e74c3c;
 	visibility: visible;
 	top: 10px;
-	left: 495px;
+	left: 370px;
+
+}
+
+.form-line-upload i {
+	position: absolute;
+	top: 10px;
+	right: 33px;
+	visibility: hidden;
+}
+
+.form-line-upload small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.form-line-upload.success input {
+	border-color: #2ecc71;
+}
+
+
+.form-line-upload.errormsg input {
+	border-color: #e74c3c;
+}
+
+.form-line-upload.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 10px;
+	left: 330px;
+
+}
+
+.form-line-upload.errormsg i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	left: 330px;
 }
 
 .form-line.errormsg small {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: small;
+	margin-left: 20px;
+	margin-bottom: -18px;
+}
+
+.form-line-upload.errormsg small {
 	color: #e74c3c;
 	visibility: visible;
 	font-size: small;

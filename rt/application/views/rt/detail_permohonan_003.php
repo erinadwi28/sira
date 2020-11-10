@@ -45,7 +45,7 @@
 			<!-- Detail Data -->
 			<?php if($detail->status == "Menunggu Persetujuan Ketua RT") { ?>
 			<div class="card shadow mb-2">
-				<div class="card-body">
+				< class="card-body">
 					<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_003') ?>" method="post" id="suket003">
 						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat Ketua RT</em>
 
@@ -149,6 +149,7 @@
 						</table>
 						<br>
 						<hr />
+						</div>
 						<div class="float-right ml-2">
 							<a href="">
 								<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
@@ -166,7 +167,9 @@
 								</button>
 							</a>
 					</div>
-				</div>
+			</div>
+			</div>
+			
 			</div>
 			<?php } else { ?>
 			<div class="card shadow mb-2">
@@ -351,4 +354,5 @@
 </div>
 <!-- /.container-fluid -->
 </div>
+
 <!-- End of Main Content -->

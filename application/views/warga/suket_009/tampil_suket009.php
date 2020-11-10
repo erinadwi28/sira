@@ -164,7 +164,7 @@
 												<br>
 												<div class="isi_surat paragraf">
 													<p>
-														Demikian surat keterangan ini sibuat untuk dipergunakan sebagaimana mestinya.
+														Demikian surat keterangan ini dibuat untuk dipergunakan sebagaimana mestinya.
 													</p>
 
 												</div>

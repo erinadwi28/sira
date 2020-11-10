@@ -310,17 +310,17 @@
 							<input type="hidden" class="form-control" id="status" name="status" required="" value="Belum Tuntas">
 				</div>
 				<div class="card-footer">
-				<div class="float-right">
-					<a href="#">
-						<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
-							<i class="far fa-save nav-icon">
-							</i> Simpan
-						</button>
-					</a>
+					<div class="float-right">
+						<a href="#">
+							<button id="btn_simpan" class="btn btn-sm btn-success" type="submit">
+								<i class="far fa-save nav-icon">
+								</i> Simpan
+							</button>
+						</a>
+					</div>
 				</div>
 			</div>
-			</div>
-			
+
 			</form>
 		<?php } ?>
 		</div>

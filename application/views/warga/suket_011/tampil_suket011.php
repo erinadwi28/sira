@@ -57,15 +57,56 @@
 												$bulan = '';
 											} ?>
 											<div class="badan_surat">
-												<div class="no_surat">
-													<center>
-														<p><u>SURAT PENGANTAR KTP</u><br>
-															Nomor : <?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/ <?= $w->no_kelurahan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></p>
-													</center>
+												<div class="">
+													<div class="row">
+														<div class="col-7">
+															<table class="table-responsive">
+																<tbody>
+																	<tr>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																	</tr>
+																	<tr>
+																		<td> <b>Perihal</b> </td>
+																		<td></td>
+																		<td> <b>:</b> </td>
+																		<td> <b>Permohonan Untuk Mendapatkan</b></td>
+
+																	</tr>
+																	<tr>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td><u> <b>KTP Kabupaten Kota Waringin Barat</b> </u></td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<div class="col-5">
+															<table class="table-responsive">
+																<tbody>
+																	<tr>
+																		<td> Kepada</td>
+																	</tr>
+																	<tr>
+																		<td>Yth.Camat Arut Selatan</td>
+
+																	</tr>
+																	<tr>
+																		<td>Di Pangkalan Bun</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
 												</div>
+												<br>
 												<div class="isi_surat paragraf">
 													<p> Yang bertanda tangan dibawah ini, saya : </p>
 												</div>
+
 												<div class="isi_surat identitas">
 													<table class="table-responsive">
 														<tbody>
@@ -97,7 +138,8 @@
 																<td> </td>
 																<td> </td>
 																<td>:</td>
-																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?>
+																<td><?= $w->tempat_lahir; ?>,
+																	<?= format_indo(date($w->tanggal_lahir)); ?>
 																</td>
 															</tr>
 															<tr>
@@ -218,14 +260,16 @@
 												<br>
 												<div class="isi_surat paragraf">
 													<p>
-														Dengan ini mengajukan permohonan kepada Bapak untuk dapat diberikan Kartu Tanda Penduduk (KTP)
+														Dengan ini mengajukan permohonan kepada Bapak untuk dapat diberikan Kartu Tanda
+														Penduduk (KTP)
 														Kabupaten Kotawaringin Barat. <br> <br>
 														Untuk melengkapi persyaratan dimaksud bersama ini dilampirkan: <br>
 														1. Pas Photo uk. 2 X 3 cm sebanyak 3 (Tiga ) Lembar <br>
 														2. Foto copy Kartu Keluarga sebanyak 1 (Satu) Lembar <br>
 														3. Surat Keterangan Pindah dari Daerah Asal
 													</p>
-													<p>Demikian Permohonan ini disampaikan atas perrkenan Bapak diucapkan terima kasih.</p>
+													<p>Demikian Permohonan ini disampaikan atas perrkenan Bapak diucapkan terima kasih.
+													</p>
 												</div>
 											</div>
 									</center>
@@ -257,12 +301,15 @@
 									<div class="isi_surat paragraf">
 										<h6><b>REKOMENDASI</b></h6>
 										<p>
-											Bahwa nama tersebut adalah benar Penduduk RT. <?= $warga['rt'] ?> Kelurahan Mendawai dengan
-											Nomor Induk Penduduk <?= $w->nik; ?> dan keterangan-keterangan yang tertulis dalam Permohonan ini adalah benar berdasarkan Data Kependudukan. <br>
+											Bahwa nama tersebut adalah benar Penduduk RT. <?= $warga['rt'] ?> Kelurahan Mendawai
+											dengan
+											Nomor Induk Penduduk <?= $w->nik; ?> dan keterangan-keterangan yang tertulis dalam
+											Permohonan ini adalah benar berdasarkan Data Kependudukan. <br>
 										</p>
 										<p>
 											Demikian Rekomendasi ini dibuat dengan mengingat sumpah Jabatan, apabila ternayata
-											keterangan ini tidak benar, kami bersedia diberikan sanksi berdasarkan ketentuan dan perundang-undangan yang berlaku. <br>
+											keterangan ini tidak benar, kami bersedia diberikan sanksi berdasarkan ketentuan dan
+											perundang-undangan yang berlaku. <br>
 										</p>
 									</div>
 								<?php } ?>
@@ -271,16 +318,43 @@
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-											<?php
-											foreach ($detail_permohonan as $d) {
-											?>
-												<center>
+											<table class="table-responsive">
+												<tbody>
+													<tr>
+														<td> <b>Nomor</b></td>
+														<td></td>
+														<td>:</td>
+														<td> <b><?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></b></td>
+													</tr>
+													<tr>
+														<td>Tanggal</td>
+														<td></td>
+														<td>:</td>
+														<td>
+														<?php
+															foreach ($detail_permohonan as $d) {
+															?>
+																<?= format_indo(date($d->tgl_persetujuan_admin)); ?>
 
-													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
-													LURAH MENDAWAI
+															<?php } ?>
+														</td>
 
-												</center>
-											<?php } ?>
+													</tr>
+													<br>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										
+									</div>
+									<div class="col-6">
+										<div class="badan_surat isi_surat">
+											<center>
+												<b>Kepala Kelurahan Mendawai</b>
+											</center>
 										</div>
 									</div>
 								</div>
@@ -290,19 +364,25 @@
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
 											<?php
-											foreach ($data_kades as $k) {
+												foreach ($data_kades as $k) {
 											?>
 												<center>
-													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>">
+													</center>
 												</center>
+												<?php } ?>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
+										
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
+										<?php
+												foreach ($data_kades as $k) {
+											?>
 											<center>
 												<u><b><?= $k->nama; ?></b></u> <br>
 												NIP. <?= $k->nip; ?>
@@ -310,6 +390,12 @@
 										<?php } ?>
 										</div>
 									</div>
+								</div>
+								<hr>
+								<div class="row isi_surat">
+									Berdasarkan Ketentuan dan Perundang - Undangan yang berlaku, Permohonan ini ditolak/ dikabulkan karena <br>
+									....................................................................................................................................................................................................................................... <br>
+									..................................................................................................................................................................................................................................
 								</div>
 								</div>
 								<div class="card-footer">

@@ -111,47 +111,50 @@ class M_warga extends CI_Model
     }
 
 	// detail profil saya
-    public function get_detail_profil_saya($detailhere, $tabel)
-    {
-        return $this->db->get_where($tabel, $detailhere);
-    }
+	public function get_detail_profil_saya($detailhere, $tabel)
+	{
+		return $this->db->get_where($tabel, $detailhere);
+	}
 
-    //ambil foto profil profil saya
-    public function get_foto_profil_profil_saya($id_warga){
-        $this->db->select('foto_profil_warga');
-        $this->db->from('warga');
-        $this->db->where('id_warga', $id_warga);
+	//ambil foto profil profil saya
+	public function get_foto_profil_profil_saya($id_warga)
+	{
+		$this->db->select('foto_profil_warga');
+		$this->db->from('warga');
+		$this->db->where('id_warga', $id_warga);
 
-        $hasil = $this->db->get();
-        return $hasil;
-    }
+		$hasil = $this->db->get();
+		return $hasil;
+	}
 
-    //ambil foto ktp profil saya
-    public function get_foto_ktp_profil_saya($id_warga){
-        $this->db->select('foto_ktp_warga');
-        $this->db->from('warga');
-        $this->db->where('id_warga', $id_warga);
+	//ambil foto ktp profil saya
+	public function get_foto_ktp_profil_saya($id_warga)
+	{
+		$this->db->select('foto_ktp_warga');
+		$this->db->from('warga');
+		$this->db->where('id_warga', $id_warga);
 
-        $hasil = $this->db->get();
-        return $hasil;
-    }
+		$hasil = $this->db->get();
+		return $hasil;
+	}
 
-    //ambil foto kk profil saya
-    public function get_foto_kk_profil_saya($id_warga){
-        $this->db->select('foto_kk_warga');
-        $this->db->from('warga');
-        $this->db->where('id_warga', $id_warga);
+	//ambil foto kk profil saya
+	public function get_foto_kk_profil_saya($id_warga)
+	{
+		$this->db->select('foto_kk_warga');
+		$this->db->from('warga');
+		$this->db->where('id_warga', $id_warga);
 
-        $hasil = $this->db->get();
-        return $hasil;
-    }
+		$hasil = $this->db->get();
+		return $hasil;
+	}
 
-    //aksi ubah kata sandi profil saya
-    public function ubah_kata_sandi_profil_saya($where, $data, $table)
-    {
-        $this->db->where('id_warga', $where);
-        $this->db->update($table, $data);
-    }
+	//aksi ubah kata sandi profil saya
+	public function ubah_kata_sandi_profil_saya($where, $data, $table)
+	{
+		$this->db->where('id_warga', $where);
+		$this->db->update($table, $data);
+	}
 	public function get_data_kades()
 	{
 		$this->db->select('*');
@@ -363,8 +366,8 @@ class M_warga extends CI_Model
 	{
 		$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
 		$this->db->from('permohonan_surat');
-        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
-        $this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
 		$this->db->where('permohonan_surat.status_delete', 0);
         $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
 		$this->db->order_by('permohonan_surat.waktu', 'desc');
@@ -380,8 +383,8 @@ class M_warga extends CI_Model
 	{
 		$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
 		$this->db->from('permohonan_surat');
-        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
-        $this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
 		$this->db->where('permohonan_surat.status_delete', 0);
         $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
 		$this->db->order_by('permohonan_surat.waktu', 'desc');

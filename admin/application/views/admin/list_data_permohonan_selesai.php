@@ -19,9 +19,10 @@
 							<th>No</th>
 							<th>Tanggal Permohonan</th>
 							<th>Tanggal Selesai</th>
-							<th>Nama</th>
 							<th>Nama Surat</th>
-                            <th>Status</th>
+							<th>NIK Pemohon</th>
+							<th>Nama Pemohon</th>
+							<th>Status</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -34,14 +35,15 @@
 								<td><?= $no++ ?></td>
 								<td><?= $permohonan->tgl_permohonan_surat ?></td>
 								<td><?= $permohonan->tgl_persetujuan_admin ?></td>
-								<td><?= $permohonan->nama ?></td>
 								<td><?= $permohonan->nama_surat ?></td>
-                                <td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $permohonan->status ?></label></td>
+								<td><?= $permohonan->nik ?></td>
+								<td><?= $permohonan->nama ?></td>
+								<td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $permohonan->status ?></label></td>
 								<td>
 									<div>
-										<a href="<?= base_url() ?>admin/detail_data_permohonan/<?= $permohonan->id_permohonan_surat ?>/<?= $permohonan->id_nama_surat ?>" class="btn btn-primary btn-sm">
+										<a href="<?= base_url() ?>admin/lihat_surat/<?= $permohonan->id_permohonan_surat ?>/<?= $permohonan->id_nama_surat ?>" class="btn btn-info btn-sm">
 											<i class="far fa-eye nav-icon"></i>
-											Detail
+											Lihat Surat
 										</a>
 									</div>
 								</td>

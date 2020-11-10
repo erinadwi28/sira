@@ -106,7 +106,7 @@
             position: absolute;
             float: left;
             margin-top: 145px;
-			margin-right: -535px;
+            margin-right: -535px;
         }
     </style>
 
@@ -266,7 +266,7 @@
                                     </div>
                                     <div class="isi_surat paragraf">
                                         <p>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan ini sibuat untuk dipergunakan sebagaimana mestinya.
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan ini dibuat untuk dipergunakan sebagaimana mestinya.
                                         </p>
 
                                     </div>

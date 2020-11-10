@@ -30,56 +30,56 @@
 								<td><b>Nama Alm</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_alm ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->jenis_kelamin ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kematian</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_meninggal ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->umur ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kediaman</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_kediaman ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Meninggal</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->hari_meninggal ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Meninggal</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_meninggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Alasan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->alasan_meninggal ?></td>
 							</tr>
 							<?php } ?>
@@ -89,7 +89,7 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 							<?php } ?>

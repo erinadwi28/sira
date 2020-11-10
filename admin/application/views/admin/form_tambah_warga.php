@@ -181,7 +181,6 @@
 									<i class="fas fa-exclamation-circle"></i>
 									<small>Error Message</small>
 								</div>
-
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
@@ -290,8 +289,9 @@
 						</div>
 
 						<br>
-						<hr>
-						<div>
+
+						</div>
+						<div class="card-footer">
 							<div class="float-right">
 								<a href="">
 									<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
@@ -307,6 +307,7 @@
 								</a>
 							</div>
 						</div>
+						</div>
 					</form>
 
 				</div>
@@ -316,8 +317,9 @@
 		</div>
 
 
-	</div>
-</div>
+
+	
+
 <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->

@@ -27,12 +27,18 @@
 							<em class="float-center small text-danger">*Masukkan alasan dengan lengkap, alasan ini akan
 								dikirim ke pemohon agar mengetahuinya</em>
 
-							<form role="form" action="<?= base_url('admin/aksi_tolak_permohonan') ?>" method="post">
+							<form role="form" action="<?= base_url('admin/aksi_tolak_permohonan') ?>" method="post"
+								id="formalasan">
 								<div class="form-row align-items-center">
 									<div class="col-md-2"></div>
 									<div class="col-md-8 mt-4 mb-2">
+										<div class="form-group-surat">
 										<textarea type="text" class="form-control mb-2" name="keterangan" id="keterangan"
 											placeholder="Masukan alasan disini..."></textarea>
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small> Error Message </small>
+										</div>
 										<input type="hidden" class="form-control form-user-input" name="status"
 											id="status" value="Ditolak Kelurahan">
 										<input type="hidden" class="form-control form-user-input"

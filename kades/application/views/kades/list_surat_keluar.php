@@ -16,6 +16,7 @@
 				method="post" accept-charset="utf-8">
 
 				<div class="row">
+
 					<div class="col-md-2 mt-2">
 						<label class="label-control" for="tanggal_mulai"><b>Tanggal
 								Mulai</b></label>
@@ -40,6 +41,14 @@
 					</div>
 				</div>
 			</form>
+		</div>
+		<hr>
+		<div>
+			<a href="<?= base_url() ?>kades/list_surat_keluar">
+				<button id="btn_kembali" class="btn btn-sm btn-warning float-right mb-2 mr-2 mt-0" type="">
+					<i class="fas fa-sync-alt"></i> Reset
+				</button>
+			</a>
 		</div>
 	</div>
 

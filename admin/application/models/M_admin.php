@@ -147,7 +147,7 @@ class M_admin extends CI_Model
         return $hasil;
     }
 
-    // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
+    // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
     {
         $this->db->where('id_admin', $detailhere);
@@ -167,6 +167,7 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('kepala_desa');
         $this->db->where('status_delete', 0);
+        $this->db->order_by('nama','asc');
 
         $hasil = $this->db->get();
 
@@ -198,13 +199,13 @@ class M_admin extends CI_Model
         return $this->db->insert('kepala_desa', $data);
     }
 
-    // ambil data ke form ubah kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ubah data kades
+    // ambil data ke form ubah kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     public function ubah_kades($detailhere, $table)
     {
         return $this->db->get_where($table, $detailhere);
     }
 
-    // aksi ubah data kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
+    // aksi ubah data kades                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     public function aksi_ubah_data_kades($detailhere, $data, $table)
     {
         $this->db->where('id_kades', $detailhere);
@@ -286,6 +287,7 @@ class M_admin extends CI_Model
         $this->db->from('rt');
         $this->db->join('warga', 'rt.id_warga = warga.id_warga', 'INNER');
         $this->db->where('rt.status_delete', 0);
+        $this->db->order_by('nama','asc');
 
         $hasil = $this->db->get();
         return $hasil;
@@ -433,6 +435,8 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('warga');
         $this->db->where('status_delete', 0);
+        $this->db->order_by('nama','asc');
+
 
         $hasil = $this->db->get();
 
@@ -490,7 +494,7 @@ class M_admin extends CI_Model
         return $this->db->get_where($table, $detailhere);
     }
 
-    // aksi ubah data warga                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ubah data kades
+    // aksi ubah data warga                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
     public function aksi_ubah_data_warga($where, $data, $table)
     {
         $this->db->where('id_warga', $where);
@@ -777,10 +781,6 @@ class M_admin extends CI_Model
 		OR permohonan_surat.status = 'Ditolak Kelurahan'
         OR permohonan_surat.status = 'Selesai')", null, false);
 		$this->db->order_by('permohonan_surat.waktu', 'desc');
-        // $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'desc');
-        // $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'desc');
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
-        // $this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
         $hasil = $this->db->get();
         return $hasil;
     }
@@ -833,6 +833,7 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_masuk');
         $this->db->where('status_delete', 0);
+        $this->db->order_by('waktu', 'desc');
 
         $hasil = $this->db->get();
 
@@ -852,7 +853,7 @@ class M_admin extends CI_Model
         return $this->db->get_where($tabel, $detailhere);
     }
 
-    // aksi ubah data surat masuk                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ubah data kades
+    // aksi ubah data surat masuk
     public function aksi_ubah_surat_masuk($detailhere, $data, $table)
     {
         $this->db->where('id_sm', $detailhere);
@@ -899,6 +900,7 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_keluar');
         $this->db->where('status_delete', 0);
+        
 
         $hasil = $this->db->get();
 
@@ -918,7 +920,7 @@ class M_admin extends CI_Model
         return $this->db->get_where($tabel, $detailhere);
     }
 
-    // aksi ubah data surat keluar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ubah data kades
+    // aksi ubah data surat keluar
     public function aksi_ubah_surat_keluar($detailhere, $data, $table)
     {
         $this->db->where('id_sk', $detailhere);

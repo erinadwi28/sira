@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Riwayat Permohonan Surat</h1>
+		<h1 class="h3 mb-0 text-gray-800">Data Permohonan Surat</h1>
 	</div>
 
 	<!-- Filter Tanggal Permohonan Surat -->
@@ -41,6 +41,14 @@
 					</div>
 				</div>
 			</form>
+		</div>
+		<hr>
+		<div>
+			<a href="<?= base_url() ?>kades/list_riwayat_permohonan">
+				<button id="btn_kembali" class="btn btn-sm btn-warning float-right mb-2 mr-2 mt-0" type="">
+					<i class="fas fa-sync-alt"></i> Reset
+				</button>
+			</a>
 		</div>
 	</div>
 
@@ -81,16 +89,13 @@
 							<td><?= $permohonan->tgl_permohonan_surat ?></td>
 							<td><?= $permohonan->nama ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
-							<?php if($permohonan->status == "Ditolak") { ?>
+							<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
 							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
 									<?= $permohonan->status ?></label></td>
-							<?php } elseif($permohonan->status == "Menunggu Persetujuan Ketua RT") { ?>
-							<td><label class="badge badge-warning"><i class="far fa-clock"></i>
-									<?= $permohonan->status ?></label></td>
-							<?php } elseif($permohonan->status == "Menunggu Persetujuan Admin") { ?>
+							<?php } elseif($permohonan->status == "Menunggu Persetujuan Kelurahan") { ?>
 							<td><label class="badge badge-info"><i class="far fa-clock"></i>
 									<?= $permohonan->status ?></label></td>
-							<?php } else { ?>
+							<?php } elseif($permohonan->status == "Selesai") { ?>
 							<td><label class="badge badge-success"><i class="far fa-check-circle"></i>
 									<?= $permohonan->status ?></label></td>
 							<?php } ?>

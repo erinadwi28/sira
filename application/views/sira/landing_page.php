@@ -557,7 +557,8 @@
 						administratif di Indonesia dibawah Kecamatan Arut Selatan yang
 						tepatnya terletak di Jln. Dewan Amir Husin Hamzah Nomor : 22,
 						Kelurahan Mendawai, Kecamatan Arut Selatan, Kabupaten Kotawaringin
-						Barat, Provinsi Kalimantan Tengah. Kelurahan Mendawai dipimpin
+						Barat, Provinsi Kalimantan Tengah dengan populasi penduduk sebanyak &#177; 11.000 
+						yang terbagi dalam 30 Rukun Tetangga. Saat ini Kelurahan Mendawai dipimpin
 						oleh <?= $kades->nama; ?>.
 					</p>
 				</div>

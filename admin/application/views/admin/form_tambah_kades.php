@@ -263,7 +263,7 @@
 							</div>
 							<br>
 					</div>
-				</div>
+				
 				<div class="card-footer">
 					<div class="float-right">
 						<a href="">
@@ -281,7 +281,7 @@
 					</div>
 				</div>
 
-
+</div>
 				</form>
 			</div>
 		</div>

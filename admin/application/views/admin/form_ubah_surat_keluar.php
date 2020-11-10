@@ -22,42 +22,83 @@
 					<!-- <table class="table-responsive">
                     </table> -->
 					<form role="form" action="<?= base_url('admin/aksi_ubah_surat_keluar') ?>" method="post"
-						id="formUbah">
+						id="ubahSuratKeluar">
+
+						<div class="form-group-surat">
 						<div class="form-group row">
 							<label for="nomor_surat" class="col-sm-3 col-form-label">Nomor Surat</label>
 							<div class="col-sm-9">
+							<div class="form-line">
 								<input type="text" class="form-control" id="nomor_surat" name="nomor_surat"
 									value="<?= $detail->nomor_surat; ?>">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small> Error Message </small>
+								</div>
 							</div>
 						</div>
+						</div>
+
+						<div class="form-group-surat">
 						<div class="form-group row">
 							<label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
 							<div class="col-sm-9">
+							<div class="form-line">
 								<input type="date" class="form-control date" id="tanggal" name="tanggal"
 									value="<?= $detail->tanggal; ?>">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small> Error Message </small>
+							</div>
 							</div>
 						</div>
+						</div>
+
+						<div class="form-group-surat">
 						<div class="form-group row">
 							<label for="tujuan" class="col-sm-3 col-form-label">Tujuan</label>
 							<div class="col-sm-9">
+								<div class="form-line">
 								<input type="text" class="form-control" id="tujuan" name="tujuan"
 									value="<?= $detail->tujuan; ?>">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small> Error Message </small>
+								</div>
 							</div>
 						</div>
+						</div>
+
+						<div class="form-group-surat">
 						<div class="form-group row">
 							<label for="perihal" class="col-sm-3 col-form-label">Perihal</label>
 							<div class="col-sm-9">
+								<div class="form-line">
 								<input type="text" class="form-control" id="perihal" name="perihal"
 									value="<?= $detail->perihal; ?>">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small> Error Message </small>
+								</div>
 							</div>
 						</div>
+						</div>
+
+						<div class="form-group-surat">
 						<div class="form-group row">
 							<label for="isi" class="col-sm-3 col-form-label">Isi Surat</label>
 							<div class="col-sm-9">
+								<div class="form-line">
 								<textarea class="form-control" id="isi" name="isi"
 									rows="3"><?= $detail->isi; ?></textarea>
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small> Error Message </small>
+								</div>
 							</div>
 						</div>
+						</div>
+
 						<br>
 						<hr />
 						<div class="">

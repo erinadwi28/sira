@@ -39,7 +39,7 @@
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
 			<div class="card shadow mb-2">
 				<div class="card-body">
-					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_009') ?>" method="post">
+					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_009') ?>" method="post" id="suket9">
 						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat</em>
                         <div class="row">
 							<div class="col-md-12">
@@ -54,28 +54,43 @@
 							<div class="col-md-2">
 							</div>
 							<div class="col-md-03 ml-4 mr-3">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_tupoksi"
 									id="no_tupoksi" value="474.3" disabled> 
+									<small>Error Message</small>
+							</div>
 							</div>
 							<h3> /</h3>
 							<div class="col-md-01">
-								<input type="text" class="form-control form-user-input" name="no_registrasi"
-									id="no_registrasi"> 
+							<div class="form-group">
+										<input type="text" class="form-control form-user-input" name="no_registrasi"
+										id="no_registrasi"> 
+										<small>Error Message</small>
+								</div> 
 							</div>
 							<h3>/</h3>
 							<div class="col-md-01">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_kelurahan"
-									id="no_kelurahan" value="KM" disabled> 
+								id="no_kelurahan" value="KM" disabled> 
+								<small>Error Message</small>
+							</div> 
 							</div>
 							<h3>/</h3>
 							<div class="col-md-01">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_bulan"
 									id="no_bulan" value="<?php echo date("m"); ?>"> 
+								<small>Error Message</small>
+							</div> 
 							</div>
 							<h3>/</h3>
 							<div class="col-md-0">
+							<div class="form-group">
 								<input type="text" class="form-control form-user-input" name="no_tahun"
-									id="no_tahun" value="<?php echo date("Y"); ?>"> 
+									id="no_tahun" value="<?php echo date("Y"); ?>">
+								<small>Error Message</small> 
+							</div>
 							</div>
 						</div>
 
@@ -154,7 +169,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_meninggal; ?></td>
+									<td><?= format_indo(date($detail->tanggal_meninggal)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Meninggal</b></td>
@@ -175,14 +190,14 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_permohonan_surat; ?></td>
+									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_persetujuan_rt; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 								<tr>
 									<td><b>Surat Yang Dimohon</b></td>
@@ -315,7 +330,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tanggal_meninggal; ?></td>
+									<td><?= format_indo(date($detail->tanggal_meninggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Meninggal</b></td>
@@ -336,7 +351,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tgl_permohonan_surat; ?></td>
+								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 
 							<!-- tanggal RT -->
@@ -346,7 +361,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_persetujuan_rt; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } else { ?>
 								<tr>
@@ -354,7 +369,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_persetujuan_rt; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
 							
@@ -365,7 +380,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_persetujuan_admin; ?></td>
+									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } elseif($detail->status == "Selesai") { ?>
 								<tr>
@@ -373,7 +388,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_persetujuan_admin; ?></td>
+									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>
 

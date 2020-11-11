@@ -34,9 +34,9 @@
 					<!-- Detail Data -->
 					<div class="card shadow mb-3">
 						<div class="card-body">
-							<label class="label-control" for="nik"><b>Masukkan Kata Sandi yang baru</b></label>
+							<label class="label-control" for="kata_sandi"><b>Masukkan Kata Sandi yang baru</b></label>
 							<form role="form" action="<?= base_url() ?>rt/aksi_ubah_kata_sandi_profil_saya/"
-								method="post" id="formUbah">
+								method="post">
 								<div class="row">
 									<div class="col-md-7">
 										<div class="form-group">
@@ -49,6 +49,7 @@
 
 											<input type="hidden" class="form-control form-user-input " name="id_rt"
 												id="id_rt" value="<?= $rt['id_rt'] ?>">
+
 										</div>
 									</div>
 									<div class="col-md-3">

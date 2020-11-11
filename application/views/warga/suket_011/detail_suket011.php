@@ -352,7 +352,7 @@
 							foreach ($detail_suket as $pas_foto) { ?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $pas_foto->pas_foto; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $pas_foto->pas_foto; ?>" alt="pas foto" class="img-fluid">
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $pas_foto->pas_foto; ?>" alt="pas foto" class="img-fluid" width="200px">
 									</a>
 								</center>
 							<?php } ?>
@@ -373,7 +373,7 @@
 							?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_kk->foto_kk; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_kk->foto_kk; ?>" alt="foto kk" class="img-fluid" 20>
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_kk->foto_kk; ?>" alt="foto kk" class="img-fluid" width="200px">
 									</a>
 								</center>
 							<?php } ?>
@@ -394,7 +394,7 @@
 							?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_surat_pindah->foto_surat_pindah; ?>" data-gallery="mygallery" data-title="Foto Surat Pindah" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_surat_pindah->foto_surat_pindah; ?>" alt="foto surat pindah" class="img-fluid" 20>
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_surat_pindah->foto_surat_pindah; ?>" alt="foto surat pindah" class="img-fluid" width="200px">
 									</a>
 								</center>
 							<?php } ?>

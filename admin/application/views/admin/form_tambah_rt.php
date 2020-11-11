@@ -245,7 +245,7 @@
 												<i class="fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error Message</small>																		
-												<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" value="Acak Password" onclick="generate2();" tabindex="2">
+												<input style="margin-top: 15px;" type="button" class="button btn-sm btn-primary" name="kata_sandi" value="Acak Password" onclick="generate2();" tabindex="2">
 												<br />
 
 											</div>
@@ -259,9 +259,15 @@
 									
 								<?php } ?>
 							</div>
-							<hr>
-							<div class="">
+					</div>
+							<div class="card-footer">
 											<div class="float-right">
+												<a href="">
+							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
+								<i class="fa fa-times nav-icon">
+								</i> Batal
+							</button>
+						</a>
 												<a href="">
 													<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
 														<i class="far fa-save nav-icon">

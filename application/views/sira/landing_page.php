@@ -67,14 +67,16 @@
 					<div class="contents">
 						<h2 class="head-title">Selamat Datang di SIRA</h2>
 						<p>
-							Sistem Informasi Pelayanan Surat Menyurat Kelurahan Mendawai
+							Sistem Informasi Pelayanan Surat Menyurat Kelurahan Mendawai.
 							<br />
 							SIRA akan membantu Anda dalam mengajukan permohonan surat secara
-							online sehingga lebih cepat dan praktis
+							online sehingga lebih cepat dan praktis.
 						</p>
-						<a href="#"><button>
+						<a href="<?= base_url('login') ?>">
+							<button>
 								Mulai Buat Surat
-							</button></a>
+							</button>
+						</a>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-12 col-xs-12 p-0">
@@ -546,6 +548,7 @@
 			</div>
 			<!-- End Row -->
 			<!-- Start Row -->
+			<?php foreach ($data_kades as $kades) { ?>
 			<div class="row">
 				<!-- Start Col -->
 				<div class="col-lg-6 col-md-12">
@@ -554,9 +557,9 @@
 						administratif di Indonesia dibawah Kecamatan Arut Selatan yang
 						tepatnya terletak di Jln. Dewan Amir Husin Hamzah Nomor : 22,
 						Kelurahan Mendawai, Kecamatan Arut Selatan, Kabupaten Kotawaringin
-						Barat, Provinsi Kalimantan Tengah. Kelurahan Mendawai dipimpin
-						oleh Rahadian Syahmi, S.Hut. Kelurahan ini memiliki 30 RT (Rukun
-						Tetangga) dan 554 KK (Kartu Keluarga).
+						Barat, Provinsi Kalimantan Tengah dengan populasi penduduk sebanyak &#177; 11.000 
+						yang terbagi dalam 30 Rukun Tetangga. Saat ini Kelurahan Mendawai dipimpin
+						oleh <?= $kades->nama; ?>.
 					</p>
 				</div>
 				<!-- End Col -->
@@ -566,12 +569,14 @@
 				<!-- Start Col -->
 				<div class="col-lg-4 col-md-12">
 					<div class="contact-img">
-						<figure>
-							<img src="<?= base_url('assets/landing_page/') ?>img/lurah.png" class="img-fluid mb-2" alt="" />
-							<center>
-								<figcaption>Lurah Kelurahan Mendawai</figcaption>
-							</center>
-						</figure>
+						<center>
+							<figure>
+								<img src="<?= base_url(); ?>/assets/uploads/kades/<?= $kades->foto_profil_kades; ?>" alt="foto profil" class="img-fluid img-thumbnail shadow mb-3" width="300px">
+								<center>
+									<figcaption>Lurah Kelurahan Mendawai</figcaption>
+								</center>
+							</figure>
+						</center>
 
 					</div>
 				</div>
@@ -581,6 +586,7 @@
 				<!-- End Col -->
 			</div>
 			<!-- End Row -->
+			<?php } ?>
 		</div>
 	</section>
 	<!-- Contact Us Section End -->
@@ -610,33 +616,32 @@
 				</div>
 			</div>
 			<!-- End Row -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+					<?php if ($this->session->flashdata('success')) : ?>
+					<?php endif; ?>
+				</div>
+			</div>
 			<!-- Start Row -->
 			<div class="row">
 				<!-- Start Col -->
 				<div class="col-lg-6 col-md-12">
-					<form id="contactForm">
+					<form id="contactForm" action="<?= base_url('landing_page/aksi_tambah_feedback') ?>" method="POST">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<input type="text" class="form-control-input" id="nama" name="nama" required
-										data-error="Please enter your name" />
+										data-error="masukkan nama anda" />
 									<label class="label-control" for="nama">Nama</label>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" id="no_telp" class="form-control-input" id="no_telp"
-										name="no_telp" required data-error="Please enter your telephone number" />
-									<label class="label-control" for="no_telp">No Telepon</label>
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="email" class="form-control-input" id="email" name="email" required
-										data-error="Please enter your Email" />
-									<label class="label-control" for="email">Email</label>
+									<input type="text" id="no_hp" class="form-control-input"
+										name="no_hp" required data-error="masukkan no hp anda" />
+									<label class="label-control" for="no_hp">No HandPhone</label>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -710,7 +715,7 @@
 					<!-- Start Col -->
 					<div class="col-md-5">
 						<div class="widget">
-							<h3 class="block-title">Kelurahann Mendawai</h3>
+							<h3 class="block-title">Kelurahan Mendawai</h3>
 							<p>
 								<i class="lni-map-marker"></i> Jln. Dewan Amir Husin Hamzah
 								Nomor : 22, Kelurahan Mendawai, Kecamatan Arut Selatan,
@@ -769,9 +774,25 @@
 	<script src="<?= base_url('assets/landing_page/') ?>js/jquery.easing.min.js"></script>
 	<script src="<?= base_url('assets/landing_page/') ?>js/nivo-lightbox.js"></script>
 	<script src="<?= base_url('assets/landing_page/') ?>js/jquery.magnific-popup.min.js"></script>
-	<script src="<?= base_url('assets/landing_page/') ?>js/form-validator.min.js"></script>
-	<script src="<?= base_url('assets/landing_page/') ?>js/contact-form-script.js"></script>
+	<!-- <script src="<?= base_url('assets/landing_page/') ?>js/form-validator.min.js"></script> -->
+	<!-- <script src="<?= base_url('assets/landing_page/') ?>js/contact-form-script.js"></script> -->
 	<script src="<?= base_url('assets/landing_page/') ?>js/main.js"></script>
+
+	<!-- Sweet alert -->
+	<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	
+	<!-- tambah data -->
+	<script>
+		const flashData = $('.flash-data').data('flashdata');
+		if (flashData) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Berhasil !',
+				text: 'Data telah ' + flashData,
+				type: 'success'
+			});
+		}
+	</script>
 </body>
 
 </html>

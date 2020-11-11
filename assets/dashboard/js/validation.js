@@ -300,7 +300,7 @@ else if (form1_ubah_suket != null) {
 	});
 } else if (form5_ubah_suket != null) {
 	form5_ubah_suket.addEventListener("submit", (e) => {
-		if (checkInput5() == true) {
+		if (checkInputUbah5() == true) {
 			e.target.submit();
 		} else
 			e.preventDefault();
@@ -718,6 +718,75 @@ function checkInput5() {
 		return (false);
 	} else {
 		setSuccessFor(file_upload_profile);
+	}
+	return (true);
+}
+function checkInputUbah5() {
+	const namaValue = nama.value.trim();
+	const tempat_lahirValue = tempat_lahir.value.trim();
+	const tanggal_lahirValue = tanggal_lahir.value.trim();
+	const alamatValue = alamat.value.trim();
+	const nama_kegiatanValue = nama_kegiatan.value.trim();
+	const hari_kegiatanValue = hari_kegiatan.value.trim();
+	const tanggal_kegiatanValue = tanggal_kegiatan.value.trim();
+	const tempatValue = tempat.value.trim();
+	const jamValue = jam.value.trim();
+
+
+	if (namaValue === "") {
+		setErrorFor(nama, "Nama tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama);
+	}
+	if (tempat_lahirValue === "") {
+		setErrorFor(tempat_lahir, "Tempat lahir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat_lahir);
+	}
+	if (tanggal_lahirValue === "") {
+		setErrorFor(tanggal_lahir, "Tanggal lahir tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_lahir);
+	}
+	if (alamatValue === "") {
+		setErrorFor(alamat, "Alamat tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(alamat);
+	}
+	if (nama_kegiatanValue === "") {
+		setErrorFor(nama_kegiatan, "Nama kegiatan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(nama_kegiatan);
+	}
+	if (hari_kegiatanValue === "pilih hari...") {
+		setErrorFor(hari_kegiatan, "Hari kegiatan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(hari_kegiatan);
+	}
+	if (tanggal_kegiatanValue === "") {
+		setErrorFor(tanggal_kegiatan, "Tanggal kegiatan tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tanggal_kegiatan);
+
+	}
+	if (tempatValue === "") {
+		setErrorFor(tempat, "Tempat tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(tempat);
+	}
+	if (jamValue === "") {
+		setErrorFor(jam, "Jam tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(jam);
 	}
 	return (true);
 }

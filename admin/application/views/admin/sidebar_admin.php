@@ -97,6 +97,13 @@
 
 	<!-- Divider -->
 	<hr class="sidebar-divider">
+
+	<li class="nav-item">
+		<a class="nav-link " href="<?= base_url('admin/list_feedback') ?>">
+			<i class="fa fa-comments"></i>
+			<span>Feedback</span>
+		</a>
+	</li>
 	
 	<!-- Sidebar Toggler (Sidebar) -->
 	<div class="text-center d-none d-md-inline">

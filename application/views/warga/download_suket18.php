@@ -1,11 +1,16 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
 	<!-- Page Heading -->
-	<div class="align-items-center justify-content-between mb-4">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<center>
-			<h1 class="h3 mb-0 text-gray-800">DAFTAR SURAT KETERANGAN PENGANTAR NIKAH</h1>
+			<h1 class="h3 mb-0 text-gray-800">Daftar Surat Keterangan Pengantar Nikah</h1>
 		</center>
+		<a href="<?= base_url('warga') ?>">
+			<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
+				<i class="fa fa-arrow-left">
+				</i> Kembali
+			</button>
+		</a>
 	</div>
 
 	<!-- Page Heading Data Surat-->
@@ -18,7 +23,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-xl-4 col-md-3 mb-3">
+		<div class="col-xl-6 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body px-3 py-3">
 					<div class="row no-gutters align-items-center">
@@ -27,14 +32,16 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_018_laki/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xl-4 col-md-3 mb-3">
+		<div class="col-xl-6 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body px-3 py-3">
 					<div class="row no-gutters align-items-center">
@@ -43,14 +50,20 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_018_perempuan/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xl-4 col-md-3 mb-3">
+		
+		
+	</div>
+	<div class="row">
+		<div class="col-xl-6 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body px-3 py-3">
 					<div class="row no-gutters align-items-center">
@@ -59,16 +72,16 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_018_duda/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xl-4 col-md-3 mb-3">
+		<div class="col-xl-6 col-md-3 mb-3">
 			<div class="card border-left-success shadow h-100 py-1">
 				<div class="card-body px-3 py-3">
 					<div class="row no-gutters align-items-center">
@@ -77,15 +90,16 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_018_janda/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
 <!-- /.container-fluid -->
 </div>

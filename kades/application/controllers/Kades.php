@@ -108,6 +108,7 @@ class Kades extends CI_Controller
 	// }
 	
         // upload foto profil kades
+
         public function upload_foto_profil()
         {
                 $where = $this->input->post('id_kades');
@@ -373,7 +374,6 @@ class Kades extends CI_Controller
                         'no_hp' => $this->input->post('no_hp'),
                         'jabatan' => $this->input->post('jabatan'),
                         'kata_sandi' => $kata_sandi_hash,
-                        'status_kepegawaian' => $this->input->post('status_kepegawaian'),
                 );
 
 		$this->m_kades->tambah_admin($data);
@@ -464,20 +464,36 @@ class Kades extends CI_Controller
                 $this->load->view('footer');
         }
 
-        //list data permohonan
-        public function list_data_permohonan()
+        public function list_riwayat_permohonan()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
                 $this->session->userdata('id_kades')])->row_array();
 
-
-                $data_permohonan['data_permohonan_masuk'] = $this->m_kades->get_list_permohonan_masuk()->result();
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_kades->get_list_riwayat_permohonan()->result();
 
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
                 $this->load->view('topbar', $data);
-                $this->load->view('kades/list_data_permohonan', $data_permohonan);
+                $this->load->view('kades/list_data_riwayat_permohonan', $data_permohonan);
                 $this->load->view('footer');        
+        }
+
+        // filter tanggal riwayat permohonan
+        public function filter_riwayat_permohonan()
+        {
+                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
+                $this->session->userdata('id_kades')])->row_array();
+
+                $tgl_awal = $this->input->post('tanggal_mulai');
+                $tgl_akhir = $this->input->post('tanggal_akhir');
+                
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_kades->filter_riwayat($tgl_awal, $tgl_akhir)->result();
+
+                $this->load->view('header');
+                $this->load->view('kades/sidebar_kades');
+                $this->load->view('topbar', $data);
+                $this->load->view('kades/list_data_riwayat_permohonan', $data_permohonan);
+                $this->load->view('footer');
         }
 
         //detail data permohonan
@@ -550,68 +566,6 @@ class Kades extends CI_Controller
                 } elseif($id_nama_surat == 14) {
                 $this->load->view('kades/detail_permohonan_014', $data_detail);
                 } 
-                $this->load->view('footer');
-        }
-
-        //data permohonan ditolak
-        public function list_data_permohonan_ditolak()
-        {
-                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
-
-                $data_permohonan['data_permohonan_ditolak'] = $this->m_kades->get_list_permohonan_ditolak()->result();
-
-                $this->load->view('header');
-                $this->load->view('kades/sidebar_kades');
-                $this->load->view('topbar', $data);
-                $this->load->view('kades/list_data_permohonan_ditolak', $data_permohonan);
-                $this->load->view('footer');        
-        }
-
-        //data permohonan selesai
-        public function list_data_permohonan_selesai()
-        {
-                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
-
-                $data_permohonan['data_permohonan_selesai'] = $this->m_kades->get_list_permohonan_selesai()->result();
-
-                $this->load->view('header');
-                $this->load->view('kades/sidebar_kades');
-                $this->load->view('topbar', $data);
-                $this->load->view('kades/list_data_permohonan_selesai', $data_permohonan);
-                $this->load->view('footer');        
-        }
-
-        public function list_riwayat_permohonan()
-        {
-                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
-
-                $data_permohonan['data_riwayat_permohonan'] = $this->m_kades->get_list_riwayat_permohonan()->result();
-
-                $this->load->view('header');
-                $this->load->view('kades/sidebar_kades');
-                $this->load->view('topbar', $data);
-                $this->load->view('kades/list_data_riwayat_permohonan', $data_permohonan);
-                $this->load->view('footer');        
-        }
-
-        // filter tanggal riwayat permohonan
-        public function filter_riwayat_permohonan()
-        {
-                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
-
-                $tgl_awal = $this->input->post('tanggal_mulai');
-                $tgl_akhir = $this->input->post('tanggal_akhir');
-                
-                $data_permohonan['data_riwayat_permohonan'] = $this->m_kades->filter_riwayat($tgl_awal, $tgl_akhir)->result();
-
-                $this->load->view('header');
-                $this->load->view('kades/sidebar_kades');
-                $this->load->view('topbar', $data);
-                $this->load->view('kades/list_data_riwayat_permohonan', $data_permohonan);
                 $this->load->view('footer');
         }
 
@@ -732,5 +686,34 @@ class Kades extends CI_Controller
 		force_download('../assets/uploads/admin/lampiran_sk/'.$data->lampiran,NULL);
         }
 
+        //list data feedback
+        public function list_feedback()
+        {
+                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
+                $this->session->userdata('id_kades')])->row_array();
 
+                $data_feedback['data_feedback'] = $this->m_kades->get_data_feedback()->result();
+
+                $this->load->view('header');
+                $this->load->view('kades/sidebar_kades');
+                $this->load->view('topbar', $data);
+                $this->load->view('kades/list_data_feedback', $data_feedback);
+                $this->load->view('footer');
+        }
+
+        //detail data feedback
+        public function detail_data_feedback($id_pesan)
+        {
+                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
+                $this->session->userdata('id_kades')])->row_array();
+
+                $detailhere = array('id_pesan' => $id_pesan);
+                $data_detail['detail_feedback'] = $this->m_kades->get_detail_data_feedback($detailhere, 'pesan')->result();
+
+                $this->load->view('header');
+                $this->load->view('kades/sidebar_kades');
+                $this->load->view('topbar', $data);
+                $this->load->view('kades/detail_data_feedback', $data_detail);
+                $this->load->view('footer');
+        }
 }

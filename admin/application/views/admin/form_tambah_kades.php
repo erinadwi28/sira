@@ -32,6 +32,13 @@
 										<small>Error Message</small>
 									</div>
 									<div class="form-group">
+										<label class="label-control" for="nip"><b>NIP</b></label>
+										<input type="text" class="form-control form-user-input" placeholder="masukan NIP di sini" name="nip" id="nip">
+										<i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+										<small>Error Message</small>
+									</div>
+									<div class="form-group">
 										<label class="label-control" for="nama"><b>Nama Lengkap</b></label>
 										<input type="text" class="form-control form-user-input" placeholder="masukan nama lengkap di sini" name="nama" id="nama">
 										<i class="fas fa-check-circle"></i>
@@ -83,6 +90,9 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
+									
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="agama"><b>Agama</b></label>
 										<select class="form-control form-user-input" name="agama" id="agama">
@@ -101,8 +111,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="alamat"><b>Alamat Lengkap</b></label>
 										<input type="text" class="form-control form-user-input" placeholder="masukan alamat lengkap di sini" name="alamat" id="alamat">
@@ -152,6 +160,12 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
+									
+								</div>
+								<!-- <div class="col-md-4">
+
+								</div> -->
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="kewarganegaraan"><b>Kewarganegaraan</b></label>
 										<select class="form-control form-user-input" name="kewarganegaraan" id="kewarganegaraan">
@@ -163,11 +177,6 @@
 										<i class="fas fa-exclamation-circle"></i>
 										<small>Error Message</small>
 									</div>
-								</div>
-								<!-- <div class="col-md-4">
-
-								</div> -->
-								<div class="col-md-4">
 									<div class="form-group">
 										<label class="label-control" for="no_kk"><b>No KK</b></label>
 										<input type="text" class="form-control form-user-input" placeholder="masukan No. KK di sini" name="no_kk" id="no_kk">
@@ -263,7 +272,7 @@
 							</div>
 							<br>
 					</div>
-				</div>
+				
 				<div class="card-footer">
 					<div class="float-right">
 						<a href="">
@@ -281,7 +290,7 @@
 					</div>
 				</div>
 
-
+</div>
 				</form>
 			</div>
 		</div>

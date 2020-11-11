@@ -155,10 +155,10 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-0">
 							<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-								Data Permohonan Masuk</div>
+								Data Permohonan Surat</div>
 							<?php 
-							foreach($jumlah_permohonan_masuk as $permohonan_masuk){ ?>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $permohonan_masuk->total_permohonan_masuk; ?></div>
+							foreach($jumlah_riwayat_permohonan as $riwayat){ ?>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $riwayat->total_riwayat_permohonan; ?></div>
 							<?php } ?>
 						</div>
 						<div class="col-auto">
@@ -168,7 +168,7 @@
 					<div class="row mt-3">
 						<div class="col-md-12">
 							<center>
-								<a href="<?= base_url('kades/list_data_permohonan') ?>"
+								<a href="<?= base_url('kades/list_riwayat_permohonan') ?>"
 									class="badge badge-danger">Selengkapnya <i class="fas fa-arrow-right"></i></a>
 							</center>
 						</div>
@@ -177,100 +177,13 @@
 			</div>
 		</div>
 
-		<!-- Data Permohonan Selesai -->
+		<!-- Data Surat Masuk -->
 		<div class="col-xl-3 col-md-6 mb-4">
 			<div class="card border-left-warning shadow h-100 p-0">
 				<div class="card-body px-3 py-3 ">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-0">
 							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-								Data Permohonan Ditolak</div>
-							<?php 
-							foreach($jumlah_permohonan_ditolak as $permohonan_ditolak){ ?>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $permohonan_ditolak->total_permohonan_ditolak; ?></div>
-							<?php } ?>
-						</div>
-						<div class="col-auto">
-							<i class="fa fa fa-file-excel fa-2x text-gray-300"></i>
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-md-12">
-							<center>
-								<a href="<?= base_url('kades/list_data_permohonan_ditolak') ?>"
-									class="badge badge-warning">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-							</center>
-						</div>
-					</div>
-				</div>
-			</div>
-        </div>
-        
-		<!-- Data Permohonan Selesai -->
-		<div class="col-xl-3 col-md-6 mb-4">
-			<div class="card border-left-success shadow h-100 p-0">
-				<div class="card-body px-3 py-3 ">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-0">
-							<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-								Data Permohonan Selesai</div>
-							<?php 
-							foreach($jumlah_permohonan_selesai as $permohonan_selesai){ ?>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $permohonan_selesai->total_permohonan_selesai; ?></div>
-							<?php } ?>
-						</div>
-						<div class="col-auto">
-							<i class="fa fa fa-clipboard-check fa-2x text-gray-300"></i>
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-md-12">
-							<center>
-								<a href="<?= base_url('kades/list_data_permohonan_selesai') ?>"
-									class="badge badge-success">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-							</center>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Data Surat Masuk -->
-		<div class="col-xl-3 col-md-6 mb-4">
-			<div class="card border-left-info shadow h-100 p-0">
-				<div class="card-body px-3 py-3 ">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-0">
-							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-								Riwayat Permohonan</div>
-							<?php 
-							foreach($jumlah_riwayat_permohonan as $riwayat){ ?>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $riwayat->total_riwayat_permohonan ?></div>
-							<?php } ?>
-						</div>
-						<div class="col-auto">
-							<i class="fa fa fa-book fa-2x text-gray-300"></i>
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-md-12">
-							<center>
-								<a href="<?= base_url('kades/list_riwayat_permohonan') ?>"
-									class="badge badge-info">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-							</center>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Data Surat Masuk -->
-		<div class="col-xl-3 col-md-6 mb-4">
-			<div class="card border-left-danger shadow h-100 p-0">
-				<div class="card-body px-3 py-3 ">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-0">
-							<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
 								Data Surat Masuk Kedinasan</div>
 							<?php 
 							foreach($jumlah_surat_masuk as $surat_masuk){ ?>
@@ -285,7 +198,7 @@
 						<div class="col-md-12">
 							<center>
 								<a href="<?= base_url('kades/list_surat_masuk') ?>"
-									class="badge badge-danger">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+									class="badge badge-warning">Selengkapnya <i class="fas fa-arrow-right"></i></a>
 							</center>
 						</div>
 					</div>
@@ -295,11 +208,11 @@
 
 		<!-- Data Surat Keluar -->
 		<div class="col-xl-3 col-md-6 mb-4">
-			<div class="card border-left-warning shadow h-100 p-0">
+			<div class="card border-left-success shadow h-100 p-0">
 				<div class="card-body px-3 py-3 ">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-0">
-							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+							<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
 								Data Surat Keluar Kedinasan</div>
 							<?php 
 							foreach($jumlah_surat_keluar as $surat_keluar){ ?>
@@ -314,7 +227,7 @@
 						<div class="col-md-12">
 							<center>
 								<a href="<?= base_url('kades/list_surat_keluar') ?>"
-									class="badge badge-warning">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+									class="badge badge-success">Selengkapnya <i class="fas fa-arrow-right"></i></a>
 							</center>
 						</div>
 					</div>

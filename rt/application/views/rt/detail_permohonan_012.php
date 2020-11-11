@@ -18,7 +18,7 @@
 				</i> Kembali
 			</button>
 		</a>
-		<?php } elseif($detail->status == "Ditolak") {?>
+		<?php } elseif($detail->status == "Ditolak Ketua RT" || $detail->status == "Ditolak Kelurahan") {?>
 		<a href="<?= base_url('rt/list_data_permohonan_ditolak')?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 				<i class="fa fa-arrow-left">
@@ -394,15 +394,17 @@
 								<td> </td>
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
-							<?php if ($detail->status ==  'Selesai') { ?>
+
+							<!-- tanggal rt -->
+							<?php if ($detail->status ==  'Ditolak Ketua RT') { ?>
 							<tr>
-								<td><b>Tanggal Surat</b></td>
+								<td><b>Tanggal Ditolak Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
-							<?php } ?>
+							<?php } else{ ?>
 							<tr>
 								<td><b>Tanggal Disetujui Ketua RT</b></td>
 								<td> </td>
@@ -410,6 +412,27 @@
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
+							<?php } ?>
+
+							<!-- tanggal admin -->
+							<?php if ($detail->status ==  'Selesai') { ?>
+							<tr>
+								<td><b>Tanggal Surat Dikeluarkan</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+							</tr>
+							<?php } elseif($detail->status ==  'Ditolak Kelurahan'){ ?>
+							<tr>
+								<td><b>Tanggal Ditolak Kelurahan</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+							</tr>
+							<?php } ?>
+
 							<tr>
 								<td><b>Surat Yang Dimohon</b></td>
 								<td> </td>

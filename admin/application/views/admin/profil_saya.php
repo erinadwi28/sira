@@ -32,16 +32,15 @@
 				</div>
 
 				<div class="card-body" style="padding: 15px;">
-				<center>
-					<?php 
-					foreach($foto_profil as $saya){ ?>
-					<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" data-gallery="mygallery" data-title="Foto Profil" data-toggle="lightbox">
-					<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" alt="foto profil"
-						class="img-fluid">
-					<?php } ?>
-					</a>
-				</center>
-					
+					<center>
+						<?php
+						foreach ($foto_profil as $saya) { ?>
+							<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" data-gallery="mygallery" data-title="Foto Profil" data-toggle="lightbox">
+								<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_profil_admin; ?>" alt="foto profil" class="img-fluid" width="200px">
+							<?php } ?>
+							</a>
+					</center>
+
 				</div>
 
 				<div class="card-footer py-3">
@@ -77,12 +76,14 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php foreach ($foto_ktp as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-							<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" alt="foto profil" class="img-fluid">
-						</a>
-					<?php } ?>
+				<div class="card-body" style="padding: 15px;">
+					<center>
+						<?php foreach ($foto_ktp as $saya) { ?>
+							<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
+								<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_ktp_admin; ?>" alt="foto profil" class="img-fluid" width="200px">
+							</a>
+						<?php } ?>
+					</center>
 				</div>
 
 				<div class="card-footer py-3">
@@ -118,14 +119,16 @@
 					</center>
 				</div>
 
-				<div class="card-body" style="padding: 20px;">
-					<?php
-					foreach ($foto_kk as $saya) {
-					?>
-						<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
-							<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" alt="foto kk" class="img-fluid">
-						</a>
-					<?php } ?>
+				<div class="card-body" style="padding: 15px;">
+					<center>
+						<?php
+						foreach ($foto_kk as $saya) {
+						?>
+							<a href="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
+								<img src="<?= base_url(); ?>../assets/uploads/admin/<?= $saya->foto_kk_admin; ?>" alt="foto kk" class="img-fluid" width="200px">
+							</a>
+						<?php } ?>
+					</center>
 				</div>
 
 				<div class="card-footer py-3">
@@ -166,147 +169,147 @@
 									<td><b>NIK</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->nik; ?></td>
 								</tr>
 								<tr>
 									<td><b>NIP</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->nip; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nama Lengkap</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->nama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Lahir</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->tempat_lahir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Lahir</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->jenis_kelamin; ?></td>
 								</tr>
 								<tr>
 									<td><b>Golongan Darah</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->golongan_darah; ?></td>
 								</tr>
 								<tr>
 									<td><b>Agama</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->agama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Alamat</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->alamat; ?></td>
 								</tr>
 								<tr>
 									<td><b>RT</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->rt; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kelurahan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->kelurahan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kecamatan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->kecamatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Status Perkawinan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->status_perkawinan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Pekerjaan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->pekerjaan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kewarganegaraan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->kewarganegaraan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nomor Kartu Keluarga</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->no_kk; ?></td>
 								</tr>
 								<tr>
 									<td><b>Pendidikan Terakhir</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->pendidikan_terakhir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Status Hubungan Dalam Keluarga</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->status_hub_kel; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nomor HandPhone</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->no_hp; ?></td>
 								</tr>
 								<tr>
 									<td><b>Jabatan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->jabatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Status Kepegawaian</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td><?= $detail->status_kepegawaian; ?></td>
 								</tr>
 							<?php } ?>

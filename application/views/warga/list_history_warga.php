@@ -9,34 +9,33 @@
 		<div class="card-body row" style="padding: 15px;">
 			<div class="col-md-12">
 				<h5>Filter Tanggal</h5>
-				<form role="form" action="<?= base_url('warga/filter_riwayat_permohonan') ?>" enctype="multipart/form-data"
-					method="post" accept-charset="utf-8">
+				<form role="form" action="<?= base_url('warga/filter_riwayat_permohonan') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 
 					<div class="row">
 
-					<div class="col-md-2 mt-2">
-						<label class="label-control" for="tanggal_mulai"><b>Tanggal
-								Mulai</b></label>
+						<div class="col-md-2 mt-2">
+							<label class="label-control" for="tanggal_mulai"><b>Tanggal
+									Mulai</b></label>
+						</div>
+						<div class="col-md-3 mb-2">
+							<input type="date" class="form-control form-user-input" name="tanggal_mulai" id="tanggal_mulai">
+						</div>
+						<div class="col-md-2 mt-2">
+							<label class="label-control" for="tanggal_akhir"><b>Tanggal
+									Akhir</b></label>
+						</div>
+						<div class="col-md-3 mb-2">
+							<input type="date" class="form-control form-user-input" name="tanggal_akhir" id="tanggal_akhir">
+						</div>
+						<div class="col-md-2 mt-1">
+							<center>
+								<button class="btn btn-sm btn-primary" type="submit">
+									<i class="fa fa-search nav-icon"></i>
+									Tampilkan
+								</button>
+							</center>
+						</div>
 					</div>
-					<div class="col-md-3 mb-2">
-						<input type="date" class="form-control form-user-input" name="tanggal_mulai" id="tanggal_mulai">
-					</div>
-					<div class="col-md-2 mt-2">
-						<label class="label-control" for="tanggal_akhir"><b>Tanggal
-								Akhir</b></label>
-					</div>
-					<div class="col-md-3 mb-2">
-						<input type="date" class="form-control form-user-input" name="tanggal_akhir" id="tanggal_akhir">
-					</div>
-					<div class="col-md-2 mt-1">
-						<center>
-							<button class="btn btn-sm btn-primary" type="submit">
-								<i class="fa fa-search nav-icon"></i>
-								Tampilkan
-							</button>
-						</center>
-					</div>
-				</div>
 				</form>
 			</div>
 		</div>
@@ -76,25 +75,22 @@
 							<td><?= $no++ ?></td>
 							<td><?= $w->nama_surat ?></td>
 							<td><?= $w->tgl_permohonan_surat ?></td>
-							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') {
-								?><td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-																																} elseif ($w->status == 'Menunggu Persetujuan Kelurahan') {
-																																	?><td><label class="badge badge-info"><i class="far fa-clock"></i>
-									<?= $w->status ?></label></td><?php
-																																																									} elseif ($w->status == 'Ditolak') {
-																																																										?><td><label class="badge badge-danger"><i
-										class="far fa-times-circle"></i> <?= $w->status ?></label></td><?php
-																																																																																				} elseif ($w->status == 'Selesai') {
-																																																																																					?><td><label
-									class="badge badge-success"><i class="far fa-check-circle"></i>
-									<?= $w->status ?></label></td><?php
-																																																																																																															} elseif ($w->status == 'Belum Tuntas') {
-																																																																																																																?><td>
-								<label class="badge badge-dark"><i class="far fa-times-circle"></i>
-									<?= $w->status ?></label></td>
-							<?php
-																																																																																																																																									} ?>
-							<td><?= $w->keterangan ?></td>
+
+							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') { ?>
+								<td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Menunggu Persetujuan Kelurahan') { ?>
+								<td><label class="badge badge-info"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Ditolak Ketua RT') { ?>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Selesai') { ?>
+								<td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Belum Tuntas') { ?>
+								<td> <label class="badge badge-dark"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Ditolak Kelurahan') { ?>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } ?>
+
+							<td><?= character_limiter($w->keterangan, 20); ?></td>
 							<td>
 								<div>
 									<a href="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>"

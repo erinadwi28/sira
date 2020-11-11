@@ -106,7 +106,7 @@
             position: absolute;
             float: left;
             margin-top: 145px;
-			margin-right: -535px;
+            margin-right: -535px;
         }
     </style>
 

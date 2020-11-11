@@ -252,59 +252,65 @@
 			</div>
 		</div>
 	</div>
-    <div class="row">
-        <div class="col-xl-4 col-md-3 mb-3">
-            <div class="card border-left-primary shadow h-100 py-1">
-                <div class="card-body px-3 py-3">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="h6 mb-0 font-weight-bold text-primary ">SURAT KET. USAHA</div> <br>
+	<div class="row">
+		<div class="col-xl-4 col-md-3 mb-3">
+			<div class="card border-left-primary shadow h-100 py-1">
+				<div class="card-body px-3 py-3">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="h6 mb-0 font-weight-bold text-primary ">SURAT KET. USAHA</div> <br>
 
-                        </div>
-                        <div>
-                            <a class="btn btn-primary far fa-edit btn-sm" href="<?= base_url() ?>warga/form_suket001/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- SUKET DOMISILI-->
-        <div class="col-xl-4 col-md-3 mb-3">
-            <div class="card border-left-primary shadow h-100 py-1">
-                <div class="card-body px-3 py-3">
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
-                    <?php if ($this->session->flashdata('success')) : ?>
-                    <?php endif; ?>
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="h6 mb-0 font-weight-bold text-primary ">SURAT KET. DOMISILI</div> <br>
+						</div>
+						<div>
+							<a class="btn btn-primary far fa-edit btn-sm"
+								href="<?= base_url() ?>warga/form_suket001/<?= $warga['id_warga'] ?>" role="button">
+								Buat</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- SUKET DOMISILI-->
+		<div class="col-xl-4 col-md-3 mb-3">
+			<div class="card border-left-primary shadow h-100 py-1">
+				<div class="card-body px-3 py-3">
+					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+					<?php if ($this->session->flashdata('success')) : ?>
+					<?php endif; ?>
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="h6 mb-0 font-weight-bold text-primary ">SURAT KET. DOMISILI</div> <br>
 
-                        </div>
-                        <div>
-                            <a class="btn btn-primary far fa-edit btn-sm" href="<?= base_url() ?>warga/form_suket002/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- SUKET BELUM MEMILIKI RUMAH -->
-        <div class="col-xl-4 col-md-3 mb-3">
-            <div class="card border-left-primary shadow h-100 py-1">
-                <div class="card-body px-3 py-3">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="h6 mb-0 font-weight-bold text-primary ">SUKET. BELUM MEMILIKI RUMAH</div> <br>
+						</div>
+						<div>
+							<a class="btn btn-primary far fa-edit btn-sm"
+								href="<?= base_url() ?>warga/form_suket002/<?= $warga['id_warga'] ?>" role="button">
+								Buat</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- SUKET BELUM MEMILIKI RUMAH -->
+		<div class="col-xl-4 col-md-3 mb-3">
+			<div class="card border-left-primary shadow h-100 py-1">
+				<div class="card-body px-3 py-3">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="h6 mb-0 font-weight-bold text-primary ">SUKET. BELUM MEMILIKI RUMAH</div> <br>
 
-                        </div>
-                        <div>
-                            <a class="btn btn-primary far fa-edit btn-sm" href="<?= base_url() ?>warga/form_suket003/<?= $warga['id_warga'] ?>" role="button"> Buat</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+						</div>
+						<div>
+							<a class="btn btn-primary far fa-edit btn-sm"
+								href="<?= base_url() ?>warga/form_suket003/<?= $warga['id_warga'] ?>" role="button">
+								Buat</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    </div>
+	</div>
 	<div class="row">
 
 		<!-- SUKET BEDA NAMA -->
@@ -527,11 +533,12 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
 							<div class="h6 mb-0 font-weight-bold text-success ">SUKET. KEPEMILIKAN TANAH</div>
-
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_015/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -549,8 +556,10 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_016/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -565,8 +574,10 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_017/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -581,8 +592,10 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/pilih_suket_018/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -599,8 +612,10 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_019/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -614,8 +629,10 @@
 							<div class="h6 mb-0 font-weight-bold text-success ">SUKET. REKOMENDASI IMB</div> <br>
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_020/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -631,8 +648,10 @@
 
 						</div>
 						<div>
-							<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
-									Unduh</i></button>
+							<a href="<?= base_url('warga/download_suket_021/') ?>">
+								<button class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true">
+										Unduh</i></button>
+							</a>
 						</div>
 					</div>
 				</div>

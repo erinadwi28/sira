@@ -11,7 +11,7 @@
 				</i> Kembali
 			</button>
 		</a>
-		<?php } elseif($detail->status == "Ditolak") {?>
+		<?php } elseif($detail->status == "Ditolak Ketua RT" || $detail->status == "Ditolak Kelurahan") {?>
 		<a href="<?= base_url('admin/list_data_permohonan_ditolak')?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 				<i class="fa fa-arrow-left">
@@ -155,7 +155,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Agama</b></td>
@@ -190,14 +190,14 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_permohonan_surat; ?></td>
+									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_persetujuan_rt; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Surat Yang Dimohon</b></td>
@@ -239,19 +239,38 @@
 								</center>
 							</div>
 						</div>
+
+						<!-- nomor surat kelurahan -->
+						<?php if($detail->status == 'Ditolak Kelurahan' || $detail->status == 'Ditolak Ketua RT') { ?>
 						<div class="row">
 							<div class="col-md-3">
 							</div>
+							
 							<div class="col-md-6">
 								<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
-									id="nomor_surat_admin"
-									value="<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_kecamatan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>"
-									disabled style="text-align: center;">
+									id="nomor_surat_admin" value="" style="text-align: center;" disabled>
 							</div>
+							
 							<div class="col-md-3">
 							</div>
 						</div>
+						<?php } elseif($detail->status == 'Selesai') { ?>
+							<div class="row">
+							<div class="col-md-3">
+							</div>
+							
+							<div class="col-md-6">
+								<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
+									id="nomor_surat_admin" value="<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_kecamatan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>" 
+									style="text-align: center;" disabled>
+							</div>
+							
+							<div class="col-md-3">
+							</div>
+						</div>
+						<?php } ?>
 
+						<!-- nomor surat RT -->
 						<div class="row">
 							<div class="col-md-12">
 								<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
@@ -297,7 +316,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tanggal_lahir; ?></td>
+								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Agama</b></td>
@@ -332,17 +351,17 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tgl_permohonan_surat; ?></td>
+								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 
 							<!-- tanggal RT -->
-							<?php if($detail->status == "Ditolak") { ?>
+							<?php if($detail->status == "Ditolak Ketua RT") { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_persetujuan_rt; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } else { ?>
 								<tr>
@@ -350,26 +369,26 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_persetujuan_rt; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
 							
 							<!-- tanggal admin -->
-							<?php if($detail->status == "Ditolak") { ?>
+							<?php if($detail->status == "Ditolak Kelurahan") { ?>
 								<tr>
-									<td><b>Tanggal Surat Ditolak Kelurahan</b></td>
+									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_persetujuan_admin; ?></td>
+									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
-							<?php } else { ?>
+							<?php } elseif($detail->status == "Selesai") { ?>
 								<tr>
 									<td><b>Tanggal Surat Dikeluarkan</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tgl_persetujuan_admin; ?></td>
+									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>
 							

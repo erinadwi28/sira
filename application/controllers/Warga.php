@@ -24,20 +24,20 @@ class Warga extends CI_Controller
 		$this->session->userdata('id_warga')])->row_array();
 
 		$data['data_kades'] = $this->m_warga->ambil_nama_kades()->result();
-        $data['data_rt'] = $this->m_warga->ambil_nama_rt()->result();
-        $data['jumlah_persetujuan_rt'] = $this->m_warga->jumlah_persetujuan_rt()->result();
-        $data['jumlah_persetujuan_admin'] = $this->m_warga->jumlah_persetujuan_admin()->result();
-        $data['jumlah_permohonan_selesai'] = $this->m_warga->jumlah_permohonan_selesai()->result();
-        $data['jumlah_permohonan_ditolak'] = $this->m_warga->jumlah_permohonan_ditolak()->result();
-        $data['jumlah_riwayat_permohonan'] = $this->m_warga->jumlah_riwayat_permohonan()->result();
+		$data['data_rt'] = $this->m_warga->ambil_nama_rt()->result();
+		$data['jumlah_persetujuan_rt'] = $this->m_warga->jumlah_persetujuan_rt()->result();
+		$data['jumlah_persetujuan_admin'] = $this->m_warga->jumlah_persetujuan_admin()->result();
+		$data['jumlah_permohonan_selesai'] = $this->m_warga->jumlah_permohonan_selesai()->result();
+		$data['jumlah_permohonan_ditolak'] = $this->m_warga->jumlah_permohonan_ditolak()->result();
+		$data['jumlah_riwayat_permohonan'] = $this->m_warga->jumlah_riwayat_permohonan()->result();
 
 
 		$this->load->view('header');
-		$this->load->view('warga/sidebar_warga',$data);
+		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
 		$this->load->view('warga/dashboard_warga', $data);
 		$this->load->view('footer');
-	} 
+	}
 
 	//tampil profil saya
 	public function profil_saya($id_warga)
@@ -259,7 +259,7 @@ class Warga extends CI_Controller
 		$this->load->view('warga/ubah_profil_warga');
 		$this->load->view('footer');
 	}
-	
+
 
 	//tampil form suket001
 	public function form_suket001($id_warga)
@@ -2355,37 +2355,37 @@ class Warga extends CI_Controller
 	}
 
 	//data permohonan ditolak
-    public function list_data_permohonan_ditolak()
-    {
+	public function list_data_permohonan_ditolak()
+	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-        $data_permohonan['data_permohonan_ditolak'] = $this->m_warga->get_list_permohonan_ditolak()->result();
+		$data_permohonan['data_permohonan_ditolak'] = $this->m_warga->get_list_permohonan_ditolak()->result();
 
-        $this->load->view('header');
-        $this->load->view('warga/sidebar_warga',$data);
-        $this->load->view('topbar', $data);
-        $this->load->view('warga/list_data_permohonan_ditolak', $data_permohonan);
-        $this->load->view('footer');        
-    }
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_data_permohonan_ditolak', $data_permohonan);
+		$this->load->view('footer');
+	}
 
 	// filter tanggal riwayat permohonan
-    public function filter_riwayat_permohonan()
-    {
+	public function filter_riwayat_permohonan()
+	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-        $tgl_awal = $this->input->post('tanggal_mulai');
-        $tgl_akhir = $this->input->post('tanggal_akhir');
-                
-        $data_permohonan['permohonan'] = $this->m_warga->filter_riwayat($tgl_awal, $tgl_akhir)->result();
+		$tgl_awal = $this->input->post('tanggal_mulai');
+		$tgl_akhir = $this->input->post('tanggal_akhir');
 
-        $this->load->view('header');
-        $this->load->view('warga/sidebar_warga', $data);
-        $this->load->view('topbar', $data);
-        $this->load->view('warga/list_history_warga', $data_permohonan);
-        $this->load->view('footer');
-    }
+		$data_permohonan['permohonan'] = $this->m_warga->filter_riwayat($tgl_awal, $tgl_akhir)->result();
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_history_warga', $data_permohonan);
+		$this->load->view('footer');
+	}
 
 	// filter tanggal history permohonan selesai
 	public function filter_tanggal_list_history_permohonan_selesai()
@@ -2745,7 +2745,7 @@ class Warga extends CI_Controller
 
 		$html = $this->load->view('warga/suket_010/cetak_suket010', $data_detail, true);
 		$dompdf->loadHtml($html);
-		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->setPaper('A4', 'landscape');
 		$dompdf->render();
 		$dompdf->stream('Surat Keterangan Kelahiran');
 	}
@@ -2826,5 +2826,78 @@ class Warga extends CI_Controller
 		$dompdf->setPaper('A4', 'portrait');
 		$dompdf->render();
 		$dompdf->stream('Surat Keterangan Pindah');
+	}
+
+    //download lampiran surat masuk
+    function download_suket_015()
+	{
+		force_download('assets/uploads/warga/suket_015/template_surat_keterangan_kepemilikan_tanah.docx',NULL);
+	}
+
+	//download template suket 016
+    function download_suket_016()
+	{
+		force_download('assets/uploads/warga/suket_016/template_surat_pernyataan_penyerahan_waris.docx',NULL);
+	}
+	
+    //download template suket 017
+    function download_suket_017()
+	{
+		force_download('assets/uploads/warga/suket_017/template_surat_keterangan_ahli_waris.docx',NULL);
+	}
+
+	//tampil form suket018
+	public function pilih_suket_018()
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga',$data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/download_suket18');
+		$this->load->view('footer');
+	}
+
+    //download template suket 018 laki-laki
+    function download_suket_018_laki()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_laki_laki.docx',NULL);
+	}
+
+    //download template suket 018 perempuan
+    function download_suket_018_perempuan()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_perempuan.docx',NULL);
+	}
+
+    //download template suket 018 duda
+    function download_suket_018_duda()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_duda.docx',NULL);
+	}
+	
+    //download template suket 018 janda
+    function download_suket_018_janda()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_janda.docx',NULL);
+	}
+
+    //download template suket 019
+    function download_suket_019()
+	{
+		force_download('assets/uploads/warga/suket_019/template_surat_pernyataan_penyerahan_tanah.docx',NULL);
+	}
+	
+    //download template suket 020
+    function download_suket_020()
+	{
+		force_download('assets/uploads/warga/suket_020/template_surat_rekomendasi_izin_mendirikan_bangunan.docx',NULL);
+	}
+	
+    //download template suket 021
+    function download_suket_021()
+	{
+		force_download('assets/uploads/warga/suket_021/template_surat_recomendasi_usaha_mikro_kecil.docx',NULL);
 	}
 }

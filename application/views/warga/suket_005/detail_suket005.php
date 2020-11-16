@@ -32,30 +32,29 @@
 						</div>
 
 						<div class="card-footer py-3">
-							<?= form_open_multipart('warga/update_foto_ktp') ?>
-							<?php
-							foreach ($detail_suket as $detail) { ?>
-								<div class="form-group ml-2 mr-2">
+						<form action="http://localhost/sira/warga/update_foto_ktp" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_ktp_suket005"> 
+							<div class="form-group ml-2 mr-2">
 									<div class="input-group">
+										<div class="form-group-upload">
 										<div class="custom-file">
-											<label class="custom-file-label" for="file-upload-profil">pilih foto
-												KTP...</label>
-											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-
+											<label class="custom-file-label" for="file-upload-ktp">pilih foto KTP...</label>
+											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
 											<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-											<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $detail->id_surat; ?>">
-											<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $detail->id_permohonan_surat; ?>">
+											<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="1">
+											<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="1">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
 										</div>
 									</div>
 								</div>
-							<?php } ?>
-							<center>
+								<center>
 								<button class="btn btn-sm btn-primary" type="submit">
 									<i class="fa fa-upload">
 									</i> Upload
 								</button>
 							</center>
-							<?= form_close() ?>
+							</form>
 						</div>
 					</div>
 				</div>

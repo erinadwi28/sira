@@ -83,6 +83,32 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<div class="form-group" style="margin-top: 15px;">
+									<div class="form-group row" style="margin-left: 10px;">
+										<label for="Agama" class="col-sm-3 col-form-label">Agama</label>
+										<div class="col-sm-8">
+											<div class="form-line focused">
+												<select class="form-control form-user-input" name="agama" id="agama">
+													<option value="Pilih agama..." <?= ($detail->agama == 'Pilih agama...' ? ' selected' : ''); ?> class="form-user-input">Pilih agama...</option>
+													<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
+													<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
+													</option>
+													<option value="Katholik" <?= ($detail->agama == 'Katholik' ? ' selected' : ''); ?> class="form-user-input">Katholik
+													</option>
+													<option value="Hindu" <?= ($detail->agama == 'Hindu' ? ' selected' : ''); ?> class="form-user-input">Hindu</option>
+													<option value="Budha" <?= ($detail->agama == 'Budha' ? ' selected' : ''); ?> class="form-user-input">Budha</option>
+													<option value="Khonghucu" <?= ($detail->agama == 'Khonghucu' ? ' selected' : ''); ?> class="form-user-input">Khonghucu
+													</option>
+												</select>
+												<i class=" fas fa-check-circle"></i>
+												<i class="fas fa-exclamation-circle"></i>
+												<small>Error massage</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
 								<div class="form-group row" style="margin-left: 10px;">
 									<label for="Pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
 									<div class="col-sm-8">

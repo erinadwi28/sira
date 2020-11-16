@@ -29,6 +29,7 @@
 	<!-- Validation -->
 	<link href="<?= base_url('assets/dashboard/') ?>css/form_validation.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_upload_foto_admin.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">

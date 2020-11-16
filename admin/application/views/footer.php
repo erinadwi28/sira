@@ -75,6 +75,7 @@
 <!-- Validation -->
 <script src="<?= base_url('assets/dashboard/') ?>js/form_validation.js"></script>
 <script src="<?= base_url('assets/dashboard/') ?>js/form_validation_tambah.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto_admin.js"></script>
 <!--lihat kata sandi -->
 <script>
 	$(document).ready(function() {

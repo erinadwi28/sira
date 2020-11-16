@@ -41,27 +41,28 @@
 
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_profil') ?>
-					<?php
-					foreach ($detail_warga as $d) { ?>
-						<div class="form-group ml-2 mr-2">
+				<form action="http://localhost/sira/admin/admin/upload_foto_profil" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_profil_warga">
+											<div class="form-group ml-2 mr-2">
 							<div class="input-group">
+								<div class="form-group-upload">
 								<div class="custom-file">
 									<label class="custom-file-label" for="file-upload-profil">pilih foto profil...</label>
 									<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
 									<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="<?= $d->id_warga; ?>">
+									<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="1">
+									<i class=" fas fa-exclamation-circle"></i>
+									<h6>Error massage</h6>
+								</div>
 								</div>
 							</div>
 						</div>
-					<?php } ?>
-					<center>
+										<center>
 						<button class="btn btn-sm btn-primary" type="submit">
 							<i class="fa fa-upload">
 							</i> Upload
 						</button>
 					</center>
-					<?= form_close() ?>
+					</form>
 				</div>
 			</div>
 
@@ -86,27 +87,28 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_ktp') ?>
-					<?php
-					foreach ($detail_warga as $e) { ?>
-						<div class="form-group ml-2 mr-2">
+				<form action="http://localhost/sira/admin/admin/upload_foto_ktp" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_ktp_warga">
+											<div class="form-group ml-2 mr-2">
 							<div class="input-group">
+								<div class="form-group-upload">
 								<div class="custom-file">
 									<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
 									<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
 									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="<?= $e->id_warga; ?>">
+									<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="1">
+									<i class=" fas fa-exclamation-circle"></i>
+									<h6>Error massage</h6>
+								</div>
 								</div>
 							</div>
 						</div>
-					<?php } ?>
-					<center>
+										<center>
 						<button class="btn btn-sm btn-primary" type="submit">
 							<i class="fa fa-upload">
 							</i> Upload
 						</button>
 					</center>
-					<?= form_close() ?>
+					</form>
 				</div>
 			</div>
 
@@ -132,27 +134,28 @@
 
 
 				<div class="card-footer py-3">
-					<?= form_open_multipart('admin/upload_foto_kk') ?>
-					<?php
-					foreach ($detail_warga as $e) { ?>
+				<form action="http://localhost/sira/admin/admin/upload_foto_kk" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_kk_warga">
 						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
+								<div class="form-group-upload">
 								<div class="custom-file">
 									<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
 									<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
 									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="<?= $e->id_warga; ?>">
+									<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="1">
+									<i class=" fas fa-exclamation-circle"></i>
+									<h6>Error massage</h6>
+								</div>
 								</div>
 							</div>
 						</div>
-					<?php } ?>
-					<center>
+										<center>
 						<button class="btn btn-sm btn-primary" type="submit">
 							<i class="fa fa-upload">
 							</i> Upload
 						</button>
 					</center>
-					<?= form_close() ?>
+					</form>
 				</div>
 			</div>
 		</div>

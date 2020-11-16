@@ -994,6 +994,7 @@ class Warga extends CI_Controller
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
+			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'keperluan' => $this->input->post('keperluan'),
 		);
@@ -1049,6 +1050,7 @@ class Warga extends CI_Controller
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
+			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'keperluan' => $this->input->post('keperluan'),
 		);

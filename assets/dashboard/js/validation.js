@@ -776,6 +776,7 @@ function checkInput7() {
 	const jenis_kelaminValue = jenis_kelamin.value.trim();
 	const tempat_lahirValue = tempat_lahir.value.trim();
 	const tanggal_lahirValue = tanggal_lahir.value.trim();
+	const agamaValue = agama.value.trim();
 	const pekerjaanValue = pekerjaan.value.trim();
 	const alamat_tinggalValue = alamat_tinggal.value.trim();
 	const keperluanValue = keperluan.value.trim();
@@ -805,6 +806,12 @@ function checkInput7() {
 		return (false);
 	} else {
 		setSuccessFor(tanggal_lahir);
+	}
+	if (agamaValue === "Pilih jenis agama...") {
+		setErrorFor(agama, "Agama tidak boleh kosong");
+		return (false);
+	} else {
+		setSuccessFor(agama);
 	}
 	if (pekerjaanValue === "Pilih jenis pekerjaan...") {
 		setErrorFor(pekerjaan, "Pekerjaan tidak boleh kosong");

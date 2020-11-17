@@ -2,11 +2,11 @@
 				<div class="container-fluid">
 					<!-- Page Heading -->
 					<a href="<?= base_url() ?>admin/list_data_permohonan_selesai">
-				        <button id=" btn_kembali" class="btn btn-sm btn-warning float-right" type="submit">
-				            <i class="fa fa-arrow-left">
-				            </i> Kembali
-				        </button>
-				    </a>
+						<button id=" btn_kembali" class="btn btn-sm btn-warning float-right" type="submit">
+							<i class="fa fa-arrow-left">
+							</i> Kembali
+						</button>
+					</a>
 					<div class="preview">
 						<center>
 							<h1 class="h3 mb-30 text-gray-800">Preview Permohonan Surat</h1>
@@ -96,6 +96,13 @@
 																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 															</tr>
 															<tr>
+																<td><b>Agama</b></td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td><?= $w->agama; ?></td>
+															</tr>
+															<tr>
 																<td><b>Pekerjaan</b></td>
 																<td> </td>
 																<td> </td>
@@ -109,13 +116,6 @@
 																<td>:</td>
 																<td><?= $w->alamat_tinggal; ?></td>
 															</tr>
-															<!-- <tr>
-															<td><b>Keperluan</b></td>
-															<td> </td>
-															<td> </td>
-															<td> </td>
-															<td>Pengajuan Beasiswa Kuliah</td>
-														</tr> -->
 														</tbody>
 													</table>
 												</div>

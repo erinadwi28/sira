@@ -82,23 +82,30 @@
 											<?= $w->status ?></label></td><?php
 																																} elseif ($w->status == 'Ditolak') {
 																			?><td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td><?php
-																																																																																				} elseif ($w->status == 'Selesai') {
-																																																																																					?><td><label class="badge badge-success"><i class="far fa-check-circle"></i>
+																																													} elseif ($w->status == 'Selesai') {
+																																														?><td><label class="badge badge-success"><i class="far fa-check-circle"></i>
 											<?= $w->status ?></label></td><?php
-																																																																																				} elseif ($w->status == 'Belum Tuntas') {
+																																													} elseif ($w->status == 'Belum Tuntas') {
 																			?><td>
 										<label class="badge badge-dark"><i class="far fa-times-circle"></i>
 											<?= $w->status ?></label></td>
 								<?php
-																																																																																				} ?>
+																																													} ?>
 								<td><?= $w->keterangan ?></td>
 								<td>
-									<div>
-										<a href="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>" class="btn btn-primary btn-sm">
-											<i class="far fa-eye nav-icon"></i>
-											Detail
-										</a>
-									</div>
+									<form role="form" action="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>" method="post" id="formUbah">
+										<div>
+											<div class="float-right">
+												<a href="">
+													<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+														<i class="far fa-eye nav-icon"></i>
+														Detail
+													</button>
+												</a>
+											</div>
+										</div>
+										<input type="hidden" class="form-control form-user-input " name="notif" id="notif" value="Dibaca">
+									</form>
 								</td>
 							</tr>
 						<?php } ?>

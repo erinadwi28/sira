@@ -76,7 +76,23 @@ class M_warga extends CI_Model
 		return $hasil;
 	}
 
-	// hitung jumlah permohonan selesai untuk dashboard
+	// hitung jumlah notif permohonan
+	public function jumlah_notif()
+	{
+		$this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_notif');
+		$this->db->from('permohonan_surat');
+		$this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
+		$this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
+		$this->db->where('permohonan_surat.notif', 'Belum Dibaca');
+		$this->db->where('permohonan_surat.status', 'Selesai');
+		$this->db->or_where('permohonan_surat.notif', 'Belum Dibaca');
+		$this->db->where('permohonan_surat.status', 'Ditolak');
+
+		$hasil = $this->db->get();
+		return $hasil;
+	}
+
+	// hitung jumlah  permohonan ditolak untuk dashboard
 	public function jumlah_permohonan_ditolak()
 	{
 		$this->db->select('permohonan_surat.id_permohonan_surat, COUNT(permohonan_surat.id_permohonan_surat) as total_permohonan_ditolak');
@@ -613,5 +629,12 @@ class M_warga extends CI_Model
 		$hasil = $this->db->get();
 
 		return $hasil;
+	}
+
+	//aksi update notif
+	public function update_notif($data, $id)
+	{
+		$this->db->where('id_permohonan_surat', $id);
+		$this->db->update('permohonan_surat', $data);
 	}
 }

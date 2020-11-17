@@ -6,7 +6,7 @@
 	</div>
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-		<div class="card-body">
+		<div class="card-body" style="padding: 20px;">
 
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
@@ -17,27 +17,26 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Tanggal Permohonan</th>
-							<th>Tanggal Selesai</th>
 							<th>Nama Surat</th>
 							<th>NIK Pemohon</th>
 							<th>Nama Pemohon</th>
+							<th>Tanggal Permohonan</th>
+							<th>Tanggal Selesai</th>
 							<th>Status</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 						$no = 1;
-						foreach ($data_permohonan_selesai as $permohonan) {
-						?>
+						foreach ($data_permohonan_selesai as $permohonan) { ?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= $permohonan->tgl_permohonan_surat ?></td>
-								<td><?= $permohonan->tgl_persetujuan_admin ?></td>
 								<td><?= $permohonan->nama_surat ?></td>
 								<td><?= $permohonan->nik ?></td>
 								<td><?= $permohonan->nama ?></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tgl_persetujuan_admin)); ?></td>
 								<td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $permohonan->status ?></label></td>
 								<td>
 									<div>

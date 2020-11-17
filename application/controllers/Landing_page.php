@@ -11,7 +11,7 @@ class Landing_page extends CI_Controller {
 
 	public function index()
 	{        
-		$data_detail['data_kades'] = $this->m_landing->get_data_kades('kepala_desa')->result();
+		$data_detail['data_kades'] = $this->m_landing->get_data_kades()->result();
 
         $this->load->view('sira/landing_page', $data_detail);
 	}

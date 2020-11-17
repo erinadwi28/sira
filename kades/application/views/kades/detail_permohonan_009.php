@@ -21,6 +21,9 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8 mb-4">
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN KEMATIAN</h6>
+				</div>
 				<div class="card-body">
 
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
@@ -118,7 +121,7 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+								id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -229,13 +232,6 @@
 								</tr>							
 							<?php } ?>
 
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>

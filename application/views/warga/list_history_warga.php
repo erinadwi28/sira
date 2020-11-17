@@ -63,7 +63,7 @@
 							<th>Tgl Permohonan</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -74,7 +74,7 @@
 						<tr>
 							<td><?= $no++ ?></td>
 							<td><?= $w->nama_surat ?></td>
-							<td><?= $w->tgl_permohonan_surat ?></td>
+                            <td><?= date("d-m-Y", strtotime($w->tgl_permohonan_surat)); ?></td>
 
 							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') { ?>
 								<td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td>

@@ -76,8 +76,9 @@
 											Login
 										</button>
 									</form>
+									<br>
 									<hr />
-									<center><small><a href="<?= base_url('landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center>
+									<!-- <center><small><a href="<?= base_url('landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center> -->
 								</div>
 							</div>
 						</div>

@@ -62,23 +62,22 @@
 				</a>
 			</span>
 		</div>
-		<div class="card-body">
+		<div class="card-body" style="padding: 15px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
 
-			<div class="table-responsive">
-				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Tanggal Permohonan</th>
 							<th>Nama Surat</th>
 							<th>NIK Pemohon</th>
 							<th>Nama Pemohon</th>
+							<th>Tanggal Permohonan</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -88,10 +87,11 @@
 						?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
 								<td><?= $permohonan->nama_surat ?></td>
 								<td><?= $permohonan->nik ?></td>
 								<td><?= $permohonan->nama ?></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
+								
 								<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
 							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
 									<?= $permohonan->status ?></label></td>
@@ -116,7 +116,6 @@
 						<?php } ?>
 					</tbody>
 				</table>
-			</div>
 		</div>
 	</div>
 </div>

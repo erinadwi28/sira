@@ -138,7 +138,7 @@
 					</div>
 					<div class="form-group">
 						<div class="form-group row" style="margin-left: 10px;">
-							<label for="Alamat_kk" class="col-sm-3 col-form-label">Alamat KK</label>
+							<label for="Alamat_kk" class="col-sm-3 col-form-label">Alamat Kartu Keluarga</label>
 							<div class="col-sm-8">
 								<div class="form-line">
 									<textarea class="form-control" id="alamat_kk" name="alamat_kk" rows="3"></textarea>

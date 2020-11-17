@@ -44,6 +44,9 @@
 			<!-- Detail Data -->
 			<?php if($detail->status == "Menunggu Persetujuan Ketua RT") { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT PENGANTAR KTP</h6>
+				</div>
 				<div class="card-body">
 					<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_011') ?>" method="post" id="suket011">
 						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat Ketua RT</em>
@@ -184,6 +187,7 @@
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 								</tr>
+								<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 								<tr>
 									<td><b>No Surat Pindah</b></td>
 									<td> </td>
@@ -198,19 +202,14 @@
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 								</tr>
+								<?php } ?>
+								
 								<tr>
 									<td><b>Tanggal Permohonan</b></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
-								</tr>
-								<tr>
-									<td><b>Surat Yang Dimohon</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->nama_surat; ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -237,6 +236,9 @@
 			</div>
 			<?php } else { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT PENGANTAR KTP</h6>
+				</div>
 				<div class="card-body">
 					<form action="">
 						<div class="row">
@@ -400,6 +402,8 @@
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 							</tr>
+
+							<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 							<tr>
 								<td><b>No Surat Pindah</b></td>
 								<td> </td>
@@ -414,6 +418,8 @@
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 							</tr>
+							<?php } ?>
+
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
@@ -460,13 +466,6 @@
 							</tr>
 							<?php } ?>
 
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
@@ -519,6 +518,7 @@
 			</div>
 
 			<!-- Foto Surat Pindah -->
+			<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 					<center>
@@ -534,6 +534,7 @@
 					</div>
 				</div>
 			</div>
+			<?php } ?>
 		</div>
 		<?php } ?>
 	</div>

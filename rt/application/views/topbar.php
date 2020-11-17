@@ -21,13 +21,13 @@
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
-						<span class="badge badge-danger badge-counter">1+</span>
+						<!-- <span class="badge badge-danger badge-counter">1+</span> -->
 					</a>
 					<!-- Dropdown - Alerts -->
 					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
 						aria-labelledby="alertsDropdown">
 						<h6 class="dropdown-header">
-							Permohonan Surat Baru
+							Notifikasi
 						</h6>
 						<a class="dropdown-item d-flex align-items-center" href="#">
 							<div class="mr-3">
@@ -36,15 +36,16 @@
 								</div>
 							</div>
 							<div>
-								<div class="small text-gray-500">December 12, 2019</div>
+								<h6>Belum ada notifikasi saat ini</h6>
+								<!-- <div class="small text-gray-500">December 12, 2019</div>
 								<span class="font-weight-bold">
 									<div class="h5">Hasan</div>
 									<div class="small text-gray-500">Surat Pengantar KK</div>
-								</span>
+								</span> -->
 							</div>
 						</a>
-						<a class="dropdown-item text-center small text-gray-500" href="#">Lihat Semua Permohonan
-							Baru</a>
+						<!-- <a class="dropdown-item text-center small text-gray-500" href="#">Lihat Semua Permohonan
+							Baru</a> -->
 					</div>
 				</li>
 

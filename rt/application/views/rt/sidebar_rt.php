@@ -45,9 +45,9 @@
 		<div id="menupermohonan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="<?= base_url('rt/list_data_permohonan') ?>">Permohonan Masuk</a>
-				<a class="collapse-item" href="<?= base_url('rt/list_data_permohonan_ditolak') ?>">Permohonan Ditolak</a>
 				<a class="collapse-item" href="<?= base_url('rt/list_data_permohonan_disetujui') ?>">Permohonan Disetujui</a>
 				<a class="collapse-item" href="<?= base_url('rt/list_data_permohonan_selesai') ?>">Permohonan Selesai</a>
+				<a class="collapse-item" href="<?= base_url('rt/list_data_permohonan_ditolak') ?>">Permohonan Ditolak</a>
 			</div>
 		</div>
 	</li>

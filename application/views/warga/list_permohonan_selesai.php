@@ -20,7 +20,7 @@
                             <th>Tgl Permohonan</th>
                             <th>Tgl Disetujui</th>
                             <th>Status</th>
-                            <th>Actions</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,20 +31,9 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $w->nama_surat ?></td>
-                                <td><?= $w->tgl_permohonan_surat ?></td>
-                                <td><?= $w->tgl_persetujuan_admin ?></td>
-                                <?php if ($w->status == 'Menunggu Persetujuan Ketua RT') {
-                                ?><td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-                                                                                                                                } elseif ($w->status == 'Menunggu Persetujuan Admin') {
-                                                                                                                                    ?><td><label class="badge badge-info"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-                                                                                                                                                                                                                                    } elseif ($w->status == 'Ditolak') {
-                                                                                                                                                                                                                                        ?><td><label class="badge badge-dangger"><i class="far fa-times-cicrle"></i> <?= $w->status ?></label></td><?php
-                                                                                                                                                                                                                                                                                                                                                } elseif ($w->status == 'Selesai') {
-                                                                                                                                                                                                                                                                                                                                                    ?><td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $w->status ?></label></td><?php
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            } elseif ($w->status == 'Belum Tuntas') {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                ?><td><label class="badge badge-dangger"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } ?>
-
+                                <td><?= date("d-m-Y", strtotime($w->tgl_permohonan_surat)); ?></td>
+                                <td><?= date("d-m-Y", strtotime($w->tgl_persetujuan_admin)); ?></td>
+                                <td><label class="badge badge-success"><i class="far fa-times-cicrle"></i> <?= $w->status ?></label></td>
                                 <td>
                                     <div>
                                         <a href="<?= base_url() ?>warga/lihat_surat/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>" class="btn btn-sm btn-info">

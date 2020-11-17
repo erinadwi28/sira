@@ -492,6 +492,16 @@
 							<?php } ?>
 							<?php } ?>
 
+							<?php if($w->nomor_surat_rt != null) { ?>
+							<tr>
+								<td><b>Nomor Surat Ketua RT</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= $w->nomor_surat_rt; ?></td>
+							</tr>
+							<?php } ?> 
+							
 							<?php if($w->no_tupoksi != null && $w->no_registrasi != null && $w->no_kelurahan  != null && $w->no_bulan != null && $w->no_keterangan != null && $w->no_tahun != null ) { ?>
 							<tr>
 								<td><b>Nomor Surat Kelurahan</b></td>
@@ -502,16 +512,7 @@
 								</td>
 							</tr>
 							<?php } ?>
-
-							<?php if($w->nomor_surat_rt != null) { ?>
-							<tr>
-								<td><b>Nomor Surat Ketua RT</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $w->nomor_surat_rt; ?></td>
-							</tr>
-							<?php } ?> <?php } ?>
+							<?php } ?>
 						</tbody>
 					</table>
 					<br>

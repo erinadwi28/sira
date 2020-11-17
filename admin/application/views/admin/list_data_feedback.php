@@ -7,12 +7,12 @@
 
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-		<div class="card-body">
+		<div class="card-body" style="padding: 20px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+				<table class="table  table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -20,7 +20,7 @@
 							<th>Nama</th>
 							<th>No HP</th>
 							<th>Isi</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 

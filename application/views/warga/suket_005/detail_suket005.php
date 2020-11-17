@@ -65,7 +65,7 @@
 					<!-- Detail Data -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN IZIN KERAMAIAN</h6>
+							<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
 						</div>
 						<div class="card-body">
 							<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
@@ -224,7 +224,7 @@
 					<!-- Detail Data -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN IZIN KERAMAIAN</h6>
+							<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
 						</div>
 						<div class="card-body">
 							<table class="table-hover table-responsive">
@@ -374,6 +374,16 @@
 											<?php } ?>
 										<?php } ?>
 
+										<?php if ($w->nomor_surat_rt != null) { ?>
+											<tr>
+												<td><b>Nomor Surat Ketua RT</b></td>
+												<td> </td>
+												<td> </td>
+												<td> </td>
+												<td><?= $w->nomor_surat_rt; ?></td>
+											</tr>
+										<?php } ?>
+										
 										<?php if ($w->no_tupoksi != null && $w->no_registrasi != null && $w->no_kelurahan  != null && $w->no_kecamatan != null && $w->no_bulan != null && $w->no_tahun != null) { ?>
 											<tr>
 												<td><b>Nomor Surat Kelurahan</b></td>
@@ -382,16 +392,6 @@
 												<td> </td>
 												<td><?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_kecamatan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>
 												</td>
-											</tr>
-										<?php } ?>
-
-										<?php if ($w->nomor_surat_rt != null) { ?>
-											<tr>
-												<td><b>Nomor Surat Ketua RT</b></td>
-												<td> </td>
-												<td> </td>
-												<td> </td>
-												<td><?= $w->nomor_surat_rt; ?></td>
 											</tr>
 										<?php } ?>
 									<?php } ?>

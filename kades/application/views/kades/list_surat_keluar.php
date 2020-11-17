@@ -64,7 +64,7 @@
 							<th>Tanggal</th>
 							<th>Tujuan</th>
 							<th>Perihal</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -74,7 +74,7 @@
 						<tr>
 							<td><?php echo $no++ ?></td>
 							<td><?php echo $sk->nomor_surat ?></td>
-							<td><?php echo format_indo(date($sk->tanggal)); ?></td>
+							<td><?= date("d-m-Y", strtotime($sk->tanggal)); ?></td>
 							<td><?php echo $sk->tujuan ?></td>
 							<td><?php echo $sk->perihal ?></td>
 							<td>

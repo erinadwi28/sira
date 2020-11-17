@@ -8,14 +8,14 @@
 	</div>
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-		<div class="card-body">
+		<div class="card-body" >
 
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
 
-			<div class="table-responsive">
-				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+			<div class="">
+				<table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -23,7 +23,7 @@
 							<th>Nama</th>
 							<th>Alamat</th>
 							<th>RT</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -39,7 +39,7 @@
 								<td><?= $w->rt ?></td>
 								<td>
 									<div>
-										<a href="<?= base_url() ?>admin/detail_data_warga/<?= $w->id_warga ?>" class="btn btn-primary btn-sm">
+										<a href="<?= base_url() ?>admin/detail_data_warga/<?= $w->id_warga ?>" class="btn btn-primary btn-sm mb-1">
 											<i class="far fa-eye nav-icon"></i>
 											Detail
 										</a>

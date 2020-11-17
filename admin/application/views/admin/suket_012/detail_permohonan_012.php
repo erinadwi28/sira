@@ -38,6 +38,9 @@
 			<!-- Detail Data -->
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT PENGANTAR KARTU KELUARGA</h6>
+				</div>
 				<div class="card-body">
 					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_012') ?>" method="post" id="suket12">
 						<div class="row">
@@ -195,13 +198,6 @@
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
-								<tr>
-									<td><b>Surat Yang Dimohon</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->nama_surat; ?></td>
-								</tr>
 							</tbody>
 						</table>
 						<h5 class="mt-3"><b>Data Pengikut</b></h5>
@@ -260,6 +256,9 @@
 			</div>
 			<?php } else { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT PENGANTAR KARTU KELUARGA</h6>
+				</div>
 				<div class="card-body">
 					<form action="">
 						<div class="row">
@@ -434,13 +433,7 @@
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
+
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>

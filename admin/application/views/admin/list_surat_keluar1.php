@@ -74,7 +74,7 @@
                             <th>Tujuan</th>
                             <th>Perihal</th>
                             <th>Isi Surat</th>
-                            <th>Actions</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -17,12 +17,12 @@
 					<thead>
 						<tr>
 							<th>No</th>
+							<th>Nama Pemohon</th>
+							<th>Nama Surat</th>
 							<th>Tanggal Permohonan</th>
 							<th>Tanggal Selesai</th>
-							<th>Nama</th>
-							<th>Nama Surat</th>
                             <th>Status</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,10 +32,10 @@
 						?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= $permohonan->tgl_permohonan_surat ?></td>
-								<td><?= $permohonan->tgl_persetujuan_admin ?></td>
 								<td><?= $permohonan->nama ?></td>
 								<td><?= $permohonan->nama_surat ?></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tgl_persetujuan_admin)); ?></td>
                                 <td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $permohonan->status ?></label></td>
 								<td>
 									<div>

@@ -44,6 +44,9 @@
 			<!-- Detail Data -->
 			<?php if ($detail->status == "Menunggu Persetujuan Ketua RT") { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
+				</div>
 				<div class="card-body">
 					<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_005') ?>" method="post"
 						id="suket005">
@@ -150,13 +153,6 @@
 									<td> </td>
 									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
-								<tr>
-									<td><b>Surat Yang Dimohon</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->nama_surat; ?></td>
-								</tr>
 							</tbody>
 						</table>
 						<br>
@@ -182,6 +178,9 @@
 			</div>
 	<?php } else { ?>
 	<div class="card shadow mb-2">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
+		</div>
 		<div class="card-body">
 			<form action="">
 				<div class="row">
@@ -352,13 +351,6 @@
 					</tr>
 					<?php } ?>
 
-					<tr>
-						<td><b>Surat Yang Dimohon</b></td>
-						<td> </td>
-						<td> </td>
-						<td> </td>
-						<td><?= $detail->nama_surat; ?></td>
-					</tr>
 					<?php if($detail->keterangan != null) { ?>
 					<tr>
 						<td><b>Keterangan</b></td>

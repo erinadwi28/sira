@@ -29,7 +29,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tanggal_kirim; ?></td>
+								<td><?= format_indo(date($detail->tanggal_kirim)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama</b></td>

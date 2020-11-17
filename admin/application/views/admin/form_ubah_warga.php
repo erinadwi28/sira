@@ -216,11 +216,7 @@
 
 								
 							</div>
-							
-							
-						</div>
-						<div class="col-md-4">
-						<div class="form-group">
+							<div class="form-group">
 							<label class="label-control" for="no_kk"><b>No KK</b></label>
 									<input type="text" class="form-control form-user-input" placeholder="Isikan No. KK" name="no_kk" id="no_kk" value="<?= $w->no_kk; ?>">
 									<i class="fas fa-check-circle"></i>
@@ -343,14 +339,16 @@
 								
 							</div>
 
-							
 							<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga"
 								value="<?= $w->id_warga; ?>">
+							
 						</div>
+					
 					</div>
 					<br>
-					<hr>
-					<div>
+					</div>
+				
+					<div class="card-footer">
 						<div class="float-right">
 							<a href="">
 								<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
@@ -360,6 +358,7 @@
 							</a>
 						</div>
 					</div>
+	</div>
 					</form>
 					
 				</div>
@@ -369,8 +368,8 @@
 		</div>
 
 
-	</div>
-</div>
+	
+
 <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->

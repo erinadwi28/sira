@@ -20,7 +20,7 @@
 							<th>Nama</th>
 							<th>No HP</th>
 							<th>Isi</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 
@@ -31,7 +31,7 @@
 						?>
 							<tr>
 								<td><?php echo $no++ ?></td>
-								<td><?php echo $fb->tanggal_kirim ?></td>
+								<td><?= date("d-m-Y", strtotime($fb->tanggal_kirim)); ?></td>
 								<td><?php echo $fb->nama ?></td>
 								<td><?php echo $fb->no_hp ?></td>
 								<td><?= character_limiter($fb->isi, 20); ?></td>

@@ -264,6 +264,8 @@
 											<td> </td>
 											<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 										</tr>
+
+										<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 										<tr>
 											<td><b>No. Surat Pindah</b></td>
 											<td> </td>
@@ -272,12 +274,13 @@
 											<td><?= $detail->no_surat_pindah; ?></td>
 										</tr>
 										<tr>
-											<td><b>Tgl Surat Pindah</b></td>
+											<td><b>Tanggal Surat Pindah</b></td>
 											<td> </td>
 											<td> </td>
 											<td> </td>
-											<td><?= $detail->tanggal_surat_pindah; ?></td>
+											<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 										</tr>
+										<?php } ?>
 									<?php } ?>
 
 									<?php foreach ($detail_permohonan as $d) { ?>
@@ -381,6 +384,8 @@
 					</div>
 
 					<!-- Foto Surat Pindah -->
+					<?php foreach ($detail_suket as $detail) { ?>
+					<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<center>
@@ -400,6 +405,8 @@
 							<?php } ?>
 						</div>
 					</div>
+					<?php }?>
+					<?php } ?>
 
 				</div>
 
@@ -511,6 +518,8 @@
 											<td> </td>
 											<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 										</tr>
+
+										<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 										<tr>
 											<td><b>No. Surat Pindah</b></td>
 											<td> </td>
@@ -519,12 +528,13 @@
 											<td><?= $detail->no_surat_pindah; ?></td>
 										</tr>
 										<tr>
-											<td><b>Tgl Surat Pindah</b></td>
+											<td><b>Tanggal Surat Pindah</b></td>
 											<td> </td>
 											<td> </td>
 											<td> </td>
 											<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 										</tr>
+										<?php } ?>
 
 										<?php foreach ($detail_permohonan as $d) { ?>
 											<tr>
@@ -535,64 +545,53 @@
 												<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 											</tr>
 
-											<!-- tanggal rt -->
-											<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
-												<tr>
-													<td><b>Tanggal Disetujui Ketua RT</b></td>
-													<td> </td>
-													<td> </td>
-													<td> </td>
-													<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
-												</tr>
-											<?php } elseif ($d->status ==  'Ditolak') { ?>
-												<tr>
-													<td><b>Tanggal Ditolak Ketua RT</b></td>
-													<td> </td>
-													<td> </td>
-													<td> </td>
-													<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
-												</tr>
-											<?php } ?>
-
-											<!-- tanggal admin -->
-											<?php if ($d->status ==  'Selesai') { ?>
-												<tr>
-													<td><b>Tanggal Surat Dikeluarkan</b></td>
-													<td> </td>
-													<td> </td>
-													<td> </td>
-													<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
-												</tr>
-											<?php } elseif ($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null) { ?>
-												<tr>
-													<td><b>Tanggal Ditolak Kelurahan</b></td>
-													<td> </td>
-													<td> </td>
-													<td> </td>
-													<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
-												</tr>
-											<?php } ?>
-
-											<?php if ($d->keterangan != null) { ?>
-												<tr>
-													<td><b>Keterangan</b></td>
-													<td> </td>
-													<td> </td>
-													<td> </td>
-													<td><?= $d->keterangan; ?></td>
-												</tr>
-											<?php } ?>
-										<?php } ?>
-
-										<?php if ($detail->no_tupoksi != null && $detail->no_registrasi != null && $detail->no_kelurahan  != null && $detail->no_bulan != null && $detail->no_tahun != null) { ?>
-											<tr>
-												<td><b>Nomor Surat Kelurahan</b></td>
-												<td> </td>
-												<td> </td>
-												<td> </td>
-												<td><?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>
-												</td>
-											</tr>
+							<!-- tanggal rt -->
+							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
+								<tr>
+									<td><b>Tanggal Disetujui Ketua RT</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
+								</tr>
+							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
+								<tr>
+									<td><b>Tanggal Ditolak Ketua RT</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
+								</tr>							
+							<?php } ?>
+							
+							<!-- tanggal admin -->
+							<?php if ($d->status ==  'Selesai') { ?>
+								<tr>
+								<td><b>Tanggal Surat Dikeluarkan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
+							</tr>
+							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
+								<tr>
+									<td><b>Tanggal Ditolak Kelurahan</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
+								</tr>							
+							<?php } ?>	
+							
+							<?php if($d->keterangan != null) { ?>
+							<tr>
+								<td><b>Keterangan</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= $d->keterangan; ?></td>
+							</tr>
+							<?php } ?>
 										<?php } ?>
 
 										<?php if ($detail->nomor_surat_rt != null) { ?>
@@ -602,6 +601,17 @@
 												<td> </td>
 												<td> </td>
 												<td><?= $detail->nomor_surat_rt; ?></td>
+											</tr>
+										<?php } ?>
+										
+										<?php if ($detail->no_tupoksi != null && $detail->no_registrasi != null && $detail->no_kelurahan  != null && $detail->no_bulan != null && $detail->no_tahun != null) { ?>
+											<tr>
+												<td><b>Nomor Surat Kelurahan</b></td>
+												<td> </td>
+												<td> </td>
+												<td> </td>
+												<td><?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>
+												</td>
 											</tr>
 										<?php } ?>
 									<?php } ?>

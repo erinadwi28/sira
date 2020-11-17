@@ -32,30 +32,33 @@
 						</div>
 
 						<div class="card-footer py-3">
-							<?= form_open_multipart('warga/update_foto_ktp') ?>
-							<?php
-							foreach ($detail_suket as $detail) { ?>
-								<div class="form-group ml-2 mr-2">
-									<div class="input-group">
-										<div class="custom-file">
-											<label class="custom-file-label" for="file-upload-profil">pilih foto
-												KTP...</label>
-											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-
-											<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-											<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $detail->id_surat; ?>">
-											<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $detail->id_permohonan_surat; ?>">
+							<form action="http://localhost/sira/warga/update_foto_ktp" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_ktp_suket005">
+								<?php
+								foreach ($detail_suket as $w) {
+								?>
+									<div class="form-group ml-2 mr-2">
+										<div class="input-group">
+											<div class="form-group-upload">
+												<div class="custom-file">
+													<label class="custom-file-label" for="file-upload-ktp">pilih foto KTP...</label>
+													<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
+													<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
+													<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $w->id_surat ?>">
+													<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $w->id_permohonan_surat ?>">
+													<i class=" fas fa-exclamation-circle"></i>
+													<h6>Error massage</h6>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							<?php } ?>
-							<center>
-								<button class="btn btn-sm btn-primary" type="submit">
-									<i class="fa fa-upload">
-									</i> Upload
-								</button>
-							</center>
-							<?= form_close() ?>
+								<?php } ?>
+								<center>
+									<button class="btn btn-sm btn-primary" type="submit">
+										<i class="fa fa-upload">
+										</i> Upload
+									</button>
+								</center>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -80,63 +83,63 @@
 											<td><b>Nama</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->nama ?></td>
 										</tr>
 										<tr>
 											<td><b>Tempat Lahir</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->tempat_lahir ?></td>
 										</tr>
 										<tr>
 											<td><b>Tanggal Lahir</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 										</tr>
 										<tr>
 											<td><b>Alamat</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->alamat ?></td>
 										</tr>
 										<tr>
 											<td><b>Kegiatan</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->nama_kegiatan ?></td>
 										</tr>
 										<tr>
 											<td><b>Hari</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->hari_kegiatan ?></td>
 										</tr>
 										<tr>
 											<td><b>Tanggal</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= format_indo(date($w->tanggal_kegiatan)); ?></td>
 										</tr>
 										<tr>
 											<td><b>Tempat</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->tempat ?></td>
 										</tr>
 										<tr>
 											<td><b>Jam</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->jam ?></td>
 										</tr>
 									<?php } ?>
@@ -146,7 +149,7 @@
 											<td><b>Tanggal Permohonan</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 										</tr>
 									<?php } ?>
@@ -206,12 +209,12 @@
 							</center>
 						</div>
 
-						<div class="card-body" style="padding: 20px;">
+						<div class="card-body" style="padding: 15px;">
 							<?php
 							foreach ($detail_suket as $foto) { ?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $foto->foto_ktp; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $foto->foto_ktp; ?>" alt="foto KTP" class="img-fluid" width="150px">
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $foto->foto_ktp; ?>" alt="foto KTP" class="img-fluid" width="200px">
 									</a>
 								</center>
 
@@ -236,63 +239,63 @@
 											<td><b>Nama</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->nama ?></td>
 										</tr>
 										<tr>
 											<td><b>Tempat Lahir</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->tempat_lahir ?></td>
 										</tr>
 										<tr>
 											<td><b>Tanggal Lahir</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 										</tr>
 										<tr>
 											<td><b>Alamat</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->alamat ?></td>
 										</tr>
 										<tr>
 											<td><b>Kegiatan</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->nama_kegiatan ?></td>
 										</tr>
 										<tr>
 											<td><b>Hari</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->hari_kegiatan ?></td>
 										</tr>
 										<tr>
 											<td><b>Tanggal</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= format_indo(date($w->tanggal_kegiatan)); ?></td>
 										</tr>
 										<tr>
 											<td><b>Tempat</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->tempat ?></td>
 										</tr>
 										<tr>
 											<td><b>Jam</b></td>
 											<td> </td>
 											<td> </td>
-											<td> </td>
+											<td>:</td>
 											<td><?= $w->jam ?></td>
 										</tr>
 
@@ -307,7 +310,7 @@
 											</tr>
 
 											<!-- tanggal rt -->
-											<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
+											<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
 												<tr>
 													<td><b>Tanggal Disetujui Ketua RT</b></td>
 													<td> </td>
@@ -315,13 +318,32 @@
 													<td> </td>
 													<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 												</tr>
-											<?php } elseif ($d->status ==  'Ditolak') { ?>
+											<?php } elseif ($d->status ==  'Ditolak Ketua RT') { ?>
 												<tr>
 													<td><b>Tanggal Ditolak Ketua RT</b></td>
 													<td> </td>
 													<td> </td>
 													<td> </td>
 													<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
+												</tr>
+											<?php } ?>
+
+											<!-- tanggal admin -->
+											<?php if ($d->status ==  'Selesai') { ?>
+												<tr>
+													<td><b>Tanggal Surat Dikeluarkan</b></td>
+													<td> </td>
+													<td> </td>
+													<td> </td>
+													<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
+												</tr>
+											<?php } elseif ($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null) { ?>
+												<tr>
+													<td><b>Tanggal Ditolak Kelurahan</b></td>
+													<td> </td>
+													<td> </td>
+													<td> </td>
+													<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 												</tr>
 											<?php } ?>
 

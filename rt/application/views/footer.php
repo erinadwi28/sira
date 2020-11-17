@@ -52,7 +52,8 @@
 <script src="<?= base_url('../assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 
 <!-- validation -->
-<script src="<?= base_url('../assets/dashboard/') ?>js/validation_warga.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_warga.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto_rt.js"></script>
 
 
 <!-- Page level plugins -->

@@ -19,6 +19,7 @@
 							<th>NIK</th>
 							<th>Nama</th>
 							<th>Alamat</th>
+							<th>RT</th>
 							<th>Status Kepegawaian</th>
 							<th>Actions</th>
 						</tr>
@@ -34,6 +35,7 @@
 							<td><?php echo $rt->nik ?></td>
 							<td><?php echo $rt->nama ?></td>
 							<td><?php echo $rt->alamat ?></td>
+							<td><?php echo $rt->rt ?></td>
 							<td><label class="badge badge-success"><i class="fas fa-user-check"></i>
 									<?php echo $rt->status_kepegawaian ?></label></td>
 							<td>

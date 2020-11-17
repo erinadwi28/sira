@@ -18,7 +18,7 @@
 						</i> Kembali
 					</button>
 				</a>
-			<?php } elseif ($detail->status == "Ditolak") { ?>
+			<?php } elseif ($detail->status == "Ditolak Ketua RT" || $detail->status == "Ditolak Kelurahan") { ?>
 				<a href="<?= base_url('rt/list_data_permohonan_ditolak') ?>">
 					<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 						<i class="fa fa-arrow-left">

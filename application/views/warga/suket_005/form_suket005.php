@@ -165,8 +165,8 @@
 										<div class="form-line-upload">
 											<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
 											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-											<i class=" fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i>
+											<!-- <i class=" fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i> -->
 											<small>Error massage</small>
 										</div>
 									</div>

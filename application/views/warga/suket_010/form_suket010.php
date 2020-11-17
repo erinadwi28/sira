@@ -351,10 +351,10 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="No_kk" class="col-sm-3 col-form-label">No. KK</label>
+										<label for="no_kk" class="col-sm-3 col-form-label">No. KK</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_kk" name="no_kk" value="" placeholder="masukkan NO KK disini...">
+												<input type="text" class="form-control" id="no_kk" name="no_kk" placeholder="masukkan NO KK disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -364,10 +364,10 @@
 								</div>
 								<div class="form-group">
 									<div class="form-group row" style="margin-left: 10px;">
-										<label for="No_ktp" class="col-sm-3 col-form-label">No. KTP</label>
+										<label for="no_ktp" class="col-sm-3 col-form-label">No. KTP</label>
 										<div class="col-sm-8">
 											<div class="form-line">
-												<input type="text" class="form-control" id="no_ktp" name="no_ktp" value="" placeholder="masukkan NO KTP disini...">
+												<input type="text" class="form-control" id="no_ktp" name="no_ktp" placeholder="masukkan NO KTP disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>
@@ -393,7 +393,7 @@
 								<div class="form-group">
 									<div class="form-group" style="margin-top: 15px;">
 										<div class="form-group row" style="margin-left: 10px;">
-											<label for="Hubungan_dengan_bayi" class="col-sm-3 col-form-label">Hubungan dgn Bayi</label>
+											<label for="Hubungan_dengan_bayi" class="col-sm-3 col-form-label">Hubungan Dengan Bayi</label>
 											<div class="col-sm-8">
 												<div class="form-line focused">
 													<input type="text" class="form-control" id="hubungan_dengan_bayi" name="hubungan_dengan_bayi" placeholder="masukkan hubungan pemohon dengan bayi disini...">

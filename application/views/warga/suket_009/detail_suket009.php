@@ -30,56 +30,56 @@
 								<td><b>Nama Alm</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->nama_alm ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->jenis_kelamin ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kematian</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_meninggal ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->umur ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kediaman</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->tempat_kediaman ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Meninggal</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->hari_meninggal ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Meninggal</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($w->tanggal_meninggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Alasan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= $w->alasan_meninggal ?></td>
 							</tr>
 							<?php } ?>
@@ -89,7 +89,7 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 							<?php } ?>
@@ -219,7 +219,7 @@
 							</tr>
 
 							<!-- tanggal rt -->
-							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
+							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
@@ -227,7 +227,7 @@
 									<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>
-							<?php } elseif($d->status ==  'Ditolak') { ?>
+							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
@@ -246,7 +246,7 @@
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
-							<?php } elseif($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null ) { ?>
+							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>

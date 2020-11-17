@@ -1017,6 +1017,7 @@ class Warga extends CI_Controller
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'agama' => $this->input->post('agama'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
+			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'keperluan' => $this->input->post('keperluan'),
 		);
@@ -1075,6 +1076,7 @@ class Warga extends CI_Controller
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'agama' => $this->input->post('agama'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
+			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'keperluan' => $this->input->post('keperluan'),
 		);
@@ -2902,5 +2904,78 @@ class Warga extends CI_Controller
 		$dompdf->setPaper('A4', 'portrait');
 		$dompdf->render();
 		$dompdf->stream('Surat Keterangan Pindah');
+	}
+
+    //download lampiran surat masuk
+    function download_suket_015()
+	{
+		force_download('assets/uploads/warga/suket_015/template_surat_keterangan_kepemilikan_tanah.docx',NULL);
+	}
+
+	//download template suket 016
+    function download_suket_016()
+	{
+		force_download('assets/uploads/warga/suket_016/template_surat_pernyataan_penyerahan_waris.docx',NULL);
+	}
+	
+    //download template suket 017
+    function download_suket_017()
+	{
+		force_download('assets/uploads/warga/suket_017/template_surat_keterangan_ahli_waris.docx',NULL);
+	}
+
+	//tampil form suket018
+	public function pilih_suket_018()
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga',$data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/download_suket18');
+		$this->load->view('footer');
+	}
+
+    //download template suket 018 laki-laki
+    function download_suket_018_laki()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_laki_laki.docx',NULL);
+	}
+
+    //download template suket 018 perempuan
+    function download_suket_018_perempuan()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_perempuan.docx',NULL);
+	}
+
+    //download template suket 018 duda
+    function download_suket_018_duda()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_duda.docx',NULL);
+	}
+	
+    //download template suket 018 janda
+    function download_suket_018_janda()
+	{
+		force_download('assets/uploads/warga/suket_018/template_surat_pengantar_nikah_janda.docx',NULL);
+	}
+
+    //download template suket 019
+    function download_suket_019()
+	{
+		force_download('assets/uploads/warga/suket_019/template_surat_pernyataan_penyerahan_tanah.docx',NULL);
+	}
+	
+    //download template suket 020
+    function download_suket_020()
+	{
+		force_download('assets/uploads/warga/suket_020/template_surat_rekomendasi_izin_mendirikan_bangunan.docx',NULL);
+	}
+	
+    //download template suket 021
+    function download_suket_021()
+	{
+		force_download('assets/uploads/warga/suket_021/template_surat_recomendasi_usaha_mikro_kecil.docx',NULL);
 	}
 }

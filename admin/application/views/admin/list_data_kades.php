@@ -38,17 +38,15 @@
 								<td><?php echo $kades->alamat ?></td>
 								<td><label class="badge badge-success"><i class="fas fa-user-check"></i> <?php echo $kades->status_kepegawaian ?></label></td>
 								<td>
-									<div>
-										<a href="<?= base_url() ?>admin/detail_data_kades/<?= $kades->id_kades ?>" class="btn btn-primary btn-sm">
-											<i class="far fa-eye nav-icon"></i>
+										<a href="<?= base_url() ?>admin/detail_data_kades/<?= $kades->id_kades ?>" class="btn btn-primary btn-sm mb-1">
+											<small><i class="far fa-eye nav-icon"></i></small>
 											Detail
 										</a>
 
 										<a href="<?= base_url() ?>admin/aksi_hapus_kades/<?= $kades->id_kades ?>" class="btn btn-danger btn-sm hapus">
-											<i class="far fa-trash-alt nav-icon"></i>
-											Hapus
+											<small><i class="far fa-trash-alt nav-icon"></i></small>
+											Nonaktifkan
 										</a>
-									</div>
 								</td>
 							<?php } ?>
 					</tbody>

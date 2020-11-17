@@ -50,19 +50,10 @@
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menupermohonan" for=""
-			aria-expanded="true" aria-controls="collapsePages">
+		<a class="nav-link" href="<?= base_url('kades/list_riwayat_permohonan') ?>">
 			<i class="fa fa-book"></i>
-			<span>Arsip Permohonan Surat</span>
+			<span>Permohonan Surat</span>
 		</a>
-		<div id="menupermohonan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="<?= base_url('kades/list_data_permohonan') ?>">Permohonan Masuk</a>
-				<a class="collapse-item" href="<?= base_url('kades/list_data_permohonan_ditolak') ?>">Permohonan Ditolak</a>
-				<a class="collapse-item" href="<?= base_url('kades/list_data_permohonan_selesai') ?>">Permohonan Selesai</a>
-				<a class="collapse-item" href="<?= base_url('kades/list_riwayat_permohonan') ?>">Riwayat Permohonan</a>
-			</div>
-		</div>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menukedinasan" for=""
@@ -78,15 +69,15 @@
 		</div>
 	</li>
 
-	<!-- Divider -->
+<!-- Divider -->
 	<hr class="sidebar-divider">
 
-	<!-- Heading -->
-
-
-	<!-- Nav Item - Menu Laporan -->
-
-
+	<li class="nav-item">
+		<a class="nav-link " href="<?= base_url('kades/list_feedback') ?>">
+			<i class="fa fa-comments"></i>
+			<span>Feedback</span>
+		</a>
+	</li>
 
 
 	<!-- Sidebar Toggler (Sidebar) -->

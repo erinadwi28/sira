@@ -2,11 +2,11 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Riwayat Permohonan Surat</h1>
+		<h1 class="h3 mb-0 text-gray-800">Data Permohonan Surat</h1>
 	</div>
 
 	<!-- Filter Tanggal Permohonan Surat -->
-	<div class="card shadow col-md-10 mb-2">
+	<div class="card shadow col-md-10 mb-4">
 		<div class="card-body" style="padding: 15px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
@@ -42,16 +42,18 @@
 				</div>
 			</form>
 		</div>
+		<hr>
+		<div>
+			<a href="<?= base_url() ?>kades/list_riwayat_permohonan">
+				<button id="btn_kembali" class="btn btn-sm btn-warning float-right mb-2 mr-2 mt-0" type="">
+					<i class="fas fa-sync-alt"></i> Reset
+				</button>
+			</a>
+		</div>
 	</div>
 
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-		<div class="card-header">
-			<span>
-				<button class="btn btn-sm btn-primary float-right ml-1" type="submit"><i class="fa fa-print"></i>
-					Cetak</button>
-			</span>
-		</div>
 		<div class="card-body">
 
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
@@ -81,16 +83,13 @@
 							<td><?= $permohonan->tgl_permohonan_surat ?></td>
 							<td><?= $permohonan->nama ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
-							<?php if($permohonan->status == "Ditolak") { ?>
+							<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
 							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
 									<?= $permohonan->status ?></label></td>
-							<?php } elseif($permohonan->status == "Menunggu Persetujuan Ketua RT") { ?>
-							<td><label class="badge badge-warning"><i class="far fa-clock"></i>
-									<?= $permohonan->status ?></label></td>
-							<?php } elseif($permohonan->status == "Menunggu Persetujuan Admin") { ?>
+							<?php } elseif($permohonan->status == "Menunggu Persetujuan Kelurahan") { ?>
 							<td><label class="badge badge-info"><i class="far fa-clock"></i>
 									<?= $permohonan->status ?></label></td>
-							<?php } else { ?>
+							<?php } elseif($permohonan->status == "Selesai") { ?>
 							<td><label class="badge badge-success"><i class="far fa-check-circle"></i>
 									<?= $permohonan->status ?></label></td>
 							<?php } ?>

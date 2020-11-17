@@ -1,7 +1,8 @@
-<?php foreach ($detail_permohonan as $d) { ?>
-<?php if ($d->status ==  'Belum Tuntas') { ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
+<?php foreach ($detail_permohonan as $d) { ?>
+<?php if ($d->status ==  'Belum Tuntas') { ?>
+
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Detail Permohonan Surat</h1>
@@ -22,9 +23,7 @@
 					<?php endif; ?>
 					<table class="table-hover table-responsive">
 						<tbody>
-							<?php
-									foreach ($detail_suket as $w) {
-									?>
+							<?php foreach ($detail_suket as $w) { ?>
 							<tr>
 								<td><b>Nama</b></td>
 								<td> </td>
@@ -109,15 +108,10 @@
 			</div>
 		</div>
 	</div>
-</div>
-<!--End Content Profile-->
-</div>
-<!-- /.container-fluid -->
+
 
 <!-- End of Main Content -->
 <?php } else { ?>
-<!-- Begin Page Content -->
-<div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Detail Permohonan</h1>
@@ -205,7 +199,7 @@
 							</tr>
 
 							<!-- tanggal rt -->
-							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
+							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
@@ -213,7 +207,7 @@
 									<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>
-							<?php } elseif($d->status ==  'Ditolak') { ?>
+							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
@@ -232,7 +226,7 @@
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
-							<?php } elseif($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null ) { ?>
+							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>

@@ -35,7 +35,12 @@
 							<tr>
 								<td><?= $no++ ?></td>
 								<td><?= $permohonan->tgl_permohonan_surat ?></td>
+
+								<?php if($permohonan->status == "Ditolak Ketua RT" && $permohonan->tanggal_persetujuan_rt != null) { ?>
 								<td><?= $permohonan->tanggal_persetujuan_rt ?></td>
+								<?php } elseif($permohonan->status == "Ditolak Kelurahan" && $permohonan->tgl_persetujuan_admin != null ){ ?>
+								<td><?= $permohonan->tgl_persetujuan_admin ?></td>
+								<?php } ?>
 								<td><?= $permohonan->nama_surat ?></td>
 								<td><?= $permohonan->nik ?></td>
 								<td><?= $permohonan->nama ?></td>

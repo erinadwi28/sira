@@ -21,7 +21,7 @@
     <div class="row clearfix">
         <div class="col-xs-12 col-sm-2"></div>
         <div class="col-xs-12 col-sm-8">
-            <div class="card">
+            <div class="card shadow mb-5">
                 <div class="body">
 
                     <form class="form-horizontal" id="form_ubah_suket014" action="<?= base_url('warga/aksi_ubah_suket014') ?>" method="POST">

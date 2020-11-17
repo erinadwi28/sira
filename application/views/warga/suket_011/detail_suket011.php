@@ -36,28 +36,33 @@
 						</div>
 
 						<div class="card-footer py-3">
-							<?= form_open_multipart('warga/upload_pasfoto_suket011') ?>
-							<?php
-							foreach ($detail_suket as $suket011) { ?>
-								<div class="form-group ml-2 mr-2">
-									<div class="input-group">
-										<div class="custom-file">
-											<label class="custom-file-label" for="file-upload-profil">pilih pas foto...</label>
-											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-											<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-											<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $suket011->id_surat; ?>">
-											<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $suket011->id_permohonan_surat; ?>">
+							<form action="http://localhost/sira/warga/upload_pasfoto_suket011" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_pasfoto_suket011">
+								<?php
+								foreach ($detail_suket as $suket011) { ?>
+									<div class="form-group ml-2 mr-2">
+										<div class="input-group">
+											<div class="form-group-upload">
+												<div class="custom-file">
+													<label class="custom-file-label" for="file-upload-profil">pilih pas
+														foto...</label>
+													<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
+													<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
+													<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $suket011->id_surat; ?>">
+													<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $suket011->id_permohonan_surat; ?>">
+													<i class=" fas fa-exclamation-circle"></i>
+													<h6>Error massage</h6>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							<?php } ?>
-							<center>
-								<button class="btn btn-sm btn-primary" type="submit">
-									<i class="fa fa-upload">
-									</i> Upload
-								</button>
-							</center>
-							<?= form_close() ?>
+								<?php } ?>
+								<center>
+									<button class="btn btn-sm btn-primary" type="submit">
+										<i class="fa fa-upload">
+										</i> Upload
+									</button>
+								</center>
+							</form>
 						</div>
 					</div>
 
@@ -82,28 +87,32 @@
 						</div>
 
 						<div class="card-footer py-3">
-							<?= form_open_multipart('warga/upload_foto_kk_suket011') ?>
-							<?php
-							foreach ($detail_suket as $suket011) { ?>
-								<div class="form-group ml-2 mr-2">
-									<div class="input-group">
-										<div class="custom-file">
-											<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
-											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
-											<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-											<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $suket011->id_surat; ?>">
-											<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $suket011->id_permohonan_surat; ?>">
+							<form action="http://localhost/sira/warga/upload_foto_kk_suket011" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_kk_suket011">
+								<?php
+								foreach ($detail_suket as $suket011) { ?>
+									<div class="form-group ml-2 mr-2">
+										<div class="input-group">
+											<div class="form-group-upload">
+												<div class="custom-file">
+													<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
+													<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
+													<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+													<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat" value="<?= $suket011->id_surat; ?>">
+													<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat" id="id_permohonan_surat" value="<?= $suket011->id_permohonan_surat; ?>">
+													<i class=" fas fa-exclamation-circle"></i>
+													<h6>Error massage</h6>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							<?php } ?>
-							<center>
-								<button class="btn btn-sm btn-primary" type="submit">
-									<i class="fa fa-upload">
-									</i> Upload
-								</button>
-							</center>
-							<?= form_close() ?>
+								<?php } ?>
+								<center>
+									<button class="btn btn-sm btn-primary" type="submit">
+										<i class="fa fa-upload">
+										</i> Upload
+									</button>
+								</center>
+							</form>
 						</div>
 					</div>
 
@@ -143,6 +152,7 @@
 										</div>
 									</div>
 								</div>
+
 							<?php } ?>
 							<center>
 								<button class="btn btn-sm btn-primary" type="submit">
@@ -352,7 +362,7 @@
 							foreach ($detail_suket as $pas_foto) { ?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $pas_foto->pas_foto; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $pas_foto->pas_foto; ?>" alt="pas foto" class="img-fluid">
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $pas_foto->pas_foto; ?>" alt="pas foto" class="img-fluid" width="200px">
 									</a>
 								</center>
 							<?php } ?>
@@ -373,7 +383,7 @@
 							?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_kk->foto_kk; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_kk->foto_kk; ?>" alt="foto kk" class="img-fluid" 20>
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_kk->foto_kk; ?>" alt="foto kk" class="img-fluid" width="200px">
 									</a>
 								</center>
 							<?php } ?>
@@ -394,7 +404,7 @@
 							?>
 								<center>
 									<a href="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_surat_pindah->foto_surat_pindah; ?>" data-gallery="mygallery" data-title="Foto Surat Pindah" data-toggle="lightbox">
-										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_surat_pindah->foto_surat_pindah; ?>" alt="foto surat pindah" class="img-fluid" 20>
+										<img src="<?= base_url(); ?>/assets/uploads/warga/suket_011/<?= $foto_surat_pindah->foto_surat_pindah; ?>" alt="foto surat pindah" class="img-fluid" width="200px">
 									</a>
 								</center>
 							<?php } ?>

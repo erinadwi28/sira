@@ -40,7 +40,7 @@
 											<small> Error Message </small>
 											</div>
 										<input type="hidden" class="form-control form-user-input" name="status"
-											id="status" value="Ditolak">
+											id="status" value="Ditolak Ketua RT">
 										<input type="hidden" class="form-control form-user-input"
 											name="id_permohonan_surat" id="id_permohonan_surat"
 											value="<?= $id_permohonan_surat['id_permohonan_surat']; ?>">

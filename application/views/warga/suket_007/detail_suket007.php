@@ -237,6 +237,25 @@
 												</tr>
 											<?php } ?>
 
+											<!-- tanggal rt -->
+											<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
+												<tr>
+													<td><b>Tanggal Disetujui Ketua RT</b></td>
+													<td> </td>
+													<td> </td>
+													<td> </td>
+													<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
+												</tr>
+											<?php } elseif ($d->status ==  'Ditolak Ketua RT') { ?>
+												<tr>
+													<td><b>Tanggal Ditolak Ketua RT</b></td>
+													<td> </td>
+													<td> </td>
+													<td> </td>
+													<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
+												</tr>
+											<?php } ?>
+
 											<!-- tanggal admin -->
 											<?php if ($d->status ==  'Selesai') { ?>
 												<tr>
@@ -246,7 +265,7 @@
 													<td> </td>
 													<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 												</tr>
-											<?php } elseif ($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null) { ?>
+											<?php } elseif ($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null) { ?>
 												<tr>
 													<td><b>Tanggal Ditolak Kelurahan</b></td>
 													<td> </td>

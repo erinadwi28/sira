@@ -1,7 +1,7 @@
 .form-line i {
 	position: absolute;
 	top: 10px;
-	right: 36px;
+	right: 33px;
 	visibility: hidden;
 }
 
@@ -37,6 +37,7 @@
 	border-color: #e74c3c;
 }
 
+
 .custom-select.success {
 	border-color: #2ecc71;
 }
@@ -53,7 +54,7 @@
 	color: #e74c3c;
 	visibility: visible;
 	top: 10px;
-	left: 410px;
+	left: 370px;
 
 }
 
@@ -61,7 +62,7 @@
 	color: #2ecc71;
 	visibility: visible;
 	top: 10px;
-	left: 495px;
+	left: 370px;
 
 }
 
@@ -69,31 +70,46 @@
 	color: #e74c3c;
 	visibility: visible;
 	top: 10px;
-	left: 410px;
+	left: 370px;
 
 }
 
-.custom-file-input.success i.fa-check-circle {
+.form-line-upload i {
+	position: absolute;
+	top: 10px;
+	right: 33px;
+	visibility: hidden;
+}
+
+.form-line-upload small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.form-line-upload.success input {
+	border-color: #2ecc71;
+}
+
+
+.form-line-upload.errormsg input {
+	border-color: #e74c3c;
+}
+
+.form-line-upload.success i.fa-check-circle {
 	color: #2ecc71;
 	visibility: visible;
 	top: 10px;
-	left: 410px;
+	left: 330px;
 
 }
 
-.form-line.custom-file-input.errormsg i.fa-exclamation-circle {
+.form-line-upload.errormsg i.fa-exclamation-circle {
 	color: #e74c3c;
 	visibility: visible;
 	top: 10px;
-	left: 410px;
-
-}
-
-.form-line-upload.custom-file-input.errormsg i.fa-exclamation-circle {
-	color: #e74c3c;
-	visibility: visible;
-	top: 10px;
-	left: 495px;
+	left: 330px;
 }
 
 .form-line.errormsg small {
@@ -111,3 +127,5 @@
 	margin-left: 20px;
 	margin-bottom: -18px;
 }
+
+

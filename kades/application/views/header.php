@@ -19,7 +19,8 @@
 	<!-- Custom styles for this template-->
 	<link href="<?= base_url('../assets/dashboard/') ?>css/sb-admin-2.min.css" rel="stylesheet" />
 	<link href="<?= base_url('../assets/dashboard/') ?>css/preview.css" rel="stylesheet" />
-
+	<link href="<?= base_url('assets/dashboard/') ?>css/form_validation.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_upload_foto_kades.css" rel="stylesheet" />
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('../assets/dashboard/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
 

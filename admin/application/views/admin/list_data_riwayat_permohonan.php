@@ -92,19 +92,16 @@
 								<td><?= $permohonan->nama_surat ?></td>
 								<td><?= $permohonan->nik ?></td>
 								<td><?= $permohonan->nama ?></td>
-								<?php if ($permohonan->status == "Ditolak") { ?>
-									<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
-											<?= $permohonan->status ?></label></td>
-								<?php } elseif ($permohonan->status == "Menunggu Persetujuan Ketua RT") { ?>
-									<td><label class="badge badge-warning"><i class="far fa-clock"></i>
-											<?= $permohonan->status ?></label></td>
-								<?php } elseif ($permohonan->status == "Menunggu Persetujuan Admin") { ?>
-									<td><label class="badge badge-info"><i class="far fa-clock"></i>
-											<?= $permohonan->status ?></label></td>
-								<?php } else { ?>
-									<td><label class="badge badge-success"><i class="far fa-check-circle"></i>
-											<?= $permohonan->status ?></label></td>
-								<?php } ?>
+								<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
+							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
+									<?= $permohonan->status ?></label></td>
+							<?php } elseif($permohonan->status == "Menunggu Persetujuan Kelurahan") { ?>
+							<td><label class="badge badge-info"><i class="far fa-clock"></i>
+									<?= $permohonan->status ?></label></td>
+							<?php } elseif($permohonan->status == "Selesai") { ?>
+							<td><label class="badge badge-success"><i class="far fa-check-circle"></i>
+									<?= $permohonan->status ?></label></td>
+							<?php } ?>
 
 								<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
 								<td>

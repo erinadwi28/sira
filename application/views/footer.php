@@ -54,6 +54,9 @@
 <!-- Validasi form surat dan ubah profil warga-->
 <script src="<?= base_url('assets/dashboard/') ?>js/validation.js"></script>
 
+<!-- Validasi upload foto-->
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto.js"></script>
+
 
 <!-- Page level plugins -->
 <script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
@@ -160,9 +163,9 @@
 <!-- Script Lightbox Ekko -->
 <script>
 	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox();
-            });
+		event.preventDefault();
+		$(this).ekkoLightbox();
+	});
 </script>
 
 </body>

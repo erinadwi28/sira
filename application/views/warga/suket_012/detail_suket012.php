@@ -105,7 +105,7 @@
 								<td>:</td>
 								<td><?= $w->alamat; ?></td>
 							</tr>
-							</tr>
+							<tr>
 							<td><b>Tanggal Tinggal</b></td>
 							<td> </td>
 							<td> </td>
@@ -233,7 +233,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Detail History Permohonan</h1>
+		<h1 class="h3 mb-0 text-gray-800">Detail Permohonan Surat</h1>
 		<?php foreach ($detail_suket as $w) { ?>
 		<a href="<?= base_url() ?>warga/list_history_permohonan/<?= $d->id_warga ?>">
 			<button id=" btn_kembali" class="btn btn-sm btn-warning float-right" type="submit">
@@ -375,7 +375,7 @@
 							</tr>
 
 							<!-- tanggal rt -->
-							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
+							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
@@ -383,7 +383,7 @@
 									<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>
-							<?php } elseif($d->status ==  'Ditolak') { ?>
+							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
@@ -402,7 +402,7 @@
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
-							<?php } elseif($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null ) { ?>
+							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>

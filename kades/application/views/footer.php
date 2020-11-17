@@ -1,5 +1,5 @@
 <!-- Footer -->
-	<footer class="sticky-footer bg-white">
+	<footer class="sticky-footer shadow bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Copyright © sira.com 2020</span>
@@ -50,6 +50,8 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('../assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
+	<script src="<?= base_url('assets/dashboard/') ?>js/form_validation.js"></script>
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto_kades.js"></script>
 
 	<!-- Page level plugins -->
 	<script src="<?= base_url('../assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
@@ -164,8 +166,8 @@
 
 <script>
 
-function randomPassword1(length) {
-	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+function randomPassword(length) {
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890";
 	var pass = "";
 	for (var x = 0; x < length;x++) {
 		var i = Math.floor(Math.random() * chars.length);
@@ -174,9 +176,9 @@ function randomPassword1(length) {
 	return pass;
 }
 
-function generate1() {
-	// formTambah.row_password.value = randomPassword(formTambah.length.value);
-	formwarga.row_password.value = randomPassword(formwarga.length.value);
+function generate() {
+	formTambah.row_password.value = randomPassword(formTambah.length.value);
+	// formwarga.row_password.value = randomPassword(formwarga.length.value);
 }
 
 </script>

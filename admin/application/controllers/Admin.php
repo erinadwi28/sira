@@ -657,7 +657,7 @@ class Admin extends CI_Controller
         {
                 $this->m_admin->hapus_kades($id_kades);
 
-                $this->session->set_flashdata('success', 'dihapus');
+                $this->session->set_flashdata('success', 'dinonaktifkan');
                 redirect('admin/list_data_kades');
         }
 
@@ -791,7 +791,7 @@ class Admin extends CI_Controller
         // aksi tambah data rt
         public function aksi_tambah_rt()
         {
-                $kata_sandi = $this->input->post('kata_sandi');
+                $kata_sandi = $this->input->post('row_password');
                 $kata_sandi_hash = sha1($kata_sandi);
                 $data = array(
                         'id_warga' => $this->input->post('id_warga'),
@@ -2918,279 +2918,35 @@ class Admin extends CI_Controller
                 $dompdf->stream('Surat Keterangan Pindah');
         }
 
-
-        public function list_permohonan_selesai()
+        //list data feedback
+        public function list_feedback()
         {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $data_feedback['data_feedback'] = $this->m_admin->get_data_feedback()->result();
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/list_permohonan_selesai');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_feedback', $data_feedback);
                 $this->load->view('footer');
         }
 
-        public function detail_suket001()
+        //detail data feedback
+        public function detail_data_feedback($id_pesan)
         {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+
+                $detailhere = array('id_pesan' => $id_pesan);
+                $data_detail['detail_feedback'] = $this->m_admin->get_detail_data_feedback($detailhere, 'pesan')->result();
+
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_001/detail_suket001');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/detail_data_feedback', $data_detail);
                 $this->load->view('footer');
         }
 
-
-        public function tampil_suket001()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_001/tampil_suket001');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket002()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_002/detail_suket002');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket002()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_002/tampil_suket002');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket003()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_003/detail_suket003');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket003()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_003/tampil_suket003');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket004()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_004/detail_suket004');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket004()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_004/tampil_suket004');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket005()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_005/detail_suket005');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket005()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_005/tampil_suket005');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket006()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_006/detail_suket006');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket006()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_006/tampil_suket006');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket007()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_007/detail_suket007');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket007()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_007/tampil_suket007');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket008()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_008/detail_suket008');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket008()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_008/tampil_suket008');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket009()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_009/detail_suket009');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket009()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_009/tampil_suket009');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket010()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_010/detail_suket010');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket010()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_010/tampil_suket010');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket011()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_011/detail_suket011');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket011()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_011/tampil_suket011');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket012()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_012/detail_suket001');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket012()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_012/tampil_suket001');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket013()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_013/detail_suket013');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket013()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_013/tampil_suket013');
-                $this->load->view('footer');
-        }
-
-        public function detail_suket014()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_014/detail_suket014');
-                $this->load->view('footer');
-        }
-
-
-        public function tampil_suket014()
-        {
-                $this->load->view('header');
-                $this->load->view('admin/sidebar_admin');
-                $this->load->view('topbar');
-                $this->load->view('admin/suket_014/tampil_suket014');
-                $this->load->view('footer');
-        }
 }

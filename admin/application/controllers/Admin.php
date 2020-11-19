@@ -22,6 +22,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_jumlah['data_kades'] = $this->m_admin->ambil_nama_kades()->result();
                 $data_jumlah['jumlah_rt'] = $this->m_admin->jumlah_rt()->result();
@@ -45,6 +46,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
@@ -67,6 +69,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
@@ -274,6 +277,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
@@ -307,6 +311,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_kades['data_kades'] = $this->m_admin->get_data_kades()->result();
 
@@ -322,6 +327,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_kades' => $id_kades);
                 $data_detail['detail_kades'] = $this->m_admin->get_detail_kades($detailhere, 'kepala_desa')->result();
@@ -347,6 +353,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -393,6 +400,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_kades' => $id_kades);
                 $data_detail['detail_kades'] = $this->m_admin->get_detail_kades($detailhere, 'kepala_desa')->result();
@@ -658,6 +666,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_kades['data_kades'] = $this->m_admin->get_data_mantan_kades()->result();
 
@@ -674,6 +683,7 @@ class Admin extends CI_Controller
 
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -687,6 +697,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $nik_kades = $this->input->post('nik');
                 $detailhere = array('nik' => $nik_kades);
@@ -727,6 +738,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_rt['data_rt'] = $this->m_admin->get_data_rt()->result();
 
@@ -742,6 +754,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -755,6 +768,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $nik_warga = $this->input->post('nik');
                 $detailhere = array('nik' => $nik_warga);
@@ -797,6 +811,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_detail['detail_rt'] = $this->m_admin->get_detail_rt($id_rt)->result();
 
@@ -818,6 +833,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = $id_rt;
                 $data_detail['detai_rt'] = $this->m_admin->get_detail_rt($detailhere, 'rt')->result();
@@ -1009,6 +1025,7 @@ class Admin extends CI_Controller
 
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -1022,6 +1039,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = $this->input->post('nik');
                 $data_detail['detail_rt'] = $this->m_admin->get_detail_rt_ubah_kata_sandi($detailhere)->result();
@@ -1062,6 +1080,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_warga['data_warga'] = $this->m_admin->get_data_warga()->result();
 
@@ -1077,6 +1096,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $where = array('id_warga' => $id_warga);
                 $data_detail['detail_warga'] = $this->m_admin->get_detail_warga($where, 'warga')->result();
@@ -1099,6 +1119,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -1144,6 +1165,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $where = array('id_warga' => $id_warga);
                 $data_detail['detail_warga'] = $this->m_admin->get_detail_warga($where, 'warga')->result();
@@ -1377,6 +1399,7 @@ class Admin extends CI_Controller
 
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -1390,6 +1413,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $nik_kades = $this->input->post('nik');
                 $detailhere = array('nik' => $nik_kades);
@@ -1430,6 +1454,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_permohonan['data_permohonan_masuk'] = $this->m_admin->get_list_permohonan_masuk()->result();
 
@@ -1445,6 +1470,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 if ($id_nama_surat == 1) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
@@ -1518,6 +1544,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_permohonan['data_permohonan_ditolak'] = $this->m_admin->get_list_permohonan_ditolak()->result();
 
@@ -1533,6 +1560,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_permohonan['data_permohonan_selesai'] = $this->m_admin->get_list_permohonan_selesai()->result();
 
@@ -1548,6 +1576,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_admin->get_list_riwayat_permohonan()->result();
 
@@ -1563,6 +1592,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -1603,6 +1633,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_detail['id_permohonan_surat'] = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' =>
                 $id_permohonan_surat])->row_array();
@@ -1621,6 +1652,7 @@ class Admin extends CI_Controller
                         'keterangan' => $this->input->post('keterangan'),
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $detailhere = $this->input->post('id_permohonan_surat');
@@ -1639,6 +1671,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1667,6 +1700,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1695,6 +1729,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1723,6 +1758,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1751,6 +1787,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1779,6 +1816,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1807,6 +1845,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1835,6 +1874,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1863,6 +1903,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1891,6 +1932,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1919,6 +1961,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1947,6 +1990,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
 
@@ -1966,6 +2010,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -1994,6 +2039,7 @@ class Admin extends CI_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $data_surat = array(
@@ -2022,6 +2068,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_list['data_surat_masuk'] = $this->m_admin->get_data_surat_masuk()->result();
 
@@ -2037,6 +2084,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_sm' => $id_sm);
                 $data_detail['detail_surat_masuk'] = $this->m_admin->get_detail_surat_masuk($detailhere, 'surat_masuk')->result();
@@ -2055,6 +2103,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -2128,6 +2177,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_sm' => $id_sm);
                 $data_detail['detail_surat_masuk'] = $this->m_admin->get_detail_surat_masuk($detailhere, 'surat_masuk')->result();
@@ -2230,6 +2280,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -2272,6 +2323,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_list['data_surat_keluar'] = $this->m_admin->get_data_surat_keluar()->result();
 
@@ -2287,6 +2339,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_sk' => $id_sk);
                 $data_detail['detail_surat_keluar'] = $this->m_admin->get_detail_surat_keluar($detailhere, 'surat_keluar')->result();
@@ -2305,6 +2358,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -2378,6 +2432,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_sk' => $id_sk);
                 $data_detail['detail_surat_keluar'] = $this->m_admin->get_detail_surat_keluar($detailhere, 'surat_keluar')->result();
@@ -2480,6 +2535,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -2521,6 +2577,7 @@ class Admin extends CI_Controller
 
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
@@ -2866,6 +2923,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $data_feedback['data_feedback'] = $this->m_admin->get_data_feedback()->result();
 
@@ -2881,6 +2939,7 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
 
                 $detailhere = array('id_pesan' => $id_pesan);
                 $data_detail['detail_feedback'] = $this->m_admin->get_detail_data_feedback($detailhere, 'pesan')->result();

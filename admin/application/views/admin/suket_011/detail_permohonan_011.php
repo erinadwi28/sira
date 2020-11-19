@@ -1,31 +1,31 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
-	<?php foreach($detail_permohonan_masuk as $detail){ ?>
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Detail Data Permohonan Surat</h1>
-		<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
-		<a href="<?= base_url('admin/list_data_permohonan')?>">
-			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
-				<i class="fa fa-arrow-left">
-				</i> Kembali
-			</button>
-		</a>
-		<?php } elseif($detail->status == "Ditolak Ketua RT" || $detail->status == "Ditolak Kelurahan") {?>
-		<a href="<?= base_url('admin/list_data_permohonan_ditolak')?>">
-			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
-				<i class="fa fa-arrow-left">
-				</i> Kembali
-			</button>
-		</a>
-		<?php } elseif($detail->status == "Selesai") {?>
-		<a href="<?= base_url('admin/list_data_permohonan_selesai')?>">
-			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
-				<i class="fa fa-arrow-left">
-				</i> Kembali
-			</button>
-		</a> <?php } ?>
-	</div>
+	<?php foreach ($detail_permohonan_masuk as $detail) { ?>
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+			<h1 class="h3 mb-0 text-gray-800">Detail Data Permohonan Surat</h1>
+			<?php if ($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
+				<a href="<?= base_url('admin/list_data_permohonan') ?>">
+					<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
+						<i class="fa fa-arrow-left">
+						</i> Kembali
+					</button>
+				</a>
+			<?php } elseif ($detail->status == "Ditolak Ketua RT" || $detail->status == "Ditolak Kelurahan") { ?>
+				<a href="<?= base_url('admin/list_data_permohonan_ditolak') ?>">
+					<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
+						<i class="fa fa-arrow-left">
+						</i> Kembali
+					</button>
+				</a>
+			<?php } elseif ($detail->status == "Selesai") { ?>
+				<a href="<?= base_url('admin/list_data_permohonan_selesai') ?>">
+					<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
+						<i class="fa fa-arrow-left">
+						</i> Kembali
+					</button>
+				</a> <?php } ?>
+		</div>
 
 	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 	<?php if ($this->session->flashdata('success')) : ?>
@@ -235,7 +235,7 @@
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td><?= $detail->tanggal_tinggal; ?></td>
+									<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 								</tr>
 
 								<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>

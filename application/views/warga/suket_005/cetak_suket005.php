@@ -380,7 +380,7 @@
                             foreach ($data_kades as $k) {
                             ?>
                                 <div class="badan_surat isi_surat">
-                                    <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+                                    <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" style="margin-top: -20px;" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
                                 </div>
                         </div>
                     </div>
@@ -402,6 +402,11 @@
             </div>
             <div class="col-md-2">
             </div>
+            <?php
+            foreach ($detail_suket as $w) {
+            ?>
+                <img src="<?= base_url(); ?>/assets/uploads/warga/suket_005/<?= $w->foto_ktp; ?>" style="width: 350px;" alt="foto ktp" class="img-fluid">
+            <?php } ?>
         </div>
     </div>
     <!-- /.container-fluid -->

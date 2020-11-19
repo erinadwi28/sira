@@ -1,20 +1,20 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
-	<?php foreach($detail_permohonan_masuk as $detail){ ?>
-	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Detail Data Permohonan Surat</h1>
-		<a href="<?= base_url('kades/list_riwayat_permohonan')?>">
-			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
-				<i class="fa fa-arrow-left">
-				</i> Kembali
-			</button>
-		</a>
-	</div>
+	<?php foreach ($detail_permohonan_masuk as $detail) { ?>
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+			<h1 class="h3 mb-0 text-gray-800">Detail Data Permohonan Surat</h1>
+			<a href="<?= base_url('kades/list_riwayat_permohonan') ?>">
+				<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
+					<i class="fa fa-arrow-left">
+					</i> Kembali
+				</button>
+			</a>
+		</div>
 
-	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success');?>"></div>
-	<?php if ($this->session->flashdata('success')) : ?>
-	<?php endif; ?>
+		<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+		<?php if ($this->session->flashdata('success')) : ?>
+		<?php endif; ?>
 
 	<!-- Content Row line 1-->
 	<div class="row">
@@ -252,103 +252,112 @@
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 														
-							<!-- tanggal RT -->
-							<?php if($detail->status == "Ditolak Ketua RT") { ?>
-								<tr>
-									<td><b>Tanggal Ditolak Ketua RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
-								</tr>
-							<?php } else { ?>
-								<tr>
-									<td><b>Tanggal Disetujui Ketua RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
-								</tr>							
-							<?php } ?>
-							
-							<!-- tanggal admin -->
-							<?php if($detail->status == "Ditolak Kelurahan") { ?>
-								<tr>
-									<td><b>Tanggal Ditolak Kelurahan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
-								</tr>							
-							<?php } elseif($detail->status == "Selesai") { ?>
-								<tr>
-									<td><b>Tanggal Surat Dikeluarkan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
-								</tr>							
-							<?php } ?>
+								<!-- tanggal RT -->
+								<?php if ($detail->status == "Ditolak Ketua RT") { ?>
+									<tr>
+										<td><b>Tanggal Ditolak Ketua RT</b></td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
+									</tr>
+								<?php } else { ?>
+									<tr>
+										<td><b>Tanggal Disetujui Ketua RT</b></td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
+									</tr>
+								<?php } ?>
 
-							<?php if($detail->keterangan != null) { ?>
-							<tr>
-								<td><b>Keterangan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->keterangan; ?></td>
-							</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 mb-4">
-			<!-- Pas Foto -->
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<center>
-						<h6 class="m-0 font-weight-bold text-primary">Lampiran Pas Foto 2 X 3</h6>
-					</center>
-				</div>
-				<div class="card-body" style="padding: 10px;">
-					<center>
-						<div class="mb-2">
-							<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>"
-								alt="foto ktp" class="img-fluid">
-						</div>
-					</center>
-				</div>
-			</div>
+								<!-- tanggal admin -->
+								<?php if ($detail->status == "Ditolak Kelurahan") { ?>
+									<tr>
+										<td><b>Tanggal Ditolak Kelurahan</b></td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+									</tr>
+								<?php } elseif ($detail->status == "Selesai") { ?>
+									<tr>
+										<td><b>Tanggal Surat Dikeluarkan</b></td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+									</tr>
+								<?php } ?>
 
-			<!-- Foto KK -->
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<center>
-						<h6 class="m-0 font-weight-bold text-primary">Lampiran Foto KK</h6>
-					</center>
-				</div>
-				<div class="card-body" style="padding: 20px;">
-					<div class="mb-2">
-						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>"
-							alt="foto kk" class="img-fluid">
+								<?php if ($detail->keterangan != null) { ?>
+									<tr>
+										<td><b>Keterangan</b></td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td><?= $detail->keterangan; ?></td>
+									</tr>
+								<?php } ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
-
-			<!-- Foto Surat Pindah -->
-			<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<center>
-						<h6 class="m-0 font-weight-bold text-primary">Lampiran Foto Surat Pindah</h6>
-					</center>
+			
+			<div class="col-md-4 mb-4">
+				<!-- Pas Foto -->
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<center>
+							<h6 class="m-0 font-weight-bold text-primary">Lampiran Pas Foto 2 X 3</h6>
+						</center>
+					</div>
+					<div class="card-body" style="padding: 15px;">
+						<center>
+							<div class="mb-2">
+								<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>" data-gallery="mygallery" data-title="Pas Foto" data-toggle="lightbox">
+									<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>" alt="pas foto" class="img-fluid" width="200px">
+								</a>
+							</div>
+						</center>
+					</div>
 				</div>
-				<div class="card-body" style="padding: 20px;">
-					<div class="mb-2">
-						<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>"
-							alt="foto kk" class="img-fluid">
+
+				<!-- Foto KK -->
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<center>
+							<h6 class="m-0 font-weight-bold text-primary">Lampiran Foto KK</h6>
+						</center>
+					</div>
+					<div class="card-body" style="padding: 15px;">
+					<center>
+						<div class="mb-2">
+							<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>" data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
+								<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>" alt="foto kk" class="img-fluid" width="200px">
+							</a>
+						</div>
+						</center>
+					</div>
+				</div>
+
+				<!-- Foto Surat Pindah -->
+			<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<center>
+							<h6 class="m-0 font-weight-bold text-primary">Lampiran Foto Surat Pindah</h6>
+						</center>
+					</div>
+					<div class="card-body" style="padding: 15px;">
+					<center>
+						<div class="mb-2">
+							<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>" data-gallery="mygallery" data-title="Foto Surat Pindah" data-toggle="lightbox">
+								<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>" alt="foto surat pindah" class="img-fluid" width="200px">
+							</a>
+						</div>
+						</center>
 					</div>
 				</div>
 			</div>
@@ -358,5 +367,5 @@
 	</div>
 </div>
 <!-- /.container-fluid -->
-</div>
+
 <!-- End of Main Content -->

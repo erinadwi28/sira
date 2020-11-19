@@ -51,6 +51,7 @@
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('../assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
 	<script src="<?= base_url('assets/dashboard/') ?>js/form_validation.js"></script>
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto_kades.js"></script>
 
 	<!-- Page level plugins -->
 	<script src="<?= base_url('../assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>

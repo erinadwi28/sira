@@ -1,0 +1,58 @@
+/* upload foto profil Warga */
+
+.form-group-upload {
+	position: relative;
+	padding-bottom: 5px;
+}
+
+.custom-file-label {
+	display: inline-block;
+}
+
+.form-group-upload i {
+	position: absolute;
+	top: 41px;
+	left: 0px;
+	visibility: hidden;
+}
+
+.form-group-upload h6 {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	left: 20px;
+}
+
+.form-group-upload.successupload i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 40px;
+	left: 0px;
+
+}
+
+.form-group-upload.errormsgupload i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 40px;
+	left: 0px;
+
+}
+
+.form-group-upload.errormsgupload h6 {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: small;
+	top: 40px;
+	left: 20px;
+}
+
+.form-group-upload.successupload input {
+	border-color: #2ecc71;
+}
+
+.form-group-upload.errormsgupload input {
+	border-color: #e74c3c;
+}
+
+

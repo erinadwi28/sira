@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
-	<?php foreach($detail_permohonan_masuk as $detail){ ?>
+	<?php foreach ($detail_permohonan_masuk as $detail) { ?>
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Detail Data Permohonan Surat</h1>
 		<a href="<?= base_url('kades/list_riwayat_permohonan')?>">
@@ -12,9 +12,9 @@
 		</a>
 	</div>
 
-	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success');?>"></div>
-	<?php if ($this->session->flashdata('success')) : ?>
-	<?php endif; ?>
+		<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+		<?php if ($this->session->flashdata('success')) : ?>
+		<?php endif; ?>
 
 	<!-- Content Row line 1-->
 	<div class="row">
@@ -125,67 +125,75 @@
 						</div>
 						<div class="col-md-3">
 						</div>
-                    </div>
-                    <?php } ?>
+                    </div>   
+						
+						<?php } ?>
 
-					<table class="table-hover table-responsive">
-						<tbody>
-							<tr>
-								<td><b>Nama</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama; ?></td>
-							</tr>
-							<tr>
-								<td><b>Jenis Kelamin</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->jenis_kelamin; ?></td>
-							</tr>
-							<tr>
-								<td><b>Tempat Lahir</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->tempat_lahir; ?></td>
-							</tr>
-							<tr>
-								<td><b>Tanggal Lahir</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
-							</tr>
-							<tr>
-								<td><b>Pekerjaan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->pekerjaan; ?></td>
-							</tr>
-							<tr>
-								<td><b>Alamat Tinggal</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->alamat_tinggal; ?></td>
-							</tr>
-							<tr>
-								<td><b>Keperluan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->keperluan; ?></td>
-							</tr>
-							<tr>
-								<td><b>Tanggal Permohonan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
-							</tr>
+						<table class="table-hover table-responsive">
+							<tbody>
+								<tr>
+									<td><b>Nama</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->nama; ?></td>
+								</tr>
+								<tr>
+									<td><b>Jenis Kelamin</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->jenis_kelamin; ?></td>
+								</tr>
+								<tr>
+									<td><b>Tempat Lahir</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->tempat_lahir; ?></td>
+								</tr>
+								<tr>
+									<td><b>Tanggal Lahir</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
+								</tr>
+								<tr>
+									<td><b>Pekerjaan</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->pekerjaan; ?></td>
+								</tr>
+								<tr>
+									<td><b>Agama</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->agama; ?></td>
+								</tr>
+								<tr>
+									<td><b>Alamat Tinggal</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->alamat_tinggal; ?></td>
+								</tr>
+								<tr>
+									<td><b>Keperluan</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= $detail->keperluan; ?></td>
+								</tr>
+								<tr>
+									<td><b>Tanggal Permohonan</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
+								</tr>
 														
 							<!-- tanggal RT -->
 							<?php if($detail->status == "Ditolak Ketua RT") { ?>
@@ -234,14 +242,14 @@
 								<td><?= $detail->keterangan; ?></td>
 							</tr>
 							<?php } ?>
-						</tbody>
-					</table>
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</div>
 			<?php } ?>
+			</div>
+			<div class="col-md-2"></div>
 		</div>
-		<div class="col-md-2"></div>
-	</div>
 </div>
 <!-- /.container-fluid -->
 </div>

@@ -55,6 +55,7 @@
         .paragraf {
             /* text-indent: 2.8125em; */
             text-align: justify;
+            color: #000000;
         }
 
         .isi_surat {

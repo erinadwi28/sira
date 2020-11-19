@@ -391,7 +391,7 @@
 										?>
 											<center>
 
-												Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+												Pangkalan Bun,<?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
 												LURAH MENDAWAI
 
 											</center>

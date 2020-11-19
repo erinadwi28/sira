@@ -37,6 +37,7 @@
 	border-color: #e74c3c;
 }
 
+
 .custom-select.success {
 	border-color: #2ecc71;
 }
@@ -86,6 +87,7 @@
 	bottom: 0;
 	left: 0;
 }
+
 .form-line-upload.success input {
 	border-color: #2ecc71;
 }
@@ -125,3 +127,5 @@
 	margin-left: 20px;
 	margin-bottom: -18px;
 }
+
+

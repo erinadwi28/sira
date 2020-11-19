@@ -22,6 +22,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data['data_kades'] = $this->m_warga->ambil_nama_kades()->result();
 		$data['data_rt'] = $this->m_warga->ambil_nama_rt()->result();
@@ -44,6 +45,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$detailhere = array('id_warga' => $id_warga);
 		$data_detail['detail_profil_saya'] = $this->m_warga->get_detail_profil_saya($detailhere, 'warga')->result();
@@ -222,6 +224,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$detailhere = array('id_warga' => $id_warga);
 		$data_detail['detail_profil_saya'] = $this->m_warga->get_detail_profil_saya($detailhere, 'warga')->result();
@@ -266,6 +269,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -310,6 +314,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_usaha')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -326,6 +331,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_usaha')->result();
@@ -373,6 +379,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -418,6 +425,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_domisili')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -434,6 +442,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_domisili')->result();
@@ -483,6 +492,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -527,6 +537,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_memiliki_rumah')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -543,6 +554,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_memiliki_rumah')->result();
@@ -591,6 +603,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -636,6 +649,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_beda_nama')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -652,6 +666,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_beda_nama')->result();
@@ -700,6 +715,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -792,6 +808,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_izin_keramaian')->result();
 
@@ -811,6 +828,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_izin_keramaian')->result();
@@ -860,6 +878,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
 
@@ -902,6 +921,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_pernah_menikah')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -918,6 +938,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_pernah_menikah')->result();
@@ -965,6 +986,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -993,7 +1015,9 @@ class Warga extends CI_Controller
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'agama' => $this->input->post('agama'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
+			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'keperluan' => $this->input->post('keperluan'),
 		);
@@ -1010,6 +1034,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_tidak_mampu')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1026,6 +1051,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_tidak_mampu')->result();
@@ -1048,7 +1074,9 @@ class Warga extends CI_Controller
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'agama' => $this->input->post('agama'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
+			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
 			'keperluan' => $this->input->post('keperluan'),
 		);
@@ -1074,6 +1102,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
 
@@ -1120,6 +1149,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_janda')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1136,6 +1166,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_janda')->result();
@@ -1187,6 +1218,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1232,6 +1264,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kematian')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1248,6 +1281,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kematian')->result();
@@ -1297,6 +1331,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1358,6 +1393,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kelahiran')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1374,6 +1410,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kelahiran')->result();
@@ -1436,6 +1473,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1490,6 +1528,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_suket011($id_surat, 'srt_pengantar_ktp')->result();
 
@@ -1649,6 +1688,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_pengantar_ktp')->result();
@@ -1707,6 +1747,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1759,6 +1800,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_pengikut['id_permohonan'] = $this->db->get_where('srt_pengantar_kk', ['id_permohonan_surat' => $id_permohonan])->row_array();
 		$data_pengikut['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan)->result();
@@ -1776,6 +1818,7 @@ class Warga extends CI_Controller
 
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['id_permohonan'] = $this->db->get_where('srt_pengantar_kk', ['id_permohonan_surat' => $id_permohonan])->row_array();
 
@@ -1815,6 +1858,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_pengikut'] = $this->m_warga->get_detail_pengikut($id_pengikut, 'pengikut')->result();
@@ -1863,6 +1907,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_pengantar_kk')->result();
@@ -1909,6 +1954,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_pengantar_kk')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1935,6 +1981,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1980,6 +2027,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_penghasilan')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1996,6 +2044,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_penghasilan')->result();
@@ -2046,6 +2095,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -2103,6 +2153,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_pengikut['id_permohonan'] = $this->db->get_where('srt_ket_pindah', ['id_permohonan_surat' => $id_permohonan])->row_array();
 		$data_pengikut['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan)->result();
@@ -2120,6 +2171,7 @@ class Warga extends CI_Controller
 
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['id_permohonan'] = $this->db->get_where('srt_ket_pindah', ['id_permohonan_surat' => $id_permohonan])->row_array();
 
@@ -2159,6 +2211,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_pengikut'] = $this->m_warga->get_detail_pengikut($id_pengikut, 'pengikut')->result();
@@ -2207,6 +2260,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_pindah')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -2224,6 +2278,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_pindah')->result();
@@ -2297,6 +2352,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['permohonan'] = $this->m_warga->get_history_permohonan($id_warga)->result();
 
@@ -2308,11 +2364,29 @@ class Warga extends CI_Controller
 		$this->load->view('footer');
 	}
 
+	//list notif
+	public function list_notif($id_warga)
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
+
+		$data_permohonan['permohonan'] = $this->m_warga->get_permohonan_belum_dibaca($id_warga)->result();
+
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_notif', $data_permohonan);
+		$this->load->view('footer');
+	}
+
 	//list permohonan selesai
 	public function list_permohonan_selesai($id_warga)
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['permohonan'] = $this->m_warga->get_history_permohonan_selesai($id_warga)->result();
 
@@ -2329,6 +2403,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['data_sedang_proses'] = $this->m_warga->get_data_sedang_proses_rt()->result();
 
@@ -2344,6 +2419,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['data_sedang_proses'] = $this->m_warga->get_data_sedang_proses_admin()->result();
 
@@ -2359,6 +2435,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['data_permohonan_ditolak'] = $this->m_warga->get_list_permohonan_ditolak()->result();
 
@@ -2374,6 +2451,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$tgl_awal = $this->input->post('tanggal_mulai');
 		$tgl_akhir = $this->input->post('tanggal_akhir');
@@ -2392,6 +2470,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$tgl_awal = $this->input->post('tanggal_mulai');
 		$tgl_akhir = $this->input->post('tanggal_akhir');
@@ -2412,6 +2491,14 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+
+		$data_notif = array(
+			'notif' => $this->input->post('notif'),
+		);
+
+		$this->m_warga->update_notif($data_notif, $id_permohonan_surat);
+
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 
@@ -2487,6 +2574,14 @@ class Warga extends CI_Controller
 
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+
+		$data_notif = array(
+			'notif' => $this->input->post('notif'),
+		);
+
+		$this->m_warga->update_notif($data_notif, $id_permohonan_surat);
+
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
@@ -2851,6 +2946,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga',$data);

@@ -233,26 +233,28 @@
 																<td>:</td>
 																<td><?= format_indo(date($w->tanggal_tinggal)); ?></td>
 															</tr>
-															<tr>
-																<td>No. Surat Pindah</td>
-																<td> </td>
-																<td> </td>
-																<td> </td>
-																<td> </td>
-																<td> </td>
-																<td>:</td>
-																<td><?= $w->no_surat_pindah; ?></td>
-															</tr>
-															<tr>
-																<td>Tgl. Surat Pindah</td>
-																<td> </td>
-																<td> </td>
-																<td> </td>
-																<td> </td>
-																<td> </td>
-																<td>:</td>
-																<td><?= format_indo(date($w->tanggal_surat_pindah)); ?></td>
-															</tr>
+															<?php if ($w->no_surat_pindah != '') { ?>
+																<tr>
+																	<td>No. Surat Pindah</td>
+																	<td> </td>
+																	<td> </td>
+																	<td> </td>
+																	<td> </td>
+																	<td> </td>
+																	<td>:</td>
+																	<td><?= $w->no_surat_pindah; ?></td>
+																</tr>
+																<tr>
+																	<td>Tgl. Surat Pindah</td>
+																	<td> </td>
+																	<td> </td>
+																	<td> </td>
+																	<td> </td>
+																	<td> </td>
+																	<td>:</td>
+																	<td><?= format_indo(date($w->tanggal_surat_pindah)); ?></td>
+																</tr>
+															<?php } ?>
 
 														</tbody>
 													</table>
@@ -331,7 +333,7 @@
 														<td></td>
 														<td>:</td>
 														<td>
-														<?php
+															<?php
 															foreach ($detail_permohonan as $d) {
 															?>
 																<?= format_indo(date($d->tgl_persetujuan_admin)); ?>
@@ -348,7 +350,7 @@
 								</div>
 								<div class="row">
 									<div class="col-6">
-										
+
 									</div>
 									<div class="col-6">
 										<div class="badan_surat isi_surat">
@@ -364,30 +366,30 @@
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
 											<?php
-												foreach ($data_kades as $k) {
+											foreach ($data_kades as $k) {
 											?>
 												<center>
 													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>">
 													</center>
 												</center>
-												<?php } ?>
+											<?php } ?>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										
+
 									</div>
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
-										<?php
-												foreach ($data_kades as $k) {
+											<?php
+											foreach ($data_kades as $k) {
 											?>
-											<center>
-												<u><b><?= $k->nama; ?></b></u> <br>
-												NIP. <?= $k->nip; ?>
-											</center>
-										<?php } ?>
+												<center>
+													<u><b><?= $k->nama; ?></b></u> <br>
+													NIP. <?= $k->nip; ?>
+												</center>
+											<?php } ?>
 										</div>
 									</div>
 								</div>
@@ -398,14 +400,23 @@
 									..................................................................................................................................................................................................................................
 								</div>
 								</div>
-								<div class="card-footer">
+								<?php if ($w->no_surat_pindah != '') { ?>
+									<div class="card-footer">
+										<center>
+											<a href="<?= base_url() ?>warga/cetak_surat011/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+												<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
+													Cetak</button>
+											</a>
+										</center>
+									</div>
+								<?php } else { ?>
 									<center>
-										<a href="<?= base_url() ?>warga/cetak_surat011/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
+										<a href="<?= base_url() ?>warga/cetak_surat011_1/<?php foreach ($detail_suket as $w) { ?><?= $w->id_permohonan_surat ?> <?php } ?>">
 											<button class="btn btn-sm btn-success" type="submit"><i class="fa fa-print"></i>
 												Cetak</button>
 										</a>
 									</center>
-								</div>
+								<?php } ?>
 							</div>
 						</div>
 						<div class="col-md-2">

@@ -105,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 145px;
-            margin-right: -535px;
+            margin-top: 170px;
+            margin-right: -510px;
         }
     </style>
 
@@ -183,6 +183,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->nama; ?></td>
                                                 </tr>
                                                 <tr>
@@ -190,6 +192,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->jenis_kelamin; ?></td>
                                                 </tr>
                                                 <tr>
@@ -197,6 +201,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
                                                 </tr>
                                                 <tr>
@@ -204,6 +210,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->agama; ?></td>
                                                 </tr>
                                                 <tr>
@@ -211,6 +219,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->pekerjaan; ?></td>
                                                 </tr>
                                                 <tr>
@@ -218,6 +228,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->alamat_tinggal; ?></td>
                                                 </tr>
                                             </tbody>

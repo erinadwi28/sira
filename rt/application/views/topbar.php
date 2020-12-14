@@ -17,12 +17,12 @@
 
 				<!-- Nav Item - Alerts -->
 				<li class="nav-item dropdown no-arrow mx-1">
-					<a class="nav-link dropdown-toggle" href="<?= base_url('rt/list_data_permohonan') ?>">
+					<a class="nav-link dropdown-toggle" href="<?= base_url('rt/list_notif') ?>">
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
 						<span class="badge badge-danger badge-counter"><?php
-																		foreach ($jumlah_permohonan_masuk as $permohonan_masuk) { ?>
-								<?= $permohonan_masuk->total_permohonan_masuk; ?>
+																		foreach ($total_notif as $permohonan_masuk) { ?>
+								<?= $permohonan_masuk->total_notif; ?>
 							<?php } ?>
 						</span>
 					</a>

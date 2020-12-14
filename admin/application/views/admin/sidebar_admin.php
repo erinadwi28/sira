@@ -101,7 +101,7 @@
 	<li class="nav-item">
 		<a class="nav-link " href="<?= base_url('admin/list_feedback') ?>">
 			<i class="fa fa-comments"></i>
-			<span>Feedback</span>
+			<span>Data Pengaduan</span>
 		</a>
 	</li>
 	

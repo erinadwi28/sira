@@ -100,22 +100,17 @@
 											<label class="custom-file-label" for="file-upload-profil">pilih
 												file...</label>
 											<input type="file" class="custom-file-input" id="file-upload-profil"
-												name="berkas[]">
+												name="berkas">
 										</div>
 									</div>
 								</div>
+								<em  class="ml-5 float-center small text-danger">*Optional</em>
 							</div>
 						</div>
 						<br>
 						<hr />
 						<div class="">
 							<div class="float-right mb-0">
-								<a href="">
-									<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-										<i class="fa fa-times nav-icon">
-										</i> Batal
-									</button>
-								</a>
 								<a href="">
 									<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
 										<i class="far fa-save nav-icon">

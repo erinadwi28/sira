@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white shadow">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright © sira.com 2020</span>
+			<span>Copyright © siramendawaibersinergi.com 2020</span>
 		</div>
 	</div>
 </footer>
@@ -54,14 +54,14 @@
 <!-- validation -->
 <script src="<?= base_url('assets/dashboard/') ?>js/validation_warga.js"></script>
 <script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto_rt.js"></script>
-
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_pass.js"></script>
 
 <!-- Page level plugins -->
-<script src="<?= base_url('../assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
+<!--<script src="<?= base_url('../assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>-->
 
 <!-- Page level custom scripts -->
-<script src="<?= base_url('../assets/dashboard/') ?>js/demo/chart-area-demo.js"></script>
-<script src="<?= base_url('../assets/dashboard/') ?>js/demo/chart-pie-demo.js"></script>
+<!--<script src="<?= base_url('../assets/dashboard/') ?>js/demo/chart-area-demo.js"></script>-->
+<!--<script src="<?= base_url('../assets/dashboard/') ?>js/demo/chart-pie-demo.js"></script>-->
 
 <!-- Page level plugins -->
 <script src="<?= base_url('../assets/dashboard/') ?>vendor/datatables/jquery.dataTables.min.js"></script>

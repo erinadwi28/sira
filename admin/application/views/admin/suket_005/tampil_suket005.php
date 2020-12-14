@@ -67,20 +67,23 @@
 																<tbody>
 																	<tr>
 																		<td>Nomor</td>
-																		<td></td>
+																		<td> </td>
 																		<td>:</td>
+																		<td> </td>
 																		<td><?= $w->no_tupoksi; ?> / <?= $w->no_registrasi; ?> / <?= $w->no_kelurahan; ?> / <?= $w->no_kecamatan; ?> / <?= $bulan; ?> / <?= $w->no_tahun; ?></td>
 																	</tr>
 																	<tr>
 																		<td>Lampiran</td>
-																		<td></td>
+																		<td> </td>
 																		<td>:</td>
+																		<td> </td>
 																		<td>Foto KTP</td>
 																	</tr>
 																	<tr>
 																		<td>Perihal</td>
-																		<td></td>
+																		<td> </td>
 																		<td>:</td>
+																		<td> </td>
 																		<td>Permohonan izin keramaian</td>
 																	</tr>
 																</tbody>
@@ -120,29 +123,29 @@
 															<tr>
 																<td><b>Nama</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $k->nama; ?></td>
 															</tr>
 															<tr>
 																<td><b>NIP</b></td>
 																<td> </td>
-																<td></td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $k->nip; ?></td>
 															</tr>
 															<tr>
 																<td><b>Jabatan </b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td>Kepala Desa</td>
 															</tr>
 															<tr>
 																<td><b>Alamat</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $k->alamat; ?></td>
 															</tr>
 														</tbody>
@@ -160,22 +163,22 @@
 														<tr>
 															<td><b>Nama</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->nama; ?></td>
 														</tr>
 														<tr>
 															<td><b>TTL</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 														</tr>
 														<tr>
 															<td><b>Alamat</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->alamat; ?>t</td>
 														</tr>
 													</tbody>
@@ -192,29 +195,29 @@
 														<tr>
 															<td><b>Kegiatan</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->nama_kegiatan; ?></td>
 														</tr>
 														<tr>
 															<td><b>Hari,Tgl</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->hari_kegiatan; ?>,<?= format_indo(date($w->tanggal_kegiatan)); ?></td>
 														</tr>
 														<tr>
 															<td><b>Tempat</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->tempat; ?></td>
 														</tr>
 														<tr>
 															<td><b>Jam</b></td>
 															<td> </td>
-															<td> </td>
 															<td>:</td>
+															<td> </td>
 															<td><?= $w->jam; ?> WIB</td>
 														</tr>
 													</tbody>

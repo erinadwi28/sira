@@ -49,20 +49,20 @@
 				</div>
 
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/admin/admin/upload_lampiran_surat_masuk" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_surat_masuk_admin">
+				<form action="<?= base_url('admin/upload_lampiran_surat_masuk') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_surat_masuk_admin">
 						<div class="form-group ml-2 mr-2">
 						<div class="input-group">
 							<div class="form-group-upload">
 							<div class="custom-file">
 								<label class="custom-file-label" for="file-upload-profil">pilih lampiran...</label>
-								<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-								<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-								<input type="hidden" class="form-control form-user-input" name="id_sm" id="id_sm" value="2">
+								<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
+								<input type="hidden" class="form-control form-user-input" name="id_sm" id="id_sm" value="<?= $sm->id_sm ?>">
 								<i class=" fas fa-exclamation-circle"></i>
 								<h6>Error massage</h6>
 							</div>
 							</div>
 						</div>
+						<em class="float-center small text-danger">*Optional</em>
 					</div>
 										<center>
 						<button class="btn btn-sm btn-primary" type="submit">

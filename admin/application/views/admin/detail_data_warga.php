@@ -36,12 +36,11 @@
 							</a>
 						<?php } ?>
 					</center>
-
 				</div>
 
-
+				<!-- Upload Foto Profil -->
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/admin/admin/upload_foto_profil" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_profil_warga">
+					<form action="<?= base_url('admin/upload_foto_profil') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_profil_warga">
 						<?php
 						foreach ($detail_warga as $w) {
 						?>
@@ -50,8 +49,7 @@
 									<div class="form-group-upload">
 										<div class="custom-file">
 											<label class="custom-file-label" for="file-upload-profil">pilih foto profil...</label>
-											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-											<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
+											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
 											<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="<?= $w->id_warga ?>">
 											<i class=" fas fa-exclamation-circle"></i>
 											<h6>Error massage</h6>
@@ -89,9 +87,10 @@
 						<?php } ?>
 					</center>
 				</div>
-
+				
+				<!-- Upload Foto KTP -->
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/admin/admin/upload_foto_ktp" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_ktp_warga">
+					<form action="<?= base_url('admin/upload_foto_ktp') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_ktp_warga">
 						<?php
 						foreach ($detail_warga as $w) {
 						?>
@@ -100,8 +99,7 @@
 									<div class="form-group-upload">
 										<div class="custom-file">
 											<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
-											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
-											<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas">
 											<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="<?= $w->id_warga ?>">
 											<i class=" fas fa-exclamation-circle"></i>
 											<h6>Error massage</h6>
@@ -140,9 +138,9 @@
 					</center>
 				</div>
 
-
+				<!-- Upload Foto KK -->
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/admin/admin/upload_foto_kk" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_kk_warga">
+					<form action="<?= base_url('admin/upload_foto_kk') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_kk_warga">
 						<?php
 						foreach ($detail_warga as $w) {
 						?>
@@ -151,8 +149,7 @@
 									<div class="form-group-upload">
 										<div class="custom-file">
 											<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
-											<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
-											<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+											<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas">
 											<input type="hidden" class="form-control form-user-input" name="id_warga" id="warga" value="<?= $w->id_warga ?>">
 											<i class=" fas fa-exclamation-circle"></i>
 											<h6>Error massage</h6>

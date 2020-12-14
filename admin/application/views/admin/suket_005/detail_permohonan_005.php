@@ -140,86 +140,79 @@
 								<tr>
 									<td><b>Nama</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->nama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Lahir</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->tempat_lahir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Lahir</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Alamat</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->alamat; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nama Kegiatan</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->nama_kegiatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Hari Kegiatan</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->hari_kegiatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Kegiatan</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_kegiatan)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Waktu Kegiatan</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->jam; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Kegiatan</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= $detail->tempat; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Permohonan</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
 									<td>:</td>
+									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
-								</tr>
-								<tr>
-									<td><b>Surat Yang Dimohon</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->nama_surat; ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -313,71 +306,71 @@
 							<tr>
 								<td><b>Nama</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->nama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Kegiatan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->nama_kegiatan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Kegiatan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->hari_kegiatan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Kegiatan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_kegiatan)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Waktu Kegiatan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->jam; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kegiatan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->tempat; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 
@@ -386,16 +379,16 @@
 							<tr>
 								<td><b>Tanggal Ditolak Ketua RT</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<?php } else { ?>
 							<tr>
 								<td><b>Tanggal Disetujui Ketua RT</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<?php } ?>
@@ -405,36 +398,25 @@
 							<tr>
 								<td><b>Tanggal Ditolak Kelurahan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } elseif($detail->status == "Selesai") { ?>
 							<tr>
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } ?>
-
-<<<<<<< HEAD
-=======
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td>:</td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
->>>>>>> 2d642eaac6cb16a39a569b5a94b28fc24abf986a
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
 								<td> </td>
-								<td> </td>
 								<td>:</td>
+								<td> </td>
 								<td><?= $detail->keterangan; ?></td>
 							</tr>
 							<?php } ?>

@@ -118,8 +118,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 145px;
-            margin-right: -535px;
+            margin-top: 170px;
+            margin-right: -510px;
         }
     </style>
 

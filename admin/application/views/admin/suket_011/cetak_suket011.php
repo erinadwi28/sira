@@ -104,7 +104,7 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 80px;
+            margin-top: 120px;
             /* margin-right: -830px; */
             margin-right: -800px;
         }
@@ -220,31 +220,22 @@
                                                 <tr>
                                                     <td>Nama Lengkap</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><b><?= $w->nama; ?></b></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Jenis Kelamin</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->jenis_kelamin; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Tempat Tanggal Lahir</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->tempat_lahir; ?>,
                                                         <?= format_indo(date($w->tanggal_lahir)); ?>
                                                     </td>
@@ -252,113 +243,80 @@
                                                 <tr>
                                                     <td>Alamat</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->alamat; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>RT</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->rt; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kelurahan</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->kelurahan; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Status Perkawinan</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->status_perkawinan; ?>n</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Gol. Darah</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->golongan_darah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Agama</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->agama; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Pekerjaan</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->pekerjaan; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>No. Kartu Keluarga</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->no_kk; ?></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Tanggal Mulai Tinggal </td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= format_indo(date($w->tanggal_tinggal)); ?></td>
                                                 </tr>
                                                 <?php if ($w->tanggal_surat_pindah != NULL && $w->no_surat_pindah !=  NULL) { ?>
                                                 <tr>
                                                     <td>No. Surat Pindah</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->no_surat_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Tgl. Surat Pindah</td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
                                                     <td><?= format_indo(date($w->tanggal_surat_pindah)); ?></td>
                                                 </tr>
                                                 <?php } ?>

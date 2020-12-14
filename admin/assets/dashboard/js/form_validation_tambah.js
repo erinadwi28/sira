@@ -68,18 +68,14 @@ if (formtambah != null) {
 } else if(formtambahrt != null) {
 	formtambahrt.addEventListener("submit", (e) => {
 		if (checkInputs2() == true) {
-			e.target.submit();
-			
-			
+			e.target.submit();	
 		} else 
 		e.preventDefault();
 	});
 } else if (formubahrt != null) {
 	formubahrt.addEventListener("submit", (e) => {
 		if (checkInputs3() == true) {
-			e.target.submit();
-			
-			
+			e.target.submit();	
 		} else 
 		e.preventDefault();
 	});
@@ -436,8 +432,7 @@ function checkInputs2() {
 	const pendidikan_terakhirValue = pendidikan_terakhir.value.trim();
 	const status_hub_kelValue = status_hub_kel.value.trim();
 	const no_hpValue = no_hp.value.trim();
-	
-
+	const kata_sandiValue = kata_sandi.value.trim();
 
 	if (nikValue === "") {
 		setErrorFor(nik, "Nik tidak boleh kosong");
@@ -564,9 +559,12 @@ function checkInputs2() {
 	} else {
 		setSuccessFor(no_hp);
 	}
-
-	
-
+	if (kata_sandiValue === "") {
+		setErrorFor(kata_sandi, "Kata Sandi tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(kata_sandi);
+	}
 	return (true);
 }
 
@@ -590,6 +588,7 @@ function checkInputs3() {
 	const status_hub_kelValue = status_hub_kel.value.trim();
 	const no_hpValue = no_hp.value.trim();
 	const status_kepegawaianValue = status_kepegawaian.value.trim();
+	const kata_sandiValue = kata_sandi.value.trim();
 
 
 
@@ -725,7 +724,12 @@ function checkInputs3() {
 	} else {
 		setSuccessFor(status_kepegawaian);
 	}
-	
+	if (kata_sandiValue === "") {
+		setErrorFor(kata_sandi, "Kata Sandi tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(kata_sandi);
+	}
 
 	return (true);
 }

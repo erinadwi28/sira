@@ -76,29 +76,29 @@
 															<tr>
 																<td><b>Nama</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->nama_istri; ?></td>
 															</tr>
 															<tr>
 																<td><b>Tempat, Tanggal Lahir</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->tempat_lahir_istri; ?>, <?= format_indo(date($w->tanggal_lahir_istri)); ?></td>
 															</tr>
 															<tr>
 																<td><b>Pekerjaan</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->pekerjaan_istri; ?></td>
 															</tr>
 															<tr>
 																<td><b>Tempat Kediaman di</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->alamat_tinggal; ?></td>
 															</tr>
 														</tbody>
@@ -114,22 +114,22 @@
 															<tr>
 																<td><b>Nama</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->nama_suami; ?></td>
 															</tr>
 															<tr>
 																<td><b>Tempat, Tanggal Lahir</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->tempat_lahir_suami; ?>, <?= format_indo(date($w->tanggal_lahir_suami)); ?></td>
 															</tr>
 															<tr>
 																<td><b>Pekerjaan</b></td>
 																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->pekerjaan_suami; ?></td>
 															</tr>
 														</tbody>

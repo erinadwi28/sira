@@ -105,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 145px;
-            margin-right: -535px;
+            margin-top: 170px;
+            margin-right: -510px;
         }
     </style>
 
@@ -182,24 +182,27 @@
                                                     <td><b>Nama</b></td>
                                                     <td> </td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_alm; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Jenis Kelamin</b></td>
                                                     <td> </td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td> </td>
                                                     <td><?= $w->jenis_kelamin; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Umur</b></td>
                                                     <td> </td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td> </td>
                                                     <td><?= $w->umur; ?> Tahun</td>
                                                 </tr>
 
@@ -207,8 +210,9 @@
                                                     <td><b>Alamat Kediaman</b></td>
                                                     <td> </td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td> </td>
                                                     <td> <?= $w->tempat_kediaman; ?></td>
                                                 </tr>
                                             </tbody>
@@ -227,36 +231,36 @@
                                                     <td> <b> Hari</b></td>
                                                     <td> </td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td></td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->hari_meninggal; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> <b> Tanggal</b></td>
                                                     <td> </td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td></td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= format_indo(date($w->tanggal_meninggal)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> <b>Tempat Kematian</b></td>
                                                     <td> </td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td></td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->tempat_meninggal; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> <b> Disebabkan</b></td>
                                                     <td> </td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td></td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->alasan_meninggal; ?>
                                                     </td>
                                                 </tr>

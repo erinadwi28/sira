@@ -206,6 +206,7 @@
         .kades {
             display: block;
             position: absolute;
+            margin-top:40px;
             float: left;
         }
 
@@ -407,29 +408,29 @@
                                                 <tr>
                                                     <td><b>Hari</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->hari_lahir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Tanggal</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= format_indo(date($w->tanggal_lahir)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Di</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->tempat_lahir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Jam</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->jam_lahir; ?> WITA</td>
                                                 </tr>
                                             </tbody>
@@ -451,22 +452,22 @@
                                                 <tr>
                                                     <td><b>Nama Ibu</b></td>
                                                     <td> </td>
-                                                    <td></td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_ibu; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Alamat</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->alamat_ibu; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Istri dari</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->nama_ayah; ?></td>
                                                 </tr>
                                             </tbody>
@@ -485,15 +486,15 @@
                                                 <tr>
                                                     <td><b>Nama yang melapor</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->nama_pemohon; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Hubungan dengan bayi</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->hubungan_dengan_bayi; ?></td>
                                                 </tr>
                                             </tbody>

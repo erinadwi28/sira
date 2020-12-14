@@ -74,7 +74,7 @@
 						<tr>
 							<td><?php echo $no++ ?></td>
 							<td><?php echo $sm->nomor_surat ?></td>
-							<td><?= date("d-m-Y", strtotime($permohonan->tanggal)); ?></td>
+							<td><?= date("d-m-Y", strtotime($sm->tanggal)); ?></td>
 							<td><?php echo $sm->pengirim ?></td>
 							<td><?php echo $sm->perihal ?></td>
 							<td>

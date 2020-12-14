@@ -134,70 +134,70 @@
 								<tr>
 									<td><b>Nama</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->nama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->jenis_kelamin; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Lahir</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->tempat_lahir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Lahir</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Pekerjaan</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->pekerjaan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Alamat Tinggal</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->alamat_tinggal; ?></td>
 								</tr>
 								<tr>
 									<td><b>Penghasilan</b></td>
 									<td> </td>
+									<td>:</td>
 									<td> </td>
-									<td> </td>
-									<td>Rp <?= $detail->penghasilan; ?></td>
+								    <td>Rp <?= rupiah($detail->penghasilan); ?></td>
 								</tr>
 								<tr>
 									<td><b>Terbilang</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->terbilang; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Permohonan</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
@@ -291,28 +291,28 @@
 							<tr>
 								<td><b>Nama</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= $detail->nama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= $detail->jenis_kelamin; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 							</tr>
@@ -326,28 +326,28 @@
 							<tr>
 								<td><b>Alamat Tinggal</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= $detail->alamat_tinggal; ?></td>
 							</tr>
 							<tr>
 								<td><b>Penghasilan</b></td>
 								<td> </td>
+								<td>:</td>
 								<td> </td>
-								<td> </td>
-								<td>Rp <?= $detail->penghasilan; ?></td>
+								<td>Rp <?= rupiah($detail->penghasilan); ?></td>
 							</tr>
 							<tr>
 									<td><b>Terbilang</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= $detail->terbilang; ?></td>
 								</tr>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
@@ -357,7 +357,7 @@
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
@@ -365,7 +365,7 @@
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
@@ -376,7 +376,7 @@
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
@@ -384,7 +384,7 @@
 								<tr>
 									<td><b>Tanggal Surat Dikeluarkan</b></td>
 									<td> </td>
-									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
@@ -394,7 +394,7 @@
 							<tr>
 								<td><b>Keterangan</b></td>
 								<td> </td>
-								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td><?= $detail->keterangan; ?></td>
 							</tr>

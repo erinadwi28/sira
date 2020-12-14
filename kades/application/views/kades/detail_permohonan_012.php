@@ -133,114 +133,146 @@
 						<tbody>
 							<tr>
 								<td><b>Nama</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->nama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->jenis_kelamin; ?></td>
 							</tr>
 							<tr>
 								<td><b>Status Perkawinan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->status_perkawinan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Agama</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->agama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kewarganegaraan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->kewarganegaraan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pendidikan Terakhir</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->pendidikan_terakhir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->pekerjaan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Tinggal</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Kepindahan Dari</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->kepindahan_dari; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Ayah</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->nama_ayah; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Ibu</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->nama_ibu; ?></td>
 							</tr>
 							<tr>
 								<td><b>Jumlah Pengikut</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->jml_pengikut; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal permohonan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 														
@@ -248,17 +280,21 @@
 							<?php if($detail->status == "Ditolak Ketua RT") { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } else { ?>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
@@ -267,17 +303,21 @@
 							<?php if($detail->status == "Ditolak Kelurahan") { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } elseif($detail->status == "Selesai") { ?>
 								<tr>
 									<td><b>Tanggal Surat Dikeluarkan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>
@@ -285,9 +325,11 @@
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>								
 								<td><?= $detail->keterangan; ?></td>
 							</tr>
 							<?php } ?>
@@ -295,7 +337,8 @@
                     </table>
                     <h5 class="mt-3"><b>Data Pengikut</b></h5>
 					<!--Tabel pengikut -->
-					<table class="table table-bordered table-hover table-responsive mt-3">
+					<div class=" table-responsive mt-3">
+					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
 								<th>No</th>
@@ -327,6 +370,7 @@
 							<?php } ?>
 						</tbody>
 					</table>
+					</div>
 				</div>
 			</div>
 			<?php } ?>

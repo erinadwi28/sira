@@ -35,8 +35,8 @@
 						<div class="col-md-3">
 						</div>
 						<div class="col-md-6">
-							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
+								id="nomor_surat_admin" value="" disabled style="text-align: center;">
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -62,15 +62,15 @@
                     
                     <div class="row">
 						<div class="col-md-12">
-							<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b></center>
+							<center> <b><label for="nomor_surat_admin">Nomor Surat Kelurahan</label></b></center>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-3">
 						</div>
 						<div class="col-md-6">
-							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-								id="nomor_surat_rt" value="<?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_kecamatan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>" disabled style="text-align: center;">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
+								id="nomor_surat_admin" value="<?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_kecamatan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>" disabled style="text-align: center;">
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -95,7 +95,7 @@
 					<?php } else { ?>
 					<div class="row">
 						<div class="col-md-12">
-							<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b>
+							<center> <b><label for="nomor_surat_admin">Nomor Surat Kelurahan</label></b>
 							</center>
 						</div>
 					</div>
@@ -103,8 +103,8 @@
 						<div class="col-md-3">
 						</div>
 						<div class="col-md-6">
-							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
+								id="nomor_surat_admin" value="" disabled style="text-align: center;">
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -131,72 +131,92 @@
 							<tbody>
 								<tr>
 									<td><b>Nama</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->nama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Lahir</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->tempat_lahir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Lahir</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Alamat</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->alamat; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nama Kegiatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->nama_kegiatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Hari Kegiatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->hari_kegiatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Kegiatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tanggal_kegiatan)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Waktu Kegiatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->jam; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Kegiatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= $detail->tempat; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Permohonan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
+                                    <td> </td>
+    								<td> </td>
+    								<td> : </td>
+    								<td> </td>
+    								<td> </td>								
 									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 
@@ -204,17 +224,21 @@
 								<?php if ($detail->status == "Ditolak Ketua RT") { ?>
 									<tr>
 										<td><b>Tanggal Ditolak Ketua RT</b></td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
+                                        <td> </td>
+        								<td> </td>
+        								<td> : </td>
+        								<td> </td>
+        								<td> </td>								
 										<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 									</tr>
 								<?php } else { ?>
 									<tr>
 										<td><b>Tanggal Disetujui Ketua RT</b></td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
+                                        <td> </td>
+        								<td> </td>
+        								<td> : </td>
+        								<td> </td>
+        								<td> </td>								
 										<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 									</tr>
 								<?php } ?>
@@ -223,34 +247,33 @@
 								<?php if ($detail->status == "Ditolak Kelurahan") { ?>
 									<tr>
 										<td><b>Tanggal Ditolak Kelurahan</b></td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
+                                        <td> </td>
+        								<td> </td>
+        								<td> : </td>
+        								<td> </td>
+        								<td> </td>								
 										<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 									</tr>
 								<?php } elseif ($detail->status == "Selesai") { ?>
 									<tr>
 										<td><b>Tanggal Surat Dikeluarkan</b></td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
+                                        <td> </td>
+        								<td> </td>
+        								<td> : </td>
+        								<td> </td>
+        								<td> </td>								
 										<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 									</tr>
 								<?php } ?>
 
-								<tr>
-									<td><b>Surat Yang Dimohon</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->nama_surat; ?></td>
-								</tr>
 								<?php if ($detail->keterangan != null) { ?>
 									<tr>
 										<td><b>Keterangan</b></td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
+                                        <td> </td>
+        								<td> </td>
+        								<td> : </td>
+        								<td> </td>
+        								<td> </td>								
 										<td><?= $detail->keterangan; ?></td>
 									</tr>
 								<?php } ?>
@@ -277,8 +300,8 @@
 						</center>
 					</div>
 				</div>
-			</div>
 		<?php } ?>
+			</div>
 		</div>
 </div>
 <!-- /.container-fluid -->

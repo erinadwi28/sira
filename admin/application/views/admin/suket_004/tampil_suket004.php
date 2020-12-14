@@ -76,50 +76,50 @@
 				                                            <tr>
 				                                                <td><b>Nama Benar</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->nama_benar; ?></td>
 				                                            </tr>
 				                                            <tr>
 				                                                <td><b>Dokumen Benar</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->nama_dokumen_benar; ?></td>
 				                                            </tr>
 				                                            <tr>
 				                                                <td><b>Nama Salah</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->nama_salah; ?></td>
 				                                            </tr>
 				                                            <tr>
 				                                                <td><b>Dokumen Salah</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->nama_dokumen_salah; ?></td>
 				                                            </tr>
 				                                            <tr>
 				                                                <td><b>Tempat, Tanggal Lahir</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 				                                            </tr>
 				                                            <tr>
 				                                                <td><b>Pekerjaan</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->pekerjaan; ?></td>
 				                                            </tr>
 				                                            <tr>
 				                                                <td><b>Alamat</b></td>
 				                                                <td> </td>
-				                                                <td> </td>
 				                                                <td>:</td>
+				                                                <td> </td>
 				                                                <td><?= $w->alamat; ?></td>
 				                                            </tr>
 				                                            </tr>

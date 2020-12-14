@@ -14,6 +14,20 @@
 
 			<!-- Topbar Navbar -->
 			<ul class="navbar-nav ml-auto">
+			    
+			    <!-- Nav Item - pesan -->
+				<li class="nav-item dropdown no-arrow mx-1">
+					<a class="nav-link dropdown-toggle" href="<?= base_url('admin/list_data_feedback_belum_dibaca') ?>" id="alertsDropdown">
+						<i class="fas fa-comment fa-fw"></i>
+						<!-- Counter - pesan -->
+						<span class="badge badge-danger badge-counter">
+							<?php
+							foreach ($jumlah_pesan_masuk as $pesan) { ?>
+								<?= $pesan->total_pesan_masuk; ?>
+							<?php } ?>
+						</span>
+					</a>
+				</li>
 
 				<!-- Nav Item - Alerts -->
 				<li class="nav-item dropdown no-arrow mx-1">

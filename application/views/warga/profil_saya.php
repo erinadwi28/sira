@@ -39,18 +39,23 @@
 					<?php } ?>
 				</div>
 				</center>
-
+				
+				<!-- Upload Foto Profil -->
 				<div class="card-footer py-3">
-					<?= form_open_multipart('warga/upload_foto_profil') ?>
-					<?php
+					<form action="<?= base_url('warga/upload_foto_profil') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_profil">
+									<?php
 					foreach ($detail_profil_saya as $saya) { ?>
 						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
+								<div class="form-group-upload">
 								<div class="custom-file">
 									<label class="custom-file-label" for="file-upload-profil">pilih foto
 										profil...</label>
-									<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
+									<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
 									<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $saya->id_warga; ?>">
+									<i class=" fas fa-exclamation-circle"></i>
+									<h6>Error massage</h6>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -60,8 +65,9 @@
 							<i class="fa fa-upload">
 							</i> Upload
 						</button>
-					</center>
-					<?= form_close() ?>
+					</center>		
+					</form>
+					
 				</div>
 			</div>
 
@@ -80,18 +86,22 @@
 						</a>
 					<?php } ?>
 				</div>
-
+				
+				<!-- Upload Foto KTP -->
 				<div class="card-footer py-3">
-					<?= form_open_multipart('warga/upload_foto_ktp') ?>
-					<?php
+					<form action="<?= base_url('warga/upload_foto_ktp') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_ktp">
+							<?php
 					foreach ($detail_profil_saya as $saya) { ?>
 						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
+								<div class="form-group-upload">
 								<div class="custom-file">
 									<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
-									<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
-									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+									<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas">
 									<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $saya->id_warga; ?>">
+									<i class=" fas fa-exclamation-circle"></i>
+									<h6>Error massage</h6>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -101,8 +111,9 @@
 							<i class="fa fa-upload">
 							</i> Upload
 						</button>
-					</center>
-					<?= form_close() ?>
+					</center>		
+					</form>
+					
 				</div>
 			</div>
 
@@ -123,18 +134,22 @@
 						</a>
 					<?php } ?>
 				</div>
-
+				
+				<!-- Upload Foto KK -->
 				<div class="card-footer py-3">
-					<?= form_open_multipart('warga/upload_foto_kk') ?>
-					<?php
+					<form action="<?= base_url('warga/upload_foto_kk') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_kk">
+							<?php
 					foreach ($detail_profil_saya as $saya) { ?>
 						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
+								<div class="form-group-upload">
 								<div class="custom-file">
 									<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
-									<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
-									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+									<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas">
 									<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $saya->id_warga; ?>">
+									<i class=" fas fa-exclamation-circle"></i>
+									<h6>Error massage</h6>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -144,8 +159,9 @@
 							<i class="fa fa-upload">
 							</i> Upload
 						</button>
-					</center>
-					<?= form_close() ?>
+					</center>	
+					</form>
+					
 				</div>
 			</div>
 
@@ -162,12 +178,16 @@
 									<td><b>NIK</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->nik; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nama Lengkap</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->nama; ?></td>
@@ -176,12 +196,16 @@
 									<td><b>Tempat Lahir</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->tempat_lahir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Lahir</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
@@ -190,12 +214,16 @@
 									<td><b>Jenis Kelamin</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->jenis_kelamin; ?></td>
 								</tr>
 								<tr>
 									<td><b>Golongan Darah</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->golongan_darah; ?></td>
@@ -204,12 +232,16 @@
 									<td><b>Agama</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->agama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Alamat</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->alamat; ?></td>
@@ -218,12 +250,16 @@
 									<td><b>RT</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->rt; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kelurahan</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->kelurahan; ?></td>
@@ -232,12 +268,16 @@
 									<td><b>Kecamatan</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->kecamatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Status Perkawinan</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->status_perkawinan; ?></td>
@@ -246,12 +286,16 @@
 									<td><b>Pekerjaan</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->pekerjaan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kewarganegaraan</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->kewarganegaraan; ?></td>
@@ -260,12 +304,16 @@
 									<td><b>Nomor Kartu Keluarga</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->no_kk; ?></td>
 								</tr>
 								<tr>
 									<td><b>Pendidikan Terakhir</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->pendidikan_terakhir; ?></td>
@@ -274,12 +322,16 @@
 									<td><b>Status Hubungan Dalam Keluarga</b></td>
 									<td> </td>
 									<td> </td>
+									<td>:</td>
+									<td> </td>
 									<td> </td>
 									<td><?= $detail->status_hub_kel; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nomor HandPhone</b></td>
 									<td> </td>
+									<td> </td>
+									<td>:</td>
 									<td> </td>
 									<td> </td>
 									<td><?= $detail->no_hp; ?></td>

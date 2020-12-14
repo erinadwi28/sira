@@ -17,6 +17,8 @@ class Kades extends CI_Controller
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
                 $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_jumlah['data_kades'] = $this->m_kades->ambil_nama_kades()->result();
                 $data_jumlah['jumlah_rt'] = $this->m_kades->jumlah_rt()->result();
@@ -40,7 +42,9 @@ class Kades extends CI_Controller
     public function profil_saya($id_kades)
     {
         $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-        $this->session->userdata('id_kades')])->row_array();
+        $this->session->userdata('id_kades')])->row_array(); 
+                
+        $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
         $detailhere = array('id_kades' => $id_kades);
         $data_detail['detail_profil_saya'] = $this->m_kades->get_detail_profil_saya($detailhere, 'kepala_desa')->result();
@@ -50,7 +54,9 @@ class Kades extends CI_Controller
         $data_detail['foto_ktp'] = $this->m_kades->get_foto_ktp_profil_saya($id_kades)->result();
 
         $data_detail['foto_kk'] = $this->m_kades->get_foto_kk_profil_saya($id_kades)->result();
-
+        
+        $data_detail['foto_ttd'] = $this->m_kades->get_foto_ttd_kades($id_kades)->result();
+        
         $this->load->view('header');
         $this->load->view('kades/sidebar_kades');
         $this->load->view('topbar', $data);
@@ -58,57 +64,7 @@ class Kades extends CI_Controller
         $this->load->view('footer');
 	}
 
-        // // tampil form ubah profil saya beserta datanya
-        // public function form_ubah_profil_saya($id_kades)
-        // {
-        //         $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-        //         $this->session->userdata('id_kades')])->row_array();
-
-        //         $detailhere = array('id_kades' => $id_kades);
-        //         $data_detail['detail_profil_saya'] = $this->m_kades->get_detail_profil_saya($detailhere,'kepala_desa')->result();
-
-        //         $this->load->view('header');
-        //         $this->load->view('kades/sidebar_kades');
-        //         $this->load->view('topbar', $data);
-        //         $this->load->view('kades/form_ubah_profil_saya', $data_detail);
-        //         $this->load->view('footer');
-        // }
-	
-	// // aksi ubah profil saya
-        // public function aksi_ubah_profil_saya()
-        // {
-        // $data = array(
-        //         'nik' => $this->input->post('nik'),
-        //         'nip' => $this->input->post('nip'),
-        //         'nama' => $this->input->post('nama'),
-        //         'alamat' => $this->input->post('alamat'),
-        //         'rt' => $this->input->post('rt'),
-        //         'kelurahan' => $this->input->post('kelurahan'),
-        //         'kecamatan' => $this->input->post('kecamatan'),
-        //         'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-        //         'agama' => $this->input->post('agama'),
-        //         'tempat_lahir' => $this->input->post('tempat_lahir'),
-        //         'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-        //         'status_perkawinan' => $this->input->post('status_perkawinan'),
-        //         'pekerjaan' => $this->input->post('pekerjaan'),
-        //         'golongan_darah' => $this->input->post('golongan_darah'),
-        //         'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-        //         'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
-        //         'no_kk' => $this->input->post('no_kk'),
-        //         'status_hub_kel' => $this->input->post('status_hub_kel'),
-        //         'no_hp' => $this->input->post('no_hp'),
-        // );
-
-        // $detailhere = $this->input->post('id_kades');
-
-        // $this->m_kades->aksi_ubah_data_profil_saya($detailhere, $data, 'kepala_desa');
-
-        // $this->session->set_flashdata('success', 'diubah');
-        // redirect('kades/profil_saya/' . $detailhere);
-	// }
-	
         // upload foto profil kades
-
         public function upload_foto_profil()
         {
                 $where = $this->input->post('id_kades');
@@ -124,42 +80,45 @@ class Kades extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
                 $config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
                         
                 $this->load->library('upload',$config);
                 $id_kades = $this->input->post('id_kades');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for($i = 0; $i < $jumlah_berkas;$i++)
-                {
-                if(!empty($_FILES['berkas']['name'][$i])){
-        
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                        
-                                if($this->upload->do_upload('file')){
+                
+                if(!empty($_FILES['berkas']['name'])){
 
-                                // $ambil = $this->m_admin->get_foto_profil_kades($id_kades);
-                                // $r = $ambil->row();
-                                // unlink(".../assets/uploads/kades/".$r->nama_foto);
-
-                                        $uploadData = $this->upload->data();
+                                if($this->upload->do_upload('berkas')){
                                 
-                                $data['foto_profil_kades'] = $uploadData['file_name'];
-                                // $data['keterangan'] = $keterangan[$i];
-                                // $data['id_kades'] = $id_kades;
+                                $uploadData = $this->upload->data();
 
-                                // $data_detail = $this->input->post('id_kades');
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/kades/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '50%';
+                                $config['width']= 600;
+                                $config['height']= 400;
+                                
+                                $config['new_image']= './../assets/uploads/kades/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
+                                
+                                $item = $this->db->where('id_kades',$id_kades)->get('kepala_desa')->row();
+                                
+                                //replace foto lama 
+                                if($item->foto_profil_kades != "placeholder_profil.png"){
+                                        $target_file = './../assets/uploads/kades/'.$item->foto_profil_kades;
+                                        unlink($target_file);
+                                }
+
+                                $data['foto_profil_kades'] = $uploadData['file_name'];
 
                                 $this->db->where('id_kades', $id_kades);
                                 $this->db->update('kepala_desa',$data);
                         }
                 }
-                        }
-        }
+        } 
 
         // upload foto ktp kades
         public function upload_foto_ktp()
@@ -177,39 +136,41 @@ class Kades extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
+                $config['file_name'] 	        = 'foto_ktp_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
                         
                 $this->load->library('upload',$config);
                 $id_kades = $this->input->post('id_kades');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for($i = 0; $i < $jumlah_berkas;$i++)
-                {
-                        if(!empty($_FILES['berkas']['name'][$i])){
-        
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                        
-                                if($this->upload->do_upload('file')){
+                
+                if(!empty($_FILES['berkas']['name'])){
 
-                                        // $ambil = $this->m_admin->get_foto_profil_kades($id_kades);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/kades/".$r->nama_foto);
-
-                                        $uploadData = $this->upload->data();
+                                if($this->upload->do_upload('berkas')){
                                 
-                                        $data['foto_ktp_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_kades'] = $id_kades;
+                                $uploadData = $this->upload->data();
 
-                                        // $data_detail = $this->input->post('id_kades');
-
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa',$data);
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/kades/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '80%';
+                                $config['width']= 600;
+                                $config['height']= 400;                                
+                                $config['new_image']= './../assets/uploads/kades/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
+                                
+                                $item = $this->db->where('id_kades',$id_kades)->get('kepala_desa')->row();
+                                
+                                //replace foto lama 
+                                if($item->foto_ktp_kades != "placeholder_ktp.png"){
+                                        $target_file = './../assets/uploads/kades/'.$item->foto_ktp_kades;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_ktp_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa',$data);
                         }
                 }
         }
@@ -229,49 +190,109 @@ class Kades extends CI_Controller
         private function aksi_upload_foto_kk($id_kades)
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
-                        $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                        // $config['max_size']             = 2048;
-                        $config['file_name'] 	        = 'foto_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                $config['file_name'] 	        = 'foto_kk_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
                         
                 $this->load->library('upload',$config);
                 $id_kades = $this->input->post('id_kades');
-                        $jumlah_berkas = count($_FILES['berkas']['name']);
-                        for($i = 0; $i < $jumlah_berkas;$i++)
-                        {
-                if(!empty($_FILES['berkas']['name'][$i])){
-        
-                                        $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                        $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                        $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                        $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                        $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                        
-                                        if($this->upload->do_upload('file')){
+                
+                if(!empty($_FILES['berkas']['name'])){
 
-                        // $ambil = $this->m_admin->get_foto_profil_kades($id_kades);
-                        // $r = $ambil->row();
-                        // unlink(".../assets/uploads/kades/".$r->nama_foto);
-
-                                                $uploadData = $this->upload->data();
+                                if($this->upload->do_upload('berkas')){
                                 
-                        $data['foto_kk_kades'] = $uploadData['file_name'];
-                        // $data['keterangan'] = $keterangan[$i];
-                        // $data['id_kades'] = $id_kades;
+                                $uploadData = $this->upload->data();
 
-                        // $data_detail = $this->input->post('id_kades');
-
-                        $this->db->where('id_kades', $id_kades);
-                        $this->db->update('kepala_desa',$data);
-                                        }
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/kades/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '90%';
+                                $config['width']= 900;
+                                $config['height']= 700;                               
+                                $config['new_image']= './../assets/uploads/kades/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
+                                
+                                $item = $this->db->where('id_kades',$id_kades)->get('kepala_desa')->row();
+                                
+                                //replace foto lama 
+                                if($item->foto_kk_kades != "placeholder_kk.png"){
+                                        $target_file = './../assets/uploads/kades/'.$item->foto_kk_kades;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_kk_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa',$data);
                         }
                 }
+        }
+        
+        // upload foto ttd kades
+        public function upload_foto_ttd_kades()
+        {
+                $where = $this->input->post('id_kades');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_ttd_kades($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('kades/profil_saya/'.$where);
+        }
+
+        //upload foto ttd kades
+        private function aksi_upload_foto_ttd_kades($id_kades)
+        {
+                $config['upload_path']          = './../assets/uploads/kades/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                $config['file_name'] 	        = 'foto_ttd_kades-'.date('ymd').'-'.substr(md5(rand()),0,10);
+                        
+                $this->load->library('upload',$config);
+                $id_kades = $this->input->post('id_kades');
                 
-                // tampil form ubah kata sandi profil saya
+                if(!empty($_FILES['berkas']['name'])){
+
+                                if($this->upload->do_upload('berkas')){
+                                
+                                $uploadData = $this->upload->data();
+
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/kades/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '50%';
+                                $config['width']= 600;
+                                $config['height']= 400;
+                                
+                                $config['new_image']= './../assets/uploads/kades/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
+                                
+                                $item = $this->db->where('id_kades',$id_kades)->get('kepala_desa')->row();
+                                
+                                //replace foto lama 
+                                if($item->foto_ttd_kades != "placeholder_ttd.png"){
+                                        $target_file = './../assets/uploads/kades/'.$item->foto_ttd_kades;
+                                        unlink($target_file);
+                                }
+
+                                $data['foto_ttd_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa',$data);
+                        }
+                }
+        }
+
+        // tampil form ubah kata sandi profil saya
         public function form_ubah_kata_sandi_profil_saya($id_kades)
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_kades' => $id_kades);
                 $data_detail['detail_profil_saya'] = $this->m_kades->get_detail_profil_saya($detailhere,'kepala_desa')->result();
@@ -286,24 +307,36 @@ class Kades extends CI_Controller
         // aksi ubah kata sandi profil saya
         public function aksi_ubah_kata_sandi_profil_saya()
         {
+                $kata_sandi_awal = $this->input->post('kata_sandi_awal');
+                $data_lama = sha1($kata_sandi_awal);
+
                 $kata_sandi = $this->input->post('kata_sandi');
                 $kata_sandi_hash = sha1($kata_sandi);
-                $data = array(
+
+                $data_baru = array(
                 'kata_sandi' => $kata_sandi_hash,
                 );
 
                 $where = $this->input->post('id_kades');
 
-                if ($this->m_kades->ubah_kata_sandi_profil_saya($where, $data, 'kepala_desa')); {
-                $this->session->set_flashdata('success', 'diubah');
-                redirect('kades/form_ubah_kata_sandi_profil_saya/'.$where);
+                $kades = $this->m_kades->cek_kades($where);
+
+                if ($data_lama === $kades['kata_sandi']) {
+                        $this->m_kades->ubah_kata_sandi_profil_saya($where, $data_baru, 'kepala_desa');
+                        $this->session->set_flashdata('success', '<b>Kata Sandi</b> Berhasil Diubah');
+                        redirect('kades/form_ubah_kata_sandi_profil_saya/'.$where);
+                }else{
+                        $this->session->set_flashdata('error', '<b>Kata Sandi Lama</b> Salah');
+                        redirect('kades/form_ubah_kata_sandi_profil_saya/'.$where);
                 }
         }
 
         public function list_data_admin()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_list['data_admin'] = $this->m_kades->get_data_admin()->result();
 
@@ -317,7 +350,9 @@ class Kades extends CI_Controller
         public function detail_data_admin($id_admin)
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_admin'] = $this->m_kades->get_detail_admin($detailhere, 'admin')->result();
@@ -338,7 +373,9 @@ class Kades extends CI_Controller
         public function form_tambah_admin()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
@@ -395,7 +432,9 @@ class Kades extends CI_Controller
         public function list_data_rt()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_rt['data_rt'] = $this->m_kades->get_data_rt()->result();
 
@@ -410,7 +449,9 @@ class Kades extends CI_Controller
         public function detail_data_rt($id_rt)
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_detail['detail_rt'] = $this->m_kades->get_detail_rt($id_rt)->result();
 
@@ -431,7 +472,9 @@ class Kades extends CI_Controller
         public function list_data_warga() 
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_warga['data_warga'] = $this->m_kades->get_data_warga()->result();
 
@@ -446,7 +489,9 @@ class Kades extends CI_Controller
         public function detail_data_warga($id_warga)
 	{       
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $where = array('id_warga' => $id_warga);
                 $data_detail['detail_warga'] = $this->m_kades->get_detail_warga($where,'warga')->result();
@@ -467,7 +512,9 @@ class Kades extends CI_Controller
         public function list_riwayat_permohonan()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_kades->get_list_riwayat_permohonan()->result();
 
@@ -482,17 +529,21 @@ class Kades extends CI_Controller
         public function filter_riwayat_permohonan()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
                 
+                $data_permohonan['tgl_awal'] = $tgl_awal;
+                $data_permohonan['tgl_akhir'] =  $tgl_akhir;
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_kades->filter_riwayat($tgl_awal, $tgl_akhir)->result();
 
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
                 $this->load->view('topbar', $data);
-                $this->load->view('kades/list_data_riwayat_permohonan', $data_permohonan);
+                $this->load->view('kades/list_data_riwayat_permohonan1', $data_permohonan);
                 $this->load->view('footer');
         }
 
@@ -500,7 +551,9 @@ class Kades extends CI_Controller
         public function detail_data_permohonan($id_permohonan_surat, $id_nama_surat)
 	{       
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 if($id_nama_surat == 1){
                         $data_detail['detail_permohonan_masuk'] = $this->m_kades->get_detail_001($id_permohonan_surat)->result();
@@ -573,7 +626,9 @@ class Kades extends CI_Controller
         public function list_surat_masuk()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_list['data_surat_masuk'] = $this->m_kades->get_data_surat_masuk()->result();
 
@@ -588,7 +643,9 @@ class Kades extends CI_Controller
         public function detail_surat_masuk($id_sm)
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_sm' => $id_sm);
                 $data_detail['detail_surat_masuk'] = $this->m_kades->get_detail_surat_masuk($detailhere, 'surat_masuk')->result();
@@ -606,18 +663,22 @@ class Kades extends CI_Controller
         public function filter_surat_masuk()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
-                        
+                
+                $data_list['tgl_awal'] = $tgl_awal;
+                $data_list['tgl_akhir'] =  $tgl_akhir;
                 $data_list['data_surat_masuk'] = $this->m_kades->filter_surat_masuk($tgl_awal, $tgl_akhir)->result();
 
                 // redirect('admin/list_surat_masuk');
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
                 $this->load->view('topbar', $data);
-                $this->load->view('kades/list_surat_masuk', $data_list);
+                $this->load->view('kades/list_surat_masuk1', $data_list);
                 $this->load->view('footer');
         }
 
@@ -632,7 +693,9 @@ class Kades extends CI_Controller
         public function list_surat_keluar()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_list['data_surat_keluar'] = $this->m_kades->get_data_surat_keluar()->result();
 
@@ -647,7 +710,9 @@ class Kades extends CI_Controller
         public function detail_surat_keluar($id_sk)
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_sk' => $id_sk);
                 $data_detail['detail_surat_keluar'] = $this->m_kades->get_detail_surat_keluar($detailhere, 'surat_keluar')->result();
@@ -665,17 +730,21 @@ class Kades extends CI_Controller
         public function filter_surat_keluar()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
                         
+                $data_list['tgl_awal'] = $tgl_awal;
+                $data_list['tgl_akhir'] =  $tgl_akhir;
                 $data_list['data_surat_keluar'] = $this->m_kades->filter_surat_keluar($tgl_awal, $tgl_akhir)->result();
 
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
                 $this->load->view('topbar', $data);
-                $this->load->view('kades/list_surat_keluar', $data_list);
+                $this->load->view('kades/list_surat_keluar1', $data_list);
                 $this->load->view('footer');
         }
 
@@ -690,9 +759,28 @@ class Kades extends CI_Controller
         public function list_feedback()
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
-                $this->session->userdata('id_kades')])->row_array();
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $data_feedback['data_feedback'] = $this->m_kades->get_data_feedback()->result();
+
+                $this->load->view('header');
+                $this->load->view('kades/sidebar_kades');
+                $this->load->view('topbar', $data);
+                $this->load->view('kades/list_data_feedback', $data_feedback);
+                $this->load->view('footer');
+        }
+        
+        //list data feedback
+        public function list_data_feedback_belum_dibaca()
+        {
+                $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
+                $this->session->userdata('id_kades')])->row_array(); 
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
+
+                $data_feedback['data_feedback'] = $this->m_kades->get_data_feedback_belum_dibaca()->result();
 
                 $this->load->view('header');
                 $this->load->view('kades/sidebar_kades');
@@ -706,6 +794,14 @@ class Kades extends CI_Controller
         {
                 $data['kades'] = $this->db->get_where('kepala_desa', ['id_kades' =>
                 $this->session->userdata('id_kades')])->row_array();
+                
+                $data_pesan = array(
+                        'notif_kades' => 'Dibaca',
+                );
+
+                $this->m_kades->update_status_notif_pesan($id_pesan, $data_pesan, 'pesan');
+                
+                $data['jumlah_pesan_masuk'] = $this->m_kades->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_pesan' => $id_pesan);
                 $data_detail['detail_feedback'] = $this->m_kades->get_detail_data_feedback($detailhere, 'pesan')->result();

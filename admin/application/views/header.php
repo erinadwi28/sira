@@ -30,6 +30,10 @@
 	<link href="<?= base_url('assets/dashboard/') ?>css/form_validation.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation_upload_foto_admin.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_pass.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_cek_nik.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_ubah_sandi.css" rel="stylesheet" />
+	
 </head>
 
 <body id="page-top">

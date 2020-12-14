@@ -1,4 +1,4 @@
-//validasi upload foto di profil warga
+//validasi upload foto di profil kades
 const form_upload_foto_profil = document.getElementById("form_upload_foto_profil_kades");
 const file_foto_profil = document.getElementById("file-upload-profil");
 
@@ -7,6 +7,9 @@ const file_foto_ktp = document.getElementById("file-upload-ktp");
 
 const form_upload_foto_kk = document.getElementById("form_upload_foto_kk_kades");
 const file_foto_kk = document.getElementById("file-upload-kk");
+
+const form_upload_foto_ttd = document.getElementById("form_upload_foto_ttd_kades");
+const file_foto_ttd = document.getElementById("file-upload-ttd");
 
 
 
@@ -27,6 +30,13 @@ if (form_upload_foto_ktp != null) {
 if (form_upload_foto_kk != null) {
 	form_upload_foto_kk.addEventListener("submit", (e) => {
 		if (checkInputFotoKK() == true) {
+			e.target.submit();
+		} else e.preventDefault();
+	});
+}
+if (form_upload_foto_ttd != null) {
+	form_upload_foto_ttd.addEventListener("submit", (e) => {
+		if (checkInputFotoTTD() == true) {
 			e.target.submit();
 		} else e.preventDefault();
 	});
@@ -68,7 +78,17 @@ function checkInputFotoKK() {
 	}
 	return (true);
 }
+function checkInputFotoTTD() {
+	const file_foto_ttdValue = file_foto_ttd.value.trim();
 
+	if (file_foto_ttdValue === "") {
+		setErrorForUpload(file_foto_ttd, "Lampirkan File...");
+		return (false);
+	} else {
+		setSuccessForUpload(file_foto_ttd);
+	}
+	return (true);
+}
 
 // Validasi upload foto ktp di detail surat 5
 

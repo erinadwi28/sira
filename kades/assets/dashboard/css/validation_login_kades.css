@@ -1,0 +1,70 @@
+.form-group-login {
+	position: relative;
+	padding-bottom: 5px;
+}
+
+.form-group-login i {
+	position: absolute;
+	top: 43px;
+	right: 20px;
+	visibility: hidden;
+}
+
+.form-group-login.successlogin i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 43px;
+	right: 20px;
+
+}
+
+.form-group-login.errorlogin i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 43px;
+	right: 20px;
+	/* left: 350px; */
+
+}
+
+.form-group-login small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 10;
+	left: 0;
+}
+
+.form-group-login.successlogin input {
+	border-color: #2ecc71;
+}
+.form-group-login.errorlogin input {
+	border-color: #e74c3c;
+}
+
+.form-group-login.successlogin textarea {
+	border-color: #2ecc71;
+}
+.form-group-login.errorlogin textarea {
+	border-color: #e74c3c;
+}
+
+.form-group-login.successlogin select {
+	border-color: #2ecc71;
+}
+
+.form-group-login.errorlogin select {
+	border-color: #e74c3c;
+}
+
+.custom-select.successlogin {
+	border-color: #2ecc71;
+}
+
+
+.form-group-login.errorlogin small {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: px;
+	margin-left: 0px;
+	margin-bottom: -18px;
+}

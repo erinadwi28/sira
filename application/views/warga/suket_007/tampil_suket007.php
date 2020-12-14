@@ -77,29 +77,37 @@
 															<tr>
 																<td><b>Nama</b></td>
 																<td> </td>
-																<td> </td>
-																<td>:</td>
+                                                                <td> </td>
+                                                                <td>:</td>
+                                                                <td> </td>
+                                                                <td> </td>
 																<td><?= $w->nama; ?></td>
 															</tr>
 															<tr>
 																<td><b>Jenis Kelamin</b></td>
 																<td> </td>
-																<td> </td>
-																<td>:</td>
+                                                                <td> </td>
+                                                                <td>:</td>
+                                                                <td> </td>
+                                                                <td> </td>
 																<td><?= $w->jenis_kelamin; ?></td>
 															</tr>
 															<tr>
 																<td><b>Tempat, Tanggal Lahir</b></td>
 																<td> </td>
-																<td> </td>
-																<td>:</td>
+                                                                <td> </td>
+                                                                <td>:</td>
+                                                                <td> </td>
+                                                                <td> </td>
 																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 															</tr>
 															<tr>
 																<td><b>Agama</b></td>
 																<td> </td>
-																<td> </td>
-																<td>:</td>
+                                                                <td> </td>
+                                                                <td>:</td>
+                                                                <td> </td>
+                                                                <td> </td>
 																<td><?= $w->agama; ?></td>
 															</tr>
 															<tr>
@@ -107,13 +115,17 @@
 																<td> </td>
 																<td> </td>
 																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->pekerjaan; ?></td>
 															</tr>
 															<tr>
 																<td><b>Alamat</b></td>
 																<td> </td>
-																<td> </td>
-																<td>:</td>
+                                                                <td> </td>
+                                                                <td>:</td>
+                                                                <td> </td>
+                                                                <td> </td>
 																<td><?= $w->alamat_tinggal; ?></td>
 															</tr>
 														</tbody>

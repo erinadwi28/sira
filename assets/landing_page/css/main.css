@@ -747,6 +747,10 @@ button:focus {
    Features 
    ========================================================================== */
 
+#mantan_lurah {
+		background: #f9f9f9;
+}
+
 #features {
   background: #f9f9f9;
 }

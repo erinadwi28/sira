@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/nivo-lightbox.css" />
 	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/main.css" />
 	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/responsive.css" />
+	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/mantan_carousel.css" />
 </head>
 
 <body>
@@ -32,7 +33,8 @@
 		</div>
 		<nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
 			<div class="container">
-				<a href="#" class="navbar-brand"><img src="<?= base_url('assets/landing_page/') ?>img/logo_SIRA.png" alt="" /></a>
+				<a href="#" class="navbar-brand"><img src="<?= base_url('assets/landing_page/') ?>img/logo_SIRA.png"
+						alt="" /></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="lni-menu"></i>
@@ -557,7 +559,7 @@
 						administratif di Indonesia dibawah Kecamatan Arut Selatan yang
 						tepatnya terletak di Jln. Dewan Amir Husin Hamzah Nomor : 22,
 						Kelurahan Mendawai, Kecamatan Arut Selatan, Kabupaten Kotawaringin
-						Barat, Provinsi Kalimantan Tengah dengan populasi penduduk sebanyak &#177; 11.000 
+						Barat, Provinsi Kalimantan Tengah dengan populasi penduduk sebanyak &#177; 11.000
 						yang terbagi dalam 30 Rukun Tetangga. Saat ini Kelurahan Mendawai dipimpin
 						oleh <?= $kades->nama; ?>.
 					</p>
@@ -571,7 +573,8 @@
 					<div class="contact-img">
 						<center>
 							<figure>
-								<img src="<?= base_url(); ?>/assets/uploads/kades/<?= $kades->foto_profil_kades; ?>" alt="foto profil" class="img-fluid img-thumbnail shadow mb-3" width="300px">
+								<img src="<?= base_url(); ?>/assets/uploads/kades/<?= $kades->foto_profil_kades; ?>"
+									alt="foto profil" class="img-fluid img-thumbnail shadow mb-3" width="300px">
 								<center>
 									<figcaption>Lurah Kelurahan Mendawai</figcaption>
 								</center>
@@ -590,7 +593,91 @@
 		</div>
 	</section>
 	<!-- Contact Us Section End -->
-
+	<section id="mantan_lurah" class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
+							<!-- <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li> -->
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="single-box">
+											<div class="img-area"><img src="<?= base_url('assets/landing_page/') ?>img/1.jpg" alt=""></div>
+											<div class="img-text">
+												<h2>Lurah 1</h2>
+												<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro obcaecati 
+													a magnam aut dolor, sequi accusamus accusanti</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="single-box">
+											<div class="img-area"><img src="<?= base_url('assets/landing_page/') ?>img/2.jpg" alt="" alt=""></div>
+											<div class="img-text">
+												<h2>Lurah 2</h2>
+												<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro obcaecati 
+													a magnam aut dolor, sequi accusamus accusanti</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="single-box">
+											<div class="img-area"><img src="<?= base_url('assets/landing_page/') ?>img/3.jpg" alt="" alt=""></div>
+											<div class="img-text">
+												<h2>Lurah 3</h2>
+												<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro obcaecati 
+													a magnam aut dolor, sequi accusamus accusanti</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="single-box">
+											<div class="img-area"><img src="<?= base_url('assets/landing_page/') ?>img/4.jpg" alt=""></div>
+											<div class="img-text">
+												<h2>Lurah 4</h2>
+												<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro obcaecati 
+													a magnam aut dolor, sequi accusamus accusanti</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="single-box">
+											<div class="img-area"><img src="<?= base_url('assets/landing_page/') ?>img/5.jpg" alt=""></div>
+											<div class="img-text">
+												<h2>Lurah 5</h2>
+												<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro obcaecati 
+													a magnam aut dolor, sequi accusamus accusanti</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="single-box">
+											<div class="img-area"><img src="<?= base_url('assets/landing_page/') ?>img/6.jpg" alt=""></div>
+											<div class="img-text">
+												<h2>Lurah 6</h2>
+												<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro obcaecati 
+													a magnam aut dolor, sequi accusamus accusanti</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- Contact Us Section -->
 	<section id="contact" class="section">
 		<!-- Container Starts -->
@@ -639,8 +726,8 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" id="no_hp" class="form-control-input"
-										name="no_hp" required data-error="masukkan no hp anda" />
+									<input type="text" id="no_hp" class="form-control-input" name="no_hp" required
+										data-error="masukkan no hp anda" />
 									<label class="label-control" for="no_hp">No HandPhone</label>
 									<div class="help-block with-errors"></div>
 								</div>
@@ -780,7 +867,7 @@
 
 	<!-- Sweet alert -->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-	
+
 	<!-- tambah data -->
 	<script>
 		const flashData = $('.flash-data').data('flashdata');
@@ -792,6 +879,7 @@
 				type: 'success'
 			});
 		}
+
 	</script>
 </body>
 

@@ -9,6 +9,7 @@ const form_upload_foto_kk = document.getElementById("form_upload_foto_kk");
 const file_foto_kk = document.getElementById("file-upload-kk");
 
 const form_upload_ktp_suket005 = document.getElementById("form_upload_ktp_suket005");
+// const file_lampiran_ktp = document.getElementById("file-upload-lampiran-ktp");
 
 const form_upload_pasfoto_suket011 = document.getElementById("form_upload_pasfoto_suket011");
 const form_upload_kk_suket011 = document.getElementById("form_upload_kk_suket011");
@@ -99,9 +100,18 @@ function checkInputFotoKK() {
 	return (true);
 }
 
+//lampiran detail suket 005
+// function checkInputLampiranKTP() {
+// 	const file_lampiran_ktpValue = file_lampiran_ktp.value.trim();
 
-// Validasi upload foto ktp di detail surat 5
-
+// 	if (file_lampiran_ktpValue === "") {
+// 		setErrorForUpload(file_lampiran_ktp, "Lampirkan File...");
+// 		return (false);
+// 	} else {
+// 		setSuccessForUpload(file_lampiran_ktp);
+// 	}
+// 	return (true);
+// }
 
 //
 function setErrorForUpload(input, message) {

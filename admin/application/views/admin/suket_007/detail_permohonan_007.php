@@ -31,20 +31,23 @@
 		<?php if ($this->session->flashdata('success')) : ?>
 		<?php endif; ?>
 
-		<!-- Content Row line 1-->
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10 mb-4">
-				<!-- Detail Data -->
-				<?php if ($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
-					<div class="card shadow mb-2">
-						<div class="card-body">
-							<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_007') ?>" method="post" id="suket7">
-								<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat</em>
-								<div class="row">
-									<div class="col-md-12">
-										<center> <b><label for="nomor_surat_admin">Masukkan Nomor Surat Kelurahan Untuk
-													Menyetujui</label></b> <br>
+	<!-- Content Row line 1-->
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 mb-4">
+			<!-- Detail Data -->
+			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
+			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN TIDAK MAMPU</h6>
+				</div>
+				<div class="card-body">
+					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_007') ?>" method="post" id="suket7">
+						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat</em>
+                        <div class="row">
+							<div class="col-md-12">
+								<center> <b><label for="nomor_surat_admin">Masukkan Nomor Surat Kelurahan Untuk
+											Menyetujui</label></b> <br>
 											<em class="small text-danger">Format Nomor Surat : 460 / No.Registrasi / KM / Bulan / Tahun</em>
 										</center>
 									</div>
@@ -146,7 +149,7 @@
 											<td> </td>
 											<td> </td>
 											<td> </td>
-											<td><?= $detail->tanggal_lahir; ?></td>
+									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 										</tr>
 										<tr>
 											<td><b>Pekerjaan</b></td>
@@ -181,21 +184,14 @@
 											<td> </td>
 											<td> </td>
 											<td> </td>
-											<td><?= $detail->tgl_permohonan_surat; ?></td>
+									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 										</tr>
 										<tr>
 											<td><b>Tanggal Disetujui Ketua RT</b></td>
 											<td> </td>
 											<td> </td>
 											<td> </td>
-											<td><?= $detail->tanggal_persetujuan_rt; ?></td>
-										</tr>
-										<tr>
-											<td><b>Surat Yang Dimohon</b></td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td><?= $detail->nama_surat; ?></td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 										</tr>
 									</tbody>
 								</table>
@@ -284,7 +280,7 @@
 										<td> </td>
 										<td> </td>
 										<td> </td>
-										<td><?= $detail->tanggal_lahir; ?></td>
+								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 									</tr>
 									<tr>
 										<td><b>Agama</b></td>
@@ -319,63 +315,56 @@
 										<td> </td>
 										<td> </td>
 										<td> </td>
-										<td><?= $detail->tgl_permohonan_surat; ?></td>
+									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 									</tr>
 
-									<!-- tanggal RT -->
-									<?php if ($detail->status == "Ditolak") { ?>
-										<tr>
-											<td><b>Tanggal Ditolak Ketua RT</b></td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td><?= $detail->tanggal_persetujuan_rt; ?></td>
-										</tr>
-									<?php } else { ?>
-										<tr>
-											<td><b>Tanggal Disetujui Ketua RT</b></td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td><?= $detail->tanggal_persetujuan_rt; ?></td>
-										</tr>
-									<?php } ?>
+							<!-- tanggal RT -->
+							<?php if($detail->status == "Ditolak Ketua RT") { ?>
+								<tr>
+									<td><b>Tanggal Ditolak Ketua RT</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
+								</tr>
+							<?php } else { ?>
+								<tr>
+									<td><b>Tanggal Disetujui Ketua RT</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
+								</tr>							
+							<?php } ?>
+							
+							<!-- tanggal admin -->
+							<?php if($detail->status == "Ditolak Kelurahan") { ?>
+								<tr>
+									<td><b>Tanggal Ditolak Kelurahan</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+								</tr>							
+							<?php } elseif($detail->status == "Selesai") { ?>
+								<tr>
+									<td><b>Tanggal Surat Dikeluarkan</b></td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
+								</tr>							
+							<?php } ?>
 
-									<!-- tanggal admin -->
-									<?php if ($detail->status == "Ditolak") { ?>
-										<tr>
-											<td><b>Tanggal Surat Ditolak Kelurahan</b></td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td><?= $detail->tgl_persetujuan_admin; ?></td>
-										</tr>
-									<?php } else { ?>
-										<tr>
-											<td><b>Tanggal Surat Dikeluarkan</b></td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td><?= $detail->tgl_persetujuan_admin; ?></td>
-										</tr>
-									<?php } ?>
-
-									<tr>
-										<td><b>Surat Yang Dimohon</b></td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
-										<td><?= $detail->nama_surat; ?></td>
-									</tr>
-									<?php if ($detail->keterangan != null) { ?>
-										<tr>
-											<td><b>Keterangan</b></td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td><?= $detail->keterangan; ?></td>
-										</tr>
-									<?php } ?>
+							<?php if($detail->keterangan != null) { ?>
+							<tr>
+								<td><b>Keterangan</b></td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><?= $detail->keterangan; ?></td>
+							</tr>
+							<?php } ?>
 								</tbody>
 							</table>
 						</div>

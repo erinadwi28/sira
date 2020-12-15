@@ -21,7 +21,7 @@
 							<th>Nama</th>
 							<th>Alamat</th>
 							<th>RT</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>

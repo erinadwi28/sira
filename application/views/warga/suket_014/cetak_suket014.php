@@ -36,7 +36,7 @@
 
         .card-body {
             padding: 2rem;
-            color: black;
+            color: #000000;
         }
 
         .badan_surat {
@@ -112,7 +112,7 @@
         .table {
             width: 100%;
             margin-bottom: 1rem;
-            color: #858796;
+            color: #000000;
         }
 
         .table-bordered {

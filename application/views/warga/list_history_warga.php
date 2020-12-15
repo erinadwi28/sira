@@ -63,7 +63,7 @@
 							<th>Tgl Permohonan</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -71,29 +71,28 @@
 						$no = 1;
 						foreach ($permohonan as $w) {
 						?>
-							<tr>
-								<td><?= $no++ ?></td>
-								<td><?= $w->nama_surat ?></td>
-								<td><?= $w->tgl_permohonan_surat ?></td>
-								<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') {
-								?><td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td><?php
-																																} elseif ($w->status == 'Menunggu Persetujuan Kelurahan') {
-																																	?><td><label class="badge badge-info"><i class="far fa-clock"></i>
-											<?= $w->status ?></label></td><?php
-																																} elseif ($w->status == 'Ditolak') {
-																			?><td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td><?php
-																																													} elseif ($w->status == 'Selesai') {
-																																														?><td><label class="badge badge-success"><i class="far fa-check-circle"></i>
-											<?= $w->status ?></label></td><?php
-																																													} elseif ($w->status == 'Belum Tuntas') {
-																			?><td>
-										<label class="badge badge-dark"><i class="far fa-times-circle"></i>
-											<?= $w->status ?></label></td>
-								<?php
-																																													} ?>
-								<td><?= $w->keterangan ?></td>
-								<td>
-									<form role="form" action="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>" method="post" id="formUbah">
+						<tr>
+							<td><?= $no++ ?></td>
+							<td><?= $w->nama_surat ?></td>
+                            <td><?= date("d-m-Y", strtotime($w->tgl_permohonan_surat)); ?></td>
+
+							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') { ?>
+								<td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Menunggu Persetujuan Kelurahan') { ?>
+								<td><label class="badge badge-info"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Ditolak Ketua RT') { ?>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Selesai') { ?>
+								<td><label class="badge badge-success"><i class="far fa-check-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Belum Tuntas') { ?>
+								<td> <label class="badge badge-dark"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } elseif ($w->status == 'Ditolak Kelurahan') { ?>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $w->status ?></label></td>
+							<?php } ?>
+
+							<td><?= character_limiter($w->keterangan, 20); ?></td>
+							<td>
+								<form role="form" action="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>" method="post" id="formUbah">
 										<div>
 											<div class="float-right">
 												<a href="">
@@ -106,8 +105,8 @@
 										</div>
 										<input type="hidden" class="form-control form-user-input " name="notif" id="notif" value="Dibaca">
 									</form>
-								</td>
-							</tr>
+							</td>
+						</tr>
 						<?php } ?>
 					</tbody>
 				</table>

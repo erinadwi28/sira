@@ -37,6 +37,9 @@
 			<!-- Detail Data -->
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
+				</div>
 				<div class="card-body">
 					<form role="form" action="<?= base_url('admin/aksi_setujui_permohonan_005') ?>" method="post"
 						id="suket5">
@@ -243,6 +246,9 @@
 			</div>
 			<?php } else { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
+				</div>
 				<div class="card-body">
 					<form action="">
 						<div class="row">
@@ -413,6 +419,8 @@
 							</tr>
 							<?php } ?>
 
+<<<<<<< HEAD
+=======
 							<tr>
 								<td><b>Surat Yang Dimohon</b></td>
 								<td> </td>
@@ -420,6 +428,7 @@
 								<td>:</td>
 								<td><?= $detail->nama_surat; ?></td>
 							</tr>
+>>>>>>> 2d642eaac6cb16a39a569b5a94b28fc24abf986a
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>

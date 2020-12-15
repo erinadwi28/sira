@@ -21,7 +21,7 @@
 							<th>Alamat</th>
 							<th>RT</th>
 							<th>Status Kepegawaian</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 

@@ -16,107 +16,116 @@
 		<?php if ($this->session->flashdata('success')) : ?>
 		<?php endif; ?>
 
-		<!-- Content Row line 1-->
-		<div class="row">
-			<div class="col-md-8 mb-4">
-				<div class="card shadow mb-2">
-					<div class="card-body">
+	<!-- Content Row line 1-->
+	<div class="row">
+		<div class="col-md-8 mb-4">
+			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT IZIN KERAMAIAN</h6>
+				</div>
+				<div class="card-body">
 
-						<?php if ($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
-							<div class="row">
-								<div class="col-md-12">
-									<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b></center>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-6">
-									<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt" value="" disabled style="text-align: center;">
-								</div>
-								<div class="col-md-3">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
-									</center>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-6 mb-3">
-									<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
-								</div>
-								<div class="col-md-3">
-								</div>
-							</div>
-
-						<?php } elseif ($detail->status == "Selesai") { ?>
-
-							<div class="row">
-								<div class="col-md-12">
-									<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b></center>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-6">
-									<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt" value="<?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_kecamatan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>" disabled style="text-align: center;">
-								</div>
-								<div class="col-md-3">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
-									</center>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-6 mb-3">
-									<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
-								</div>
-								<div class="col-md-3">
-								</div>
-							</div>
-
-						<?php } else { ?>
-							<div class="row">
-								<div class="col-md-12">
-									<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b>
-									</center>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-6">
-									<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt" value="" disabled style="text-align: center;">
-								</div>
-								<div class="col-md-3">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
-									</center>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-6 mb-3">
-									<input type="text" class="form-control form-user-input" name="nomor_surat_rt" id="nomor_surat_rt" value="" disabled style="text-align: center;">
-								</div>
-								<div class="col-md-3">
-								</div>
-							</div>
-						<?php } ?>
+			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
+					<div class="row">
+						<div class="col-md-12">
+							<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b></center>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
+								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+						</div>
+						<div class="col-md-3">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
+							</center>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6 mb-3">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
+								id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
+						</div>
+						<div class="col-md-3">
+						</div>
+                    </div>
+                    
+                    <?php } elseif($detail->status == "Selesai") { ?>
+                    
+                    <div class="row">
+						<div class="col-md-12">
+							<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b></center>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
+								id="nomor_surat_rt" value="<?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_kecamatan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>" disabled style="text-align: center;">
+						</div>
+						<div class="col-md-3">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
+							</center>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6 mb-3">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
+								id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
+						</div>
+						<div class="col-md-3">
+						</div>
+                    </div>
+                    
+					<?php } else { ?>
+					<div class="row">
+						<div class="col-md-12">
+							<center> <b><label for="nomor_surat_rt">Nomor Surat Kelurahan</label></b>
+							</center>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
+								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+						</div>
+						<div class="col-md-3">
+						</div>
+                    </div>
+                    <div class="row">
+						<div class="col-md-12">
+							<center> <b><label for="nomor_surat_rt">Nomor Surat Ketua RT</label></b>
+							</center>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6 mb-3">
+							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
+								id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
+						</div>
+						<div class="col-md-3">
+						</div>
+                    </div>
+                    <?php } ?>
 
 						<table class="table-hover table-responsive">
 							<tbody>

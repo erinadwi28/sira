@@ -746,7 +746,7 @@
                                     ?>
                                         <center>
 
-                                            Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+                                            Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
                                             LURAH MENDAWAI
 
                                         </center>
@@ -769,7 +769,7 @@
 
                         <div class="kades">
                             <div class="col-md-6">
-                                <div class="badan_surat isi_surat" style=" margin-top: 90px; margin-right: -570px;">
+                                <div class="badan_surat isi_surat" style=" margin-top: 90px; margin-right: -475px;">
                                     <center>
                                         <u><b><?= $k->nama; ?></b></u> <br>
                                         NIP. <?= $k->nip; ?>

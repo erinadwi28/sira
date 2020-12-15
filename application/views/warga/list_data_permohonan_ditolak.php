@@ -17,12 +17,12 @@
 					<thead>
 						<tr>
 							<th>No</th>
+							<th>Nama Surat</th>
 							<th>Tanggal Permohonan</th>
 							<th>Tanggal Ditolak</th>
-							<th>Nama Surat</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,15 +32,15 @@
 						?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= $permohonan->tgl_permohonan_surat ?></td>
+								<td><?= $permohonan->nama_surat ?></td>
+                                <td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
 
-								<?php if ($permohonan->status == 'Ditolak Ketua RT') { ?>
-									<td><?= $permohonan->tanggal_persetujuan_rt ?></td>
-								<?php } elseif ($permohonan->status == 'Ditolak Kelurahan') { ?>
-									<td><?= $permohonan->tgl_persetujuan_admin ?></td>
+								<?php if($permohonan->status == 'Ditolak Ketua RT') { ?>
+                                <td><?= date("d-m-Y", strtotime($permohonan->tanggal_persetujuan_rt)); ?></td>
+								<?php } elseif($permohonan->status == 'Ditolak Kelurahan') { ?>
+                                <td><?= date("d-m-Y", strtotime($permohonan->tgl_persetujuan_admin)); ?></td>
 								<?php } ?>
 
-								<td><?= $permohonan->nama_surat ?></td>
 								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
 								<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
 								<td>

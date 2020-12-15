@@ -17,7 +17,7 @@
 
 				<!-- Nav Item - Alerts -->
 				<li class="nav-item dropdown no-arrow mx-1">
-					<a class="nav-link dropdown-toggle" href="<?= base_url() ?>warga/list_history_permohonan/<?= $warga['id_warga'] ?>">
+					<a class="nav-link dropdown-toggle" href="<?= base_url() ?>warga/list_notif/<?= $warga['id_warga'] ?>">
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
 						<span class="badge badge-danger badge-counter"><?php

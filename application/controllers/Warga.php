@@ -2364,6 +2364,23 @@ class Warga extends CI_Controller
 		$this->load->view('footer');
 	}
 
+	//list notif
+	public function list_notif($id_warga)
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
+
+		$data_permohonan['permohonan'] = $this->m_warga->get_permohonan_belum_dibaca($id_warga)->result();
+
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_notif', $data_permohonan);
+		$this->load->view('footer');
+	}
+
 	//list permohonan selesai
 	public function list_permohonan_selesai($id_warga)
 	{
@@ -2948,6 +2965,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);

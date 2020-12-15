@@ -101,9 +101,10 @@ class M_warga extends CI_Model
 		$this->db->from('permohonan_surat');
 		$this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
 		$this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
-		$this->db->where('permohonan_surat.status', 'Ditolak');
+				$this->db->where('permohonan_surat.status_delete', 0);
+		$this->db->where("(permohonan_surat.status = 'Ditolak Ketua RT' 
+		OR permohonan_surat.status = 'Ditolak Kelurahan')", null, false);		
 		$this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
-		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
 		return $hasil;
@@ -368,6 +369,27 @@ class M_warga extends CI_Model
 		OR permohonan_surat.status = 'Menunggu Persetujuan Kelurahan' 
 		OR permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan' OR permohonan_surat.status = 'Belum Tuntas' 
+		OR permohonan_surat.status = 'Selesai')", null, false);
+
+		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'asc');
+		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
+		$this->db->order_by('permohonan_surat.waktu', 'DESC');
+		// $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'DESC');
+
+		return $this->db->get();
+	}
+
+	//get history permohonan
+	public function get_permohonan_belum_dibaca($id_warga)
+	{
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_warga', $id_warga);
+		$this->db->where('permohonan_surat.status_delete', 0);
+		$this->db->where('permohonan_surat.notif', 'Belum Dibaca');
+		$this->db->where("(permohonan_surat.status = 'Ditolak Ketua RT' 
+		OR permohonan_surat.status = 'Ditolak Kelurahan'
 		OR permohonan_surat.status = 'Selesai')", null, false);
 
 		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'asc');

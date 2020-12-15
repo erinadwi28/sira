@@ -226,38 +226,38 @@ function formSurat() {
 	const isiValue = isi.value.trim();
 	
 	if (nomor_suratValue === "") {
-		setErrorFor(nomor_surat, "Nomor Surat tidak boleh kosong");
+		setErrorFor2(nomor_surat, "Nomor Surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(nomor_surat);
+		setSuccessFor2(nomor_surat);
 	}
 
 	if (tanggalValue === "") {
-		setErrorFor(tanggal, "Tanggal surat tidak boleh kosong");
+		setErrorFor2(tanggal, "Tanggal surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(tanggal);
+		setSuccessFor2(tanggal);
 	}
 
 	if (pengirimValue === "") {
-		setErrorFor(pengirim, "Pengirim surat tidak boleh kosong");
+		setErrorFor2(pengirim, "Pengirim surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(pengirim);
+		setSuccessFor2(pengirim);
 	}
 
 	if (perihalValue === "") {
-		setErrorFor(perihal, "Perihal surat tidak boleh kosong");
+		setErrorFor2(perihal, "Perihal surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(perihal);
+		setSuccessFor2(perihal);
 	}
 
 	if (isiValue === "") {
-		setErrorFor(isi, "Isi surat tidak boleh kosong");
+		setErrorFor2(isi, "Isi surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(isi);
+		setSuccessFor2(isi);
 	}
 
 	return (true);
@@ -272,38 +272,38 @@ function formSurat1() {
 	const isiValue = isi.value.trim();
 	
 	if (nomor_suratValue === "") {
-		setErrorFor(nomor_surat, "Nomor Surat tidak boleh kosong");
+		setErrorFor2(nomor_surat, "Nomor Surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(nomor_surat);
+		setSuccessFor2(nomor_surat);
 	}
 
 	if (tanggalValue === "") {
-		setErrorFor(tanggal, "Tanggal surat tidak boleh kosong");
+		setErrorFor2(tanggal, "Tanggal surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(tanggal);
+		setSuccessFor2(tanggal);
 	}
 
 	if (tujuanValue === "") {
-		setErrorFor(tujuan, "Tujuan surat tidak boleh kosong");
+		setErrorFor2(tujuan, "Tujuan surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(tujuan);
+		setSuccessFor2(tujuan);
 	}
 
 	if (perihalValue === "") {
-		setErrorFor(perihal, "Perihal surat tidak boleh kosong");
+		setErrorFor2(perihal, "Perihal surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(perihal);
+		setSuccessFor2(perihal);
 	}
 
 	if (isiValue === "") {
-		setErrorFor(isi, "Isi surat tidak boleh kosong");
+		setErrorFor2(isi, "Isi surat tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(isi);
+		setSuccessFor2(isi);
 	}
 
 	return (true);
@@ -320,40 +320,40 @@ function ceksuket() {
 	const no_keteranganValue = no_keterangan.value.trim();
 	
 	if (no_registrasiValue === "") {
-		setErrorFor(no_registrasi, "Isi No Registrasi");
+		setErrorFor2(no_registrasi, "Isi No Registrasi");
 		return(false);
 	} else {
-		setSuccessFor(no_registrasi);
+		setSuccessFor2(no_registrasi);
 	}
 	if (no_kelurahanValue === "") {
-		setErrorFor(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kelurahan);
+		setSuccessFor2(no_kelurahan);
 	}
 	if (no_kecamatanValue === "") {
-		setErrorFor(no_kecamatan, "Nomor kecamatan tidak boleh kosong");
+		setErrorFor2(no_kecamatan, "Nomor kecamatan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kecamatan);
+		setSuccessFor2(no_kecamatan);
 	}
 	if (no_bulanValue === "") {
-		setErrorFor(no_bulan, "Nomor bulan tidak boleh kosong");
+		setErrorFor2(no_bulan, "Nomor bulan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_bulan);
+		setSuccessFor2(no_bulan);
 	}
 	if (no_tahunValue === "") {
-		setErrorFor(no_tahun, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_tahun, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tahun);
+		setSuccessFor2(no_tahun);
 	}
 	if (no_keteranganValue === "") {
-		setErrorFor(no_keterangan, "Nomor keterangan tidak boleh kosong");
+		setErrorFor2(no_keterangan, "Nomor keterangan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_keterangan);
+		setSuccessFor2(no_keterangan);
 	}
 	return (true);
 }
@@ -367,34 +367,34 @@ function ceksuket1() {
 
 	
 	if (no_registrasiValue === "") {
-		setErrorFor(no_registrasi, "Isi No Registrasi");
+		setErrorFor2(no_registrasi, "Isi No Registrasi");
 		return(false);
 	} else {
-		setSuccessFor(no_registrasi);
+		setSuccessFor2(no_registrasi);
 	}
 	if (no_kelurahanValue === "") {
-		setErrorFor(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kelurahan);
+		setSuccessFor2(no_kelurahan);
 	}
 	if (no_kecamatanValue === "") {
-		setErrorFor(no_kecamatan, "Nomor kecamatan tidak boleh kosong");
+		setErrorFor2(no_kecamatan, "Nomor kecamatan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kecamatan);
+		setSuccessFor2(no_kecamatan);
 	}
 	if (no_bulanValue === "") {
-		setErrorFor(no_bulan, "Nomor bulan tidak boleh kosong");
+		setErrorFor2(no_bulan, "Nomor bulan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_bulan);
+		setSuccessFor2(no_bulan);
 	}
 	if (no_tahunValue === "") {
-		setErrorFor(no_tahun, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_tahun, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tahun);
+		setSuccessFor2(no_tahun);
 	}
 	return (true);
 }
@@ -408,40 +408,40 @@ function ceksuket2() {
 	const no_tahunValue = no_tahun.value.trim();
 
 	if (no_tupoksiValue === "") {
-		setErrorFor(no_tupoksi, "Nomor registrasi tidak boleh kosong");
+		setErrorFor2(no_tupoksi, "Nomor registrasi tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tupoksi);
+		setSuccessFor2(no_tupoksi);
 	}
 	if (no_registrasiValue === "") {
-		setErrorFor(no_registrasi, "Isi No Registrasi");
+		setErrorFor2(no_registrasi, "Isi No Registrasi");
 		return(false);
 	} else {
-		setSuccessFor(no_registrasi);
+		setSuccessFor2(no_registrasi);
 	}
 	if (no_kelurahanValue === "") {
-		setErrorFor(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kelurahan);
+		setSuccessFor2(no_kelurahan);
 	}
 	if (no_kecamatanValue === "") {
-		setErrorFor(no_kecamatan, "Nomor kecamatan tidak boleh kosong");
+		setErrorFor2(no_kecamatan, "Nomor kecamatan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kecamatan);
+		setSuccessFor2(no_kecamatan);
 	}
 	if (no_bulanValue === "") {
-		setErrorFor(no_bulan, "Nomor bulan tidak boleh kosong");
+		setErrorFor2(no_bulan, "Nomor bulan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_bulan);
+		setSuccessFor2(no_bulan);
 	}
 	if (no_tahunValue === "") {
-		setErrorFor(no_tahun, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_tahun, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tahun);
+		setSuccessFor2(no_tahun);
 	}
 	return (true);
 }
@@ -454,34 +454,34 @@ function ceksuket3() {
 	const no_tahunValue = no_tahun.value.trim();
 
 	if (no_tupoksiValue === "") {
-		setErrorFor(no_tupoksi, "Nomor registrasi tidak boleh kosong");
+		setErrorFor2(no_tupoksi, "Nomor registrasi tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tupoksi);
+		setSuccessFor2(no_tupoksi);
 	}
 	if (no_registrasiValue === "") {
-		setErrorFor(no_registrasi, "Isi No Registrasi");
+		setErrorFor2(no_registrasi, "Isi No Registrasi");
 		return(false);
 	} else {
-		setSuccessFor(no_registrasi);
+		setSuccessFor2(no_registrasi);
 	}
 	if (no_kelurahanValue === "") {
-		setErrorFor(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kelurahan);
+		setSuccessFor2(no_kelurahan);
 	}
 	if (no_bulanValue === "") {
-		setErrorFor(no_bulan, "Nomor bulan tidak boleh kosong");
+		setErrorFor2(no_bulan, "Nomor bulan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_bulan);
+		setSuccessFor2(no_bulan);
 	}
 	if (no_tahunValue === "") {
-		setErrorFor(no_tahun, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_tahun, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tahun);
+		setSuccessFor2(no_tahun);
 	}
 	return (true);
 }
@@ -494,28 +494,28 @@ function ceksuket4() {
 
 	
 	if (no_registrasiValue === "") {
-		setErrorFor(no_registrasi, "Isi No Registrasi");
+		setErrorFor2(no_registrasi, "Isi No Registrasi");
 		return(false);
 	} else {
-		setSuccessFor(no_registrasi);
+		setSuccessFor2(no_registrasi);
 	}
 	if (no_kelurahanValue === "") {
-		setErrorFor(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kelurahan);
+		setSuccessFor2(no_kelurahan);
 	}
 	if (no_bulanValue === "") {
-		setErrorFor(no_bulan, "Nomor bulan tidak boleh kosong");
+		setErrorFor2(no_bulan, "Nomor bulan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_bulan);
+		setSuccessFor2(no_bulan);
 	}
 	if (no_tahunValue === "") {
-		setErrorFor(no_tahun, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_tahun, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tahun);
+		setSuccessFor2(no_tahun);
 	}
 	return (true);
 }
@@ -530,46 +530,46 @@ function ceksuket5() {
 	const no_keteranganValue = no_keterangan.value.trim();
 
 	if (no_tupoksiValue === "") {
-		setErrorFor(no_tupoksi, "Nomor registrasi tidak boleh kosong");
+		setErrorFor2(no_tupoksi, "Nomor registrasi tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tupoksi);
+		setSuccessFor2(no_tupoksi);
 	}
 	if (no_registrasiValue === "") {
-		setErrorFor(no_registrasi, "Isi No Registrasi");
+		setErrorFor2(no_registrasi, "Isi No Registrasi");
 		return(false);
 	} else {
-		setSuccessFor(no_registrasi);
+		setSuccessFor2(no_registrasi);
 	}
 	if (no_kelurahanValue === "") {
-		setErrorFor(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kelurahan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kelurahan);
+		setSuccessFor2(no_kelurahan);
 	}
 	if (no_kecamatanValue === "") {
-		setErrorFor(no_kecamatan, "Nomor kelurahan tidak boleh kosong");
+		setErrorFor2(no_kecamatan, "Nomor kelurahan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_kecamatan);
+		setSuccessFor2(no_kecamatan);
 	}
 	if (no_bulanValue === "") {
-		setErrorFor(no_bulan, "Nomor bulan tidak boleh kosong");
+		setErrorFor2(no_bulan, "Nomor bulan tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_bulan);
+		setSuccessFor2(no_bulan);
 	}
 	if (no_keteranganValue === "") {
-		setErrorFor(no_keterangan, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_keterangan, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_keterangan);
+		setSuccessFor2(no_keterangan);
 	}
 	if (no_tahunValue === "") {
-		setErrorFor(no_tahun, "Nomor tahun tidak boleh kosong");
+		setErrorFor2(no_tahun, "Nomor tahun tidak boleh kosong");
 		return(false);
 	} else {
-		setSuccessFor(no_tahun);
+		setSuccessFor2(no_tahun);
 	}
 	
 	return (true);
@@ -589,7 +589,7 @@ function setErrorFor2(input, message) {
 	formGroup.className = "form-group-surat error2";
 }
 
-function setSuccessFor(input) {
+function setSuccessFor2(input) {
 	const formGroup = input.parentElement;
 	formGroup.className = "form-group-surat success2";
 

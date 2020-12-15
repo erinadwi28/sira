@@ -19,10 +19,6 @@
 	visibility: visible;
 }
 
-.form-group.success1 i.fa-check-circle {
-	color: green;
-	visibility: visible;
-}
 .form-group.error1 i.fa-exclamation-circle {
 	color: red;
 	visibility: visible;
@@ -49,6 +45,7 @@
 	border-color: red;
 }
 
+
 .form-group.success select {
 	border-color: green;
 }
@@ -56,6 +53,7 @@
 .form-group.error1 select {
 	border-color: red;
 }
+
 
 .form-group.success textarea {
 	border-color: green;

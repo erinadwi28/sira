@@ -340,6 +340,7 @@
                                                     <td>:</td>
                                                     <td><?= format_indo(date($w->tanggal_tinggal)); ?></td>
                                                 </tr>
+                                                <?php if ($w->tanggal_surat_pindah != NULL && $w->no_surat_pindah !=  NULL) { ?>
                                                 <tr>
                                                     <td>No. Surat Pindah</td>
                                                     <td> </td>
@@ -360,7 +361,7 @@
                                                     <td>:</td>
                                                     <td><?= format_indo(date($w->tanggal_surat_pindah)); ?></td>
                                                 </tr>
-
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

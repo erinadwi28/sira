@@ -188,14 +188,6 @@
 
 												</tr>
 												<tr>
-													<td><b>Jenis Kelamin</b></td>
-													<td> </td>
-													<td> </td>
-													<td> </td>
-													<td>:</td>
-													<td><?= $w->jenis_kelamin; ?></td>
-												</tr>
-												<tr>
 													<td><b>Tempat, Tanggal Lahir</b></td>
 													<td> </td>
 													<td> </td>
@@ -203,6 +195,14 @@
 													<td>:</td>
 													<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 
+												</tr>
+												<tr>
+													<td><b>Jenis Kelamin</b></td>
+													<td> </td>
+													<td> </td>
+													<td> </td>
+													<td>:</td>
+													<td><?= $w->jenis_kelamin; ?></td>
 												</tr>
 												<tr>
 													<td><b>Agama</b></td>

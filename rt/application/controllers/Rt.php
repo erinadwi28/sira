@@ -17,6 +17,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data['data_kades'] = $this->m_rt->ambil_nama_kades()->result();
                 $data['data_rt'] = $this->m_rt->ambil_nama_rt()->result();
@@ -39,7 +40,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $detailhere = array('id_rt' => $id_rt);
                 $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere)->result();
@@ -219,7 +220,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $detailhere = array('id_rt' => $id_rt);
                 $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere, 'rt')->result();
@@ -252,7 +253,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_rt['data_warga'] = $this->m_rt->get_data_warga()->result();
 
@@ -268,7 +269,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $where = array('id_warga' => $id_warga);
                 $data_detail['detail_warga'] = $this->m_rt->get_detail_warga($where, 'warga')->result();
@@ -291,7 +292,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_masuk'] = $this->m_rt->get_list_permohonan_masuk()->result();
 
@@ -307,7 +308,14 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+
+                $data_notif = array(
+                        'notif_rt' => 'Dibaca',
+                );
+
+                $this->m_rt->update_notif($data_notif, $id_permohonan_surat);
+
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 if ($id_nama_surat == 1) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_001($id_permohonan_surat)->result();
@@ -381,7 +389,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_ditolak'] = $this->m_rt->get_list_permohonan_ditolak()->result();
 
@@ -397,7 +405,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_disetujui'] = $this->m_rt->get_list_permohonan_disetujui()->result();
 
@@ -413,7 +421,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_selesai'] = $this->m_rt->get_list_permohonan_selesai()->result();
 
@@ -429,7 +437,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_rt->get_list_riwayat_permohonan()->result();
 
@@ -440,12 +448,28 @@ class Rt extends CI_Controller
                 $this->load->view('footer');
         }
 
+        // list notif
+        public function list_notif()
+        {
+                $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
+                $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
+
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_rt->get_notif_belum_dibaca()->result();
+
+                $this->load->view('header');
+                $this->load->view('rt/sidebar_rt');
+                $this->load->view('topbar', $data);
+                $this->load->view('rt/list_notif', $data_permohonan);
+                $this->load->view('footer');
+        }
+
         // filter tanggal riwayat permohonan
         public function filter_riwayat_permohonan()
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -828,7 +852,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
-                $data['jumlah_permohonan_masuk'] = $this->m_rt->jumlah_permohonan_masuk()->result();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_detail['id_permohonan_surat'] = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' =>
                 $id_permohonan_surat])->row_array();
@@ -847,6 +871,7 @@ class Rt extends CI_Controller
                         'keterangan' => $this->input->post('keterangan'),
                         'status' => $this->input->post('status'),
                         'tanggal_persetujuan_rt' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $detailhere = $this->input->post('id_permohonan_surat');

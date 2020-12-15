@@ -38,8 +38,10 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/warga/upload_pasfoto_suket011" enctype="multipart/form-data"
+					<form action="<?= base_url('warga/upload_pasfoto_suket011') ?>" enctype="multipart/form-data"
 						method="post" accept-charset="utf-8" id="form_upload_pasfoto_suket011">
+						<?php
+								foreach ($detail_suket as $suket011) { ?>
 						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
 								<div class="form-group-upload">
@@ -47,18 +49,19 @@
 										<label class="custom-file-label" for="file-upload-profil">pilih pas
 											foto...</label>
 										<input type="file" class="custom-file-input" id="file-upload-profil"
-											name="berkas[]">
-										<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
+											name="berkas">
 										<input type="hidden" class="form-control form-user-input" name="id_surat"
-											id="id_surat" value="4">
+											id="id_surat" value="<?= $suket011->id_surat; ?>">
 										<input type="hidden" class="form-control form-user-input"
-											name="id_permohonan_surat" id="id_permohonan_surat" value="3">
+											name="id_permohonan_surat" id="id_permohonan_surat"
+											value="<?= $suket011->id_permohonan_surat; ?>">
 										<i class=" fas fa-exclamation-circle"></i>
 										<h6>Error massage</h6>
 									</div>
 								</div>
 							</div>
 						</div>
+						<?php } ?>
 						<center>
 							<button class="btn btn-sm btn-primary" type="submit">
 								<i class="fa fa-upload">
@@ -92,26 +95,29 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/warga/upload_foto_kk_suket011" enctype="multipart/form-data"
+					<form action="<?= base_url('warga/upload_foto_kk_suket011') ?>" enctype="multipart/form-data"
 						method="post" accept-charset="utf-8" id="form_upload_kk_suket011">
+						<?php
+								foreach ($detail_suket as $suket011) { ?>
 						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
 								<div class="form-group-upload">
 									<div class="custom-file">
 										<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
 										<input type="file" class="custom-file-input" id="file-upload-kk"
-											name="berkas[]">
-										<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+											name="berkas">
 										<input type="hidden" class="form-control form-user-input" name="id_surat"
-											id="id_surat" value="4">
+											id="id_surat" value="<?= $suket011->id_surat; ?>">
 										<input type="hidden" class="form-control form-user-input"
-											name="id_permohonan_surat" id="id_permohonan_surat" value="3">
+											name="id_permohonan_surat" id="id_permohonan_surat"
+											value="<?= $suket011->id_permohonan_surat; ?>">
 										<i class=" fas fa-exclamation-circle"></i>
 										<h6>Error massage</h6>
 									</div>
 								</div>
 							</div>
 						</div>
+						<?php } ?>
 						<center>
 							<button class="btn btn-sm btn-primary" type="submit">
 								<i class="fa fa-upload">
@@ -153,16 +159,16 @@
 							<div class="custom-file">
 								<label class="custom-file-label" for="file-upload-ttd">pilih foto surat
 									pindah...</label>
-								<input type="file" class="custom-file-input" id="file-upload-ttd" name="berkas[]">
-								<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+								<input type="file" class="custom-file-input" id="file-upload-ttd" name="berkas">
 								<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat"
 									value="<?= $suket011->id_surat; ?>">
 								<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat"
 									id="id_permohonan_surat" value="<?= $suket011->id_permohonan_surat; ?>">
-							</div>	
+							</div>
 						</div>
+						<em class="float-center small text-danger">*Optional</em>
 					</div>
-					
+
 					<?php } ?>
 					<center>
 						<button class="btn btn-sm btn-primary" type="submit">
@@ -190,12 +196,16 @@
 								<td><b>NIK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nik; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Lengkap</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->nama; ?></td>
@@ -204,12 +214,16 @@
 								<td><b>Agama</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->agama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->pekerjaan; ?></td>
@@ -218,12 +232,16 @@
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
@@ -232,12 +250,16 @@
 								<td><b>Alamat</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>RT</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->rt; ?></td>
@@ -246,12 +268,16 @@
 								<td><b>Kelurahan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->kelurahan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kecamatan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->kecamatan; ?></td>
@@ -260,12 +286,16 @@
 								<td><b>Status Perkawinan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->status_perkawinan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Golongan Darah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->golongan_darah; ?></td>
@@ -274,6 +304,8 @@
 								<td><b>No. KK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_kk; ?></td>
 							</tr>
@@ -281,29 +313,40 @@
 								<td><b>Tanggal Tinggal</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 							</tr>
+
+							<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 							<tr>
 								<td><b>No. Surat Pindah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_surat_pindah; ?></td>
 							</tr>
 							<tr>
-								<td><b>Tgl Surat Pindah</b></td>
+								<td><b>Tanggal Surat Pindah</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
 								<td> </td>
-								<td><?= $detail->tanggal_surat_pindah; ?></td>
+								<td> </td>
+								<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 							</tr>
+							<?php } ?>
 							<?php } ?>
 
 							<?php foreach ($detail_permohonan as $d) { ?>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
@@ -406,6 +449,8 @@
 			</div>
 
 			<!-- Foto Surat Pindah -->
+			<?php foreach ($detail_suket as $detail) { ?>
+			<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 					<center>
@@ -427,6 +472,8 @@
 					<?php } ?>
 				</div>
 			</div>
+			<?php }?>
+			<?php } ?>
 
 		</div>
 
@@ -444,12 +491,16 @@
 								<td><b>NIK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nik; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Lengkap</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->nama; ?></td>
@@ -458,12 +509,16 @@
 								<td><b>Agama</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->agama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->pekerjaan; ?></td>
@@ -472,12 +527,16 @@
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
@@ -486,12 +545,16 @@
 								<td><b>Alamat</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>RT</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->rt; ?></td>
@@ -500,12 +563,16 @@
 								<td><b>Kelurahan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->kelurahan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kecamatan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->kecamatan; ?></td>
@@ -514,12 +581,16 @@
 								<td><b>Status Perkawinan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->status_perkawinan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Golongan Darah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->golongan_darah; ?></td>
@@ -528,6 +599,8 @@
 								<td><b>No. KK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_kk; ?></td>
 							</tr>
@@ -535,46 +608,61 @@
 								<td><b>Tanggal Tinggal</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 							</tr>
+
+							<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 							<tr>
 								<td><b>No. Surat Pindah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_surat_pindah; ?></td>
 							</tr>
 							<tr>
-								<td><b>Tgl Surat Pindah</b></td>
+								<td><b>Tanggal Surat Pindah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 							</tr>
+							<?php } ?>
 
 							<?php foreach ($detail_permohonan as $d) { ?>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 
 							<!-- tanggal rt -->
-							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai') { ?>
+							<?php if ($d->status ==  'Menunggu Persetujuan Kelurahan' || $d->status ==  'Selesai' || $d->status ==  'Ditolak Kelurahan') { ?>
 							<tr>
 								<td><b>Tanggal Disetujui Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 							</tr>
-							<?php } elseif ($d->status ==  'Ditolak') { ?>
+							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 							<tr>
 								<td><b>Tanggal Ditolak Ketua RT</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
@@ -587,23 +675,29 @@
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
-							<?php } elseif ($d->status ==  'Ditolak' && $d->tgl_persetujuan_admin != null) { ?>
+							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
 							<tr>
 								<td><b>Tanggal Ditolak Kelurahan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } ?>
 
-							<?php if ($d->keterangan != null) { ?>
+							<?php if($d->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $d->keterangan; ?></td>
@@ -611,24 +705,28 @@
 							<?php } ?>
 							<?php } ?>
 
-							<?php if ($detail->no_tupoksi != null && $detail->no_registrasi != null && $detail->no_kelurahan  != null && $detail->no_bulan != null && $detail->no_tahun != null) { ?>
-							<tr>
-								<td><b>Nomor Surat Kelurahan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>
-								</td>
-							</tr>
-							<?php } ?>
-
 							<?php if ($detail->nomor_surat_rt != null) { ?>
 							<tr>
 								<td><b>Nomor Surat Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nomor_surat_rt; ?></td>
+							</tr>
+							<?php } ?>
+
+							<?php if ($detail->no_tupoksi != null && $detail->no_registrasi != null && $detail->no_kelurahan  != null && $detail->no_bulan != null && $detail->no_tahun != null) { ?>
+							<tr>
+								<td><b>Nomor Surat Kelurahan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td> </td>
+								<td> </td>
+								<td><?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>
+								</td>
 							</tr>
 							<?php } ?>
 							<?php } ?>

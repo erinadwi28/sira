@@ -245,19 +245,17 @@
 										<small>Error Message</small>
 									</div>
 							</div>
-							<br>
-
 				</div>
 				</div>
 				
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="">
+						<!-- <a href="">
 							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
 								<i class="fa fa-times nav-icon">
 								</i> Batal
 							</button>
-						</a>
+						</a> -->
 						<a href="">
 							<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
 								<i class="far fa-save nav-icon">

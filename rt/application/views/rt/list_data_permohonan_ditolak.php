@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Data Permohonan Ditolak Ketua RT</h1>
+		<h1 class="h3 mb-0 text-gray-800">Data Permohonan Ditolak</h1>
 	</div>
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
@@ -17,13 +17,13 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Tanggal Permohonan</th>
-							<th>Tanggal Ditolak</th>
 							<th>Nama</th>
 							<th>Nama Surat</th>
+							<th>Tanggal Permohonan</th>
+							<th>Tanggal Ditolak</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -33,11 +33,11 @@
 						?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= $permohonan->tgl_permohonan_surat ?></td>
-								<td><?= $permohonan->tanggal_persetujuan_rt ?></td>
 								<td><?= $permohonan->nama ?></td>
 								<td><?= $permohonan->nama_surat ?></td>
-                                <td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
+								<td><?= date("d-m-Y", strtotime($permohonan->tanggal_persetujuan_rt)); ?></td>
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
 								<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
 								<td>
 									<div>

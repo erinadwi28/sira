@@ -3,7 +3,7 @@
 	<!-- Page Heading -->
 	<?php foreach($detail_feedback as $detail){ ?>
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Detail Feedback Dari Pengguna</h1>
+		<h1 class="h3 mb-0 text-gray-800">Detail Data Pengaduan Dari Warga</h1>
 		<a href="<?= base_url('admin/list_feedback')?>">
 			<button id="btn_kembali" class="btn btn-sm btn-warning" type="submit">
 				<i class="fa fa-arrow-left">
@@ -29,7 +29,7 @@
 								<td> </td>
 								<td> </td>
 								<td> </td>
-								<td><?= $detail->tanggal_kirim; ?></td>
+								<td><?= format_indo(date($detail->tanggal_kirim)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama</b></td>

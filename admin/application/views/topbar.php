@@ -14,36 +14,33 @@
 
 			<!-- Topbar Navbar -->
 			<ul class="navbar-nav ml-auto">
+			    
+			    <!-- Nav Item - pesan -->
+				<li class="nav-item dropdown no-arrow mx-1">
+					<a class="nav-link dropdown-toggle" href="<?= base_url('admin/list_data_feedback_belum_dibaca') ?>" id="alertsDropdown">
+						<i class="fas fa-comment fa-fw"></i>
+						<!-- Counter - pesan -->
+						<span class="badge badge-danger badge-counter">
+							<?php
+							foreach ($jumlah_pesan_masuk as $pesan) { ?>
+								<?= $pesan->total_pesan_masuk; ?>
+							<?php } ?>
+						</span>
+					</a>
+				</li>
 
 				<!-- Nav Item - Alerts -->
 				<li class="nav-item dropdown no-arrow mx-1">
-					<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="<?= base_url('admin/list_data_permohonan') ?>" id="alertsDropdown">
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
-						<span class="badge badge-danger badge-counter">1+</span>
+						<span class="badge badge-danger badge-counter">
+							<?php
+							foreach ($jumlah_permohonan_masuk as $permohonan_masuk) { ?>
+								<?= $permohonan_masuk->total_permohonan_masuk; ?>
+							<?php } ?>
+						</span>
 					</a>
-					<!-- Dropdown - Alerts -->
-					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-						<h6 class="dropdown-header">
-							Permohonan Surat Baru
-						</h6>
-						<a class="dropdown-item d-flex align-items-center" href="#">
-							<div class="mr-3">
-								<div class="icon-circle bg-primary">
-									<i class="fas fa-file-alt text-white"></i>
-								</div>
-							</div>
-							<div>
-								<div class="small text-gray-500">December 12, 2019</div>
-								<span class="font-weight-bold">
-									<div class="h5">Hasan</div>
-									<div class="small text-gray-500">Surat Pengantar KK</div>
-								</span>
-							</div>
-						</a>
-						<a class="dropdown-item text-center small text-gray-500" href="#">Lihat Semua Permohonan
-							Baru</a>
-					</div>
 				</li>
 
 				<!-- Nav Item - User Information -->
@@ -55,8 +52,7 @@
 
 					</a>
 					<!-- Dropdown - User Information -->
-					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-						aria-labelledby="userDropdown">
+					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 						<a class="dropdown-item" href="<?= base_url() ?>admin/profil_saya/<?= $admin['id_admin'] ?>">
 							<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
 							Profil Saya

@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white shadow">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright © sira.com 2020</span>
+			<span>Copyright © siramendawaibersinergi.com 2020</span>
 		</div>
 	</div>
 </footer>
@@ -56,6 +56,7 @@
 
 <!-- Validasi upload foto-->
 <script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_pass.js"></script>
 
 
 <!-- Page level plugins -->

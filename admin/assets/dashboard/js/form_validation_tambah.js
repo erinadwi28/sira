@@ -48,7 +48,7 @@ if (formtambah != null) {
 	});
 } else if (formtambahwarga != null) {
 	formtambahwarga.addEventListener("submit", (e) => {
-		if (checkInputs1() == true) {
+		if (checkInput1() == true) {
 			e.target.submit();
 		} else 
 			e.preventDefault();
@@ -68,18 +68,14 @@ if (formtambah != null) {
 } else if(formtambahrt != null) {
 	formtambahrt.addEventListener("submit", (e) => {
 		if (checkInputs2() == true) {
-			e.target.submit();
-			
-			
+			e.target.submit();	
 		} else 
 		e.preventDefault();
 	});
 } else if (formubahrt != null) {
 	formubahrt.addEventListener("submit", (e) => {
 		if (checkInputs3() == true) {
-			e.target.submit();
-			
-			
+			e.target.submit();	
 		} else 
 		e.preventDefault();
 	});
@@ -260,7 +256,7 @@ function checkInputs() {
 	return (true);
 }
 
-function checkInputs1() {
+function checkInput1() {
 	const nikValue = nik.value.trim();
 	const namaValue = nama.value.trim();
 	const tempat_lahirValue = tempat_lahir.value.trim();
@@ -310,21 +306,21 @@ function checkInputs1() {
 		setSuccessFor(tanggal_lahir);
 	}
 
-	if (jenis_kelaminValue === "pilih jenis kelamin ...") {
+	if (jenis_kelaminValue === "pilih jenis kelamin...") {
 		setErrorFor(jenis_kelamin, "Jenis Kelamin tidak boleh kosong");
 		return(false);
 	} else {
 		setSuccessFor(jenis_kelamin);
 	}
 
-	if (golongan_darahValue === "pilih golongan darah ...") {
+	if (golongan_darahValue === "pilih golongan darah...") {
 		setErrorFor(golongan_darah, "Golongan darah tidak boleh kosong");
 		return(false);
 	} else {
 		setSuccessFor(golongan_darah);
 	}
 
-	if (agamaValue === "pilih agama ...") {
+	if (agamaValue === "pilih agama...") {
 		setErrorFor(agama, "Agama tidak boleh kosong");
 		return(false);
 	} else {
@@ -359,7 +355,7 @@ function checkInputs1() {
 		setSuccessFor(kecamatan);
 	}
 
-	if (status_perkawinanValue === "pilih status perkawinan ...") {
+	if (status_perkawinanValue === "pilih status perkawinan...") {
 		setErrorFor(status_perkawinan, "Status Perkawinan tidak boleh kosong");
 		return(false);
 	} else {
@@ -373,7 +369,7 @@ function checkInputs1() {
 		setSuccessFor(pekerjaan);
 	}
 
-	if (kewarganegaraanValue === "pilih kewarganegaraan ...") {
+	if (kewarganegaraanValue === "pilih kewarganegaraan...") {
 		setErrorFor(kewarganegaraan, "Kewarganegaraan tidak boleh kosong");
 		return(false);
 	} else {
@@ -387,14 +383,14 @@ function checkInputs1() {
 		setSuccessFor(no_kk);
 	}
 
-	if (pendidikan_terakhirValue === "pilih pendidikan terakhir ...") {
+	if (pendidikan_terakhirValue === "pilih pendidikan terakhir...") {
 		setErrorFor(pendidikan_terakhir, "Pendidikan Terakhir tidak boleh kosong");
 		return(false);
 	} else {
 		setSuccessFor(pendidikan_terakhir);
 	}
 
-	if (status_hub_kelValue === "pilih status hubungan keluarga ...") {
+	if (status_hub_kelValue === "pilih status hubungan keluarga...") {
 		setErrorFor(status_hub_kel, "Status hubungan keluarga tidak boleh kosong");
 		return(false);
 	} else {
@@ -438,7 +434,6 @@ function checkInputs2() {
 	const no_hpValue = no_hp.value.trim();
 	const kata_sandiValue = kata_sandi.value.trim();
 
-
 	if (nikValue === "") {
 		setErrorFor(nik, "Nik tidak boleh kosong");
 		return(false);
@@ -564,14 +559,12 @@ function checkInputs2() {
 	} else {
 		setSuccessFor(no_hp);
 	}
-
 	if (kata_sandiValue === "") {
 		setErrorFor(kata_sandi, "Kata Sandi tidak boleh kosong");
 		return(false);
 	} else {
 		setSuccessFor(kata_sandi);
 	}
-
 	return (true);
 }
 
@@ -595,6 +588,7 @@ function checkInputs3() {
 	const status_hub_kelValue = status_hub_kel.value.trim();
 	const no_hpValue = no_hp.value.trim();
 	const status_kepegawaianValue = status_kepegawaian.value.trim();
+	const kata_sandiValue = kata_sandi.value.trim();
 
 
 
@@ -730,7 +724,12 @@ function checkInputs3() {
 	} else {
 		setSuccessFor(status_kepegawaian);
 	}
-	
+	if (kata_sandiValue === "") {
+		setErrorFor(kata_sandi, "Kata Sandi tidak boleh kosong");
+		return(false);
+	} else {
+		setSuccessFor(kata_sandi);
+	}
 
 	return (true);
 }

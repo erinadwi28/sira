@@ -2,17 +2,17 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Data Feedback Dari Pengguna</h1>
+		<h1 class="h3 mb-0 text-gray-800">Data Pengaduan Dari Warga</h1>
 	</div>
 
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-		<div class="card-body">
+		<div class="card-body" style="padding: 20px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+				<table class="table  table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -20,7 +20,7 @@
 							<th>Nama</th>
 							<th>No HP</th>
 							<th>Isi</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 
@@ -31,7 +31,7 @@
 						?>
 							<tr>
 								<td><?php echo $no++ ?></td>
-								<td><?php echo $fb->tanggal_kirim ?></td>
+								<td><?= date("d-m-Y", strtotime($fb->tanggal_kirim)); ?></td>
 								<td><?php echo $fb->nama ?></td>
 								<td><?php echo $fb->no_hp ?></td>
 								<td><?= character_limiter($fb->isi, 20); ?></td>

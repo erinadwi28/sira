@@ -105,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 145px;
-			margin-right: -535px;
+            margin-top: 170px;
+			margin-right: -510px;
         }
     </style>
 
@@ -182,6 +182,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_benar; ?></td>
                                                 </tr>
                                                 <tr>
@@ -189,6 +191,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_dokumen_benar; ?></td>
                                                 </tr>
                                                 <tr>
@@ -196,6 +200,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_salah; ?></td>
                                                 </tr>
                                                 <tr>
@@ -203,6 +209,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_dokumen_salah; ?></td>
                                                 </tr>
                                                 <tr>
@@ -210,6 +218,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
                                                 </tr>
                                                 <tr>
@@ -217,6 +227,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->pekerjaan; ?></td>
                                                 </tr>
                                                 <tr>
@@ -224,6 +236,8 @@
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>:</td>
+                                                    <td> </td>
+                                                    <td> </td>
                                                     <td><?= $w->alamat; ?></td>
                                                 </tr>
                                                 </tr>

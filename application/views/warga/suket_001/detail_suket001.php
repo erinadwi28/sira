@@ -26,7 +26,9 @@
 							<?php foreach ($detail_suket as $w) { ?>
 							<tr>
 								<td><b>Nama</b></td>
+							    <td> </td>
 								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->nama; ?></td>
@@ -35,12 +37,16 @@
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->jenis_kelamin; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->tempat_lahir; ?></td>
@@ -49,6 +55,8 @@
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
 							</tr>
@@ -56,12 +64,16 @@
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->pekerjaan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat</b></td>
+							    <td> </td>
 								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->alamat; ?></td>
@@ -69,6 +81,8 @@
 							<tr>
 								<td><b>Usaha</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->nama_usaha; ?></td>
@@ -79,6 +93,8 @@
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
@@ -107,6 +123,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 
@@ -142,12 +159,16 @@
 								<td><b>Nama</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->nama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->jenis_kelamin; ?></td>
@@ -156,12 +177,16 @@
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($w->tanggal_lahir)); ?></td>
@@ -170,6 +195,8 @@
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->pekerjaan; ?></td>
 							</tr>
@@ -177,12 +204,16 @@
 								<td><b>Alamat</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>Usaha</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->nama_usaha; ?></td>
@@ -194,6 +225,8 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
@@ -203,16 +236,20 @@
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
-									<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
-									<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
@@ -223,6 +260,8 @@
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
@@ -230,8 +269,10 @@
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>
-									<td> </td>
-									<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 									<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>	
@@ -241,31 +282,39 @@
 								<td><b>Keterangan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $d->keterangan; ?></td>
 							</tr>
 							<?php } ?>
 
 							<?php } ?>
-							<?php if($w->no_registrasi != null && $w->no_kelurahan  != null && $w->no_kecamatan != null && $w->no_bulan != null && $w->no_tahun != null && $w->no_keterangan != null) { ?>
-							<tr>
-								<td><b>Nomor Surat Kelurahan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_kecamatan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>/<?= $w->no_keterangan; ?></td>
-							</tr>
-							<?php } ?>
-
+							
 							<?php if($w->nomor_surat_rt != null) { ?>
 							<tr>
 								<td><b>Nomor Surat Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->nomor_surat_rt; ?></td>
 							</tr>
 							<?php } ?>
+
+							<?php if($w->no_registrasi != null && $w->no_kelurahan  != null && $w->no_kecamatan != null && $w->no_bulan != null && $w->no_tahun != null && $w->no_keterangan != null) { ?>
+							<tr>
+								<td><b>Nomor Surat Kelurahan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td> </td>
+								<td> </td>
+								<td><?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_kecamatan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>/<?= $w->no_keterangan; ?></td>
+							</tr>
+							<?php } ?>
+							
 							<?php } ?>
 						</tbody>
 					</table>

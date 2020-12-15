@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white shadow">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright © sira.com 2020</span>
+			<span>Copyright © siramendawaibersinergi.com 2020</span>
 		</div>
 	</div>
 </footer>
@@ -76,6 +76,10 @@
 <script src="<?= base_url('assets/dashboard/') ?>js/form_validation.js"></script>
 <script src="<?= base_url('assets/dashboard/') ?>js/form_validation_tambah.js"></script>
 <script src="<?= base_url('assets/dashboard/') ?>js/validation_upload_foto_admin.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_pass.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_cek_nik.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/validation_ubah_sandi.js"></script>
+
 <!--lihat kata sandi -->
 <script>
 	$(document).ready(function() {
@@ -148,7 +152,7 @@
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
-			confirmButtonText: 'Ya, Hapus Data',
+			confirmButtonText: 'Ya',
 			cancelButtonText: 'Tidak',
 			reverseButtons: true,
 		}).then((result) => {

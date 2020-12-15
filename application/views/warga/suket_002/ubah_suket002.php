@@ -32,7 +32,7 @@
                                         <label for="Nama" class="col-sm-3 col-form-label">Nama</label>
                                         <div class="col-sm-8">
                                             <div class="form-line focused">
-                                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" required="">
+                                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $detail->nama; ?>" >
                                                 <i class=" fas fa-check-circle"></i>
                                                 <i class="fas fa-exclamation-circle"></i>
                                                 <small>Error massage</small>
@@ -63,7 +63,7 @@
                                 <label for="Tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-8">
                                     <div class="form-line focused">
-                                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" required="">
+                                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= $detail->tempat_lahir; ?>" >
                                         <i class=" fas fa-check-circle"></i>
                                         <i class="fas fa-exclamation-circle"></i>
                                         <small>Error massage</small>
@@ -76,7 +76,7 @@
                                 <label for="Tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-8">
                                     <div class="form-line">
-                                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" required="">
+                                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $detail->tanggal_lahir; ?>" >
                                         <i class=" fas fa-check-circle"></i>
                                         <i class="fas fa-exclamation-circle"></i>
                                         <small>Error massage</small>
@@ -116,7 +116,7 @@
                             <label for="Pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-8">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>" required="">
+                                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="<?= $detail->pekerjaan; ?>" >
                                     <i class=" fas fa-check-circle"></i>
                                     <i class="fas fa-exclamation-circle"></i>
                                     <small>Error massage</small>
@@ -150,8 +150,8 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" class="form-control" id="id_surat" name="id_surat" required="" value="<?= $detail->id_surat ?>">
-                    <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat" required="" value="<?= $detail->id_permohonan_surat; ?>">
+                    <input type="hidden" class="form-control" id="id_surat" name="id_surat"  value="<?= $detail->id_surat ?>">
+                    <input type="hidden" class="form-control" id="id_permohonan_surat" name="id_permohonan_surat"  value="<?= $detail->id_permohonan_surat; ?>">
                 </div>
                 <div class="card-footer">
                     <div class="float-right">

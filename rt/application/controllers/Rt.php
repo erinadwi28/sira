@@ -11,12 +11,13 @@ class Rt extends CI_Controller
                 if (!$this->session->userdata('role_rt')) {
                         redirect('login');
                 }
-        } 
+        }
 
         public function index()
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data['data_kades'] = $this->m_rt->ambil_nama_kades()->result();
                 $data['data_rt'] = $this->m_rt->ambil_nama_rt()->result();
@@ -37,74 +38,76 @@ class Rt extends CI_Controller
         //tampil profil saya
         public function profil_saya($id_rt)
         {
-        $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
-        $this->session->userdata('id_rt')])->row_array();
+                $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
+                $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
-        $detailhere = array('id_rt' => $id_rt);
-        $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere)->result();
+                $detailhere = array('id_rt' => $id_rt);
+                $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere)->result();
 
-        $data_detail['foto_profil'] = $this->m_rt->get_foto_profil_profil_saya($id_rt)->result();
+                $data_detail['foto_profil'] = $this->m_rt->get_foto_profil_profil_saya($id_rt)->result();
 
-        $data_detail['foto_ktp'] = $this->m_rt->get_foto_ktp_profil_saya($id_rt)->result();
+                $data_detail['foto_ktp'] = $this->m_rt->get_foto_ktp_profil_saya($id_rt)->result();
 
-        $data_detail['foto_kk'] = $this->m_rt->get_foto_kk_profil_saya($id_rt)->result();
+                $data_detail['foto_kk'] = $this->m_rt->get_foto_kk_profil_saya($id_rt)->result();
 
-        $this->load->view('header');
-        $this->load->view('rt/sidebar_rt');
-        $this->load->view('topbar', $data);
-        $this->load->view('rt/profil_saya', $data_detail);
-        $this->load->view('footer');
-	}
-	
+                $this->load->view('header');
+                $this->load->view('rt/sidebar_rt');
+                $this->load->view('topbar', $data);
+                $this->load->view('rt/profil_saya', $data_detail);
+                $this->load->view('footer');
+        }
+
         // upload foto profil rt
         public function upload_foto_profil()
         {
                 $where = $this->input->post('id_rt');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_profil($_FILES);
+                        $this->aksi_upload_foto_profil($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('rt/profil_saya/'.$where);
-        } 
+                redirect('rt/profil_saya/' . $where);
+        }
 
         //upload foto profil rt
         private function aksi_upload_foto_profil($id_rt)
         {
                 $config['upload_path']          = './../assets/uploads/rt/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name'] 	        = 'foto_rt-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                        
-                $this->load->library('upload',$config);
+                $config['file_name']            = 'foto_rt-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_rt = $this->input->post('id_rt');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for($i = 0; $i < $jumlah_berkas;$i++)
-                {
-                if(!empty($_FILES['berkas']['name'][$i])){
-        
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
+
+                                $uploadData = $this->upload->data();
+
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/rt/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '50%';
+                                $config['width']= 600;
+                                $config['height']= 400;
                                         
-                                if($this->upload->do_upload('file')){
-
-                                // $ambil = $this->m_admin->get_foto_profil_rt($id_rt);
-                                // $r = $ambil->row();
-                                // unlink(".../assets/uploads/rt/".$r->nama_foto);
-
-                                        $uploadData = $this->upload->data();
-                                
-                                $data['foto_profil_rt'] = $uploadData['file_name'];
-                                // $data['keterangan'] = $keterangan[$i];
-                                // $data['id_rt'] = $id_rt;
-
-                                // $data_detail = $this->input->post('id_rt');
-
-                                $this->db->where('id_rt', $id_rt);
-                                $this->db->update('rt',$data);
+                                $config['new_image']= './../assets/uploads/rt/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
+                                        
+                                $item = $this->db->where('id_rt',$id_rt)->get('rt')->row();
+                                        
+                                //replace foto lama 
+                                if($item->foto_profil_rt != "placeholder_profil.png"){
+                                        $target_file = './../assets/uploads/rt/'.$item->foto_profil_rt;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_profil_rt'] = $uploadData['file_name'];
+                                $this->db->where('id_rt', $id_rt);
+                                $this->db->update('rt', $data);
                         }
                 }
         }
@@ -114,10 +117,10 @@ class Rt extends CI_Controller
         {
                 $where = $this->input->post('id_rt');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_ktp($_FILES);
+                        $this->aksi_upload_foto_ktp($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('rt/profil_saya/'.$where);
+                redirect('rt/profil_saya/' . $where);
         }
 
 
@@ -126,41 +129,43 @@ class Rt extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/warga/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name'] 	        = 'foto_warga-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                        
-                $this->load->library('upload',$config);
+                $config['file_name']            = 'foto_ktp_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_warga = $this->input->post('id_warga');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for($i = 0; $i < $jumlah_berkas;$i++)
-                {
-                        if(!empty($_FILES['berkas']['name'][$i])){
-        
-                                        $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                        $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                        $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                        $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                        $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                        
-                                        if($this->upload->do_upload('file')){
 
-                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                        // $r = $ambil->row();
-                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                                $uploadData = $this->upload->data();
+                        if ($this->upload->do_upload('berkas')) {
+
+                                $uploadData = $this->upload->data();
+
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/warga/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '80%';
+                                $config['width']= 600;
+                                $config['height']= 400;                                
+                                $config['new_image']= './../assets/uploads/warga/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
                                 
-                        $data['foto_ktp_warga'] = $uploadData['file_name'];
-                        // $data['keterangan'] = $keterangan[$i];
-                        // $data['id_warga'] = $id_warga;
-
-                        // $data_detail = $this->input->post('id_warga');
-
-                        $this->db->where('id_warga', $id_warga);
-                        $this->db->update('warga',$data);
-                                        }
+                                $item = $this->db->where('id_warga',$id_warga)->get('warga')->row();
+                                
+                                //replace foto lama 
+                                if($item->foto_ktp_warga != "placeholder_ktp.png"){
+                                        $target_file = './../assets/uploads/warga/'.$item->foto_ktp_warga;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_ktp_warga'] = $uploadData['file_name'];
+                                        
+                                $this->db->where('id_warga', $id_warga);
+                                $this->db->update('warga', $data);
                         }
+                }
         }
 
         // upload foto kk warga
@@ -168,62 +173,65 @@ class Rt extends CI_Controller
         {
                 $where = $this->input->post('id_rt');
                 if ($_FILES != null) {
-                $this->aksi_upload_foto_kk($_FILES);
+                        $this->aksi_upload_foto_kk($_FILES);
                 }
                 $this->session->set_flashdata('success', 'diubah');
-                redirect('rt/profil_saya/'.$where);
+                redirect('rt/profil_saya/' . $where);
         }
 
         //upload foto kk warga
         private function aksi_upload_foto_kk($id_warga)
         {
                 $config['upload_path']          = './../assets/uploads/warga/';
-                        $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                        // $config['max_size']             = 2048;
-                        $config['file_name'] 	        = 'foto_warga-'.date('ymd').'-'.substr(md5(rand()),0,10);
-                        
-                $this->load->library('upload',$config);
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                $config['file_name']            = 'foto_kk_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
                 $id_warga = $this->input->post('id_warga');
-                        $jumlah_berkas = count($_FILES['berkas']['name']);
-                        for($i = 0; $i < $jumlah_berkas;$i++)
-                        {
-                if(!empty($_FILES['berkas']['name'][$i])){
-        
-                                        $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                        $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                        $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                        $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                        $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-                                        
-                                        if($this->upload->do_upload('file')){
 
-                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                        // $r = $ambil->row();
-                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                                $uploadData = $this->upload->data();
+                        if ($this->upload->do_upload('berkas')) {
+
+                                $uploadData = $this->upload->data();
+
+                                //Compres Foto
+                                $config['image_library']='gd2';
+                                $config['source_image']='./../assets/uploads/warga/'.$uploadData['file_name'];
+                                $config['create_thumb']= FALSE;
+                                $config['maintain_ratio']= TRUE;
+                                $config['quality']= '90%';
+                                $config['width']= 900;
+                                $config['height']= 700;                                
+                                $config['new_image']= './../assets/uploads/warga/'.$uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
                                 
-                        $data['foto_kk_warga'] = $uploadData['file_name'];
-                        // $data['keterangan'] = $keterangan[$i];
-                        // $data['id_warga'] = $id_warga;
-
-                        // $data_detail = $this->input->post('id_warga');
-
-                        $this->db->where('id_warga', $id_warga);
-                        $this->db->update('warga',$data);
-                                        }
+                                $item = $this->db->where('id_warga',$id_warga)->get('warga')->row();
+                                
+                                //replace foto lama 
+                                if($item->foto_kk_warga != "placeholder_kk.png"){
+                                        $target_file = './../assets/uploads/warga/'.$item->foto_kk_warga;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_kk_warga'] = $uploadData['file_name'];
+                                        
+                                $this->db->where('id_warga', $id_warga);
+                                $this->db->update('warga', $data);
                         }
                 }
-        
+        }
+
         // tampil form ubah kata sandi profil saya
         public function form_ubah_kata_sandi_profil_saya($id_rt)
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $detailhere = array('id_rt' => $id_rt);
-                $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere,'rt')->result();
+                $data_detail['detail_profil_saya'] = $this->m_rt->get_detail_profil_saya($detailhere, 'rt')->result();
 
                 $this->load->view('header');
                 $this->load->view('rt/sidebar_rt');
@@ -233,26 +241,38 @@ class Rt extends CI_Controller
         }
 
         // aksi ubah kata sandi profil saya
-	public function aksi_ubah_kata_sandi_profil_saya()
-	{
-		$kata_sandi = $this->input->post('kata_sandi');
-		$kata_sandi_hash = sha1($kata_sandi);
-		$data = array(
-			'kata_sandi' => $kata_sandi_hash,
-		);
+        public function aksi_ubah_kata_sandi_profil_saya()
+        {
+                $kata_sandi_awal = $this->input->post('kata_sandi_awal');
+                $data_lama = sha1($kata_sandi_awal);
 
-		$where = $this->input->post('id_rt');
+                $kata_sandi = $this->input->post('kata_sandi');
+                $kata_sandi_hash = sha1($kata_sandi);
 
-		if ($this->m_rt->ubah_kata_sandi_profil_saya($where, $data, 'rt')); {
-			$this->session->set_flashdata('success', 'diubah');
-			redirect('rt/form_ubah_kata_sandi_profil_saya/' . $where);
-		}
-	}
+                $data_baru = array(
+                        'kata_sandi' => $kata_sandi_hash,
+                );
+
+                $where = $this->input->post('id_rt');
+
+                $rt = $this->m_rt->cek_rt($where);
+
+                if ($data_lama === $rt['kata_sandi']) {
+                        $this->m_rt->ubah_kata_sandi_profil_saya($where, $data_baru, 'rt');
+                        $this->session->set_flashdata('success', '<b>Kata Sandi</b> Berhasil Diubah');
+                        redirect('rt/form_ubah_kata_sandi_profil_saya/' . $where);
+                }else{
+                        $this->session->set_flashdata('error', '<b>Kata Sandi Lama</b> Salah');
+                        redirect('rt/form_ubah_kata_sandi_profil_saya/' . $where);
+                }
+
+        }
 
         public function list_data_warga()
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_rt['data_warga'] = $this->m_rt->get_data_warga()->result();
 
@@ -265,12 +285,13 @@ class Rt extends CI_Controller
 
         //detail data warga
         public function detail_data_warga($id_warga)
-	{       
+        {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $where = array('id_warga' => $id_warga);
-                $data_detail['detail_warga'] = $this->m_rt->get_detail_warga($where,'warga')->result();
+                $data_detail['detail_warga'] = $this->m_rt->get_detail_warga($where, 'warga')->result();
 
                 $data_detail['foto_profil'] = $this->m_rt->get_foto_profil_warga($id_warga)->result();
 
@@ -284,12 +305,13 @@ class Rt extends CI_Controller
                 $this->load->view('rt/detail_data_warga', $data_detail);
                 $this->load->view('footer');
         }
-        
+
         //list data permohonan
         public function list_data_permohonan()
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_masuk'] = $this->m_rt->get_list_permohonan_masuk()->result();
 
@@ -297,79 +319,87 @@ class Rt extends CI_Controller
                 $this->load->view('rt/sidebar_rt');
                 $this->load->view('topbar', $data);
                 $this->load->view('rt/list_data_permohonan', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         //detail data permohonan
         public function detail_data_permohonan($id_permohonan_surat, $id_nama_surat)
-	{       
+        {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
 
-                if($id_nama_surat == 1){
+                $data_notif = array(
+                        'notif_rt' => 'Dibaca',
+                );
+
+                $this->m_rt->update_notif($data_notif, $id_permohonan_surat);
+
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
+
+                if ($id_nama_surat == 1) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_001($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 2){
+                } elseif ($id_nama_surat == 2) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_002($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 3){
+                } elseif ($id_nama_surat == 3) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_003($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 4){
+                } elseif ($id_nama_surat == 4) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_004($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 5){
+                } elseif ($id_nama_surat == 5) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_005($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 6){
+                } elseif ($id_nama_surat == 6) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_006($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 7){
+                } elseif ($id_nama_surat == 7) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_007($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 8){
+                } elseif ($id_nama_surat == 8) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_008($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 9){
+                } elseif ($id_nama_surat == 9) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_009($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 10){
+                } elseif ($id_nama_surat == 10) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_010($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 11){
+                } elseif ($id_nama_surat == 11) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_011($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 12){
+                } elseif ($id_nama_surat == 12) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_012($id_permohonan_surat)->result();
                         $data_detail['detail_pengikut'] = $this->m_rt->get_detail_pengikut($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 13){
+                } elseif ($id_nama_surat == 13) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_013($id_permohonan_surat)->result();
-                } elseif($id_nama_surat == 14){
+                } elseif ($id_nama_surat == 14) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_rt->get_detail_014($id_permohonan_surat)->result();
                         $data_detail['detail_pengikut'] = $this->m_rt->get_detail_pengikut($id_permohonan_surat)->result();
-                } 
+                }
 
                 $this->load->view('header');
                 $this->load->view('rt/sidebar_rt');
                 $this->load->view('topbar', $data);
-                if($id_nama_surat == 1){
-                $this->load->view('rt/detail_permohonan_001', $data_detail);
-                } elseif($id_nama_surat == 2) {
-                $this->load->view('rt/detail_permohonan_002', $data_detail);
-                } elseif($id_nama_surat == 3) {
-                $this->load->view('rt/detail_permohonan_003', $data_detail);
-                } elseif($id_nama_surat == 4) {
-                $this->load->view('rt/detail_permohonan_004', $data_detail);
-                } elseif($id_nama_surat == 5) {
-                $this->load->view('rt/detail_permohonan_005', $data_detail);
-                } elseif($id_nama_surat == 6) {
-                $this->load->view('rt/detail_permohonan_006', $data_detail);
-                } elseif($id_nama_surat == 7) {
-                $this->load->view('rt/detail_permohonan_007', $data_detail);
-                } elseif($id_nama_surat == 8) {
-                $this->load->view('rt/detail_permohonan_008', $data_detail);
-                } elseif($id_nama_surat == 9) {
-                $this->load->view('rt/detail_permohonan_009', $data_detail);
-                } elseif($id_nama_surat == 10) {
-                $this->load->view('rt/detail_permohonan_010', $data_detail);
-                } elseif($id_nama_surat == 11) {
-                $this->load->view('rt/detail_permohonan_011', $data_detail);
-                } elseif($id_nama_surat == 12) {
-                $this->load->view('rt/detail_permohonan_012', $data_detail);
-                } elseif($id_nama_surat == 13) {
-                $this->load->view('rt/detail_permohonan_013', $data_detail);
-                } elseif($id_nama_surat == 14) {
-                $this->load->view('rt/detail_permohonan_014', $data_detail);
-                } 
+                if ($id_nama_surat == 1) {
+                        $this->load->view('rt/detail_permohonan_001', $data_detail);
+                } elseif ($id_nama_surat == 2) {
+                        $this->load->view('rt/detail_permohonan_002', $data_detail);
+                } elseif ($id_nama_surat == 3) {
+                        $this->load->view('rt/detail_permohonan_003', $data_detail);
+                } elseif ($id_nama_surat == 4) {
+                        $this->load->view('rt/detail_permohonan_004', $data_detail);
+                } elseif ($id_nama_surat == 5) {
+                        $this->load->view('rt/detail_permohonan_005', $data_detail);
+                } elseif ($id_nama_surat == 6) {
+                        $this->load->view('rt/detail_permohonan_006', $data_detail);
+                } elseif ($id_nama_surat == 7) {
+                        $this->load->view('rt/detail_permohonan_007', $data_detail);
+                } elseif ($id_nama_surat == 8) {
+                        $this->load->view('rt/detail_permohonan_008', $data_detail);
+                } elseif ($id_nama_surat == 9) {
+                        $this->load->view('rt/detail_permohonan_009', $data_detail);
+                } elseif ($id_nama_surat == 10) {
+                        $this->load->view('rt/detail_permohonan_010', $data_detail);
+                } elseif ($id_nama_surat == 11) {
+                        $this->load->view('rt/detail_permohonan_011', $data_detail);
+                } elseif ($id_nama_surat == 12) {
+                        $this->load->view('rt/detail_permohonan_012', $data_detail);
+                } elseif ($id_nama_surat == 13) {
+                        $this->load->view('rt/detail_permohonan_013', $data_detail);
+                } elseif ($id_nama_surat == 14) {
+                        $this->load->view('rt/detail_permohonan_014', $data_detail);
+                }
                 $this->load->view('footer');
         }
 
@@ -378,6 +408,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+               $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_ditolak'] = $this->m_rt->get_list_permohonan_ditolak()->result();
 
@@ -385,7 +416,7 @@ class Rt extends CI_Controller
                 $this->load->view('rt/sidebar_rt');
                 $this->load->view('topbar', $data);
                 $this->load->view('rt/list_data_permohonan_ditolak', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         //data permohonan disetujui
@@ -393,6 +424,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_disetujui'] = $this->m_rt->get_list_permohonan_disetujui()->result();
 
@@ -400,7 +432,7 @@ class Rt extends CI_Controller
                 $this->load->view('rt/sidebar_rt');
                 $this->load->view('topbar', $data);
                 $this->load->view('rt/list_data_permohonan_disetujui', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         //data permohonan selesai
@@ -408,6 +440,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_permohonan_selesai'] = $this->m_rt->get_list_permohonan_selesai()->result();
 
@@ -415,7 +448,7 @@ class Rt extends CI_Controller
                 $this->load->view('rt/sidebar_rt');
                 $this->load->view('topbar', $data);
                 $this->load->view('rt/list_data_permohonan_selesai', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
         // list riwayat permohonan
@@ -423,6 +456,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_rt->get_list_riwayat_permohonan()->result();
 
@@ -430,24 +464,27 @@ class Rt extends CI_Controller
                 $this->load->view('rt/sidebar_rt');
                 $this->load->view('topbar', $data);
                 $this->load->view('rt/list_data_riwayat_permohonan', $data_permohonan);
-                $this->load->view('footer');        
+                $this->load->view('footer');
         }
 
-	// filter tanggal riwayat permohonan
+        // filter tanggal riwayat permohonan
         public function filter_riwayat_permohonan()
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
                 
+                $data_permohonan['tgl_awal'] = $tgl_awal;
+                $data_permohonan['tgl_akhir'] =  $tgl_akhir;
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_rt->filter_riwayat($tgl_awal, $tgl_akhir)->result();
 
                 $this->load->view('header');
                 $this->load->view('rt/sidebar_rt', $data);
                 $this->load->view('topbar', $data);
-                $this->load->view('rt/list_data_riwayat_permohonan', $data_permohonan);
+                $this->load->view('rt/list_data_riwayat_permohonan1', $data_permohonan);
                 $this->load->view('footer');
         }
 
@@ -468,8 +505,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_usaha');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_usaha')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_usaha')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -492,8 +531,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_domisili');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_domisili')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_domisili')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -516,8 +557,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -540,8 +583,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_beda_nama');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_beda_nama')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_beda_nama')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -564,8 +609,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_izin_keramaian');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_izin_keramaian')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_izin_keramaian')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -588,8 +635,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -612,8 +661,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -636,8 +687,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_janda');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_janda')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_janda')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -660,8 +713,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_kematian');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_kematian')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_kematian')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -684,8 +739,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_kelahiran');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_kelahiran')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_kelahiran')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -708,8 +765,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_pengantar_ktp');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_pengantar_ktp')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_pengantar_ktp')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -732,8 +791,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_pengantar_kk');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_pengantar_kk')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_pengantar_kk')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -756,8 +817,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_penghasilan');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_penghasilan')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_penghasilan')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -780,8 +843,10 @@ class Rt extends CI_Controller
                 $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat');
                 $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_pindah');
 
-                if ($this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat') 
-                && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_pindah')); {
+                if (
+                        $this->m_rt->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                        && $this->m_rt->update_nomor_rt_surat($detailhere, $data_surat, 'srt_ket_pindah')
+                ); {
                         $this->session->set_flashdata('success', 'disetujui');
                         redirect('rt/list_data_permohonan_disetujui');
                 }
@@ -792,6 +857,7 @@ class Rt extends CI_Controller
         {
                 $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
                 $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
 
                 $data_detail['id_permohonan_surat'] = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' =>
                 $id_permohonan_surat])->row_array();
@@ -810,6 +876,7 @@ class Rt extends CI_Controller
                         'keterangan' => $this->input->post('keterangan'),
                         'status' => $this->input->post('status'),
                         'tanggal_persetujuan_rt' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
                 );
 
                 $detailhere = $this->input->post('id_permohonan_surat');
@@ -820,5 +887,21 @@ class Rt extends CI_Controller
                         $this->session->set_flashdata('success', 'ditolak');
                         redirect('rt/list_data_permohonan_ditolak');
                 }
+        }
+
+        // list notif
+        public function list_notif()
+        {
+                $data['rt'] = $this->db->get_where('rt', ['id_rt' =>
+                $this->session->userdata('id_rt')])->row_array();
+                $data['total_notif'] = $this->m_rt->jumlah_notif()->result();
+
+                $data_permohonan['data_riwayat_permohonan'] = $this->m_rt->get_notif_belum_dibaca()->result();
+
+                $this->load->view('header');
+                $this->load->view('rt/sidebar_rt');
+                $this->load->view('topbar', $data);
+                $this->load->view('rt/list_notif', $data_permohonan);
+                $this->load->view('footer');
         }
 }

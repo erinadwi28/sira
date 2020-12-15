@@ -826,7 +826,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="site-info text-center">
-								<p>Copyright &copy; 2020 sira.com</p>
+								<p>Copyright &copy; 2020 siramendawaibersinergi.com</p>
 							</div>
 						</div>
 						<!-- End Col -->

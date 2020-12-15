@@ -41,29 +41,33 @@
 						<?php } ?>
 					</center>
 				</div>
-
+				
+				<!-- Upload Foto Profil -->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/admin/admin/upload_foto_profil_kades" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_profil_kades">
-						<div class="form-group ml-2 mr-2">
-							<div class="input-group">
-								<div class="form-group-upload">
-								<div class="custom-file">
-									<label class="custom-file-label" for="file-upload-profil">pilih foto profil...</label>
-									<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-									<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_kades" id="kades" value="1">
-									<i class=" fas fa-exclamation-circle"></i>
-									<h6>Error massage</h6>
-								</div>
+					<form action="<?= base_url('admin/upload_foto_profil_kades') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_profil_kades">
+						<?php
+						foreach ($detail_kades as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-profil">pilih foto profil...</label>
+											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades" id="kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					<center>
-						<button class="btn btn-sm btn-primary" type="submit">
-							<i class="fa fa-upload">
-							</i> Upload
-						</button>
-					</center>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
 					</form>
 				</div>
 			</div>
@@ -87,29 +91,33 @@
 						<?php } ?>
 					</center>
 				</div>
-
+			
+				<!-- Upload Foto KTP -->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/admin/admin/upload_foto_ktp_kades" enctype="multipart/form-data" method="post" accept-charset="utf-8"id="form_upload_detail_ktp_kades">
-											<div class="form-group ml-2 mr-2">
-							<div class="input-group">
-								<div class="form-group-upload">
-								<div class="custom-file">
-									<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
-									<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
-									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="1">
-									<i class=" fas fa-exclamation-circle"></i>
-									<h6>Error massage</h6>
-								</div>
+					<form action="<?= base_url('admin/upload_foto_ktp_kades') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_ktp_kades">
+						<?php
+						foreach ($detail_kades as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
+											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-										<center>
-						<button class="btn btn-sm btn-primary" type="submit">
-							<i class="fa fa-upload">
-							</i> Upload
-						</button>
-					</center>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
 					</form>
 				</div>
 			</div>
@@ -133,29 +141,33 @@
 						<?php } ?>
 					</center>
 				</div>
-
+				
+				<!-- Upload Foto KK -->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/admin/admin/upload_foto_kk_kades" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_kk_kades">
-											<div class="form-group ml-2 mr-2">
-							<div class="input-group">
-								<div class="form-group-upload">
-								<div class="custom-file">
-									<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
-									<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
-									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="1">
-									<i class=" fas fa-exclamation-circle"></i>
-									<h6>Error massage</h6>
-								</div>
+					<form action="<?= base_url('admin/upload_foto_kk_kades') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_kk_kades">
+						<?php
+						foreach ($detail_kades as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
+											<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-										<center>
-						<button class="btn btn-sm btn-primary" type="submit">
-							<i class="fa fa-upload">
-							</i> Upload
-						</button>
-					</center>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
 					</form>
 				</div>
 			</div>
@@ -180,32 +192,35 @@
 					</center>
 				</div>
 
+				<!-- Upload Foto TTD -->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/admin/admin/upload_foto_ttd_kades" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_ttd_kades">
-											<div class="form-group ml-2 mr-2">
-							<div class="input-group">
-								<div class="form-group-upload">
-								<div class="custom-file">
-									<label class="custom-file-label" for="file-upload-ttd">pilih foto ttd...</label>
-									<input type="file" class="custom-file-input" id="file-upload-ttd" name="berkas[]">
-									<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-									<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="1">
-									<i class=" fas fa-exclamation-circle"></i>
-									<h6>Error massage</h6>
-								</div>
+					<form action="<?= base_url('admin/upload_foto_ttd_kades') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_detail_ttd_kades">
+						<?php
+						foreach ($detail_kades as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-ttd">pilih foto ttd...</label>
+											<input type="file" class="custom-file-input" id="file-upload-ttd" name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-										<center>
-						<button class="btn btn-sm btn-primary" type="submit">
-							<i class="fa fa-upload">
-							</i> Upload
-						</button>
-					</center>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
 					</form>
 				</div>
 			</div>
-
 		</div>
 		<div class="col-md-8 mb-4">
 			<!-- Detail Data -->

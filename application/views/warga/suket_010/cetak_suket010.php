@@ -207,6 +207,7 @@
             display: block;
             position: absolute;
             float: left;
+            margin-top: 40px;
         }
 
         /* css */
@@ -407,30 +408,30 @@
                                                 <tr>
                                                     <td><b>Hari</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->hari_lahir; ?></td>
+                                					<td> </td>
+                                					<td> </td>
+                                                    <td>:<?= $w->hari_lahir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Tanggal</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= format_indo(date($w->tanggal_lahir)); ?></td>
+                                					<td> </td>
+                                					<td></td>
+                                                    <td>:<?= format_indo(date($w->tanggal_lahir)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Di</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->tempat_lahir; ?></td>
+                                					<td> </td>
+                                					<td> </td>
+                                                    <td>:<?= $w->tempat_lahir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Jam</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->jam_lahir; ?> WITA</td>
+                                					<td> </td>
+                                					<td> </td>
+                                                    <td>:<?= $w->jam_lahir; ?> WITA</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -451,23 +452,23 @@
                                                 <tr>
                                                     <td><b>Nama Ibu</b></td>
                                                     <td> </td>
-                                                    <td></td>
-                                                    <td> :</td>
-                                                    <td><?= $w->nama_ibu; ?></td>
+                                					<td> </td>
+                                					<td> </td>
+                                                    <td>:<?= $w->nama_ibu; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Alamat</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->alamat_ibu; ?></td>
+                                					<td> </td>
+                                					<td> </td>
+                                                    <td>:<?= $w->alamat_ibu; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Istri dari</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->nama_ayah; ?></td>
+                                					<td> </td>
+                                					<td></td>
+                                                    <td>:<?= $w->nama_ayah; ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -485,16 +486,16 @@
                                                 <tr>
                                                     <td><b>Nama yang melapor</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->nama_pemohon; ?></td>
+                                					<td> </td>
+                                					<td></td>
+                                                    <td>:<?= $w->nama_pemohon; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Hubungan dengan bayi</b></td>
                                                     <td> </td>
-                                                    <td> </td>
-                                                    <td> :</td>
-                                                    <td><?= $w->hubungan_dengan_bayi; ?></td>
+                                					<td> </td>
+                                					<td></td>
+                                                    <td>:<?= $w->hubungan_dengan_bayi; ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -578,33 +579,33 @@
                                             </tr>
                                             <tr>
                                                 <td>1.<b> Nama Lengkap</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td> </td>
                                                 <td>:<?= $w->nama_anak; ?> </td>
 
                                             </tr>
                                             <tr>
                                                 <td>2.<b> Jenis Kelamin</b> </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->jenis_kelamin; ?> </td>
                                             </tr>
                                             <tr>
                                                 <td>3.<b> Dilahirkan</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->tempat_lahir; ?>,
                                                     <?= format_indo(date($w->tanggal_lahir)); ?></td>
 
                                             </tr>
                                             <tr>
                                                 <td>4.<b> Kelahiran</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td> </td>
                                                 <td>:<?= $w->kelahiran; ?></td>
 
                                             </tr>
@@ -621,23 +622,23 @@
 
                                             <tr>
                                                 <td>5.<b> Tempat Bersalin</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->tempat_persalinan; ?></td>
                                             </tr>
                                             <tr>
                                                 <td> </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                				<td> </td>
+                                				<td> </td>
+                                				<td> </td>
                                                 <td> &nbsp;<?= $w->alamat_persalinan; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>6.<b> Penolong Kelahiran</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->penolong_persalinan; ?></td>
                                             </tr>
                                             <tr>
@@ -655,31 +656,31 @@
                                             </tr>
                                             <tr>
                                                 <td>7.<b> Nama Lengkap</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->nama_ibu; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>8.<b> Alamat</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->alamat_ibu; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>9.<b> Dilahirkan</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td> </td>
                                                 <td>:<?= format_indo(date($w->tanggal_lahir_ibu)); ?>
                                                     <b>Umur</b> : <?= $w->umur_ibu; ?> th</td>
                                             </tr>
                                             <tr>
                                                 <td>10.<b> Kewarganegaraan</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td> </td>
                                                 <td>:<?= $w->kewarganegaraan_ibu; ?></td>
                                             </tr>
                                             <tr>
@@ -697,39 +698,39 @@
                                             </tr>
                                             <tr>
                                                 <td>11.<b> Nama Lengkap</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->nama_ayah; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>12.<b> Dilahirkan</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>:<?= format_indo(date($w->tanggal_lahir_ayah)); ?>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td> </td>
+                                                <td>: <?= format_indo(date($w->tanggal_lahir_ayah)); ?>
                                                     <b>Umur</b> : <?= $w->umur_ayah; ?> th</td>
                                             </tr>
                                             <tr>
                                                 <td>13.<b> Kewarganegaraan</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->kewarganegaraan_ayah; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>14.<b> No. Kartu Keluarga</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->no_kk; ?></td>
                                             </tr>
 
                                             <tr>
                                                 <td>15.<b> No. KTP</b></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td> </td>
+                                				<td> </td>
+                                				<td></td>
                                                 <td>:<?= $w->no_ktp; ?></td>
                                             </tr>
                                         </tbody>
@@ -746,7 +747,7 @@
                                     ?>
                                         <center>
 
-                                            Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
+                                            Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
                                             LURAH MENDAWAI
 
                                         </center>
@@ -769,7 +770,7 @@
 
                         <div class="kades">
                             <div class="col-md-6">
-                                <div class="badan_surat isi_surat" style=" margin-top: 90px; margin-right: -570px;">
+                                <div class="badan_surat isi_surat" style=" margin-top: 90px; margin-right: -475px;">
                                     <center>
                                         <u><b><?= $k->nama; ?></b></u> <br>
                                         NIP. <?= $k->nip; ?>

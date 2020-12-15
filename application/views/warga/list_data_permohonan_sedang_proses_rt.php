@@ -18,10 +18,10 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Tanggal Permohonan</th>
 							<th>Nama Surat</th>
+							<th>Tanggal Permohonan</th>
 							<th>Status</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -31,8 +31,8 @@
 						?>
 						<tr>
 							<td><?= $no++ ?></td>
-							<td><?= $permohonan->tgl_permohonan_surat ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
+							<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
 							<td><label class="badge badge-warning"><i class="far fa-clock"></i>
 									<?= $permohonan->status ?></label></td>
 							<td>

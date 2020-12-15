@@ -12,7 +12,8 @@
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
 			<h5>Filter Tanggal</h5>
-			<form role="form" action="<?= base_url('admin/filter_riwayat_permohonan') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+			<form role="form" action="<?= base_url('admin/filter_riwayat_permohonan') ?>" enctype="multipart/form-data"
+				method="post" accept-charset="utf-8">
 
 				<div class="row">
 
@@ -56,29 +57,30 @@
 		<div class="card-header">
 			<span>
 				<a href="#">
-					<button id="btn_cetak" disabled class="btn btn-sm btn-primary float-right mb-2 mr-2 mt-0" type="submit">
+					<button id="btn_cetak" disabled class="btn btn-sm btn-primary float-right mb-2 mr-2 mt-0"
+						type="submit">
 						<i class="fa fa-print"></i> Cetak
 					</button>
 				</a>
 			</span>
 		</div>
-		<div class="card-body">
+		<div class="card-body" style="padding: 15px;">
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
-
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-bordered table-hover" id="dataTable" width="100%"
+					cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Tanggal Permohonan</th>
 							<th>Nama Surat</th>
 							<th>NIK Pemohon</th>
 							<th>Nama Pemohon</th>
+							<th>Tanggal Permohonan</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -86,13 +88,14 @@
 						$no = 1;
 						foreach ($data_riwayat_permohonan as $permohonan) {
 						?>
-							<tr>
-								<td><?= $no++ ?></td>
-								<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
-								<td><?= $permohonan->nama_surat ?></td>
-								<td><?= $permohonan->nik ?></td>
-								<td><?= $permohonan->nama ?></td>
-								<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
+						<tr>
+							<td><?= $no++ ?></td>
+							<td><?= $permohonan->nama_surat ?></td>
+							<td><?= $permohonan->nik ?></td>
+							<td><?= $permohonan->nama ?></td>
+							<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
+
+							<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
 							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
 									<?= $permohonan->status ?></label></td>
 							<?php } elseif($permohonan->status == "Menunggu Persetujuan Kelurahan") { ?>
@@ -103,16 +106,17 @@
 									<?= $permohonan->status ?></label></td>
 							<?php } ?>
 
-								<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
-								<td>
-									<div>
-										<a href="<?= base_url() ?>admin/detail_data_permohonan/<?= $permohonan->id_permohonan_surat ?>/<?= $permohonan->id_nama_surat ?>" class="btn btn-primary btn-sm">
-											<i class="far fa-eye nav-icon"></i>
-											Detail
-										</a>
-									</div>
-								</td>
-							</tr>
+							<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
+							<td>
+								<div>
+									<a href="<?= base_url() ?>admin/detail_data_permohonan/<?= $permohonan->id_permohonan_surat ?>/<?= $permohonan->id_nama_surat ?>"
+										class="btn btn-primary btn-sm">
+										<i class="far fa-eye nav-icon"></i>
+										Detail
+									</a>
+								</div>
+							</td>
+						</tr>
 						<?php } ?>
 					</tbody>
 				</table>

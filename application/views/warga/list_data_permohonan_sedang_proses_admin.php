@@ -18,11 +18,11 @@
 					<thead>
 						<tr>
 							<th>No</th>
+							<th>Nama Surat</th>
 							<th>Tanggal Permohonan</th>
 							<th>Tanggal Disetujui Ketua RT</th>
-							<th>Nama Surat</th>
 							<th>Status</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,9 +32,9 @@
 						?>
 						<tr>
 							<td><?= $no++ ?></td>
-							<td><?= $permohonan->tgl_permohonan_surat ?></td>
-							<td><?= $permohonan->tanggal_persetujuan_rt ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
+							<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
+							<td><?= date("d-m-Y", strtotime($permohonan->tanggal_persetujuan_rt)); ?></td>
 							<td><label class="badge badge-info"><i class="far fa-clock"></i>
 									<?= $permohonan->status ?></label></td>
 							<td>

@@ -2,7 +2,7 @@
 <ul class="navbar-nav sidebar sidebar-dark accordion" style="background: -webkit-linear-gradient(top, #2dfbff 0%, #000080 100%);" id="accordionSidebar">
 
 	<!-- Sidebar - Brand -->
-	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
 		<div class="">
 			<img src="<?= base_url('assets/dashboard/') ?>img/logo_SIRA.png" width="90" />
 		</div>
@@ -75,8 +75,8 @@
 		<div id="menupermohonan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan') ?>">Permohonan Masuk</a>
-				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan_ditolak') ?>">Permohonan Ditolak</a>
 				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan_selesai') ?>">Permohonan Selesai</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_permohonan_ditolak') ?>">Permohonan Ditolak</a>
 				<a class="collapse-item" href="<?= base_url('admin/list_riwayat_permohonan') ?>">Riwayat Permohonan</a>
 			</div>
 		</div>
@@ -101,7 +101,7 @@
 	<li class="nav-item">
 		<a class="nav-link " href="<?= base_url('admin/list_feedback') ?>">
 			<i class="fa fa-comments"></i>
-			<span>Feedback</span>
+			<span>Data Pengaduan</span>
 		</a>
 	</li>
 	

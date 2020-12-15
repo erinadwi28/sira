@@ -41,50 +41,71 @@
 															<tr>
 																<td> 1. </td>
 																<td><b>Nama Lengkap</b></td>
-																<td></td>
-																<td> :</td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama ?></td>
 															</tr>
 															<tr>
 																<td> 2. </td>
 																<td><b>Tempat, Tanggal Lahir</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->tempat_lahir ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 															</tr>
 															<tr>
 																<td> 3. </td>
 																<td><b>Status Perkawinan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->status_perkawinan ?></td>
 															</tr>
 															<tr>
 																<td> 4. </td>
 																<td><b>Agama</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->agama ?></td>
 															</tr>
 															<tr>
 																<td> 5. </td>
 																<td><b>Kewarganegaraan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->kewarganegaraan ?></td>
 															</tr>
 															<tr>
 																<td> 6. </td>
 																<td><b>Pendidikan Terakhir</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->pendidikan_terakhir ?></td>
 															</tr>
 															<tr>
 																<td> 7. </td>
 																<td><b>Pekerjaan/ Jabatan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->pekerjaan ?></td>
 															</tr>
 
@@ -92,49 +113,70 @@
 																<td> 8. </td>
 																<td><b>Alamat</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->alamat ?></td>
 															</tr>
 															<tr>
 																<td> 9. </td>
 																<td><b>Tgl mulai tinggal di kelurahan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= format_indo(date($w->tanggal_tinggal)); ?></td>
 															</tr>
 															<tr>
 																<td> 10. </td>
 																<td><b>Kepindahan dari</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->kepindahan_dari ?></td>
 															</tr>
 															<tr>
 																<td>11. </td>
 																<td><b>Nama Orang Tua</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td></td>
 															</tr>
 															<tr>
 																<td> </td>
 																<td> <b> a. Ayah</b></td>
-																<td></td>
-																<td> :</td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama_ayah ?></td>
 															</tr>
 															<tr>
 																<td> </td>
 																<td> <b> b. Ibu</b></td>
-																<td></td>
-																<td> :</td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama_ibu ?></td>
 															</tr>
 															<tr>
 																<td>12. </td>
 																<td> <B> Pengikut KK</B></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->jml_pengikut ?></td>
 															</tr>
 														</tbody>

@@ -45,6 +45,9 @@
 			<!-- Detail Data -->
 			<?php if($detail->status == "Menunggu Persetujuan Ketua RT") { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN KEMATIAN</h6>
+				</div>
 				<div class="card-body">
 					<form role="form" action="<?= base_url('rt/aksi_setujui_permohonan_009') ?>" method="post" id="suket009">
 						<em class="small text-danger">*Pastikan data benar dan Isikan Nomor Surat Ketua RT</em>
@@ -82,73 +85,84 @@
 							<tbody>
 								<tr>
 									<td><b>Nama Almarhum/Almarhumah</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->nama_alm; ?></td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
+								    <td><?= $detail->nama_alm; ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->jenis_kelamin; ?></td>
 								</tr>
 								<tr>
 									<td><b>Umur</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->umur; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Kediaman</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->tempat_kediaman; ?></td>
 								</tr>
 								<tr>
 									<td><b>Hari Meninggal</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->hari_meninggal; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Meninggal</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->tanggal_meninggal; ?></td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
+								<td><?= format_indo(date($detail->tanggal_meninggal)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Meninggal</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->tempat_meninggal; ?></td>
 								</tr>
 								<tr>
 									<td><b>Alasan Meninggal</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->alasan_meninggal; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Permohonan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->tgl_permohonan_surat; ?></td>
-								</tr>
-								<tr>
-									<td><b>Surat Yang Dimohon</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td><?= $detail->nama_surat; ?></td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
+								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -175,6 +189,9 @@
 			</div>
 			<?php } else { ?>
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN KEMATIAN</h6>
+				</div>
 				<div class="card-body">
 					<form action="">
 						<div class="row">
@@ -236,65 +253,83 @@
 						<tbody>
 							<tr>
 								<td><b>Nama Almarhum/Almarhumah</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->nama_alm; ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->jenis_kelamin; ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->umur; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Kediaman</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->tempat_kediaman; ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Meninggal</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->hari_meninggal; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Meninggal</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_meninggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Meninggal</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->tempat_meninggal; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alasan Meninggal</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->alasan_meninggal; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 
@@ -302,17 +337,21 @@
 							<?php if ($detail->status ==  'Ditolak Ketua RT') { ?>
 							<tr>
 								<td><b>Tanggal Ditolak Ketua RT</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<?php } else{ ?>
 							<tr>
 								<td><b>Tanggal Disetujui Ketua RT</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<?php } ?>
@@ -321,34 +360,33 @@
 							<?php if ($detail->status ==  'Selesai') { ?>
 							<tr>
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } elseif($detail->status ==  'Ditolak Kelurahan'){ ?>
 							<tr>
 								<td><b>Tanggal Ditolak Kelurahan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } ?>
 
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->keterangan; ?></td>
 							</tr>
 							<?php } ?>

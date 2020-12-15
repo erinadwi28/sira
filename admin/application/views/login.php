@@ -20,6 +20,7 @@
 
 	<!-- Custom styles for this template-->
 	<link href="<?= base_url('assets/dashboard/') ?>css/sb-admin-2.min.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_login_admin.css" rel="stylesheet" />
 </head>
 
 <body class="bg-gradient-primary">
@@ -56,26 +57,33 @@
 										<!--  <h1 class="h4 text-gray-900 mb-4">LOGIN</h1> -->
 									</div>
 									
-									<form action="<?= base_url('login/aksi_login'); ?>" method="post">
-										<div class="form-group">
+									<form action="<?= base_url('login/aksi_login'); ?>" method="post" id="formLoginAdmin">
+										<div class="form-group-login">
 											<label>NIK</label>
 											<input type="text" class="form-control" id="nik" name="nik"/>
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small> Error Message </small>
 										</div>
-										<div class="form-group">
-											<label>Kata Sandi</label>
+										<div class="form-group-login">
+											<label style="margin-top: 10px;">Kata Sandi</label>
 											<input type="password" class="form-control form-password" id="kata_sandi" name="kata_sandi" />
 											<input type="checkbox" class="form-checkbox" /> lihat
 											kata sandi
 											<br />
-											<input type="hidden" class="form-control form-password" id="status_delete" name="status_delete" value="0" />
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small> Error Message </small>
+											<input type="hidden" class="form-control" id="status_delete" name="status_delete" value="0" />
 										</div>
 										<br />
 										<button type="submit" class="btn btn-primary btn-user btn-block" id="masuk">
 											Login
 										</button>
 									</form>
+									<br>
 									<hr />
-									<center><small><a href="<?= base_url('landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center>
+									<!-- <center><small><a href="<?= base_url('landing_page'); ?>"> <i class="fas fa-arrow-left"></i> Kembali Ke Beranda</a></small></center> -->
 								</div>
 							</div>
 						</div>
@@ -94,6 +102,7 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('assets/dashboard/') ?>js/sb-admin-2.min.js"></script>
+	<script src="<?= base_url('assets/dashboard/') ?>js/validation_login_admin.js"></script>
 
 	
 

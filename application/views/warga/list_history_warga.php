@@ -63,7 +63,7 @@
 							<th>Tgl Permohonan</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -74,7 +74,7 @@
 						<tr>
 							<td><?= $no++ ?></td>
 							<td><?= $w->nama_surat ?></td>
-							<td><?= $w->tgl_permohonan_surat ?></td>
+                            <td><?= date("d-m-Y", strtotime($w->tgl_permohonan_surat)); ?></td>
 
 							<?php if ($w->status == 'Menunggu Persetujuan Ketua RT') { ?>
 								<td><label class="badge badge-warning"><i class="far fa-clock"></i> <?= $w->status ?></label></td>
@@ -92,13 +92,19 @@
 
 							<td><?= character_limiter($w->keterangan, 20); ?></td>
 							<td>
-								<div>
-									<a href="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>"
-										class="btn btn-primary btn-sm">
-										<i class="far fa-eye nav-icon"></i>
-										Detail
-									</a>
-								</div>
+								<form role="form" action="<?= base_url() ?>warga/detail_data_permohonan/<?= $w->id_permohonan_surat ?>/<?= $w->id_nama_surat ?>" method="post" id="formUbah">
+										<div>
+											<div class="float-right">
+												<a href="">
+													<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+														<i class="far fa-eye nav-icon"></i>
+														Detail
+													</button>
+												</a>
+											</div>
+										</div>
+										<input type="hidden" class="form-control form-user-input " name="notif" id="notif" value="Dibaca">
+									</form>
 							</td>
 						</tr>
 						<?php } ?>

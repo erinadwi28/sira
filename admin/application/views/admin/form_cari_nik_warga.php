@@ -1,3 +1,25 @@
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<?php if ($this->session->flashdata('success')) : ?>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<?= $this->session->flashdata('success') ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?php elseif($this->session->flashdata('error')) : ?>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<?= $this->session->flashdata('error') ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?php endif ?>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+
 <div class="row">
     <div class="col-md-2">
     </div>
@@ -15,15 +37,20 @@
                             <br>
                             <em class="float-center small text-danger">*Pastikan NIK yang anda masukan benar</em>
 
-                            <form role="form" action="<?= base_url('admin/cari_nik_calon_rt') ?>" method="post" id="formUbah">
+                            <form role="form" action="<?= base_url('admin/cari_nik_calon_rt') ?>" method="post" id="formCariNikRT">
                                 <div class="form-row align-items-center">
                                     <div class="col-md-4"></div>
                                     <div class="col-auto col-md-4 ">
+                                        <div class="form-group-nik">
                                         <input type="text" class="form-control mb-2" name="nik" id="nik" placeholder="Masukan NIK">
+                                        <i class="fas fa-check-circle"></i>
+										<i class="fas fa-exclamation-circle"></i>
+                                        <small>Error Message</small>
+                                        </div>
                                     </div>
-                                    <div class="col-auto ">
+                                    <div class="col-auto">
                                         <a href="">
-                                            <button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+                                            <button id="btn_simpan" class="btn btn-sm btn-primary" type="submit" style="margin-top: -15px;">
                                                 <i class="fas fa-search fa-sm">
                                                 </i> Cari
                                             </button>

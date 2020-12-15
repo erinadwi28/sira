@@ -54,7 +54,7 @@
 
 	<!-- DataTables Warga -->
 	<div class="card shadow mb-4">
-		<div class="card-body">
+		<div class="card-body" style="padding: 14px;">
 
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
@@ -65,12 +65,12 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Tanggal Permohonan</th>
-							<th>Nama</th>
+							<th>Nama Pemohon</th>
 							<th>Nama Surat</th>
+							<th>Tanggal Permohonan</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -80,9 +80,9 @@
 						?>
 						<tr>
 							<td><?= $no++ ?></td>
-							<td><?= $permohonan->tgl_permohonan_surat ?></td>
 							<td><?= $permohonan->nama ?></td>
 							<td><?= $permohonan->nama_surat ?></td>
+							<td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
 							<?php if($permohonan->status == "Ditolak Kelurahan" || $permohonan->status == "Ditolak Ketua RT") { ?>
 							<td><label class="badge badge-danger"><i class="far fa-times-circle"></i>
 									<?= $permohonan->status ?></label></td>

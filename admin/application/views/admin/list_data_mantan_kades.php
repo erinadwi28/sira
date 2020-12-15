@@ -7,7 +7,7 @@
 
     <!-- DataTables Warga -->
     <div class="card shadow mb-4">
-        <div class="card-body">
+        <div class="card-body" style="padding: 20px;">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -32,7 +32,7 @@
                                 <td><?php echo $kades->nama ?></td>
                                 <td><?php echo $kades->alamat ?></td>
                                 <td><label class="badge badge-danger"><i class="fas fa-user-alt-slash"></i> <?php echo $kades->status_kepegawaian ?></label></td>
-                                <td><?php echo $kades->tanggal_dinonaktifkan ?></td>
+							    <td><?= date("d-m-Y", strtotime($kades->tanggal_dinonaktifkan)); ?></td>
                             <?php } ?>
                     </tbody>
                 </table>

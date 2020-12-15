@@ -2,8 +2,8 @@
 	<div class="container-fluid">
 		<!-- Page Heading -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Form Tambah Data Kepala Desa</h1>
-			<a href="<?= base_url('admin/list_data_kades') ?>">
+			<h1 class="h3 mb-0 text-gray-800">Form Tambah Data Admin</h1>
+			<a href="<?= base_url('kades/list_data_admin') ?>">
 				<button id="btn_kembali" class="btn btn-sm btn-warning" type="">
 					<i class="fa fa-arrow-left">
 					</i> Kembali
@@ -281,12 +281,6 @@
 				</div>
 				<div class="card-footer">
 					<div class="float-right">
-						<a href="">
-							<button id="btn_batal" class="btn btn-sm btn-danger" type="reset">
-								<i class="fa fa-times nav-icon">
-								</i> Batal
-							</button>
-						</a>
 						<a href="">
 							<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
 								<i class="far fa-save nav-icon">

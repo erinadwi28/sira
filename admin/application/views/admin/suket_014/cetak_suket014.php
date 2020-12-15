@@ -105,8 +105,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 145px;
-            margin-right: -535px;
+            margin-top: 190px;
+            margin-right: -510px;
         }
 
         .table {
@@ -199,142 +199,163 @@
                                                     <td> 1. </td>
                                                     <td><b>Nama</b></td>
                                                     <td> </td>
-
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->nama; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 2. </td>
                                                     <td><b>Jenis Kelamin</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->jenis_kelamin; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 3. </td>
                                                     <td><b>Dilahirkan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 4. </td>
                                                     <td><b>Kewarganegaraan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->kewarganegaraan; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 5. </td>
                                                     <td><b>Agama</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->agama; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 6. </td>
                                                     <td><b>Status Perkawinan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->status_perkawinan; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 7. </td>
                                                     <td><b>Pekerjaan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->pekerjaan; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 8. </td>
                                                     <td><b>Pendidikan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->pendidikan_terakhir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 9. </td>
                                                     <td><b>Alamat Asal</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->alamat_asal; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 10. </td>
                                                     <td><b>No. dan Tanggal KK</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->no_kk; ?>, <?= format_indo(date($w->tanggal_kk)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 11. </td>
                                                     <td><b>Pindah Ke</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->alamat_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> </td>
                                                     <td><b>Desa/Kelurahan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td>Baru</td>
                                                 </tr>
                                                 <tr>
                                                     <td> </td>
                                                     <td><b>Desa/Kelurahan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->kelurahan_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> </td>
                                                     <td><b>Kecamatan</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->kecamatan_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> </td>
                                                     <td><b>Kab. /Kota</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->kabupaten_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> </td>
                                                     <td><b>Provinsi</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->provinsi_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> </td>
                                                     <td><b>Pada Tanggal</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= format_indo(date($w->tanggal_pindah)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>12. </td>
                                                     <td><b>Alasan Pindah</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->alasan_pindah; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td> 13. </td>
                                                     <td><b>Pengikut</b></td>
                                                     <td> </td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->jumlah_pengikut; ?> Orang</td>
                                                 </tr>
+                                                
 
                                             </tbody>
                                         <?php } ?>
                                         </table>
-
+                                        <br>
+                                        
                                         <!--Tabel pengikut -->
+                                        <br><br><br><br><br><br><br><br><br><br><br><br>
                                         <table class="table table-bordered" cellspacing="0">
                                             <thead>
                                                 <tr>

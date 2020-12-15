@@ -21,6 +21,9 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8 mb-4">
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN USAHA</h6>
+				</div>
 				<div class="card-body">
 
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
@@ -120,7 +123,7 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+								id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -133,12 +136,16 @@
 								<td><b>Nama</b></td>
 								<td> </td>
 								<td> </td>
+								<td> : </td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
+								<td> </td>
+								<td> : </td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->jenis_kelamin; ?></td>
@@ -147,12 +154,16 @@
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td> : </td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td> : </td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
@@ -161,12 +172,16 @@
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
 								<td> </td>
+								<td> : </td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->pekerjaan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat</b></td>
 								<td> </td>
+								<td> </td>
+								<td> : </td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->alamat; ?></td>
@@ -175,12 +190,16 @@
 								<td><b>Nama Usaha</b></td>
 								<td> </td>
 								<td> </td>
+								<td> : </td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nama_usaha; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
+								<td> </td>
+								<td> : </td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
@@ -192,7 +211,9 @@
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } else { ?>
@@ -200,7 +221,9 @@
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
@@ -211,7 +234,9 @@
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } elseif($detail->status == "Selesai") { ?>
@@ -219,22 +244,19 @@
 									<td><b>Tanggal Surat Dikeluarkan</b></td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>
 
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
 								<td> </td>
+								<td> </td>
+								<td> : </td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->keterangan; ?></td>

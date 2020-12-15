@@ -24,9 +24,9 @@
 								<tr>
 									<th>No</th>
 									<th>Nama Lengkap</th>
+									<th>Jenis Kelamin</th>
 									<th>Tempat Lahir</th>
 									<th>Tanggal Lahir</th>
-									<th>Jenis Kelamin</th>
 									<th>Umur</th>
 									<th>Status Perkawinan</th>
 									<th>Pendidikan Terakhir</th>

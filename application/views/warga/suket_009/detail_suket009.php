@@ -31,6 +31,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->nama_alm ?></td>
 							</tr>
 							<tr>
@@ -38,6 +40,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->jenis_kelamin ?></td>
 							</tr>
 							<tr>
@@ -45,6 +49,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->tempat_meninggal ?></td>
 							</tr>
 							<tr>
@@ -52,6 +58,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->umur ?></td>
 							</tr>
 							<tr>
@@ -59,6 +67,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->tempat_kediaman ?></td>
 							</tr>
 							<tr>
@@ -66,6 +76,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->hari_meninggal ?></td>
 							</tr>
 							<tr>
@@ -73,6 +85,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= format_indo(date($w->tanggal_meninggal)); ?></td>
 							</tr>
 							<tr>
@@ -80,6 +94,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= $w->alasan_meninggal ?></td>
 							</tr>
 							<?php } ?>
@@ -90,6 +106,8 @@
 								<td> </td>
 								<td> </td>
 								<td>:</td>
+								<td> </td>
+								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
 							<?php } ?>
@@ -156,12 +174,16 @@
 								<td><b>Nama Alm</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->nama_alm ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->jenis_kelamin ?></td>
@@ -170,12 +192,16 @@
 								<td><b>Tempat Kematian</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->tempat_meninggal ?></td>
 							</tr>
 							<tr>
 								<td><b>Umur</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->umur ?></td>
@@ -184,12 +210,16 @@
 								<td><b>Tempat Kediaman</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $w->tempat_kediaman ?></td>
 							</tr>
 							<tr>
 								<td><b>Hari Meninggal</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->hari_meninggal ?></td>
@@ -198,12 +228,16 @@
 								<td><b>Tanggal Meninggal</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($w->tanggal_meninggal)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Alasan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $w->alasan_meninggal ?></td>
@@ -214,6 +248,8 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
@@ -223,16 +259,20 @@
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
-									<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } elseif($d->status ==  'Ditolak Ketua RT') { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
 									<td> </td>
-									<td> </td>
-									<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 									<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
@@ -242,16 +282,20 @@
 								<tr>
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
 								<td> </td>
-								<td> </td>
-								<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } elseif($d->status ==  'Ditolak Kelurahan' && $d->tgl_persetujuan_admin != null ) { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
 									<td> </td>
-									<td> </td>
-									<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 									<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>	
@@ -260,31 +304,37 @@
 							<tr>
 								<td><b>Keterangan</b></td>
 								<td> </td>
-								<td> </td>
-								<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 								<td><?= $d->keterangan; ?></td>
 							</tr>
 							<?php } ?>
-							<?php } ?>
-
-							<?php if($w->no_tupoksi != null && $w->no_registrasi != null && $w->no_kelurahan  != null && $w->no_bulan != null && $w->no_tahun != null ) { ?>
-							<tr>
-								<td><b>Nomor Surat Kelurahan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>
-								</td>
-							</tr>
 							<?php } ?>
 
 							<?php if($w->nomor_surat_rt != null) { ?>
 							<tr>
 								<td><b>Nomor Surat Ketua RT</b></td>
 								<td> </td>
-								<td> </td>
-								<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
 								<td><?= $w->nomor_surat_rt; ?></td>
+							</tr>
+							<?php } ?>
+							
+							<?php if($w->no_tupoksi != null && $w->no_registrasi != null && $w->no_kelurahan  != null && $w->no_bulan != null && $w->no_tahun != null ) { ?>
+							<tr>
+								<td><b>Nomor Surat Kelurahan</b></td>
+								<td> </td>
+    								<td> </td>
+    								<td>:</td>
+    								<td> </td>
+    								<td> </td>
+								<td><?= $w->no_tupoksi; ?>/<?= $w->no_registrasi; ?>/<?= $w->no_kelurahan; ?>/<?= $w->no_bulan; ?>/<?= $w->no_tahun; ?>
+								</td>
 							</tr>
 							<?php } ?>
 							<?php } ?>

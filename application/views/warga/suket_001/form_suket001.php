@@ -114,7 +114,7 @@
 										<label for="nama_usaha" class="col-sm-3 col-form-label">Nama Usaha</label>
 										<div class="col-sm-8">
 											<div class="form-line focused">
-												<input type="text" class="form-control" id="nama_usaha" name="nama_usaha">
+												<input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="masukkan nama usaha disini...">
 												<i class=" fas fa-check-circle"></i>
 												<i class="fas fa-exclamation-circle"></i>
 												<small>Error massage</small>

@@ -89,7 +89,6 @@
 										<div class="col-sm-8">
 											<div class="form-line focused">
 												<select class="form-control form-user-input" name="agama" id="agama">
-													<option value="Pilih agama..." <?= ($detail->agama == 'Pilih agama...' ? ' selected' : ''); ?> class="form-user-input">Pilih agama...</option>
 													<option value="Islam" <?= ($detail->agama == 'Islam' ? ' selected' : ''); ?> class="form-user-input">Islam</option>
 													<option value="Protestan" <?= ($detail->agama == 'Protestan' ? ' selected' : ''); ?> class="form-user-input">Protestan
 													</option>

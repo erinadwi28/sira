@@ -22,7 +22,7 @@
 							<th>Nama</th>
 							<th>Alamat</th>
 							<th>Status Kepegawaian</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 

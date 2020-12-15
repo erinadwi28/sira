@@ -21,6 +21,9 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8 mb-4">
 			<div class="card shadow mb-2">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary text-center">SURAT KETERANGAN JANDA</h6>
+				</div>
 				<div class="card-body">
 
 			<?php if($detail->status == "Menunggu Persetujuan Kelurahan") { ?>
@@ -118,7 +121,7 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-								id="nomor_surat_rt" value="" disabled style="text-align: center;">
+								id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -129,79 +132,101 @@
 						<tbody>
 							<tr>
 								<td><b>Nama Istri</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->nama_istri; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir Istri</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->tempat_lahir_istri; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir Istri</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= format_indo(date($detail->tanggal_lahir_istri)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan Istri</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->pekerjaan_istri; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat Tinggal</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->alamat_tinggal; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Suami</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->nama_suami; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir Suami</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->tempat_lahir_suami; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir Suami</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= format_indo(date($detail->tanggal_suami)); ?></td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
+								<td><?= format_indo(date($detail->tanggal_lahir_suami)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan Suami</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->pekerjaan_suami; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alasan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->alasan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 														
@@ -209,17 +234,21 @@
 							<?php if($detail->status == "Ditolak Ketua RT") { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Ketua RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+        							<td> </td>
+        							<td> : </td>
+        							<td> </td>
+        							<td> </td>								
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>
 							<?php } else { ?>
 								<tr>
 									<td><b>Tanggal Disetujui Ketua RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+        							<td> </td>
+        							<td> : </td>
+        							<td> </td>
+        							<td> </td>								
 									<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 								</tr>							
 							<?php } ?>
@@ -228,34 +257,33 @@
 							<?php if($detail->status == "Ditolak Kelurahan") { ?>
 								<tr>
 									<td><b>Tanggal Ditolak Kelurahan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+        							<td> </td>
+        							<td> : </td>
+        							<td> </td>
+        							<td> </td>								
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } elseif($detail->status == "Selesai") { ?>
 								<tr>
 									<td><b>Tanggal Surat Dikeluarkan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+        							<td> </td>
+        							<td> : </td>
+        							<td> </td>
+        							<td> </td>								
 									<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 								</tr>							
 							<?php } ?>
 
-							<tr>
-								<td><b>Surat Yang Dimohon</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
-								<td><?= $detail->nama_surat; ?></td>
-							</tr>
 							<?php if($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
-								<td> </td>
-								<td> </td>
-								<td> </td>
+                                <td> </td>
+    							<td> </td>
+    							<td> : </td>
+    							<td> </td>
+    							<td> </td>								
 								<td><?= $detail->keterangan; ?></td>
 							</tr>
 							<?php } ?>

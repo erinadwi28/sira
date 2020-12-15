@@ -17,12 +17,12 @@
 					<thead>
 						<tr>
 							<th>No</th>
+							<th>Nama Surat</th>
 							<th>Tanggal Permohonan</th>
 							<th>Tanggal Ditolak</th>
-							<th>Nama Surat</th>
 							<th>Status</th>
 							<th>Keterangan</th>
-							<th>Actions</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,24 +32,31 @@
 						?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= $permohonan->tgl_permohonan_surat ?></td>
+								<td><?= $permohonan->nama_surat ?></td>
+                                <td><?= date("d-m-Y", strtotime($permohonan->tgl_permohonan_surat)); ?></td>
 
 								<?php if($permohonan->status == 'Ditolak Ketua RT') { ?>
-								<td><?= $permohonan->tanggal_persetujuan_rt ?></td>
+                                <td><?= date("d-m-Y", strtotime($permohonan->tanggal_persetujuan_rt)); ?></td>
 								<?php } elseif($permohonan->status == 'Ditolak Kelurahan') { ?>
-								<td><?= $permohonan->tgl_persetujuan_admin ?></td>
-								<?php } ?>          
-								
-								<td><?= $permohonan->nama_surat ?></td>
-                                <td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
+                                <td><?= date("d-m-Y", strtotime($permohonan->tgl_persetujuan_admin)); ?></td>
+								<?php } ?>
+
+								<td><label class="badge badge-danger"><i class="far fa-times-circle"></i> <?= $permohonan->status ?></label></td>
 								<td><?= character_limiter($permohonan->keterangan, 20); ?></td>
 								<td>
-									<div>
-										<a href="<?= base_url() ?>warga/detail_data_permohonan/<?= $permohonan->id_permohonan_surat ?>/<?= $permohonan->id_nama_surat ?>" class="btn btn-primary btn-sm">
-											<i class="far fa-eye nav-icon"></i>
-											Detail
-										</a>
-									</div>
+									<form role="form" action="<?= base_url() ?>warga/detail_data_permohonan/<?= $permohonan->id_permohonan_surat ?>/<?= $permohonan->id_nama_surat ?>" method="post" id="formUbah">
+										<div>
+											<div class="float-right">
+												<a href="">
+													<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+														<i class="far fa-eye nav-icon"></i>
+														Detail
+													</button>
+												</a>
+											</div>
+										</div>
+										<input type="hidden" class="form-control form-user-input " name="notif" id="notif" value="Dibaca">
+									</form>
 								</td>
 							</tr>
 						<?php } ?>

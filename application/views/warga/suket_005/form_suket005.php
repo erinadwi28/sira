@@ -158,15 +158,14 @@
 									</div>
 								</div>
 							</div>
+							
 							<div class="form-group">
 								<div class="form-group row" style="margin-left: 10px;">
 									<label class="col-sm-3 col-form-label" for="file-upload-profil">Lampiran KTP</label>
 									<div class="custom-file col-sm-7 ml-3">
 										<div class="form-line-upload">
 											<label class="custom-file-label" for="file-upload-profil">pilih file...</label>
-											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-											<!-- <i class=" fas fa-check-circle"></i>
-											<i class="fas fa-exclamation-circle"></i> -->
+											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
 											<small>Error massage</small>
 										</div>
 									</div>

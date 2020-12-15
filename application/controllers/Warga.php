@@ -22,6 +22,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data['data_kades'] = $this->m_warga->ambil_nama_kades()->result();
 		$data['data_rt'] = $this->m_warga->ambil_nama_rt()->result();
@@ -44,6 +45,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$detailhere = array('id_warga' => $id_warga);
 		$data_detail['detail_profil_saya'] = $this->m_warga->get_detail_profil_saya($detailhere, 'warga')->result();
@@ -75,42 +77,44 @@ class Warga extends CI_Controller
 	//upload foto profil warga
 	private function aksi_upload_foto_profil($id_warga)
 	{
-		$config['upload_path']          = './assets/uploads/warga/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        $config['upload_path']          = './assets/uploads/warga/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+        $config['file_name']            = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_warga = $this->input->post('id_warga');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+        $this->load->library('upload', $config);
+        $id_warga = $this->input->post('id_warga');
+                
+            if (!empty($_FILES['berkas']['name'])) {
+                if ($this->upload->do_upload('berkas')) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                    $uploadData = $this->upload->data();
 
-				if ($this->upload->do_upload('file')) {
+                    //Compres Foto
+                    $config['image_library']='gd2';
+                    $config['source_image']='./assets/uploads/warga/'.$uploadData['file_name'];
+                    $config['create_thumb']= FALSE;
+                    $config['maintain_ratio']= TRUE;
+                    $config['quality']= '50%';
+                    $config['width']= 600;
+                    $config['height']= 400;
+                                        
+                    $config['new_image']= './assets/uploads/warga/'.$uploadData['file_name'];
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+                                        
+                    $item = $this->db->where('id_warga',$id_warga)->get('warga')->row();
+                                        
+                    //replace foto lama 
+                    if($item->foto_profil_warga != "placeholder_profil.png"){
+                        $target_file = './assets/uploads/warga/'.$item->foto_profil_warga;
+                        unlink($target_file);
+                    }
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
-
-					$uploadData = $this->upload->data();
-
-					$data['foto_profil_warga'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
-
-					// $data_detail = $this->input->post('id_warga');
-
-					$this->db->where('id_warga', $id_warga);
-					$this->db->update('warga', $data);
-				}
-			}
-		}
+                    $data['foto_profil_warga'] = $uploadData['file_name'];
+                    $this->db->where('id_warga', $id_warga);
+                    $this->db->update('warga', $data);
+                }
+            }
 	}
 
 	// upload foto ktp warga
@@ -127,42 +131,45 @@ class Warga extends CI_Controller
 	//upload foto ktp warga
 	private function aksi_upload_foto_ktp($id_warga)
 	{
-		$config['upload_path']          = './assets/uploads/warga/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        $config['upload_path']          = './assets/uploads/warga/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+        $config['file_name']            = 'foto_ktp_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_warga = $this->input->post('id_warga');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+        $this->load->library('upload', $config);
+        $id_warga = $this->input->post('id_warga');
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+        if (!empty($_FILES['berkas']['name'])) {
 
-				if ($this->upload->do_upload('file')) {
+            if ($this->upload->do_upload('berkas')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                $uploadData = $this->upload->data();
 
-					$uploadData = $this->upload->data();
+                //Compres Foto
+                $config['image_library']='gd2';
+                $config['source_image']='./assets/uploads/warga/'.$uploadData['file_name'];
+                $config['create_thumb']= FALSE;
+                $config['maintain_ratio']= TRUE;
+                $config['quality']= '80%';
+                $config['width']= 600;
+                $config['height']= 400;                                
+                $config['new_image']= './assets/uploads/warga/'.$uploadData['file_name'];
+                $this->load->library('image_lib', $config);
+                $this->image_lib->resize();
+                                
+                $item = $this->db->where('id_warga',$id_warga)->get('warga')->row();
+                                
+                //replace foto lama 
+                if($item->foto_ktp_warga != "placeholder_ktp.png"){
+                    $target_file = './assets/uploads/warga/'.$item->foto_ktp_warga;
+                    unlink($target_file);
+                }
 
-					$data['foto_ktp_warga'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
-
-					// $data_detail = $this->input->post('id_warga');
-
-					$this->db->where('id_warga', $id_warga);
-					$this->db->update('warga', $data);
-				}
-			}
-		}
+                $data['foto_ktp_warga'] = $uploadData['file_name'];
+                                        
+                $this->db->where('id_warga', $id_warga);
+                $this->db->update('warga', $data);
+            }
+        }
 	}
 
 	// upload foto kk warga
@@ -179,42 +186,45 @@ class Warga extends CI_Controller
 	//upload foto kk warga
 	private function aksi_upload_foto_kk($id_warga)
 	{
-		$config['upload_path']          = './assets/uploads/warga/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		// $config['max_size']             = 2048;
-		$config['file_name'] 	        = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['upload_path']          = './assets/uploads/warga/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                $config['file_name']            = 'foto_kk_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
-		$this->load->library('upload', $config);
-		$id_warga = $this->input->post('id_warga');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+                $this->load->library('upload', $config);
+                $id_warga = $this->input->post('id_warga');
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-				if ($this->upload->do_upload('file')) {
+                    if ($this->upload->do_upload('berkas')) {
 
-					// $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-					// $r = $ambil->row();
-					// unlink(".../assets/uploads/warga/".$r->nama_foto);
+                        $uploadData = $this->upload->data();
 
-					$uploadData = $this->upload->data();
+                        //Compres Foto
+                        $config['image_library']='gd2';
+                        $config['source_image']='./assets/uploads/warga/'.$uploadData['file_name'];
+                        $config['create_thumb']= FALSE;
+                        $config['maintain_ratio']= TRUE;
+                        $config['quality']= '90%';
+                        $config['width']= 900;
+                        $config['height']= 700;                                
+                        $config['new_image']= './assets/uploads/warga/'.$uploadData['file_name'];
+                        $this->load->library('image_lib', $config);
+                        $this->image_lib->resize();
+                                
+                        $item = $this->db->where('id_warga',$id_warga)->get('warga')->row();
+                                
+                        //replace foto lama 
+                        if($item->foto_kk_warga != "placeholder_kk.png"){
+                            $target_file = './assets/uploads/warga/'.$item->foto_kk_warga;
+                            unlink($target_file);
+                        }
 
-					$data['foto_kk_warga'] = $uploadData['file_name'];
-					// $data['keterangan'] = $keterangan[$i];
-					// $data['id_warga'] = $id_warga;
-
-					// $data_detail = $this->input->post('id_warga');
-
-					$this->db->where('id_warga', $id_warga);
-					$this->db->update('warga', $data);
-				}
-			}
-		}
+                        $data['foto_kk_warga'] = $uploadData['file_name'];
+                                        
+                        $this->db->where('id_warga', $id_warga);
+                        $this->db->update('warga', $data);
+                        }
+                }
 	}
 
 	// tampil form ubah kata sandi profil saya
@@ -222,6 +232,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$detailhere = array('id_warga' => $id_warga);
 		$data_detail['detail_profil_saya'] = $this->m_warga->get_detail_profil_saya($detailhere, 'warga')->result();
@@ -236,18 +247,30 @@ class Warga extends CI_Controller
 	// aksi ubah kata sandi profil saya
 	public function aksi_ubah_kata_sandi_profil_saya()
 	{
+		$kata_sandi_awal = $this->input->post('kata_sandi_awal');
+		$data_lama = sha1($kata_sandi_awal);
+				
 		$kata_sandi = $this->input->post('kata_sandi');
 		$kata_sandi_hash = sha1($kata_sandi);
-		$data = array(
+
+		$data_baru = array(
 			'kata_sandi' => $kata_sandi_hash,
 		);
 
 		$where = $this->input->post('id_warga');
 
-		if ($this->m_warga->ubah_kata_sandi_profil_saya($where, $data, 'warga')); {
-			$this->session->set_flashdata('success', 'diubah');
-			redirect('warga/form_ubah_kata_sandi_profil_saya/' . $where);
-		}
+		$warga = $this->m_warga->cek_warga($where);
+
+		if ($data_lama === $warga['kata_sandi']) {
+                        $this->m_warga->ubah_kata_sandi_profil_saya($where, $data_baru, 'warga');
+                        $this->session->set_flashdata('success', '<b>Kata Sandi</b> Berhasil Diubah');
+                        redirect('warga/form_ubah_kata_sandi_profil_saya/' . $where);
+                }else{
+                        $this->session->set_flashdata('error', '<b>Kata Sandi Lama</b> Salah');
+                        redirect('warga/form_ubah_kata_sandi_profil_saya/' . $where);
+                }
+
+
 	}
 
 
@@ -266,6 +289,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -280,10 +304,13 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket001
 	public function aksi_tambah_permohonan_suket001()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
+			
 		);
 
 		$id_permohonan = $this->m_warga->tambah_permohonan($data_permohonan);
@@ -310,6 +337,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_usaha')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -326,6 +354,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_usaha')->result();
@@ -373,6 +402,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -387,9 +417,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket002
 	public function aksi_tambah_permohonan_suket002()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -418,6 +450,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_domisili')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -434,6 +467,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_domisili')->result();
@@ -483,6 +517,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -497,9 +532,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket003
 	public function aksi_tambah_permohonan_suket003()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -527,6 +564,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_memiliki_rumah')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -543,6 +581,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_memiliki_rumah')->result();
@@ -591,6 +630,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -605,9 +645,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket004
 	public function aksi_tambah_permohonan_suket004()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -636,6 +678,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_beda_nama')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -652,6 +695,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_beda_nama')->result();
@@ -700,6 +744,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -714,9 +759,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket005
 	public function aksi_tambah_permohonan_suket005()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -750,21 +797,35 @@ class Warga extends CI_Controller
 	{
 		$config['upload_path']          = './assets/uploads/warga/suket_005/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-		$config['file_name']                 = 'foto_ktp-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+		$config['file_name']            = 'lampiran_ktp-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
 		$this->load->library('upload', $config);
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+		if (!empty($_FILES['berkas']['name'])) {
 
-				if ($this->upload->do_upload('file')) {
+				if ($this->upload->do_upload('berkas')) {
+
 					$uploadData = $this->upload->data();
+
+                    //Compres Foto
+                    $config['image_library']='gd2';
+                    $config['source_image']='./assets/uploads/warga/suket_005/'.$uploadData['file_name'];
+                    $config['create_thumb']= FALSE;
+                    $config['maintain_ratio']= TRUE;
+                    $config['quality']= '80%';
+                    $config['width']= 600;
+                    $config['height']= 400;                                
+                    $config['new_image']= './assets/uploads/warga/suket_005/'.$uploadData['file_name'];
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+                                
+                    $item = $this->db->where('id_surat',$id_surat)->get('srt_izin_keramaian')->row();
+                                
+                    //replace foto lama 
+                    if($item->foto_ktp != "placeholder_ktp.png"){
+                        $target_file = './assets/uploads/warga/suket_005/'.$item->foto_ktp;
+                        unlink($target_file);
+                    }
 
 					$data['foto_ktp'] = $uploadData['file_name'];
 
@@ -772,7 +833,6 @@ class Warga extends CI_Controller
 					$this->db->update('srt_izin_keramaian', $data);
 				}
 			}
-		}
 	}
 
 	// upload ulang foto ktp
@@ -792,6 +852,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_izin_keramaian')->result();
 
@@ -811,6 +872,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_izin_keramaian')->result();
@@ -860,6 +922,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
 
@@ -873,9 +936,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket006
 	public function aksi_tambah_permohonan_suket006()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -902,6 +967,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_pernah_menikah')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -918,6 +984,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_belum_pernah_menikah')->result();
@@ -965,6 +1032,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -979,9 +1047,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket007
 	public function aksi_tambah_permohonan_suket007()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -993,6 +1063,7 @@ class Warga extends CI_Controller
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'agama' => $this->input->post('agama'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
 			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
@@ -1011,6 +1082,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_tidak_mampu')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1027,6 +1099,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_tidak_mampu')->result();
@@ -1049,6 +1122,7 @@ class Warga extends CI_Controller
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'agama' => $this->input->post('agama'),
 			'pekerjaan' => $this->input->post('pekerjaan'),
 			'agama' => $this->input->post('agama'),
 			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
@@ -1076,6 +1150,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
 
@@ -1089,9 +1164,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket008
 	public function aksi_tambah_permohonan_suket008()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -1122,6 +1199,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_janda')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1138,6 +1216,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_janda')->result();
@@ -1189,6 +1268,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1203,9 +1283,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket009
 	public function aksi_tambah_permohonan_suket009()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -1234,6 +1316,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kematian')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1250,6 +1333,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kematian')->result();
@@ -1299,6 +1383,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1313,9 +1398,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket010
 	public function aksi_tambah_permohonan_suket010()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -1360,6 +1447,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kelahiran')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1376,6 +1464,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_kelahiran')->result();
@@ -1438,6 +1527,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1452,9 +1542,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket011
 	public function aksi_tambah_permohonan_suket011()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -1492,6 +1584,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_suket011($id_surat, 'srt_pengantar_ktp')->result();
 
@@ -1528,32 +1621,43 @@ class Warga extends CI_Controller
 	{
 		$config['upload_path']          = './assets/uploads/warga/suket_011/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-
-		$config['file_name']                 = 'pas_foto-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+		$config['file_name']            = 'pas_foto-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
 		$this->load->library('upload', $config);
 		$id_surat = $this->input->post('id_surat');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+			if (!empty($_FILES['berkas']['name'])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-
-				if ($this->upload->do_upload('file')) {
+				if ($this->upload->do_upload('berkas')) {
 
 					$uploadData = $this->upload->data();
-
+					
+                    //Compres Foto
+                    $config['image_library']='gd2';
+                    $config['source_image']='./assets/uploads/warga/suket_011/'.$uploadData['file_name'];
+                    $config['create_thumb']= FALSE;
+                    $config['maintain_ratio']= TRUE;
+                    $config['quality']= '50%';
+                    $config['width']= 600;
+                    $config['height']= 400;
+                                        
+                    $config['new_image']= './assets/uploads/warga/suket_011/'.$uploadData['file_name'];
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+                                        
+                    $item = $this->db->where('id_surat',$id_surat)->get('srt_pengantar_ktp')->row();
+                                        
+                    //replace foto lama 
+                    if($item->pas_foto != "placeholder_pas_foto.png"){
+                        $target_file = './assets/uploads/warga/suket_011/'.$item->pas_foto;
+                        unlink($target_file);
+					}
+								
 					$data['pas_foto'] = $uploadData['file_name'];
 
 					$this->db->where('id_surat', $id_surat);
 					$this->db->update('srt_pengantar_ktp', $data);
 				}
 			}
-		}
 	}
 
 	// upload_foto_kk_suket011
@@ -1573,31 +1677,42 @@ class Warga extends CI_Controller
 	{
 		$config['upload_path']          = './assets/uploads/warga/suket_011/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-
-		$config['file_name']                 = 'foto_kk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+		$config['file_name']            = 'foto_kk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
 		$this->load->library('upload', $config);
 		$id_surat = $this->input->post('id_surat');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+			if (!empty($_FILES['berkas']['name'])) {
 
-				if ($this->upload->do_upload('file')) {
+				if ($this->upload->do_upload('berkas')) {
 
 					$uploadData = $this->upload->data();
+
+					//Compres Foto
+                    $config['image_library']='gd2';
+                    $config['source_image']='./assets/uploads/warga/suket_011/'.$uploadData['file_name'];
+                    $config['create_thumb']= FALSE;
+                    $config['maintain_ratio']= TRUE;
+                    $config['quality']= '90%';
+                    $config['width']= 900;
+                    $config['height']= 700;                                
+                    $config['new_image']= './assets/uploads/warga/suket_011/'.$uploadData['file_name'];
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+                                
+                    $item = $this->db->where('id_surat',$id_surat)->get('srt_pengantar_ktp')->row();
+                                
+                    //replace foto lama 
+                    if($item->foto_kk != "placeholder_kk.png"){
+                        $target_file = './assets/uploads/warga/suket_011/'.$item->foto_kk;
+                        unlink($target_file);
+                    }
 
 					$data['foto_kk'] = $uploadData['file_name'];
 
 					$this->db->where('id_surat', $id_surat);
 					$this->db->update('srt_pengantar_ktp', $data);
 				}
-			}
 		}
 	}
 
@@ -1618,31 +1733,41 @@ class Warga extends CI_Controller
 	{
 		$config['upload_path']          = './assets/uploads/warga/suket_011/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-
-		$config['file_name']                 = 'foto_surat_pindah-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+		$config['file_name']            = 'foto_surat_pindah-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
 		$this->load->library('upload', $config);
 		$id_surat = $this->input->post('id_surat');
-		$jumlah_berkas = count($_FILES['berkas']['name']);
-		for ($i = 0; $i < $jumlah_berkas; $i++) {
-			if (!empty($_FILES['berkas']['name'][$i])) {
+			if (!empty($_FILES['berkas']['name'])) {
 
-				$_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-				$_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-				$_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-				$_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-				$_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
-
-				if ($this->upload->do_upload('file')) {
+				if ($this->upload->do_upload('berkas')) {
 
 					$uploadData = $this->upload->data();
+
+                    //Compres Foto
+                    $config['image_library']='gd2';
+                    $config['source_image']='./assets/uploads/warga/suket_011/'.$uploadData['file_name'];
+                    $config['create_thumb']= FALSE;
+                    $config['maintain_ratio']= TRUE;
+                    $config['quality']= '90%';
+                    $config['width']= 900;
+                    $config['height']= 700;                                
+                    $config['new_image']= './assets/uploads/warga/suket_011/'.$uploadData['file_name'];
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+                                
+                    $item = $this->db->where('id_surat',$id_surat)->get('srt_pengantar_ktp')->row();
+                                
+                    //replace foto lama 
+                    if($item->foto_surat_pindah != "placeholder_surat_pindah.png"){
+                        $target_file = './assets/uploads/warga/suket_011/'.$item->foto_surat_pindah;
+                        unlink($target_file);
+                    }
 
 					$data['foto_surat_pindah'] = $uploadData['file_name'];
 
 					$this->db->where('id_surat', $id_surat);
 					$this->db->update('srt_pengantar_ktp', $data);
 				}
-			}
 		}
 	}
 
@@ -1651,6 +1776,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_pengantar_ktp')->result();
@@ -1709,6 +1835,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1723,9 +1850,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket012
 	public function aksi_tambah_permohonan_suket012()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -1761,6 +1890,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_pengikut['id_permohonan'] = $this->db->get_where('srt_pengantar_kk', ['id_permohonan_surat' => $id_permohonan])->row_array();
 		$data_pengikut['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan)->result();
@@ -1778,6 +1908,7 @@ class Warga extends CI_Controller
 
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['id_permohonan'] = $this->db->get_where('srt_pengantar_kk', ['id_permohonan_surat' => $id_permohonan])->row_array();
 
@@ -1817,6 +1948,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_pengikut'] = $this->m_warga->get_detail_pengikut($id_pengikut, 'pengikut')->result();
@@ -1865,6 +1997,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_pengantar_kk')->result();
@@ -1911,6 +2044,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_pengantar_kk')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1937,6 +2071,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -1951,9 +2086,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket013
 	public function aksi_tambah_permohonan_suket013()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -1982,6 +2119,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_penghasilan')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -1998,6 +2136,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_penghasilan')->result();
@@ -2048,6 +2187,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_profil'] = $this->m_warga->get_data_profil($id_warga, 'warga')->result();
@@ -2062,9 +2202,11 @@ class Warga extends CI_Controller
 	// aksi tambah permohonan suket014
 	public function aksi_tambah_permohonan_suket014()
 	{
+		$kades = $this->m_warga->cek_kades();
 		$data_permohonan = array(
 			'id_nama_surat' => $this->input->post('id_nama_surat'),
 			'id_warga' => $this->input->post('id_warga'),
+			'id_kades' => $kades['id_kades'],
 			'status' => $this->input->post('status'),
 		);
 
@@ -2105,6 +2247,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_pengikut['id_permohonan'] = $this->db->get_where('srt_ket_pindah', ['id_permohonan_surat' => $id_permohonan])->row_array();
 		$data_pengikut['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan)->result();
@@ -2122,6 +2265,7 @@ class Warga extends CI_Controller
 
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['id_permohonan'] = $this->db->get_where('srt_ket_pindah', ['id_permohonan_surat' => $id_permohonan])->row_array();
 
@@ -2161,6 +2305,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_pengikut'] = $this->m_warga->get_detail_pengikut($id_pengikut, 'pengikut')->result();
@@ -2209,6 +2354,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_pindah')->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan, 'permohonan_surat')->result();
@@ -2226,6 +2372,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 
 		$data_detail['detail_suket'] = $this->m_warga->get_data_suket($id_surat, 'srt_ket_pindah')->result();
@@ -2299,6 +2446,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['permohonan'] = $this->m_warga->get_history_permohonan($id_warga)->result();
 
@@ -2310,11 +2458,29 @@ class Warga extends CI_Controller
 		$this->load->view('footer');
 	}
 
+	//list notif
+	public function list_notif($id_warga)
+	{
+		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
+		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
+
+		$data_permohonan['permohonan'] = $this->m_warga->get_permohonan_belum_dibaca($id_warga)->result();
+
+
+		$this->load->view('header');
+		$this->load->view('warga/sidebar_warga', $data);
+		$this->load->view('topbar', $data);
+		$this->load->view('warga/list_notif', $data_permohonan);
+		$this->load->view('footer');
+	}
+
 	//list permohonan selesai
 	public function list_permohonan_selesai($id_warga)
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['permohonan'] = $this->m_warga->get_history_permohonan_selesai($id_warga)->result();
 
@@ -2331,6 +2497,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['data_sedang_proses'] = $this->m_warga->get_data_sedang_proses_rt()->result();
 
@@ -2346,6 +2513,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['data_sedang_proses'] = $this->m_warga->get_data_sedang_proses_admin()->result();
 
@@ -2361,6 +2529,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_permohonan['data_permohonan_ditolak'] = $this->m_warga->get_list_permohonan_ditolak()->result();
 
@@ -2376,44 +2545,36 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$tgl_awal = $this->input->post('tanggal_mulai');
 		$tgl_akhir = $this->input->post('tanggal_akhir');
-
+        
+        $data_permohonan['tgl_awal'] = $tgl_awal;
+        $data_permohonan['tgl_akhir'] =  $tgl_akhir;
 		$data_permohonan['permohonan'] = $this->m_warga->filter_riwayat($tgl_awal, $tgl_akhir)->result();
 
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga', $data);
 		$this->load->view('topbar', $data);
-		$this->load->view('warga/list_history_warga', $data_permohonan);
+		$this->load->view('warga/list_history_warga1', $data_permohonan);
 		$this->load->view('footer');
 	}
 
-	// filter tanggal history permohonan selesai
-	public function filter_tanggal_list_history_permohonan_selesai()
-	{
-		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
-		$this->session->userdata('id_warga')])->row_array();
-
-		$tgl_awal = $this->input->post('tanggal_mulai');
-		$tgl_akhir = $this->input->post('tanggal_akhir');
-		$id_warga = $this->input->post('id_warga');
-
-		$data_permohonan['permohonan'] = $this->m_warga->filter_tanggal_list_history_permohonan_selesai($id_warga, $tgl_awal, $tgl_akhir)->result();
-
-
-		$this->load->view('header');
-		$this->load->view('warga/sidebar_warga', $data);
-		$this->load->view('topbar', $data);
-		$this->load->view('warga/list_permohonan_selesai', $data_permohonan);
-		$this->load->view('footer');
-	}
 
 	//detail data permohonan
 	public function detail_data_permohonan($id_permohonan_surat, $id_nama_surat)
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+
+		$data_notif = array(
+			'notif' => $this->input->post('notif'),
+		);
+
+		$this->m_warga->update_notif($data_notif, $id_permohonan_surat);
+
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 
@@ -2490,7 +2651,15 @@ class Warga extends CI_Controller
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$data_notif = array(
+			'notif' => $this->input->post('notif'),
+		);
+
+		$this->m_warga->update_notif($data_notif, $id_permohonan_surat);
+
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 
 		if ($id_nama_surat == 1) {
@@ -2566,7 +2735,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_001($id_permohonan_surat)->result();
 
@@ -2587,7 +2757,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_002($id_permohonan_surat)->result();
 
@@ -2606,7 +2777,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_003($id_permohonan_surat)->result();
 
@@ -2625,7 +2797,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_004($id_permohonan_surat)->result();
 
@@ -2644,7 +2817,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_005($id_permohonan_surat)->result();
 
@@ -2663,7 +2837,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_006($id_permohonan_surat)->result();
 
@@ -2682,7 +2857,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_007($id_permohonan_surat)->result();
 
@@ -2701,7 +2877,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_008($id_permohonan_surat)->result();
 
@@ -2720,7 +2897,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_009($id_permohonan_surat)->result();
 
@@ -2739,7 +2917,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_010($id_permohonan_surat)->result();
 
@@ -2758,7 +2937,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_011($id_permohonan_surat)->result();
 
@@ -2766,7 +2946,7 @@ class Warga extends CI_Controller
 
 		$html = $this->load->view('warga/suket_011/cetak_suket011', $data_detail, true);
 		$dompdf->loadHtml($html);
-		$dompdf->setPaper('F4', 'portrait');
+		$dompdf->setPaper('A4', 'portrait');
 		$dompdf->render();
 		$dompdf->stream('Surat Pengantar KTP');
 	}
@@ -2777,7 +2957,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_012($id_permohonan_surat)->result();
 		$data_detail['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan_surat)->result();
@@ -2797,7 +2978,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_013($id_permohonan_surat)->result();
 
@@ -2816,7 +2998,8 @@ class Warga extends CI_Controller
 		$data_detail['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
 
-		$data_detail['data_kades'] = $this->m_warga->get_data_kades()->result();
+		$kades = $this->m_warga->get_id_kades($id_permohonan_surat);
+		$data_detail['data_kades'] = $this->m_warga->get_data_kades($kades['id_kades'])->result();
 		$data_detail['detail_permohonan'] = $this->m_warga->get_data_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
 		$data_detail['detail_suket'] = $this->m_warga->get_detail_014($id_permohonan_surat)->result();
 		$data_detail['pengikut'] = $this->m_warga->get_data_pengikut($id_permohonan_surat)->result();
@@ -2853,6 +3036,7 @@ class Warga extends CI_Controller
 	{
 		$data['warga'] = $this->db->get_where('warga', ['id_warga' =>
 		$this->session->userdata('id_warga')])->row_array();
+		$data['total_notif'] = $this->m_warga->jumlah_notif()->result();
 
 		$this->load->view('header');
 		$this->load->view('warga/sidebar_warga',$data);

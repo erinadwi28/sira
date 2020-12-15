@@ -27,6 +27,7 @@
 	<link href="<?= base_url('../assets/dashboard/') ?>vendor/lightbox/dist/ekko-lightbox.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/dashboard/') ?>css/validation_upload_foto_rt.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/dashboard/') ?>css/validation_pass.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">

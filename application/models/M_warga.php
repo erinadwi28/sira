@@ -101,10 +101,10 @@ class M_warga extends CI_Model
 		$this->db->from('permohonan_surat');
 		$this->db->join('warga', 'permohonan_surat.id_warga = warga.id_warga', 'INNER');
 		$this->db->where('warga.id_warga', $this->session->userdata('id_warga'));
-				$this->db->where('permohonan_surat.status_delete', 0);
+		$this->db->where('permohonan_surat.status_delete', 0);
 		$this->db->where("(permohonan_surat.status = 'Ditolak Ketua RT' 
-		OR permohonan_surat.status = 'Ditolak Kelurahan')", null, false);		
-		$this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
+		OR permohonan_surat.status = 'Ditolak Kelurahan')", null, false);
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		$hasil = $this->db->get();
 		return $hasil;
@@ -173,11 +173,12 @@ class M_warga extends CI_Model
 		$this->db->where('id_warga', $where);
 		$this->db->update($table, $data);
 	}
-	public function get_data_kades()
+
+	public function get_data_kades($id_kades)
 	{
 		$this->db->select('*');
 		$this->db->from('kepala_desa');
-		$this->db->where('status_kepegawaian', 'Aktif');
+		$this->db->where('id_kades', $id_kades);
 
 		$hasil = $this->db->get();
 
@@ -370,11 +371,7 @@ class M_warga extends CI_Model
 		OR permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan' OR permohonan_surat.status = 'Belum Tuntas' 
 		OR permohonan_surat.status = 'Selesai')", null, false);
-
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'asc');
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
-		$this->db->order_by('permohonan_surat.waktu', 'DESC');
-		// $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'DESC');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		return $this->db->get();
 	}
@@ -391,11 +388,7 @@ class M_warga extends CI_Model
 		$this->db->where("(permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan'
 		OR permohonan_surat.status = 'Selesai')", null, false);
-
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'asc');
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'DESC');
-		$this->db->order_by('permohonan_surat.waktu', 'DESC');
-		// $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'DESC');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		return $this->db->get();
 	}
@@ -409,9 +402,7 @@ class M_warga extends CI_Model
 		$this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
 		$this->db->where('permohonan_surat.status_delete', 0);
 		$this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
-		$this->db->order_by('permohonan_surat.waktu', 'desc');
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
-		// $this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		$hasil = $this->db->get();
 		return $hasil;
@@ -426,9 +417,7 @@ class M_warga extends CI_Model
 		$this->db->where('permohonan_surat.id_warga', $this->session->userdata('id_warga'));
 		$this->db->where('permohonan_surat.status_delete', 0);
 		$this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
-		$this->db->order_by('permohonan_surat.waktu', 'desc');
-		// $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'DESC');
-		// $this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		$hasil = $this->db->get();
 		return $hasil;
@@ -445,9 +434,7 @@ class M_warga extends CI_Model
 		$this->db->where('permohonan_surat.status_delete', 0);
 		$this->db->where("(permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan')", null, false);
-		$this->db->order_by('permohonan_surat.waktu', 'desc');
-		// $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'DESC');
-		// $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'DESC');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		$hasil = $this->db->get();
 		return $hasil;
@@ -462,8 +449,7 @@ class M_warga extends CI_Model
 		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
 		$this->db->where('permohonan_surat.id_warga', $id_warga);
 		$this->db->where('permohonan_surat.status', 'Selesai');
-		$this->db->order_by('permohonan_surat.waktu', 'desc');
-		// $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'DESC');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
 		return $this->db->get();
 	}
@@ -478,194 +464,205 @@ class M_warga extends CI_Model
 		$this->db->where('permohonan_surat.tgl_permohonan_surat >=', $tgl_awal);
 		$this->db->where('permohonan_surat.tgl_permohonan_surat <=', $tgl_akhir);
 		$this->db->where('permohonan_surat.status_delete', 0);
-		$this->db->order_by('permohonan_surat.waktu', 'desc');
-		// $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'asc');
 
 		$hasil = $this->db->get();
 
 		return $hasil;
 	}
 
-	// // filter_tanggal_list_history_permohonan selesai
-	// public function filter_tanggal_list_history_permohonan_selesai($id_warga, $tgl_awal, $tgl_akhir)
-	// {
-	// 	$this->db->select('permohonan_surat.*, nama_surat.nama_surat');
-	// 	$this->db->from('permohonan_surat');
-	// 	$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
-	// 	$this->db->where('permohonan_surat.id_warga', $id_warga);
-	// 	$this->db->where('permohonan_surat.status', 'Selesai');
-	// 	$this->db->where('permohonan_surat.tgl_permohonan_surat >=', $tgl_awal);
-	// 	$this->db->where('permohonan_surat.tgl_permohonan_surat <=', $tgl_akhir);
-	// 	$this->db->order_by('permohonan_surat.id_permohonan_surat', 'DESC');
-
-	// 	return $this->db->get();
-	// }
-
-	//get detail suket001
-	public function get_detail_001($id_permohonan_surat)
+	//detail permohonan masuk surat 001
+	public function get_detail_001($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_usaha');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_usaha.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_usaha', 'permohonan_surat.id_permohonan_surat = srt_ket_usaha.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
+		return $hasil;
+	}
+	//detail permohonan masuk surat 002
+	public function get_detail_002($id_permohonan_masuk)
+	{
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_domisili.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_domisili', 'permohonan_surat.id_permohonan_surat = srt_ket_domisili.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
+		$hasil = $this->db->get();
 		return $hasil;
 	}
 
-	//get detail suket002
-	public function get_detail_002($id_permohonan_surat)
+	//detail permohonan masuk surat 003
+	public function get_detail_003($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_domisili');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_belum_memiliki_rumah.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_belum_memiliki_rumah', 'permohonan_surat.id_permohonan_surat = srt_ket_belum_memiliki_rumah.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket003
-	public function get_detail_003($id_permohonan_surat)
+	//detail permohonan masuk surat 004
+	public function get_detail_004($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_belum_memiliki_rumah');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_beda_nama.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_beda_nama', 'permohonan_surat.id_permohonan_surat = srt_ket_beda_nama.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket004
-	public function get_detail_004($id_permohonan_surat)
+	//detail permohonan masuk surat 005
+	public function get_detail_005($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_beda_nama');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_izin_keramaian.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_izin_keramaian', 'permohonan_surat.id_permohonan_surat = srt_izin_keramaian.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket005
-	public function get_detail_005($id_permohonan_surat)
+	//detail permohonan masuk surat 006
+	public function get_detail_006($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_izin_keramaian');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_belum_pernah_menikah.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_belum_pernah_menikah', 'permohonan_surat.id_permohonan_surat = srt_ket_belum_pernah_menikah.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket006
-	public function get_detail_006($id_permohonan_surat)
+	//detail permohonan masuk surat 007
+	public function get_detail_007($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_belum_pernah_menikah');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_tidak_mampu.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_tidak_mampu', 'permohonan_surat.id_permohonan_surat = srt_ket_tidak_mampu.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket007
-	public function get_detail_007($id_permohonan_surat)
+	//detail permohonan masuk surat 008
+	public function get_detail_008($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_tidak_mampu');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_janda.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_janda', 'permohonan_surat.id_permohonan_surat = srt_ket_janda.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket008
-	public function get_detail_008($id_permohonan_surat)
+	//detail permohonan masuk surat 009
+	public function get_detail_009($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_janda');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_kematian.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_kematian', 'permohonan_surat.id_permohonan_surat = srt_ket_kematian.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket009
-	public function get_detail_009($id_permohonan_surat)
+	//detail permohonan masuk surat 010
+	public function get_detail_010($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_kematian');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_kelahiran.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_kelahiran', 'permohonan_surat.id_permohonan_surat = srt_ket_kelahiran.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket010
-	public function get_detail_010($id_permohonan_surat)
+	//detail permohonan masuk surat 011
+	public function get_detail_011($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_kelahiran');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_pengantar_ktp.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_pengantar_ktp', 'permohonan_surat.id_permohonan_surat = srt_pengantar_ktp.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket011
-	public function get_detail_011($id_permohonan_surat)
+	//detail permohonan masuk surat 012
+	public function get_detail_012($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_pengantar_ktp');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_pengantar_kk.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_pengantar_kk', 'permohonan_surat.id_permohonan_surat = srt_pengantar_kk.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket012
-	public function get_detail_012($id_permohonan_surat)
+	//detail permohonan masuk surat 013
+	public function get_detail_013($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_pengantar_kk');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_penghasilan.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_penghasilan', 'permohonan_surat.id_permohonan_surat = srt_ket_penghasilan.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
-	//get detail suket013
-	public function get_detail_013($id_permohonan_surat)
+	//detail permohonan masuk surat 014
+	public function get_detail_014($id_permohonan_masuk)
 	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_penghasilan');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
+		$this->db->select('permohonan_surat.*, nama_surat.nama_surat, srt_ket_pindah.*');
+		$this->db->from('permohonan_surat');
+		$this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
+		$this->db->join('srt_ket_pindah', 'permohonan_surat.id_permohonan_surat = srt_ket_pindah.id_permohonan_surat', 'INNER');
+		$this->db->where('permohonan_surat.id_permohonan_surat', $id_permohonan_masuk);
+		$this->db->where('permohonan_surat.status_delete', 0);
 
 		$hasil = $this->db->get();
-
-		return $hasil;
-	}
-
-	//get detail suket014
-	public function get_detail_014($id_permohonan_surat)
-	{
-		$this->db->select('*');
-		$this->db->from('srt_ket_pindah');
-		$this->db->where('id_permohonan_surat', $id_permohonan_surat);
-
-		$hasil = $this->db->get();
-
 		return $hasil;
 	}
 
@@ -674,5 +671,57 @@ class M_warga extends CI_Model
 	{
 		$this->db->where('id_permohonan_surat', $id);
 		$this->db->update('permohonan_surat', $data);
+	}
+
+	//cek data warga untuk ubah katasandi
+	public function cek_warga($id)
+	{
+		$query = $this->db->get_where('warga', ['id_warga' => $id]);
+		return $query->row_array();
+	}
+
+	//get data kades akktif
+	public function cek_kades()
+	{
+		$query = $this->db->get_where('kepala_desa', ['status_delete' => '0']);
+		return $query->row_array();
+	}
+
+	//get id kades-- nggak kepakai
+	public function get_id_kades($id_permohonan)
+	{
+		$query = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' => $id_permohonan]);
+		return $query->row_array();
+	}
+
+	//get permohonan buat if di lihat surat
+	public function get_permohonan($id_permohonan)
+	{
+		$query = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' => $id_permohonan]);
+		return $query->row_array();
+	}
+
+	//get data kades untuk preview dan cetak surat
+	public function get_kades($id_kades)
+	{
+		$this->db->select('*');
+		$this->db->from('kepala_desa');
+		$this->db->where('id_kades', $id_kades);
+
+		$hasil = $this->db->get();
+
+		return $hasil;
+	}
+
+	//get data pejabat untuk preview dan cetak surat
+	public function get_pejabat($id_pejabat_berwenang)
+	{
+		$this->db->select('*');
+		$this->db->from('pejabat_berwenang');
+		$this->db->where('id_pejabat_berwenang', $id_pejabat_berwenang);
+
+		$hasil = $this->db->get();
+
+		return $hasil;
 	}
 }

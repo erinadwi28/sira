@@ -24,6 +24,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_jumlah['data_kades'] = $this->m_admin->ambil_nama_kades()->result();
                 $data_jumlah['jumlah_rt'] = $this->m_admin->jumlah_rt()->result();
@@ -49,6 +50,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
@@ -74,6 +76,7 @@ class Admin extends CI_Controller
 
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
@@ -136,38 +139,42 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_profil_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']                 = 'foto_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_admin = $this->input->post('id_admin');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/admin/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '50%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
 
-                                        $data['foto_profil_admin'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $config['new_image'] = './../assets/uploads/admin/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        // $data_detail = $this->input->post('id_warga');
+                                $item = $this->db->where('id_admin', $id_admin)->get('admin')->row();
 
-                                        $this->db->where('id_admin', $id_admin);
-                                        $this->db->update('admin', $data);
+                                //replace foto lama 
+                                if ($item->foto_profil_admin != "placeholder_profil.png") {
+                                        $target_file = './../assets/uploads/admin/' . $item->foto_profil_admin;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_profil_admin'] = $uploadData['file_name'];
+
+                                $this->db->where('id_admin', $id_admin);
+                                $this->db->update('admin', $data);
                         }
                 }
         }
@@ -188,38 +195,41 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
                 $config['file_name']                 = 'foto_ktp_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_admin = $this->input->post('id_admin');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/admin/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '90%';
+                                $config['width'] = 800;
+                                $config['height'] = 400;
+                                $config['new_image'] = './../assets/uploads/admin/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $data['foto_ktp_admin'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $item = $this->db->where('id_admin', $id_admin)->get('admin')->row();
 
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_admin', $id_admin);
-                                        $this->db->update('admin', $data);
+                                //replace foto lama 
+                                if ($item->foto_ktp_admin != "placeholder_ktp.png") {
+                                        $target_file = './../assets/uploads/admin/' . $item->foto_ktp_admin;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_ktp_admin'] = $uploadData['file_name'];
+
+                                $this->db->where('id_admin', $id_admin);
+                                $this->db->update('admin', $data);
                         }
                 }
         }
@@ -240,38 +250,41 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_kk_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_kk_admin-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_admin = $this->input->post('id_admin');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/admin/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '90%';
+                                $config['width'] = 900;
+                                $config['height'] = 700;
+                                $config['new_image'] = './../assets/uploads/admin/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $data['foto_kk_admin'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $item = $this->db->where('id_admin', $id_admin)->get('admin')->row();
 
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_admin', $id_admin);
-                                        $this->db->update('admin', $data);
+                                //replace foto lama 
+                                if ($item->foto_kk_admin != "placeholder_kk.png") {
+                                        $target_file = './../assets/uploads/admin/' . $item->foto_kk_admin;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_kk_admin'] = $uploadData['file_name'];
+
+                                $this->db->where('id_admin', $id_admin);
+                                $this->db->update('admin', $data);
                         }
                 }
         }
@@ -283,6 +296,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_admin' => $id_admin);
                 $data_detail['detail_profil_saya'] = $this->m_admin->get_detail_profil_saya($detailhere, 'admin')->result();
@@ -297,16 +311,26 @@ class Admin extends CI_Controller
         // aksi ubah kata sandi profil saya
         public function aksi_ubah_kata_sandi_profil_saya()
         {
+                $kata_sandi_awal = $this->input->post('kata_sandi_awal');
+                $data_lama = sha1($kata_sandi_awal);
+
                 $kata_sandi = $this->input->post('kata_sandi');
                 $kata_sandi_hash = sha1($kata_sandi);
-                $data = array(
+
+                $data_baru = array(
                         'kata_sandi' => $kata_sandi_hash,
                 );
 
                 $where = $this->input->post('id_admin');
 
-                if ($this->m_admin->ubah_kata_sandi_profil_saya($where, $data, 'admin')); {
-                        $this->session->set_flashdata('success', 'diubah');
+                $admin = $this->m_admin->cek_admin($where);
+
+                if ($data_lama === $admin['kata_sandi']) {
+                        $this->m_admin->ubah_kata_sandi_profil_saya($where, $data_baru, 'admin');
+                        $this->session->set_flashdata('success', '<b>Kata Sandi</b> Berhasil Diubah');
+                        redirect('admin/form_ubah_kata_sandi_profil_saya/' . $where);
+                } else {
+                        $this->session->set_flashdata('error', '<b>Kata Sandi Lama</b> Salah');
                         redirect('admin/form_ubah_kata_sandi_profil_saya/' . $where);
                 }
         }
@@ -318,6 +342,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_kades['data_kades'] = $this->m_admin->get_data_kades()->result();
 
@@ -335,6 +360,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_kades' => $id_kades);
                 $data_detail['detail_kades'] = $this->m_admin->get_detail_kades($detailhere, 'kepala_desa')->result();
@@ -362,6 +388,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -410,6 +437,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_kades' => $id_kades);
                 $data_detail['detail_kades'] = $this->m_admin->get_detail_kades($detailhere, 'kepala_desa')->result();
@@ -470,38 +498,42 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_kades = $this->input->post('id_kades');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '50%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
 
-                                        $data['foto_profil_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $config['new_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        // $data_detail = $this->input->post('id_warga');
+                                $item = $this->db->where('id_kades', $id_kades)->get('kepala_desa')->row();
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa', $data);
+                                //replace foto lama 
+                                if ($item->foto_profil_kades != "placeholder_profil.png") {
+                                        $target_file = './../assets/uploads/kades/' . $item->foto_profil_kades;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_profil_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa', $data);
                         }
                 }
         }
@@ -522,38 +554,41 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_ktp_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_kades = $this->input->post('id_kades');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '80%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
+                                $config['new_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $data['foto_ktp_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $item = $this->db->where('id_kades', $id_kades)->get('kepala_desa')->row();
 
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa', $data);
+                                //replace foto lama 
+                                if ($item->foto_ktp_kades != "placeholder_ktp.png") {
+                                        $target_file = './../assets/uploads/kades/' . $item->foto_ktp_kades;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_ktp_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa', $data);
                         }
                 }
         }
@@ -574,38 +609,42 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_kk_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_kades = $this->input->post('id_kades');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '90%';
+                                $config['width'] = 900;
+                                $config['height'] = 700;
 
-                                        $data['foto_kk_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $config['new_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        // $data_detail = $this->input->post('id_warga');
+                                $item = $this->db->where('id_kades', $id_kades)->get('kepala_desa')->row();
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa', $data);
+                                //replace foto lama 
+                                if ($item->foto_kk_kades != "placeholder_kk.png") {
+                                        $target_file = './../assets/uploads/kades/' . $item->foto_kk_kades;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_kk_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa', $data);
                         }
                 }
         }
@@ -626,37 +665,42 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/kades/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_ttd_kades-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_kades = $this->input->post('id_kades');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                if ($this->upload->do_upload('file')) {
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        $uploadData = $this->upload->data();
+                                $uploadData = $this->upload->data();
 
-                                        $data['foto_ttd_kades'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '50%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
 
-                                        // $data_detail = $this->input->post('id_warga');
+                                $config['new_image'] = './../assets/uploads/kades/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $this->db->where('id_kades', $id_kades);
-                                        $this->db->update('kepala_desa', $data);
+                                $item = $this->db->where('id_kades', $id_kades)->get('kepala_desa')->row();
+
+                                //replace foto lama 
+                                if ($item->foto_ttd_kades != "placeholder_ttd.png") {
+                                        $target_file = './../assets/uploads/kades/' . $item->foto_ttd_kades;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_ttd_kades'] = $uploadData['file_name'];
+
+                                $this->db->where('id_kades', $id_kades);
+                                $this->db->update('kepala_desa', $data);
                         }
                 }
         }
@@ -677,6 +721,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_kades['data_kades'] = $this->m_admin->get_data_mantan_kades()->result();
 
@@ -695,6 +740,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -710,13 +756,18 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $nik_kades = $this->input->post('nik');
                 $detailhere = array('nik' => $nik_kades);
                 $data_detail['detail_kades'] = $this->m_admin->cari_nik_kades($detailhere, 'kepala_desa')->result();
 
-                if ($this->m_admin->cari_nik_kades($detailhere, 'kepala_desa')) {
-                        // $this->session->set_flashdata('success', 'ditemukan');
+                $kades = $this->m_admin->cek_nik_kades($nik_kades);
+
+                if ($nik_kades === $kades['nik']) {
+                        $this->m_admin->cari_nik_kades($detailhere, 'kepala_desa');
+
+                        $this->session->set_flashdata('success', 'Data Berhasil Ditemukan');
 
                         $this->load->view('header');
                         $this->load->view('admin/sidebar_admin');
@@ -724,7 +775,8 @@ class Admin extends CI_Controller
                         $this->load->view('admin/form_ubah_kata_sandi_kades', $data_detail);
                         $this->load->view('footer');
                 } else {
-                        $this->session->set_flashdata('error', 'tidak ditemukan');
+                        $this->session->set_flashdata('error', '<b>NIK</b> Tidak Ditemukan');
+                        redirect('admin/form_cari_nik_ubah_kata_sandi_kades');
                 }
         }
 
@@ -752,6 +804,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_rt['data_rt'] = $this->m_admin->get_data_rt()->result();
 
@@ -769,6 +822,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -784,22 +838,34 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $nik_warga = $this->input->post('nik');
                 $detailhere = array('nik' => $nik_warga);
                 $data_detail['detail_warga'] = $this->m_admin->cari_nik_calon_rt($detailhere, 'warga')->result();
 
-                if ($this->m_admin->cari_nik_calon_rt($detailhere, 'warga')) {
-                        // $this->session->set_flashdata('success', 'Data Berhasil Ditemukan');
+                $warga = $this->m_admin->cek_nik_warga($nik_warga);
 
-                        $this->load->view('header');
-                        $this->load->view('admin/sidebar_admin');
-                        $this->load->view('topbar', $data);
-                        $this->load->view('admin/form_tambah_rt', $data_detail);
-                        $this->load->view('footer');
+                if ($nik_warga === $warga['nik']) {
+                        // $this->session->set_flashdata('success', 'Data Berhasil Ditemukan');
+                        $rt = $this->m_admin->cek_nik_rt($nik_warga);
+                        if ($nik_warga !== $rt['nik']) {
+
+                                $this->m_admin->cari_nik_calon_rt($detailhere, 'warga');
+                                $this->session->set_flashdata('success', 'Data Berhasil Ditemukan. Pastikan Data Benar Lalu Klik <b>Acak Password</b>');
+
+                                $this->load->view('header');
+                                $this->load->view('admin/sidebar_admin');
+                                $this->load->view('topbar', $data);
+                                $this->load->view('admin/form_tambah_rt', $data_detail);
+                                $this->load->view('footer');
+                        } else {
+                                $this->session->set_flashdata('error', '<b>NIK</b> Sudah Terdaftar Sebagai Ketua RT');
+                                redirect('admin/form_tambah_rt');
+                        }
                 } else {
-                        $this->session->set_flashdata('error', 'Data Tidak Ditemukan');
-                        echo "gagal";
+                        $this->session->set_flashdata('error', '<b>NIK</b> Tidak Ditemukan');
+                        redirect('admin/form_tambah_rt');
                 }
         }
 
@@ -828,6 +894,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_detail['detail_rt'] = $this->m_admin->get_detail_rt($id_rt)->result();
 
@@ -851,6 +918,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = $id_rt;
                 $data_detail['detai_rt'] = $this->m_admin->get_detail_rt($detailhere, 'rt')->result();
@@ -907,7 +975,7 @@ class Admin extends CI_Controller
                 }
         }
 
-        // upload foto profil warga
+        // upload foto profil rt
         public function upload_foto_profil_rt()
         {
                 $where = $this->input->post('id_rt');
@@ -918,43 +986,45 @@ class Admin extends CI_Controller
                 redirect('admin/detail_data_rt/' . $where);
         }
 
-        //upload foto profil warga
+        //upload foto profil rt
         private function aksi_upload_foto_profil_rt($id_rt)
         {
                 $config['upload_path']          = './../assets/uploads/rt/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_rt-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_rt-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_rt = $this->input->post('id_rt');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                if ($this->upload->do_upload('file')) {
+                                $uploadData = $this->upload->data();
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/rt/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '50%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
 
-                                        $uploadData = $this->upload->data();
+                                $config['new_image'] = './../assets/uploads/rt/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $data['foto_profil_rt'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $item = $this->db->where('id_rt', $id_rt)->get('rt')->row();
 
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_rt', $id_rt);
-                                        $this->db->update('rt', $data);
+                                //replace foto lama 
+                                if ($item->foto_profil_rt != "placeholder_profil.png") {
+                                        $target_file = './../assets/uploads/rt/' . $item->foto_profil_rt;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_profil_rt'] = $uploadData['file_name'];
+                                $this->db->where('id_rt', $id_rt);
+                                $this->db->update('rt', $data);
                         }
                 }
         }
@@ -1026,12 +1096,14 @@ class Admin extends CI_Controller
         {
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_rt['data_rt'] = $this->m_admin->get_data_mantan_rt()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin', $data);
-                $this->load->view('topbar');
+                $this->load->view('topbar', $data);
                 $this->load->view('admin/list_data_mantan_rt', $data_rt);
                 $this->load->view('footer');
         }
@@ -1044,6 +1116,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -1059,12 +1132,18 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = $this->input->post('nik');
                 $data_detail['detail_rt'] = $this->m_admin->get_detail_rt_ubah_kata_sandi($detailhere)->result();
 
-                if ($this->m_admin->get_detail_rt($detailhere)) {
-                        // $this->session->set_flashdata('success', 'Data Berhasil Ditemukan');
+                $rt = $this->m_admin->cek_nik_rt($detailhere);
+
+                if ($detailhere === $rt['nik']) {
+
+                        $this->m_admin->get_detail_rt($detailhere);
+
+                        $this->session->set_flashdata('success', 'Data Berhasil Ditemukan');
 
                         $this->load->view('header');
                         $this->load->view('admin/sidebar_admin');
@@ -1072,8 +1151,8 @@ class Admin extends CI_Controller
                         $this->load->view('admin/form_ubah_kata_sandi_rt', $data_detail);
                         $this->load->view('footer');
                 } else {
-                        $this->session->set_flashdata('error', 'Data Tidak Ditemukan');
-                        echo "gagal";
+                        $this->session->set_flashdata('error', '<b>NIK</b> Tidak Ditemukan');
+                        redirect('admin/form_cari_nik_ubah_kata_sandi_rt');
                 }
         }
 
@@ -1101,6 +1180,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_warga['data_warga'] = $this->m_admin->get_data_warga()->result();
 
@@ -1118,6 +1198,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $where = array('id_warga' => $id_warga);
                 $data_detail['detail_warga'] = $this->m_admin->get_detail_warga($where, 'warga')->result();
@@ -1142,6 +1223,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -1189,6 +1271,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $where = array('id_warga' => $id_warga);
                 $data_detail['detail_warga'] = $this->m_admin->get_detail_warga($where, 'warga')->result();
@@ -1218,7 +1301,6 @@ class Admin extends CI_Controller
                         'pekerjaan' => $this->input->post('pekerjaan'),
                         'kewarganegaraan' => $this->input->post('kewarganegaraan'),
                         'golongan_darah' => $this->input->post('golongan_darah'),
-                        'kata_sandi' => $this->input->post('kata_sandi'),
                         'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
                         'no_kk' => $this->input->post('no_kk'),
                         'status_hub_kel' => $this->input->post('status_hub_kel'),
@@ -1248,38 +1330,40 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/warga/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_warga = $this->input->post('id_warga');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                if ($this->upload->do_upload('file')) {
+                                $uploadData = $this->upload->data();
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/warga/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '50%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
 
-                                        $uploadData = $this->upload->data();
+                                $config['new_image'] = './../assets/uploads/warga/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $data['foto_profil_warga'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $item = $this->db->where('id_warga', $id_warga)->get('warga')->row();
 
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_warga', $id_warga);
-                                        $this->db->update('warga', $data);
+                                //replace foto lama 
+                                if ($item->foto_profil_warga != "placeholder_profil.png") {
+                                        $target_file = './../assets/uploads/warga/' . $item->foto_profil_warga;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_profil_warga'] = $uploadData['file_name'];
+                                $this->db->where('id_warga', $id_warga);
+                                $this->db->update('warga', $data);
                         }
                 }
         }
@@ -1312,36 +1396,41 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/warga/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_ktp_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_warga = $this->input->post('id_warga');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
 
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                if ($this->upload->do_upload('file')) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $uploadData = $this->upload->data();
 
-                                        $uploadData = $this->upload->data();
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/warga/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '80%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
+                                $config['new_image'] = './../assets/uploads/warga/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $data['foto_ktp_warga'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                $item = $this->db->where('id_warga', $id_warga)->get('warga')->row();
 
-                                        $this->db->where('id_warga', $id_warga);
-                                        $this->db->update('warga', $data);
+                                //replace foto lama 
+                                if ($item->foto_ktp_warga != "placeholder_ktp.png") {
+                                        $target_file = './../assets/uploads/warga/' . $item->foto_ktp_warga;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_ktp_warga'] = $uploadData['file_name'];
+
+                                $this->db->where('id_warga', $id_warga);
+                                $this->db->update('warga', $data);
                         }
                 }
         }
@@ -1374,35 +1463,41 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/warga/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'foto_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'foto_kk_warga-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_warga = $this->input->post('id_warga');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
 
-                                if ($this->upload->do_upload('file')) {
+                if (!empty($_FILES['berkas']['name'])) {
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                        if ($this->upload->do_upload('berkas')) {
 
-                                        $uploadData = $this->upload->data();
+                                $uploadData = $this->upload->data();
 
-                                        $data['foto_kk_warga'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/warga/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '90%';
+                                $config['width'] = 900;
+                                $config['height'] = 700;
+                                $config['new_image'] = './../assets/uploads/warga/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
 
-                                        $this->db->where('id_warga', $id_warga);
-                                        $this->db->update('warga', $data);
+                                $item = $this->db->where('id_warga', $id_warga)->get('warga')->row();
+
+                                //replace foto lama 
+                                if ($item->foto_kk_warga != "placeholder_kk.png") {
+                                        $target_file = './../assets/uploads/warga/' . $item->foto_kk_warga;
+                                        unlink($target_file);
                                 }
+
+                                $data['foto_kk_warga'] = $uploadData['file_name'];
+
+                                $this->db->where('id_warga', $id_warga);
+                                $this->db->update('warga', $data);
                         }
                 }
         }
@@ -1424,6 +1519,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -1439,13 +1535,18 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
-                $nik_kades = $this->input->post('nik');
-                $detailhere = array('nik' => $nik_kades);
+                $nik_warga = $this->input->post('nik');
+                $detailhere = array('nik' => $nik_warga);
                 $data_detail['detail_warga'] = $this->m_admin->cari_nik_warga($detailhere, 'warga')->result();
 
-                if ($this->m_admin->cari_nik_warga($detailhere, 'warga')) {
-                        // $this->session->set_flashdata('success', 'ditemukan');
+                $warga = $this->m_admin->cek_nik_warga($nik_warga);
+
+                if ($nik_warga === $warga['nik']) {
+                        $this->m_admin->cari_nik_warga($detailhere, 'warga');
+
+                        $this->session->set_flashdata('success', 'Data Berhasil Ditemukan');
 
                         $this->load->view('header');
                         $this->load->view('admin/sidebar_admin');
@@ -1453,7 +1554,8 @@ class Admin extends CI_Controller
                         $this->load->view('admin/form_ubah_kata_sandi_warga', $data_detail);
                         $this->load->view('footer');
                 } else {
-                        $this->session->set_flashdata('error', 'tidak ditemukan');
+                        $this->session->set_flashdata('error', '<b>NIK</b> Tidak Ditemukan');
+                        redirect('admin/form_cari_nik_ubah_kata_sandi_warga');
                 }
         }
 
@@ -1481,6 +1583,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_permohonan['data_permohonan_masuk'] = $this->m_admin->get_list_permohonan_masuk()->result();
 
@@ -1498,6 +1601,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 if ($id_nama_surat == 1) {
                         $data_detail['detail_permohonan_masuk'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
@@ -1573,6 +1677,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_permohonan['data_permohonan_ditolak'] = $this->m_admin->get_list_permohonan_ditolak()->result();
 
@@ -1590,6 +1695,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_permohonan['data_permohonan_selesai'] = $this->m_admin->get_list_permohonan_selesai()->result();
 
@@ -1607,6 +1713,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_permohonan['data_riwayat_permohonan'] = $this->m_admin->get_list_riwayat_permohonan()->result();
 
@@ -1624,6 +1731,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -1666,6 +1774,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_detail['id_permohonan_surat'] = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' =>
                 $id_permohonan_surat])->row_array();
@@ -1702,7 +1811,7 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_001()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
+                        // 'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1724,6 +1833,51 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_usaha')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
+                        // redirect('admin/list_data_permohonan_selesai');
+                }
+        }
+
+        //tampil halaman pilih tanda tangan
+        public function pilih_tanda_tangan($id_permohonan_surat)
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+
+                $data_detail['pejabat'] = $this->m_admin->get_data_pejabat()->result();
+                $data_detail['kades'] = $this->m_admin->get_data_kades()->result();
+                $data_detail['permohonan'] = $this->m_admin->get_id_permohonan($id_permohonan_surat, 'permohonan_surat')->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/pilih_tanda_tangan', $data_detail);
+                $this->load->view('footer');
+        }
+
+        // aksi aksi_tanda_tangan
+        public function aksi_tanda_tangan()
+        {
+                $data = array(
+                        'status_tanda_tangan' => $this->input->post('status_tanda_tangan'),
+                        'id_penanda_tangan' => $this->input->post('id_penanda_tangan'),
+                        'status' => $this->input->post('status'),
+                        'tgl_persetujuan_admin' => date("Y/m/d"),
+                        'notif' => 'Belum Dibaca',
+                        'notif_rt' => 'Belum Dibaca',
+                );
+
+                $detailhere = $this->input->post('id_permohonan_surat');
+
+                $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat');
+
+                if (
+                        $this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')
+                ); {
+                        $this->session->set_flashdata('success', 'disetujui');
                         redirect('admin/list_data_permohonan_selesai');
                 }
         }
@@ -1732,7 +1886,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_002()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1754,7 +1907,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_domisili')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1762,7 +1915,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_003()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1784,7 +1936,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_memiliki_rumah')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1792,7 +1944,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_004()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1814,7 +1965,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_beda_nama')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1822,7 +1973,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_005()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1844,7 +1994,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_izin_keramaian')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1852,7 +2002,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_006()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1874,7 +2023,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_belum_pernah_menikah')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1882,7 +2031,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_007()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1904,7 +2052,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_tidak_mampu')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1912,7 +2060,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_008()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1934,7 +2081,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_janda')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1942,7 +2089,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_009()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1964,7 +2110,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kematian')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -1972,7 +2118,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_010()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -1994,7 +2139,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_kelahiran')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -2002,7 +2147,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_011()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -2024,7 +2168,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_pengantar_ktp')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -2032,7 +2176,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_012()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -2045,7 +2188,7 @@ class Admin extends CI_Controller
 
                 if ($this->m_admin->update_status_permohonan($detailhere, $data, 'permohonan_surat')); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -2053,7 +2196,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_013()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -2075,7 +2217,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_penghasilan')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -2083,7 +2225,6 @@ class Admin extends CI_Controller
         public function aksi_setujui_permohonan_014()
         {
                 $data = array(
-                        'status' => $this->input->post('status'),
                         'tgl_persetujuan_admin' => date("Y/m/d"),
                         'notif' => 'Belum Dibaca',
                         'notif_rt' => 'Belum Dibaca',
@@ -2105,7 +2246,7 @@ class Admin extends CI_Controller
                         && $this->m_admin->update_nomor_admin_surat($detailhere, $data_surat, 'srt_ket_pindah')
                 ); {
                         $this->session->set_flashdata('success', 'disetujui');
-                        redirect('admin/list_data_permohonan_selesai');
+                        redirect('admin/pilih_tanda_tangan/' . $detailhere);
                 }
         }
 
@@ -2117,6 +2258,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_list['data_surat_masuk'] = $this->m_admin->get_data_surat_masuk()->result();
 
@@ -2134,6 +2276,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_sm' => $id_sm);
                 $data_detail['detail_surat_masuk'] = $this->m_admin->get_detail_surat_masuk($detailhere, 'surat_masuk')->result();
@@ -2154,6 +2297,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -2188,36 +2332,18 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sm/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'lampiran_surat_masuk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'lampiran_surat_masuk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                if ($this->upload->do_upload('file')) {
+                                $uploadData = $this->upload->data();
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $data['lampiran'] = $uploadData['file_name'];
 
-                                        $uploadData = $this->upload->data();
-
-                                        $data['lampiran'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
-
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_sm', $id_sm);
-                                        $this->db->update('surat_masuk', $data);
-                                }
+                                $this->db->where('id_sm', $id_sm);
+                                $this->db->update('surat_masuk', $data);
                         }
                 }
         }
@@ -2229,6 +2355,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_sm' => $id_sm);
                 $data_detail['detail_surat_masuk'] = $this->m_admin->get_detail_surat_masuk($detailhere, 'surat_masuk')->result();
@@ -2275,37 +2402,27 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sm/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'lampiran_surat_masuk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'lampiran_surat_masuk-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_sm = $this->input->post('id_sm');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                if ($this->upload->do_upload('file')) {
+                                $uploadData = $this->upload->data();
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $item = $this->db->where('id_sm', $id_sm)->get('surat_masuk')->row();
 
-                                        $uploadData = $this->upload->data();
-
-                                        $data['lampiran'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
-
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_sm', $id_sm);
-                                        $this->db->update('surat_masuk', $data);
+                                //replace foto lama 
+                                if ($item->lampiran != NULL) {
+                                        $target_file = './../assets/uploads/admin/lampiran_sm/' . $item->lampiran;
+                                        unlink($target_file);
                                 }
+
+                                $data['lampiran'] = $uploadData['file_name'];
+
+                                $this->db->where('id_sm', $id_sm);
+                                $this->db->update('surat_masuk', $data);
                         }
                 }
         }
@@ -2333,6 +2450,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -2377,6 +2495,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_list['data_surat_keluar'] = $this->m_admin->get_data_surat_keluar()->result();
 
@@ -2394,6 +2513,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_sk' => $id_sk);
                 $data_detail['detail_surat_keluar'] = $this->m_admin->get_detail_surat_keluar($detailhere, 'surat_keluar')->result();
@@ -2414,6 +2534,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $this->load->view('header');
                 $this->load->view('admin/sidebar_admin');
@@ -2448,36 +2569,18 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sk/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'lampiran_surat_keluar-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'lampiran_surat_keluar-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                if ($this->upload->do_upload('file')) {
+                                $uploadData = $this->upload->data();
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $data['lampiran'] = $uploadData['file_name'];
 
-                                        $uploadData = $this->upload->data();
-
-                                        $data['lampiran'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
-
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_sk', $id_sk);
-                                        $this->db->update('surat_keluar', $data);
-                                }
+                                $this->db->where('id_sk', $id_sk);
+                                $this->db->update('surat_keluar', $data);
                         }
                 }
         }
@@ -2489,6 +2592,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_sk' => $id_sk);
                 $data_detail['detail_surat_keluar'] = $this->m_admin->get_detail_surat_keluar($detailhere, 'surat_keluar')->result();
@@ -2535,37 +2639,27 @@ class Admin extends CI_Controller
         {
                 $config['upload_path']          = './../assets/uploads/admin/lampiran_sk/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|doc|xlsx|xls';
-                // $config['max_size']             = 2048;
-                $config['file_name']                 = 'lampiran_surat_keluar-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $config['file_name']            = 'lampiran_surat_keluar-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
                 $this->load->library('upload', $config);
                 $id_sk = $this->input->post('id_sk');
-                $jumlah_berkas = count($_FILES['berkas']['name']);
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                        if (!empty($_FILES['berkas']['name'][$i])) {
-                                $_FILES['file']['name'] = $_FILES['berkas']['name'][$i];
-                                $_FILES['file']['type'] = $_FILES['berkas']['type'][$i];
-                                $_FILES['file']['tmp_name'] = $_FILES['berkas']['tmp_name'][$i];
-                                $_FILES['file']['error'] = $_FILES['berkas']['error'][$i];
-                                $_FILES['file']['size'] = $_FILES['berkas']['size'][$i];
+                if (!empty($_FILES['berkas']['name'])) {
+                        if ($this->upload->do_upload('berkas')) {
 
-                                if ($this->upload->do_upload('file')) {
+                                $uploadData = $this->upload->data();
 
-                                        // $ambil = $this->m_admin->get_foto_profil_warga($id_warga);
-                                        // $r = $ambil->row();
-                                        // unlink(".../assets/uploads/warga/".$r->nama_foto);
+                                $item = $this->db->where('id_sk', $id_sk)->get('surat_keluar')->row();
 
-                                        $uploadData = $this->upload->data();
-
-                                        $data['lampiran'] = $uploadData['file_name'];
-                                        // $data['keterangan'] = $keterangan[$i];
-                                        // $data['id_warga'] = $id_warga;
-
-                                        // $data_detail = $this->input->post('id_warga');
-
-                                        $this->db->where('id_sk', $id_sk);
-                                        $this->db->update('surat_keluar', $data);
+                                //replace foto lama 
+                                if ($item->lampiran != NULL) {
+                                        $target_file = './../assets/uploads/admin/lampiran_sk/' . $item->lampiran;
+                                        unlink($target_file);
                                 }
+
+                                $data['lampiran'] = $uploadData['file_name'];
+
+                                $this->db->where('id_sk', $id_sk);
+                                $this->db->update('surat_keluar', $data);
                         }
                 }
         }
@@ -2593,6 +2687,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $tgl_awal = $this->input->post('tanggal_mulai');
                 $tgl_akhir = $this->input->post('tanggal_akhir');
@@ -2636,8 +2731,14 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
 
                 if ($id_nama_surat == 1) {
@@ -2713,7 +2814,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_001($id_permohonan_surat)->result();
 
@@ -2734,7 +2840,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_002($id_permohonan_surat)->result();
 
@@ -2753,7 +2864,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_003($id_permohonan_surat)->result();
 
@@ -2772,7 +2888,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_004($id_permohonan_surat)->result();
 
@@ -2791,7 +2912,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_005($id_permohonan_surat)->result();
 
@@ -2810,7 +2936,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_006($id_permohonan_surat)->result();
 
@@ -2829,7 +2960,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_007($id_permohonan_surat)->result();
 
@@ -2848,7 +2984,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_008($id_permohonan_surat)->result();
 
@@ -2867,7 +3008,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_009($id_permohonan_surat)->result();
 
@@ -2886,7 +3032,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_010($id_permohonan_surat)->result();
 
                 $dompdf = new Dompdf();
@@ -2904,7 +3055,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_011($id_permohonan_surat)->result();
 
@@ -2923,7 +3079,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_012($id_permohonan_surat)->result();
                 $data_detail['pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
@@ -2943,7 +3104,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_013($id_permohonan_surat)->result();
 
@@ -2962,7 +3128,12 @@ class Admin extends CI_Controller
                 $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
                 $this->session->userdata('id_admin')])->row_array();
 
-                $data_detail['data_kades'] = $this->m_admin->get_data_kades()->result();
+                $permohonan = $this->m_admin->get_permohonan($id_permohonan_surat);
+                if ($permohonan['status_tanda_tangan'] == "Kepala Desa") {
+                        $data_detail['data_kades'] = $this->m_admin->get_kades($permohonan['id_penanda_tangan'])->result();
+                } elseif ($permohonan['status_tanda_tangan'] == "Diwakilkan") {
+                        $data_detail['data_kades'] = $this->m_admin->get_pejabat($permohonan['id_penanda_tangan'])->result();
+                }
                 $data_detail['detail_pemohon'] = $this->m_admin->get_data_pemohon($id_permohonan_surat)->result();
                 $data_detail['detail_suket'] = $this->m_admin->get_detail_014($id_permohonan_surat)->result();
                 $data_detail['pengikut'] = $this->m_admin->get_detail_pengikut($id_permohonan_surat)->result();
@@ -2983,6 +3154,7 @@ class Admin extends CI_Controller
                 $this->session->userdata('id_admin')])->row_array();
                 $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $data_feedback['data_feedback'] = $this->m_admin->get_data_feedback()->result();
 
@@ -2992,6 +3164,8 @@ class Admin extends CI_Controller
                 $this->load->view('admin/list_data_feedback', $data_feedback);
                 $this->load->view('footer');
         }
+
+
 
         //list data feedback belum dibaca
         public function list_data_feedback_belum_dibaca()
@@ -3022,8 +3196,8 @@ class Admin extends CI_Controller
 
                 $this->m_admin->update_status_notif_pesan($id_pesan, $data_pesan, 'pesan');
 
-                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
                 $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
 
                 $detailhere = array('id_pesan' => $id_pesan);
                 $data_detail['detail_feedback'] = $this->m_admin->get_detail_data_feedback($detailhere, 'pesan')->result();
@@ -3033,5 +3207,196 @@ class Admin extends CI_Controller
                 $this->load->view('topbar', $data);
                 $this->load->view('admin/detail_data_feedback', $data_detail);
                 $this->load->view('footer');
+        }
+
+        //list data pejabat berwenang
+        public function list_data_pejabat_berwenang()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+
+                $data_pejabat['data_pejabat'] = $this->m_admin->get_data_pejabat()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_pejabat_berwenang', $data_pejabat);
+                $this->load->view('footer');
+        }
+
+        //list data pejabat berwenang
+        public function list_data_mantan_pejabat_berwenang()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+
+                $data_pejabat['data_pejabat'] = $this->m_admin->get_data_mantan_pejabat()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/list_data_mantan_pejabat_berwenang', $data_pejabat);
+                $this->load->view('footer');
+        }
+
+        //detail data pejabat berwenang
+        public function detail_data_pejabat_berwenang($id_pejabat_berwenang)
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+
+                $detailhere = array('id_pejabat_berwenang' => $id_pejabat_berwenang);
+                $data_detail['detail_pejabat'] = $this->m_admin->get_detail_pejabat($detailhere, 'pejabat_berwenang')->result();
+
+                $data_detail['foto_ttd'] = $this->m_admin->get_foto_ttd_pejabat($id_pejabat_berwenang)->result();
+
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/detail_data_pejabat_berwenang', $data_detail);
+                $this->load->view('footer');
+        }
+
+        // aksi hapus pejabat berwenang
+        public function aksi_hapus_pejabat_berwenang($id_pejabat_berwenang)
+        {
+                $this->m_admin->hapus_pejabat($id_pejabat_berwenang);
+
+                $this->session->set_flashdata('success', 'dinonaktifkan');
+                redirect('admin/list_data_pejabat_berwenang');
+        }
+
+        //tampil form tambah pejabat berwenang
+        public function form_tambah_pejabat_berwenang()
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/form_tambah_pejabat_berwenang');
+                $this->load->view('footer');
+        }
+
+        // aksi tambah data pejabat berwenang
+        public function aksi_tambah_pejabat_berwenang()
+        {
+                $data = array(
+                        'nip' => $this->input->post('nip'),
+                        'nama' => $this->input->post('nama'),
+                        'jabatan' => $this->input->post('jabatan'),
+                        'pangkat_gol' => $this->input->post('pangkat_gol'),
+                );
+
+                $this->m_admin->tambah_pejabat($data);
+                $this->session->set_flashdata('success', 'ditambahkan');
+                redirect('admin/list_data_pejabat_berwenang');
+        }
+
+        // tampil form ubah pejabat berwenang
+        public function form_ubah_pejabat_berwenang($id_pejabat_berwenang)
+        {
+                $data['admin'] = $this->db->get_where('admin', ['id_admin' =>
+                $this->session->userdata('id_admin')])->row_array();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+                $data['jumlah_permohonan_masuk'] = $this->m_admin->jumlah_permohonan_masuk()->result();
+                $data['jumlah_pesan_masuk'] = $this->m_admin->jumlah_pesan_masuk()->result();
+
+                $detailhere = array('id_pejabat_berwenang' => $id_pejabat_berwenang);
+                $data_detail['detail_pejabat'] = $this->m_admin->get_detail_pejabat($detailhere, 'pejabat_berwenang')->result();
+
+                $this->load->view('header');
+                $this->load->view('admin/sidebar_admin');
+                $this->load->view('topbar', $data);
+                $this->load->view('admin/form_ubah_pejabat_berwenang', $data_detail);
+                $this->load->view('footer');
+        }
+
+        // aksi ubah pejabat berwenang
+        public function aksi_ubah_pejabat_berwenang()
+        {
+                $data = array(
+                        'nip' => $this->input->post('nip'),
+                        'nama' => $this->input->post('nama'),
+                        'jabatan' => $this->input->post('jabatan'),
+                        'pangkat_gol' => $this->input->post('pangkat_gol'),
+                );
+
+                $detailhere = $this->input->post('id_pejabat_berwenang');
+
+                $this->m_admin->aksi_ubah_data_pejabat($detailhere, $data, 'pejabat_berwenang');
+
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_pejabat_berwenang/' . $detailhere);
+        }
+
+        // upload foto ttd pejabat berwenang
+        public function upload_foto_ttd_pejabat_berwenang()
+        {
+                $where = $this->input->post('id_pejabat_berwenang');
+                if ($_FILES != null) {
+                        $this->aksi_upload_foto_ttd_pejabat_berwenang($_FILES);
+                }
+                $this->session->set_flashdata('success', 'diubah');
+                redirect('admin/detail_data_pejabat_berwenang/' . $where);
+        }
+
+        //upload foto ttd kades
+        private function aksi_upload_foto_ttd_pejabat_berwenang($id_pejabat_berwenang)
+        {
+                $config['upload_path']          = './../assets/uploads/pejabat_berwenang/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+                $config['file_name']            = 'foto_ttd_pejabat_berwenang-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+                $this->load->library('upload', $config);
+                $id_pejabat_berwenang = $this->input->post('id_pejabat_berwenang');
+
+                if (!empty($_FILES['berkas']['name'])) {
+
+                        if ($this->upload->do_upload('berkas')) {
+
+                                $uploadData = $this->upload->data();
+
+                                //Compres Foto
+                                $config['image_library'] = 'gd2';
+                                $config['source_image'] = './../assets/uploads/pejabat_berwenang/' . $uploadData['file_name'];
+                                $config['create_thumb'] = FALSE;
+                                $config['maintain_ratio'] = TRUE;
+                                $config['quality'] = '50%';
+                                $config['width'] = 600;
+                                $config['height'] = 400;
+
+                                $config['new_image'] = './../assets/uploads/pejabat_berwenang/' . $uploadData['file_name'];
+                                $this->load->library('image_lib', $config);
+                                $this->image_lib->resize();
+
+                                $item = $this->db->where('id_pejabat_berwenang', $id_pejabat_berwenang)->get('pejabat_berwenang')->row();
+
+                                //replace foto lama 
+                                if ($item->ttd_pejabat != "placeholder_ttd.png") {
+                                        $target_file = './../assets/uploads/pejabat_berwenang/' . $item->ttd_pejabat;
+                                        unlink($target_file);
+                                }
+
+                                $data['ttd_pejabat'] = $uploadData['file_name'];
+
+                                $this->db->where('id_pejabat_berwenang', $id_pejabat_berwenang);
+                                $this->db->update('pejabat_berwenang', $data);
+                        }
+                }
         }
 }

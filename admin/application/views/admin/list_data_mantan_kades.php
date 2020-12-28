@@ -32,7 +32,7 @@
                                 <td><?php echo $kades->nama ?></td>
                                 <td><?php echo $kades->alamat ?></td>
                                 <td><label class="badge badge-danger"><i class="fas fa-user-alt-slash"></i> <?php echo $kades->status_kepegawaian ?></label></td>
-                                <td><?php echo $kades->tanggal_dinonaktifkan ?></td>
+							    <td><?= date("d-m-Y", strtotime($kades->tanggal_dinonaktifkan)); ?></td>
                             <?php } ?>
                     </tbody>
                 </table>

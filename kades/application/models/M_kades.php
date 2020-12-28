@@ -63,6 +63,17 @@ class M_kades extends CI_Model
         $hasil = $this->db->get('permohonan_surat');
         return $hasil;
     }
+    
+    // hitung jumlah pesan masuk
+    public function jumlah_pesan_masuk()
+    {
+        $this->db->select('id_pesan, COUNT(id_pesan) as total_pesan_masuk');
+        $this->db->from('pesan');
+        $this->db->where('notif_kades', 'Belum Dibaca');
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 
     // hitung jumlah permohonan ditolak untuk dashboard
     public function jumlah_permohonan_ditolak()
@@ -159,12 +170,16 @@ class M_kades extends CI_Model
         return $hasil;
     }
 
-    // // aksi ubah data profil saya                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ubah data kades
-    // public function aksi_ubah_data_profil_saya($detailhere, $data, $table)
-    // {
-    //     $this->db->where('id_kades', $detailhere);
-    //     $this->db->update($table, $data);
-    // }
+    //ambil foto ttd kades
+    public function get_foto_ttd_kades($id_kades)
+    {
+        $this->db->select('foto_ttd_kades');
+        $this->db->from('kepala_desa');
+        $this->db->where('id_kades', $id_kades);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 
     //aksi ubah kata sandi profil saya
     public function ubah_kata_sandi_profil_saya($where, $data, $table)
@@ -179,6 +194,7 @@ class M_kades extends CI_Model
         $this->db->select('*');
         $this->db->from('admin');
         $this->db->where('status_delete', 0);
+        $this->db->order_by('nama','asc');
 
         $hasil = $this->db->get();
 
@@ -248,6 +264,7 @@ class M_kades extends CI_Model
         $this->db->from('rt');
         $this->db->join('warga', 'rt.id_warga = warga.id_warga', 'INNER');
         $this->db->where('rt.status_delete', 0);
+        $this->db->order_by('nama','asc');
 
         $hasil = $this->db->get();
         return $hasil;
@@ -308,6 +325,7 @@ class M_kades extends CI_Model
         $this->db->select('*');
         $this->db->from('warga');
         $this->db->where('status_delete', 0);
+        $this->db->order_by('nama','asc');
 
         $hasil = $this->db->get();
 
@@ -348,22 +366,6 @@ class M_kades extends CI_Model
         $this->db->select('foto_kk_warga');
         $this->db->from('warga');
         $this->db->where('id_warga', $id_warga);
-
-        $hasil = $this->db->get();
-        return $hasil;
-    }
-
-    //list data permohonan masuk
-    public function get_list_permohonan_masuk()
-    {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
-        $this->db->from('warga');
-        $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
-        $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
-        $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
-        $this->db->where('permohonan_surat.status_delete', 0);
-		$this->db->order_by('permohonan_surat.waktu', 'asc');
-        // $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'asc');
 
         $hasil = $this->db->get();
         return $hasil;
@@ -591,7 +593,7 @@ class M_kades extends CI_Model
 		OR permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan'
         OR permohonan_surat.status = 'Selesai')", null, false);
-		$this->db->order_by('permohonan_surat.waktu', 'desc');
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
         $hasil = $this->db->get();
         return $hasil;
     }
@@ -599,21 +601,19 @@ class M_kades extends CI_Model
     // list data filter riwayat permohonan surat
     public function filter_riwayat($tgl_awal, $tgl_akhir)
     {
-        $this->db->select('permohonan_surat.*, warga.nama, nama_surat.nama_surat');
+        $this->db->select('permohonan_surat.*, warga.nama, warga.nik, nama_surat.nama_surat');
         $this->db->from('warga');
         $this->db->join('permohonan_surat', 'warga.id_warga = permohonan_surat.id_warga', 'INNER');
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->where('permohonan_surat.tgl_permohonan_surat >=', $tgl_awal);
         $this->db->where('permohonan_surat.tgl_permohonan_surat <=', $tgl_akhir);
 
-        // $this->db->where('warga.rt', $this->session->userdata('rt'));
-        // $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Ketua RT');
-        // $this->db->or_where('permohonan_surat.status', 'Menunggu Persetujuan Admin');
-        // $this->db->or_where('permohonan_surat.status', 'Selesai');
-        // $this->db->or_where('permohonan_surat.status', 'Ditolak');
-        $this->db->where('permohonan_surat.status_delete', 0);
-        $this->db->order_by('permohonan_surat.tgl_permohonan_surat', 'desc');
-
+		$this->db->where('permohonan_surat.status_delete', 0);
+		$this->db->where("(permohonan_surat.status = 'Menunggu Persetujuan Kelurahan' 
+		OR permohonan_surat.status = 'Ditolak Ketua RT' 
+		OR permohonan_surat.status = 'Ditolak Kelurahan'
+		OR permohonan_surat.status = 'Selesai')", null, false);
+		$this->db->order_by('permohonan_surat.id_permohonan_surat', 'asc');
 
         $hasil = $this->db->get();
 
@@ -626,7 +626,8 @@ class M_kades extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_masuk');
         $this->db->where('status_delete', 0);
-
+		$this->db->order_by('id_sm', 'desc');
+		
         $hasil = $this->db->get();
 
         return $hasil;
@@ -668,6 +669,7 @@ class M_kades extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_keluar');
         $this->db->where('status_delete', 0);
+		$this->db->order_by('id_sk', 'desc');
 
         $hasil = $this->db->get();
 
@@ -709,16 +711,42 @@ class M_kades extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('pesan');
-        $this->db->order_by('waktu', 'desc');
+        $this->db->order_by('id_pesan', 'desc');
 
         $hasil = $this->db->get();
 
         return $hasil;
+    }
+    
+    // list data feedback belum dibaca
+    public function get_data_feedback_belum_dibaca()
+    {
+        $this->db->select('*');
+        $this->db->from('pesan');
+        $this->db->where('notif_kades', 'Belum Dibaca');
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+    
+    //update status pesan notif kades
+    public function update_status_notif_pesan($detailhere, $data, $table)
+    {
+        $this->db->where('id_pesan', $detailhere);
+        $this->db->update($table, $data);
     }
 
     // detail feedback
     public function get_detail_data_feedback($detailhere, $tabel)
     {
         return $this->db->get_where($tabel, $detailhere);
+    }
+
+    //cek data kades untuk ubah katasandi
+	public function cek_kades($id)
+	{
+		$query = $this->db->get_where('kepala_desa', ['id_kades' => $id]); 
+		return $query->row_array();
     }
 }

@@ -98,9 +98,9 @@
                                                 <div class="col-sm-8">
                                                     <div class="form-line">
                                                         <select class="form-control " id="status_perkawinan" name="status_perkawinan">
-                                                            <option value="Laki-Laki" <?= ($detail->jenis_kelamin == 'Laki-Laki' ? ' selected' : ''); ?> class="form-user-input">Laki-Laki
+                                                            <option value="Kawin" <?= ($detail->status_perkawinan == 'Kawin' ? ' selected' : ''); ?> class="form-user-input">Kawin
                                                             </option>
-                                                            <option value="Perempuan" <?= ($detail->jenis_kelamin == 'Perempuan' ? ' selected' : ''); ?> class="form-user-input">Perempuan
+                                                            <option value="Belum Kawin" <?= ($detail->status_perkawinan == 'Belum Kawin' ? ' selected' : ''); ?> class="form-user-input">Belum Kawin
                                                             </option>
                                                         </select>
                                                         <i class=" fas fa-check-circle"></i>

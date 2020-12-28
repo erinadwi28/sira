@@ -1,0 +1,69 @@
+.form-group-ubahSandi {
+	position: relative;
+	padding-bottom: 5px;
+}
+
+.form-group-ubahSandi i {
+	position: absolute;
+	top: 43px;
+	right: 20px;
+	visibility: hidden;
+}
+
+.form-group-ubahSandi.successubahSandi i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+	top: 10px;
+	right: 20px;
+
+}
+
+.form-group-ubahSandi.errorubahSandi i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+	top: 10px;
+	right: 20px;
+	/* left: 350px; */
+
+}
+
+.form-group-ubahSandi small {
+	visibility: hidden;
+	position: absolute;
+	bottom: 10;
+	left: 0;
+}
+
+.form-group-ubahSandi.successubahSandi input {
+	border-color: #2ecc71;
+}
+.form-group-ubahSandi.errorubahSandi input {
+	border-color: #e74c3c;
+}
+
+.form-group-ubahSandi.successubahSandi textarea {
+	border-color: #2ecc71;
+}
+.form-group-ubahSandi.errorubahSandi textarea {
+	border-color: #e74c3c;
+}
+
+.form-group-ubahSandi.successubahSandi select {
+	border-color: #2ecc71;
+}
+
+.form-group-ubahSandi.errorubahSandi select {
+	border-color: #e74c3c;
+}
+
+.custom-select.successubahSandi {
+	border-color: #2ecc71;
+}
+
+.form-group-ubahSandi.errorubahSandi small {
+	color: #e74c3c;
+	visibility: visible;
+	font-size: px;
+	margin-left: 0px;
+	margin-bottom: -10px;
+}

@@ -1,4 +1,4 @@
-<!-- Begin Page Content -->
+ <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -40,11 +40,11 @@
 							</a>
 						<?php } ?>
 					</center>
-
 				</div>
-
+				
+				<!-- Upload Foto Profil -->
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/rt/rt/upload_foto_profil" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_profil_rt">
+					<form action="<?= base_url('rt/upload_foto_profil') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_profil_rt">
 						<?php
 						foreach ($detail_profil_saya as $saya) { ?>
 							<div class="form-group ml-2 mr-2">
@@ -53,7 +53,7 @@
 										<div class="custom-file">
 											<label class="custom-file-label" for="file-upload-profil">pilih foto
 												profil...</label>
-											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
+											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
 											<input type="hidden" class="form-control form-user-input" name="id_rt" id="id_rt" value="<?= $saya->id_rt ?>">
 											<i class=" fas fa-exclamation-circle"></i>
 											<h6>Error massage</h6>
@@ -90,8 +90,9 @@
 					</center>
 				</div>
 
+			    <!-- Foto KTP -->
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/rt/rt/upload_foto_ktp" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_ktp_rt">
+					<form action="<?= base_url('rt/upload_foto_ktp') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_ktp_rt">
 						<?php
 						foreach ($detail_profil_saya as $saya) { ?>
 							<div class="form-group ml-2 mr-2">
@@ -99,8 +100,7 @@
 									<div class="form-group-upload">
 										<div class="custom-file">
 											<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
-											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
-											<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas">
 											<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $saya->id_warga ?>">
 											<input type="hidden" class="form-control form-user-input" name="id_rt" id="id_rt" value="<?= $saya->id_rt ?>">
 											<i class=" fas fa-exclamation-circle"></i>
@@ -140,8 +140,9 @@
 					</center>
 				</div>
 
+				<!-- Upload Foto KK -->
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/rt/rt/upload_foto_kk" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_kk_rt">
+					<form action="<?= base_url('rt/upload_foto_kk') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_kk_rt">
 						<?php
 						foreach ($detail_profil_saya as $saya) {
 						?>
@@ -150,8 +151,7 @@
 									<div class="form-group-upload">
 										<div class="custom-file">
 											<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
-											<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
-											<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+											<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas">
 											<input type="hidden" class="form-control form-user-input" name="id_warga" id="id_warga" value="<?= $saya->id_warga ?>">
 											<input type="hidden" class="form-control form-user-input" name="id_rt" id="id_rt" value="<?= $saya->id_rt ?>">
 											<i class=" fas fa-exclamation-circle"></i>

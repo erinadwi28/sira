@@ -11,14 +11,28 @@
 		</a>
 	</div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
-			<?php if ($this->session->flashdata('success')) : ?>
-			<?php endif; ?>
-		</div>
-	</div>
 
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<?php if ($this->session->flashdata('success')) : ?>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<?= $this->session->flashdata('success') ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?php elseif($this->session->flashdata('error')) : ?>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<?= $this->session->flashdata('error') ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?php endif ?>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 	<!-- Content Row line 1-->
 	<div class="row">
 		<div class="col-md-2 mb-4">
@@ -34,32 +48,55 @@
 					<!-- Detail Data -->
 					<div class="card shadow mb-3">
 						<div class="card-body">
-							<label class="label-control" for="kata_sandi"><b>Masukkan Kata Sandi yang baru</b></label>
+
 							<form role="form" action="<?= base_url() ?>rt/aksi_ubah_kata_sandi_profil_saya/"
-								method="post">
+								method="post" id="ubah_pass">
 								<div class="row">
-									<div class="col-md-7">
-										<div class="form-group">
+									<div class="col-md-12">
+										<div class="form-group-pass">
+											
+											<label class="label-control" for="kata_sandi_awal"><b>Masukkan Kata Sandi
+													yang lama</b></label>
+											<input type="password" placeholder="masukkan disini..."
+												class="form-control form-user-input form-password"
+												name="kata_sandi_awal" id="kata_sandi_awal">
+
+											<input type="hidden" class="form-control form-user-input " name="id_rt"
+												id="id_rt" value="<?= $rt['id_rt'] ?>">
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error Message</small>
+
+										</div>
+										<div class="form-group-pass mt-3">
+											<label class="label-control" for="kata_sandi"><b>Masukkan Kata Sandi yang
+													baru</b></label>
 											<input type="password" placeholder="masukkan disini..."
 												class="form-control form-user-input form-password" name="kata_sandi"
-												id="kata_sandi">
-											<input type="checkbox" class="form-checkbox" /> lihat
+												id="kata_sandi" >
+											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-exclamation-circle"></i>
+											<small>Error Message</small>	
+											<input type="checkbox" class="form-checkbox mt-4" /> lihat
 											kata sandi
 											<br />
 
 											<input type="hidden" class="form-control form-user-input " name="id_rt"
 												id="id_rt" value="<?= $rt['id_rt'] ?>">
+											
 
 										</div>
+										<center>
+											<a href="">
+												<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
+													<i class="far fa-save nav-icon">
+													</i> Simpan
+												</button>
+											</a>
+										</center>
+
 									</div>
-									<div class="col-md-3">
-										<a href="">
-											<button id="btn_simpan" class="btn btn-sm btn-primary" type="submit">
-												<i class="far fa-save nav-icon">
-												</i> Simpan
-											</button>
-										</a>
-									</div>
+
 								</div>
 							</form>
 						</div>

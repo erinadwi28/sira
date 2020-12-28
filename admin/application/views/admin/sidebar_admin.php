@@ -14,7 +14,7 @@
 
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item active">
-		<a class="nav-link" href="<?= base_url('admin') ?>"> 
+		<a class="nav-link" href="<?= base_url('admin') ?>">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
 	</li>
@@ -38,6 +38,18 @@
 				<a class="collapse-item" href="<?= base_url('admin/list_data_kades') ?>">Data Kepala Desa</a>
 				<a class="collapse-item" href="<?= base_url('admin/list_data_mantan_kades') ?>">Data Mantan Kepala Desa</a>
 				<a class="collapse-item" href="<?= base_url('admin/form_cari_nik_ubah_kata_sandi_kades') ?>">Ubah Password Kades</a>
+			</div>
+		</div>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menupejabat" for="" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fa fa-users"></i>
+			<span>Data Pejabat Berwenag</span>
+		</a>
+		<div id="menupejabat" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="<?= base_url('admin/list_data_pejabat_berwenang') ?>">Pejabat Berwenang</a>
+				<a class="collapse-item" href="<?= base_url('admin/list_data_mantan_pejabat_berwenang') ?>">Mantan Pejabata Berwenag</a>
 			</div>
 		</div>
 	</li>
@@ -67,8 +79,7 @@
 		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menupermohonan" for=""
-			aria-expanded="true" aria-controls="collapsePages">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menupermohonan" for="" aria-expanded="true" aria-controls="collapsePages">
 			<i class="fa fa-book"></i>
 			<span>Arsip Permohonan Surat</span>
 		</a>
@@ -82,8 +93,7 @@
 		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menukedinasan" for=""
-			aria-expanded="true" aria-controls="collapsePages">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menukedinasan" for="" aria-expanded="true" aria-controls="collapsePages">
 			<i class="fa fa-book"></i>
 			<span>Arsip Surat Kedinasan</span>
 		</a>
@@ -101,10 +111,10 @@
 	<li class="nav-item">
 		<a class="nav-link " href="<?= base_url('admin/list_feedback') ?>">
 			<i class="fa fa-comments"></i>
-			<span>Feedback</span>
+			<span>Data Pengaduan</span>
 		</a>
 	</li>
-	
+
 	<!-- Sidebar Toggler (Sidebar) -->
 	<div class="text-center d-none d-md-inline">
 		<button class="rounded-circle border-0" id="sidebarToggle"></button>

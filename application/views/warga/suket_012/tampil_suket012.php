@@ -41,50 +41,71 @@
 															<tr>
 																<td> 1. </td>
 																<td><b>Nama Lengkap</b></td>
-																<td></td>
-																<td> :</td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama ?></td>
 															</tr>
 															<tr>
 																<td> 2. </td>
 																<td><b>Tempat, Tanggal Lahir</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->tempat_lahir ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 															</tr>
 															<tr>
 																<td> 3. </td>
 																<td><b>Status Perkawinan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->status_perkawinan ?></td>
 															</tr>
 															<tr>
 																<td> 4. </td>
 																<td><b>Agama</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->agama ?></td>
 															</tr>
 															<tr>
 																<td> 5. </td>
 																<td><b>Kewarganegaraan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->kewarganegaraan ?></td>
 															</tr>
 															<tr>
 																<td> 6. </td>
 																<td><b>Pendidikan Terakhir</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->pendidikan_terakhir ?></td>
 															</tr>
 															<tr>
 																<td> 7. </td>
 																<td><b>Pekerjaan/ Jabatan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->pekerjaan ?></td>
 															</tr>
 
@@ -92,49 +113,70 @@
 																<td> 8. </td>
 																<td><b>Alamat</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->alamat ?></td>
 															</tr>
 															<tr>
 																<td> 9. </td>
 																<td><b>Tgl mulai tinggal di kelurahan</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= format_indo(date($w->tanggal_tinggal)); ?></td>
 															</tr>
 															<tr>
 																<td> 10. </td>
 																<td><b>Kepindahan dari</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->kepindahan_dari ?></td>
 															</tr>
 															<tr>
 																<td>11. </td>
 																<td><b>Nama Orang Tua</b></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td></td>
 															</tr>
 															<tr>
 																<td> </td>
 																<td> <b> a. Ayah</b></td>
-																<td></td>
-																<td> :</td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama_ayah ?></td>
 															</tr>
 															<tr>
 																<td> </td>
 																<td> <b> b. Ibu</b></td>
-																<td></td>
-																<td> :</td>
+																<td> </td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama_ibu ?></td>
 															</tr>
 															<tr>
 																<td>12. </td>
 																<td> <B> Pengikut KK</B></td>
 																<td> </td>
-																<td> :</td>
+																<td> </td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->jml_pengikut ?></td>
 															</tr>
 														</tbody>
@@ -214,7 +256,21 @@
 											<div class="badan_surat isi_surat">
 												<center>
 
-													LURAH MENDAWAI
+													<?php
+													foreach ($detail_suket as $w) {
+														if ($w->status_tanda_tangan == "Kepala Desa") {
+															echo "LURAH MENDAWAI";
+														} elseif ($w->status_tanda_tangan == "Diwakilkan") {
+															echo "An. LURAH MENDAWAI";
+															foreach ($data_kades as $k) { ?>
+																<div class="badan_surat isi_surat">
+																	<center>
+																		<b><?= $k->jabatan; ?></b>
+																	</center>
+																</div> <?php
+																	}
+																}
+															} ?>
 
 												</center>
 											</div>
@@ -230,17 +286,25 @@
 										</div>
 									</div>
 									<div class="row">
-										<?php
-										foreach ($data_kades as $k) {
-										?>
-											<div class="col-md-6 ">
-												<div class="badan_surat isi_surat">
-													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
-												</div>
-											</div>
-											<div class="col-md-6">
+										<div class="col-md-6 ">
+											<?php
+											foreach ($data_kades as $k) {
+												foreach ($detail_suket as $w) {
+													if ($w->status_tanda_tangan == "Kepala Desa") { ?>
+														<div class="badan_surat isi_surat">
+															<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+														</div>
+													<?php } elseif ($w->status_tanda_tangan == "Diwakilkan") { ?>
+														<div class="badan_surat isi_surat">
+															<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/pejabat_berwenang/<?= $k->ttd_pejabat; ?>"></center>
+														</div>
+												<?php }
+												}
+												?>
+										</div>
+										<div class="col-md-6">
 
-											</div>
+										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-1">

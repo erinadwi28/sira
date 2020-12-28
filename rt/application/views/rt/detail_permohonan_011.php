@@ -85,132 +85,168 @@
 							<tbody>
 								<tr>
 									<td><b>NIK</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->nik; ?></td>
 								</tr>
 								<tr>
 									<td><b>Nama</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->nama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Alamat</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->alamat; ?></td>
 								</tr>
 								<tr>
 									<td><b>RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->rt; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kelurahan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->kelurahan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Kecamatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->kecamatan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Jenis Kelamin</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->jenis_kelamin; ?></td>
 								</tr>
 								<tr>
 									<td><b>Agama</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->agama; ?></td>
 								</tr>
 								<tr>
 									<td><b>Pekerjaan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->pekerjaan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tempat Lahir</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->tempat_lahir; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Lahir</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 								</tr>
 								<tr>
 									<td><b>Status Perkawinan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->status_perkawinan; ?></td>
 								</tr>
 								<tr>
 									<td><b>Golongan Darah</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->golongan_darah; ?></td>
 								</tr>
 								<tr>
 									<td><b>No Kartu Keluarga</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->no_kk; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Tinggal</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 								</tr>
 
 								<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 								<tr>
 									<td><b>No Surat Pindah</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= $detail->no_surat_pindah; ?></td>
 								</tr>
 								<tr>
 									<td><b>Tanggal Surat Pindah</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 								</tr>
 								<?php } ?>
 
 								<tr>
 									<td><b>Tanggal Permohonan</b></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
+                                    <td> </td>
+								    <td> </td>
+								    <td> : </td>
+								    <td> </td>
+								    <td> </td>									
 									<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 								</tr>
 							</tbody>
@@ -235,7 +271,7 @@
 					</div>
 				</div>
 			</div>
-		
+
 
 			<?php } else { ?>
 			<div class="card shadow mb-2">
@@ -251,31 +287,32 @@
 							</div>
 						</div>
 
-<!-- nomor surat kelurahan -->
+						<!-- nomor surat kelurahan -->
 						<?php if($detail->status == 'Ditolak Kelurahan' || $detail->status == 'Ditolak Ketua RT' || $detail->status == 'Menunggu Persetujuan Kelurahan') { ?>
 						<div class="row">
 							<div class="col-md-3">
 							</div>
-							
+
 							<div class="col-md-6">
 								<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
 									id="nomor_surat_admin" value="" style="text-align: center;" disabled>
 							</div>
-							
+
 							<div class="col-md-3">
 							</div>
 						</div>
 						<?php } elseif($detail->status == 'Selesai') { ?>
-							<div class="row">
+						<div class="row">
 							<div class="col-md-3">
 							</div>
-														
+
 							<div class="col-md-6">
 								<input type="text" class="form-control form-user-input" name="nomor_surat_admin"
-									id="nomor_surat_admin" value="<?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>" 
+									id="nomor_surat_admin"
+									value="<?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>"
 									style="text-align: center;" disabled>
 							</div>
-							
+
 							<div class="col-md-3">
 							</div>
 						</div>
@@ -292,142 +329,179 @@
 							</div>
 							<div class="col-md-6 mb-3">
 								<input type="text" class="form-control form-user-input" name="nomor_surat_rt"
-									id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled style="text-align: center;">
+									id="nomor_surat_rt" value="<?= $detail->nomor_surat_rt; ?>" disabled
+									style="text-align: center;">
 							</div>
 							<div class="col-md-3">
 							</div>
-						</div>					
+						</div>
 					</form>
 					<table class="table-hover table-responsive">
 						<tbody>
 							<tr>
 								<td><b>NIK</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->nik; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->nama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Alamat</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>RT</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->rt; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kelurahan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->kelurahan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kecamatan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->kecamatan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Jenis Kelamin</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->jenis_kelamin; ?></td>
 							</tr>
 							<tr>
 								<td><b>Agama</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->agama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->pekerjaan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tempat Lahir</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
 							</tr>
 							<tr>
 								<td><b>Status Perkawinan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->status_perkawinan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Golongan Darah</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->golongan_darah; ?></td>
 							</tr>
 							<tr>
 								<td><b>No Kartu Keluarga</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->no_kk; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Tinggal</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
 							</tr>
 
 							<?php if ($detail->tanggal_surat_pindah != NULL && $detail->no_surat_pindah !=  NULL) { ?>
 							<tr>
 								<td><b>No Surat Pindah</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->no_surat_pindah; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Surat Pindah</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
 							</tr>
 							<?php } ?>
 
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tgl_permohonan_surat)); ?></td>
 							</tr>
 
@@ -435,17 +509,21 @@
 							<?php if ($detail->status ==  'Ditolak Ketua RT') { ?>
 							<tr>
 								<td><b>Tanggal Ditolak Ketua RT</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<?php } else { ?>
 							<tr>
 								<td><b>Tanggal Disetujui Ketua RT</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tanggal_persetujuan_rt)); ?></td>
 							</tr>
 							<?php } ?>
@@ -454,27 +532,33 @@
 							<?php if ($detail->status ==  'Selesai') { ?>
 							<tr>
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } elseif ($detail->status ==  'Ditolak Kelurahan') { ?>
 							<tr>
 								<td><b>Tanggal Ditolak Kelurahan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= format_indo(date($detail->tgl_persetujuan_admin)); ?></td>
 							</tr>
 							<?php } ?>
-							
+
 							<?php if ($detail->keterangan != null) { ?>
 							<tr>
 								<td><b>Keterangan</b></td>
+                                <td> </td>
 								<td> </td>
+								<td> : </td>
 								<td> </td>
-								<td> </td>
+								<td> </td>									
 								<td><?= $detail->keterangan; ?></td>
 							</tr>
 							<?php } ?>
@@ -484,7 +568,7 @@
 			</div>
 
 			<?php } ?>
-							</div>
+		</div>
 		<div class="col-md-4 mb-4">
 			<!-- Pas Foto -->
 			<div class="card shadow mb-4">
@@ -497,7 +581,7 @@
 					<center>
 						<div class="mb-2">
 							<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>"
-								data-title="Foto KTP" data-toggle="lightbox">
+								data-title="Foto KTP" data-toggle="lightbox" data-gallery="mygallery">
 								<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->pas_foto; ?>"
 									alt="foto ktp" class="img-fluid" width="200px">
 							</a>
@@ -517,7 +601,7 @@
 					<center>
 						<div class="mb-2">
 							<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>"
-								data-title="Foto KK" data-toggle="lightbox">
+								data-title="Foto KK" data-toggle="lightbox" data-gallery="mygallery">
 								<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_kk; ?>"
 									alt="foto kk" class="img-fluid" width="200px">
 							</a>
@@ -537,7 +621,7 @@
 					<center>
 						<div class="mb-2">
 							<a href="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>"
-								data-title="Foto Surat Pindah" data-toggle="lightbox">
+								data-title="Foto Surat Pindah" data-toggle="lightbox" data-gallery="mygallery">
 								<img src="<?= base_url(); ?>../assets/uploads/warga/suket_011/<?= $detail->foto_surat_pindah; ?>"
 									alt="foto kk" class="img-fluid" width="200px">
 							</a>
@@ -545,12 +629,11 @@
 					</center>
 				</div>
 			</div>
-			</div>
-			</div>
+		</div>
 		<?php } ?>
-	</div>
-	<?php } ?>
-	</div>
+</div>
+<?php } ?>
+</div>
 </div>
 <!-- /.container-fluid -->
 <!-- End of Main Content -->

@@ -747,6 +747,10 @@ button:focus {
    Features 
    ========================================================================== */
 
+#mantan_lurah {
+		background: #f9f9f9;
+}
+
 #features {
   background: #f9f9f9;
 }
@@ -1809,7 +1813,7 @@ button:focus {
 
 .label-control {
   position: absolute;
-  top: 0.87rem;
+  top: 0.50rem;
   left: 1.25rem;
   color: #555;
   opacity: 1;
@@ -1841,7 +1845,7 @@ screen and (-ms-high-contrast: none) {
   display: block;
   /* needed for proper display of the label in Firefox, IE, Edge */
   width: 100%;
-  padding-top: 1.0625rem;
+  padding-top: 1.0685rem;
   padding-bottom: 0.0625rem;
   padding-left: 1.25rem;
   border: 1px solid #c4d8dc;

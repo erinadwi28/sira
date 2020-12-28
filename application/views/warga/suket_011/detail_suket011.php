@@ -38,7 +38,7 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/warga/upload_pasfoto_suket011" enctype="multipart/form-data"
+					<form action="<?= base_url('warga/upload_pasfoto_suket011') ?>" enctype="multipart/form-data"
 						method="post" accept-charset="utf-8" id="form_upload_pasfoto_suket011">
 						<?php
 								foreach ($detail_suket as $suket011) { ?>
@@ -49,8 +49,7 @@
 										<label class="custom-file-label" for="file-upload-profil">pilih pas
 											foto...</label>
 										<input type="file" class="custom-file-input" id="file-upload-profil"
-											name="berkas[]">
-										<!-- <input type="hidden" value="Foto Profil" name="keterangan[]"> -->
+											name="berkas">
 										<input type="hidden" class="form-control form-user-input" name="id_surat"
 											id="id_surat" value="<?= $suket011->id_surat; ?>">
 										<input type="hidden" class="form-control form-user-input"
@@ -96,7 +95,7 @@
 				</div>
 
 				<div class="card-footer py-3">
-					<form action="http://localhost/sira/warga/upload_foto_kk_suket011" enctype="multipart/form-data"
+					<form action="<?= base_url('warga/upload_foto_kk_suket011') ?>" enctype="multipart/form-data"
 						method="post" accept-charset="utf-8" id="form_upload_kk_suket011">
 						<?php
 								foreach ($detail_suket as $suket011) { ?>
@@ -106,8 +105,7 @@
 									<div class="custom-file">
 										<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
 										<input type="file" class="custom-file-input" id="file-upload-kk"
-											name="berkas[]">
-										<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+											name="berkas">
 										<input type="hidden" class="form-control form-user-input" name="id_surat"
 											id="id_surat" value="<?= $suket011->id_surat; ?>">
 										<input type="hidden" class="form-control form-user-input"
@@ -161,14 +159,14 @@
 							<div class="custom-file">
 								<label class="custom-file-label" for="file-upload-ttd">pilih foto surat
 									pindah...</label>
-								<input type="file" class="custom-file-input" id="file-upload-ttd" name="berkas[]">
-								<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
+								<input type="file" class="custom-file-input" id="file-upload-ttd" name="berkas">
 								<input type="hidden" class="form-control form-user-input" name="id_surat" id="id_surat"
 									value="<?= $suket011->id_surat; ?>">
 								<input type="hidden" class="form-control form-user-input" name="id_permohonan_surat"
 									id="id_permohonan_surat" value="<?= $suket011->id_permohonan_surat; ?>">
 							</div>
 						</div>
+						<em class="float-center small text-danger">*Optional</em>
 					</div>
 
 					<?php } ?>
@@ -198,12 +196,16 @@
 								<td><b>NIK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nik; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Lengkap</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->nama; ?></td>
@@ -212,12 +214,16 @@
 								<td><b>Agama</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->agama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->pekerjaan; ?></td>
@@ -226,12 +232,16 @@
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
@@ -240,12 +250,16 @@
 								<td><b>Alamat</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>RT</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->rt; ?></td>
@@ -254,12 +268,16 @@
 								<td><b>Kelurahan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->kelurahan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kecamatan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->kecamatan; ?></td>
@@ -268,12 +286,16 @@
 								<td><b>Status Perkawinan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->status_perkawinan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Golongan Darah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->golongan_darah; ?></td>
@@ -282,12 +304,16 @@
 								<td><b>No. KK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_kk; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Tinggal</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
@@ -298,12 +324,16 @@
 								<td><b>No. Surat Pindah</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_surat_pindah; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Surat Pindah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
@@ -315,6 +345,8 @@
 							<tr>
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
@@ -459,12 +491,16 @@
 								<td><b>NIK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nik; ?></td>
 							</tr>
 							<tr>
 								<td><b>Nama Lengkap</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->nama; ?></td>
@@ -473,12 +509,16 @@
 								<td><b>Agama</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->agama; ?></td>
 							</tr>
 							<tr>
 								<td><b>Pekerjaan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->pekerjaan; ?></td>
@@ -487,12 +527,16 @@
 								<td><b>Tempat Lahir</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->tempat_lahir; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Lahir</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
@@ -501,12 +545,16 @@
 								<td><b>Alamat</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->alamat; ?></td>
 							</tr>
 							<tr>
 								<td><b>RT</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->rt; ?></td>
@@ -515,12 +563,16 @@
 								<td><b>Kelurahan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->kelurahan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Kecamatan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->kecamatan; ?></td>
@@ -529,12 +581,16 @@
 								<td><b>Status Perkawinan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->status_perkawinan; ?></td>
 							</tr>
 							<tr>
 								<td><b>Golongan Darah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->golongan_darah; ?></td>
@@ -543,12 +599,16 @@
 								<td><b>No. KK</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_kk; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Tinggal</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_tinggal)); ?></td>
@@ -559,12 +619,16 @@
 								<td><b>No. Surat Pindah</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_surat_pindah; ?></td>
 							</tr>
 							<tr>
 								<td><b>Tanggal Surat Pindah</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($detail->tanggal_surat_pindah)); ?></td>
@@ -576,6 +640,8 @@
 								<td><b>Tanggal Permohonan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_permohonan_surat)); ?></td>
 							</tr>
@@ -586,6 +652,8 @@
 								<td><b>Tanggal Disetujui Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
 							</tr>
@@ -593,6 +661,8 @@
 							<tr>
 								<td><b>Tanggal Ditolak Ketua RT</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tanggal_persetujuan_rt)); ?></td>
@@ -605,6 +675,8 @@
 								<td><b>Tanggal Surat Dikeluarkan</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
 							</tr>
@@ -612,6 +684,8 @@
 							<tr>
 								<td><b>Tanggal Ditolak Kelurahan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= format_indo(date($d->tgl_persetujuan_admin)); ?></td>
@@ -622,6 +696,8 @@
 							<tr>
 								<td><b>Keterangan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $d->keterangan; ?></td>
@@ -634,6 +710,8 @@
 								<td><b>Nomor Surat Ketua RT</b></td>
 								<td> </td>
 								<td> </td>
+								<td>:</td>
+								<td> </td>
 								<td> </td>
 								<td><?= $detail->nomor_surat_rt; ?></td>
 							</tr>
@@ -643,6 +721,8 @@
 							<tr>
 								<td><b>Nomor Surat Kelurahan</b></td>
 								<td> </td>
+								<td> </td>
+								<td>:</td>
 								<td> </td>
 								<td> </td>
 								<td><?= $detail->no_tupoksi; ?>/<?= $detail->no_registrasi; ?>/<?= $detail->no_kelurahan; ?>/<?= $detail->no_bulan; ?>/<?= $detail->no_tahun; ?>

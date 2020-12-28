@@ -51,7 +51,7 @@ class M_admin extends CI_Model
         return $hasil;
     }
 
-    // hitung jumlah pesan masuk
+    // hitung jumlah pesan
     public function jumlah_pesan_masuk()
     {
         $this->db->select('id_pesan, COUNT(id_pesan) as total_pesan_masuk');
@@ -188,13 +188,26 @@ class M_admin extends CI_Model
         return $hasil;
     }
 
+    //get data kades untuk preview dan cetak surat
+    public function get_kades($id_kades)
+    {
+        $this->db->select('*');
+        $this->db->from('kepala_desa');
+        $this->db->where('id_kades', $id_kades);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+
     // list data mantan kepala desa
     public function get_data_mantan_kades()
     {
         $this->db->select('*');
         $this->db->from('kepala_desa');
         $this->db->where('status_delete', 1);
-        $this->db->order_by('tanggal_dinonaktifkan', 'DESC');
+        $this->db->order_by('nama', 'asc');
 
         $hasil = $this->db->get();
 
@@ -538,8 +551,7 @@ class M_admin extends CI_Model
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->where('permohonan_surat.status', 'Menunggu Persetujuan Kelurahan');
         $this->db->where('permohonan_surat.status_delete', 0);
-        $this->db->order_by('permohonan_surat.waktu', 'asc');
-        // $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'asc');
+        $this->db->order_by('permohonan_surat.id_permohonan_surat', 'asc');
 
         $hasil = $this->db->get();
         return $hasil;
@@ -761,9 +773,7 @@ class M_admin extends CI_Model
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->where('permohonan_surat.status_delete', 0);
         $this->db->where("(permohonan_surat.status = 'Ditolak Ketua RT' OR permohonan_surat.status = 'Ditolak Kelurahan')", null, false);
-        $this->db->order_by('permohonan_surat.waktu', 'desc');
-        // $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'desc');
-        // $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'desc');
+        $this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
         $hasil = $this->db->get();
         return $hasil;
@@ -778,8 +788,7 @@ class M_admin extends CI_Model
         $this->db->join('nama_surat', 'permohonan_surat.id_nama_surat = nama_surat.id_nama_surat', 'INNER');
         $this->db->where('permohonan_surat.status', 'Selesai');
         $this->db->where('permohonan_surat.status_delete', 0);
-        $this->db->order_by('permohonan_surat.waktu', 'desc');
-        // $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'desc');
+        $this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
 
         $hasil = $this->db->get();
         return $hasil;
@@ -797,7 +806,8 @@ class M_admin extends CI_Model
 		OR permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan'
         OR permohonan_surat.status = 'Selesai')", null, false);
-        $this->db->order_by('permohonan_surat.waktu', 'desc');
+        $this->db->order_by('permohonan_surat.id_permohonan_surat', 'desc');
+
         $hasil = $this->db->get();
         return $hasil;
     }
@@ -817,9 +827,7 @@ class M_admin extends CI_Model
 		OR permohonan_surat.status = 'Ditolak Ketua RT' 
 		OR permohonan_surat.status = 'Ditolak Kelurahan'
 		OR permohonan_surat.status = 'Selesai')", null, false);
-        $this->db->order_by('permohonan_surat.waktu', 'desc');
-        // $this->db->order_by('permohonan_surat.tgl_persetujuan_admin', 'desc');
-        // $this->db->order_by('permohonan_surat.tanggal_persetujuan_rt', 'desc');
+        $this->db->order_by('permohonan_surat.id_permohonan_surat', 'asc');
 
         $hasil = $this->db->get();
 
@@ -860,7 +868,7 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_masuk');
         $this->db->where('status_delete', 0);
-        $this->db->order_by('waktu', 'desc');
+        $this->db->order_by('id_sm', 'desc');
 
         $hasil = $this->db->get();
 
@@ -929,7 +937,7 @@ class M_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('surat_keluar');
         $this->db->where('status_delete', 0);
-        $this->db->order_by('tanggal', 'desc');
+        $this->db->order_by('id_sk', 'desc');
 
         $hasil = $this->db->get();
 
@@ -1009,12 +1017,13 @@ class M_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('pesan');
-        $this->db->order_by('waktu', 'desc');
+        $this->db->order_by('id_pesan', 'desc');
 
         $hasil = $this->db->get();
 
         return $hasil;
     }
+
 
     // list data feedback belum dibaca
     public function get_data_feedback_belum_dibaca()
@@ -1032,5 +1041,137 @@ class M_admin extends CI_Model
     public function get_detail_data_feedback($detailhere, $tabel)
     {
         return $this->db->get_where($tabel, $detailhere);
+    }
+
+    //cek data admin untuk ubah katasandi
+    public function cek_admin($id)
+    {
+        $query = $this->db->get_where('admin', ['id_admin' => $id]);
+        return $query->row_array();
+    }
+
+    //cek data warga untuk tambah data rt
+    public function cek_nik_warga($nik)
+    {
+        $query = $this->db->get_where('warga', ['nik' => $nik]);
+        return $query->row_array();
+    }
+
+    //cek data rt untuk tambah data rt
+    public function cek_nik_rt($nik)
+    {
+        $query = $this->db->get_where('rt', ['nik' => $nik]);
+        return $query->row_array();
+    }
+
+    //cek data kades untuk ubah kata_sandi 
+    public function cek_nik_kades($nik)
+    {
+        $query = $this->db->get_where('kepala_desa', ['nik' => $nik]);
+        return $query->row_array();
+    }
+
+    //get permohonan buat if di lihat surat
+    public function get_permohonan($id_permohonan)
+    {
+        $query = $this->db->get_where('permohonan_surat', ['id_permohonan_surat' => $id_permohonan]);
+        return $query->row_array();
+    }
+
+    // list data pejabat berwenang
+    public function get_data_pejabat()
+    {
+        $this->db->select('*');
+        $this->db->from('pejabat_berwenang');
+        $this->db->where('status_jabatan', 'Aktif');
+        $this->db->order_by('nama', 'asc');
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    // list data mantan pejabat berwenang
+    public function get_data_mantan_pejabat()
+    {
+        $this->db->select('*');
+        $this->db->from('pejabat_berwenang');
+        $this->db->where('status_jabatan', 'Tidak Aktif');
+        $this->db->order_by('nama', 'asc');
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    // detail pejabat
+    public function get_detail_pejabat($detailhere, $tabel)
+    {
+        return $this->db->get_where($tabel, $detailhere);
+    }
+
+    //ambil foto ttd pejabat
+    public function get_foto_ttd_pejabat($id_pejabat)
+    {
+        $this->db->select('ttd_pejabat');
+        $this->db->from('pejabat_berwenang');
+        $this->db->where('id_pejabat_berwenang', $id_pejabat);
+
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    //hapus data pejabat
+    public function hapus_pejabat($id_pejabat_berwenang)
+    {
+        $data = array(
+            'status_jabatan' => 'Tidak Aktif',
+        );
+
+        $this->db->where('id_pejabat_berwenang', $id_pejabat_berwenang);
+        $this->db->update('pejabat_berwenang', $data);
+    }
+
+    // tambah data pejabat
+    public function tambah_pejabat($data)
+    {
+        return $this->db->insert('pejabat_berwenang', $data);
+    }
+
+    // aksi ubah data pejabat                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    public function aksi_ubah_data_pejabat($detailhere, $data, $table)
+    {
+        $this->db->where('id_pejabat_berwenang', $detailhere);
+        $this->db->update($table, $data);
+    }
+
+    // data permohonan
+    public function get_data_permohonan($detailhere, $tabel)
+    {
+        return $this->db->get_where($tabel, $detailhere);
+    }
+
+    //get data pejabat untuk preview dan cetak surat
+    public function get_pejabat($id_pejabat_berwenang)
+    {
+        $this->db->select('*');
+        $this->db->from('pejabat_berwenang');
+        $this->db->where('id_pejabat_berwenang', $id_pejabat_berwenang);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
+
+    // list data pejabat berwenang
+    public function get_id_permohonan($id_permohonan_surat, $tabel)
+    {
+        $this->db->select('*');
+        $this->db->from($tabel);
+        $this->db->where('id_permohonan_surat', $id_permohonan_surat);
+
+        $hasil = $this->db->get();
+
+        return $hasil;
     }
 }

@@ -10,6 +10,25 @@
 						</button>
 					</a>
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<?php if ($this->session->flashdata('success')) : ?>
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<?= $this->session->flashdata('success') ?>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<?php elseif($this->session->flashdata('error')) : ?>
+						<div class="alert alert-danger alert-dismissible fade show" role="alert">
+							<?= $this->session->flashdata('error') ?>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<?php endif ?>
+					</div>
+				</div>
 
 				<!-- Content Row line 1-->
 				<div class="row">
@@ -28,7 +47,7 @@
 									<input type="hidden" name="length" value="10">
 									<div class="row">
 										<div class="col-md-4">
-											<div class="form-group">
+											<div class="form-group-nik">
 												<label class="label-control" for="nik"><b>NIK</b></label>
 												<input type="text" class="form-control form-user-input" name="nik" id="nik"
 													value="<?= $detail->nik; ?>">

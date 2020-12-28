@@ -76,34 +76,30 @@
 															<tr>
 																<td>Nama</td>
 																<td> </td>
-																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><b><?= $w->nama; ?></b></td>
 															</tr>
 															<tr>
 																<td>Jenis Kelamin</td>
 																<td> </td>
-																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->jenis_kelamin; ?></td>
 															</tr>
 															<tr>
 																<td>Tempat, Tanggal Lahir</td>
 																<td> </td>
-																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?>
 																</td>
 															</tr>
 															<tr>
 																<td>Pekerjaan</td>
 																<td> </td>
-																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->pekerjaan; ?></td>
 															</tr>
 
@@ -111,9 +107,8 @@
 															<tr>
 																<td>Alamat Tinggal</td>
 																<td> </td>
-																<td> </td>
-																<td> </td>
 																<td>:</td>
+																<td> </td>
 																<td><?= $w->alamat_tinggal; ?>
 																</td>
 															</tr>
@@ -128,7 +123,7 @@
 														<?php foreach ($detail_pemohon as $d) { ?> <?= $d->rt; ?> <?php } ?> Kelurahan Mendawai, tanggal <?php foreach ($detail_suket as $d) { ?> <?= format_indo(date($d->tanggal_persetujuan_rt)); ?> <?php } ?> Nomor : <?= $w->nomor_surat_rt; ?>,
 														bahwa nama tersebut diatas memang benar penduduk RT. <?php foreach ($detail_pemohon as $d) { ?> <?= $d->rt; ?> <?php } ?> Kelurahan Mendawai,
 														Kecamatan Arut Selatan, Kabupaten Kotawaringin Barat, dan menurut pengakuan
-														yang bersangkutan tersebut mempunyai penghasilan sebulan Rp. <?= $w->penghasilan; ?>,-
+														yang bersangkutan tersebut mempunyai penghasilan sebulan Rp <?= rupiah($w->penghasilan); ?>,-
 														( <?= $w->terbilang; ?> ).
 													</p>
 
@@ -152,10 +147,23 @@
 												<center>
 
 													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
-													LURAH MENDAWAI
-
+												<?php } ?>
+												<?php
+												foreach ($detail_suket as $w) {
+													if ($w->status_tanda_tangan == "Kepala Desa") {
+														echo "LURAH MENDAWAI";
+													} elseif ($w->status_tanda_tangan == "Diwakilkan") {
+														echo "An. LURAH MENDAWAI";
+														foreach ($data_kades as $k) { ?>
+															<div class="badan_surat isi_surat">
+																<center>
+																	<b><?= $k->jabatan; ?></b>
+																</center>
+															</div> <?php
+																}
+															}
+														} ?>
 												</center>
-											<?php } ?>
 										</div>
 									</div>
 								</div>
@@ -163,14 +171,20 @@
 									<div class="col-md-6 ">
 									</div>
 									<div class="col-md-6">
-										<div class="badan_surat isi_surat">
-											<?php
-											foreach ($data_kades as $k) {
+										<?php
+										foreach ($data_kades as $k) {
+											foreach ($detail_suket as $w) {
+												if ($w->status_tanda_tangan == "Kepala Desa") { ?>
+													<div class="badan_surat isi_surat">
+														<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+													</div>
+												<?php } elseif ($w->status_tanda_tangan == "Diwakilkan") { ?>
+													<div class="badan_surat isi_surat">
+														<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/pejabat_berwenang/<?= $k->ttd_pejabat; ?>"></center>
+													</div>
+											<?php }
+											}
 											?>
-												<center>
-													<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
-												</center>
-										</div>
 									</div>
 								</div>
 								<div class="row">

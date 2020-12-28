@@ -445,14 +445,38 @@
                         </div>
                         <div class="col-md-6">
                             <div class="badan_surat isi_surat">
-                                <?php
-                                foreach ($data_kades as $k) {
-                                ?>
-                                    <center>
-                                        <b>Kepala Kelurahan Mendawai</b>
-                                        <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>">
-                                        </center>
-                                    </center>
+
+                                <center>
+                                    <?php
+                                    foreach ($detail_suket as $w) {
+                                        if ($w->status_tanda_tangan == "Kepala Desa") {
+                                            echo "LURAH MENDAWAI";
+                                        } elseif ($w->status_tanda_tangan == "Diwakilkan") {
+                                            echo "An. LURAH MENDAWAI";
+                                            foreach ($data_kades as $k) { ?>
+                                                <div class="badan_surat isi_surat">
+                                                    <center>
+                                                        <b><?= $k->jabatan; ?></b>
+                                                    </center>
+                                                </div> <?php
+                                                    }
+                                                }
+                                            } ?>
+                                    <?php
+                                    foreach ($data_kades as $k) {
+                                        foreach ($detail_suket as $w) {
+                                            if ($w->status_tanda_tangan == "Kepala Desa") { ?>
+
+                                                <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+
+                                            <?php } elseif ($w->status_tanda_tangan == "Diwakilkan") { ?>
+
+                                                <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/pejabat_berwenang/<?= $k->ttd_pejabat; ?>"></center>
+
+                                        <?php }
+                                        }
+                                        ?>
+                                </center>
                             </div>
                         </div>
                     </div>

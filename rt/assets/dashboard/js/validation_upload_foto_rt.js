@@ -1,13 +1,12 @@
 //validasi upload foto di profil RT
-const form_upload_foto_profil_admin = document.getElementById("form_upload_foto_profil_rt");
+const form_upload_foto_profil_rt = document.getElementById("form_upload_foto_profil_rt");
 const file_foto_profil = document.getElementById("file-upload-profil");
 
-const form_upload_foto_ktp_admin = document.getElementById("form_upload_foto_ktp_rt");
+const form_upload_foto_ktp_rt = document.getElementById("form_upload_foto_ktp_rt");
 const file_foto_ktp = document.getElementById("file-upload-ktp");
 
-const form_upload_foto_kk_admin = document.getElementById("form_upload_foto_kk_rt");
+const form_upload_foto_kk_rt = document.getElementById("form_upload_foto_kk_rt");
 const file_foto_kk = document.getElementById("file-upload-kk");
-
 
 //diprofil rt
 if (form_upload_foto_profil_rt != null) {

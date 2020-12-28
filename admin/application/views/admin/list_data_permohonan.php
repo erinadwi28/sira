@@ -11,8 +11,8 @@
 			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
 			<?php if ($this->session->flashdata('success')) : ?>
 			<?php endif; ?>
-
-				<table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -49,6 +49,7 @@
 						<?php } ?>
 					</tbody>
 				</table>
+			</div>
 		</div>
 	</div>
 </div>

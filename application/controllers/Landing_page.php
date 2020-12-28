@@ -1,20 +1,22 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Landing_page extends CI_Controller {
+class Landing_page extends CI_Controller
+{
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('M_landing', 'm_landing');
-	}
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_landing', 'm_landing');
+    }
 
-	public function index()
-	{        
-		$data_detail['data_kades'] = $this->m_landing->get_data_kades()->result();
+    public function index()
+    {
+        $data_detail['data_kades'] = $this->m_landing->get_data_kades()->result();
+        $data_detail['data_mantan_kades'] = $this->m_landing->get_data_mantan_kades()->result();
 
-        $this->load->view('sira/landing_page', $data_detail);
-	}
+        $this->load->view('landing_page', $data_detail);
+    }
 
     // aksi tambah data feedback
     public function aksi_tambah_feedback()
@@ -22,7 +24,7 @@ class Landing_page extends CI_Controller {
         $data = array(
             'tanggal_kirim' => date("Y/m/d"),
             'nama' => $this->input->post('nama'),
-			'no_hp' => $this->input->post('no_hp'),
+            'no_hp' => $this->input->post('no_hp'),
             'isi' => $this->input->post('isi'),
         );
 
@@ -30,5 +32,5 @@ class Landing_page extends CI_Controller {
             $this->session->set_flashdata('success', 'dikirim');
             redirect('landing_page');
         }
-	}
+    }
 }

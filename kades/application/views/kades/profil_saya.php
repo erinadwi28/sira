@@ -35,38 +35,41 @@
 					<center>
 
 						<?php foreach ($foto_profil as $saya) { ?>
-							<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_profil_kades; ?>" data-gallery="mygallery" data-title="Foto Profil" data-toggle="lightbox">
-								<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_profil_kades; ?>" alt="foto profil" class="img-fluid" width="200px">
-							</a>
+						<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_profil_kades; ?>"
+							data-gallery="mygallery" data-title="Foto Profil" data-toggle="lightbox">
+							<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_profil_kades; ?>"
+								alt="foto profil" class="img-fluid" width="200px">
+						</a>
 						<?php } ?>
-
 					</center>
-
-
 				</div>
-
+				
+				<!-- Upload Foto Profil -->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/kades/kades/upload_foto_profil" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_profil_kades">
-						<div class="form-group ml-2 mr-2">
-							<div class="input-group">
-								<div class="form-group-upload">
-								<div class="custom-file">
-									<label class="custom-file-label" for="file-upload-profil">pilih foto
-										profil...</label>
-									<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas[]">
-									<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="1">
-									<i class=" fas fa-exclamation-circle"></i>
+					<form action="<?= base_url('kades/upload_foto_profil') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_profil_kades">
+						<?php
+						foreach ($detail_profil_saya as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-profil">pilih foto profil...</label>
+											<input type="file" class="custom-file-input" id="file-upload-profil" name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades" id="kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
 											<h6>Error massage</h6>
-								</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-										<center>
-						<button class="btn btn-sm btn-primary" type="submit">
-							<i class="fa fa-upload">
-							</i> Upload
-						</button>
-					</center>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
 					</form>
 				</div>
 			</div>
@@ -80,38 +83,44 @@
 				</div>
 
 				<div class="card-body" style="padding: 15px;">
-				<center>
-					<?php foreach ($foto_ktp as $saya) { ?>
-						<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_ktp_kades; ?>" data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
-							<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_ktp_kades; ?>" alt="foto profil" class="img-fluid" width="200px">
+					<center>
+						<?php foreach ($foto_ktp as $saya) { ?>
+						<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_ktp_kades; ?>"
+							data-gallery="mygallery" data-title="Foto KTP" data-toggle="lightbox">
+							<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_ktp_kades; ?>"
+								alt="foto profil" class="img-fluid" width="200px">
 						</a>
-					<?php } ?>
+						<?php } ?>
 					</center>
 				</div>
-
+                
+                <!-- Upload Foto KTP -->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/kades/kades/upload_foto_ktp" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_ktp_kades">
-					<div class="form-group ml-2 mr-2">
-						<div class="form-group-upload">
-						<div class="input-group">
-							<div class="custom-file">
-								<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
-								<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas[]">
-								<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-								<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="1">
-								<i class=" fas fa-exclamation-circle"></i>
-								<h6>Error massage</h6>
+					<form action="<?= base_url('kades/upload_foto_ktp') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_ktp_kades">
+						<?php
+						foreach ($detail_profil_saya as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-ktp">pilih foto ktp...</label>
+											<input type="file" class="custom-file-input" id="file-upload-ktp" name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-						</div>
-					</div>
-									<center>
-					<button class="btn btn-sm btn-primary" type="submit">
-						<i class="fa fa-upload">
-						</i> Upload
-					</button>
-				</center>
-				</form>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
+					</form>
 				</div>
 			</div>
 
@@ -124,43 +133,110 @@
 				</div>
 
 				<div class="card-body" style="padding: 15px;">
-				<center>
-					<?php
+					<center>
+						<?php
 					foreach ($foto_kk as $saya) {
 					?>
-						<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_kk_kades; ?>" data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
-							<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_kk_kades; ?>" alt="foto kk" class="img-fluid" width="200px">
+						<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_kk_kades; ?>"
+							data-gallery="mygallery" data-title="Foto KK" data-toggle="lightbox">
+							<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $saya->foto_kk_kades; ?>"
+								alt="foto kk" class="img-fluid" width="200px">
 						</a>
-					<?php } ?>
-				</center>
+						<?php } ?>
+					</center>
+				</div>
+				
+				<!-- Upload Foto KK -->
+				<div class="card-footer py-3">
+					<div class="card-footer py-3">
+						<form action="<?= base_url('kades/upload_foto_kk') ?>"
+							enctype="multipart/form-data" method="post" accept-charset="utf-8"
+							id="form_upload_foto_kk_kades">
+							<?php
+						foreach ($detail_profil_saya as $kades) {
+						?>
+							<div class="form-group ml-2 mr-2">
+								<div class="input-group">
+									<div class="form-group-upload">
+										<div class="custom-file">
+											<label class="custom-file-label" for="file-upload-kk">pilih foto
+												kk...</label>
+											<input type="file" class="custom-file-input" id="file-upload-kk"
+												name="berkas">
+											<input type="hidden" class="form-control form-user-input" name="id_kades"
+												id="id_kades" value="<?= $kades->id_kades ?>">
+											<i class=" fas fa-exclamation-circle"></i>
+											<h6>Error massage</h6>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php } ?>
+							<center>
+								<button class="btn btn-sm btn-primary" type="submit">
+									<i class="fa fa-upload">
+									</i> Upload
+								</button>
+							</center>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Foto TTD -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<center>
+						<h6 class="m-0 font-weight-bold text-primary">Foto Tanda Tangan</h6>
+					</center>
 				</div>
 
+				<div class="card-body" style="padding: 15px;">
+					<center>
+						<?php
+						foreach ($foto_ttd as $kades) {
+						?>
+						<a href="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_ttd_kades; ?>"
+							data-gallery="mygallery" data-title="Foto TTD" data-toggle="lightbox">
+							<img src="<?= base_url(); ?>../assets/uploads/kades/<?= $kades->foto_ttd_kades; ?>"
+								alt="foto ttd" class="img-fluid" width="200px">
+						</a>
+						<?php } ?>
+					</center>
+				</div>
+                
+                <!--Upload Foto TTD-->
 				<div class="card-footer py-3">
-				<form action="http://localhost/sira/kades/kades/upload_foto_kk" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form_upload_foto_kk_kades">
-							<div class="form-group ml-2 mr-2">
+					<form action="<?= base_url('kades/upload_foto_ttd_kades') ?>" enctype="multipart/form-data"
+						method="post" accept-charset="utf-8" id="form_upload_foto_ttd_kades">
+						<?php
+						foreach ($detail_profil_saya as $kades) {
+						?>
+						<div class="form-group ml-2 mr-2">
 							<div class="input-group">
 								<div class="form-group-upload">
 									<div class="custom-file">
-										<label class="custom-file-label" for="file-upload-kk">pilih foto kk...</label>
-										<input type="file" class="custom-file-input" id="file-upload-kk" name="berkas[]">
-										<!-- <input type="hidden" value="Foto KTP" name="keterangan[]"> -->
-										<input type="hidden" class="form-control form-user-input" name="id_kades" id="id_kades" value="1">
+										<label class="custom-file-label" for="file-upload-ttd">pilih foto ttd...</label>
+										<input type="file" class="custom-file-input" id="file-upload-ttd"
+											name="berkas">
+										<input type="hidden" class="form-control form-user-input" name="id_kades"
+										id="id_kades" value="<?= $kades->id_kades ?>">
 										<i class=" fas fa-exclamation-circle"></i>
 										<h6>Error massage</h6>
 									</div>
 								</div>
 							</div>
 						</div>
-										<center>
-						<button class="btn btn-sm btn-primary" type="submit">
-							<i class="fa fa-upload">
-							</i> Upload
-						</button>
-					</center>
+						<?php } ?>
+						<center>
+							<button class="btn btn-sm btn-primary" type="submit">
+								<i class="fa fa-upload">
+								</i> Upload
+							</button>
+						</center>
 					</form>
 				</div>
 			</div>
-
 		</div>
 		<div class="col-md-8 mb-4">
 			<!-- Detail Data -->
@@ -168,144 +244,144 @@
 				<div class="card-body">
 					<?php
 					foreach ($detail_profil_saya as $detail) { ?>
-						<table class="table-hover table-responsive">
-							<tbody>
-								<tr>
-									<td><b>NIK</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->nik; ?></td>
-								</tr>
-								<tr>
-									<td><b>NIP</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->nip; ?></td>
-								</tr>
-								<tr>
-									<td><b>Nama Lengkap</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->nama; ?></td>
-								</tr>
-								<tr>
-									<td><b>Tempat Lahir</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->tempat_lahir; ?></td>
-								</tr>
-								<tr>
-									<td><b>Tanggal Lahir</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
-								</tr>
-								<tr>
-									<td><b>Jenis Kelamin</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->jenis_kelamin; ?></td>
-								</tr>
-								<tr>
-									<td><b>Golongan Darah</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->golongan_darah; ?></td>
-								</tr>
-								<tr>
-									<td><b>Agama</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->agama; ?></td>
-								</tr>
-								<tr>
-									<td><b>Alamat</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->alamat; ?></td>
-								</tr>
-								<tr>
-									<td><b>RT</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->rt; ?></td>
-								</tr>
-								<tr>
-									<td><b>Kelurahan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->kelurahan; ?></td>
-								</tr>
-								<tr>
-									<td><b>Kecamatan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->kecamatan; ?></td>
-								</tr>
-								<tr>
-									<td><b>Status Perkawinan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->status_perkawinan; ?></td>
-								</tr>
-								<tr>
-									<td><b>Pekerjaan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->pekerjaan; ?></td>
-								</tr>
-								<tr>
-									<td><b>Kewarganegaraan</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->kewarganegaraan; ?></td>
-								</tr>
-								<tr>
-									<td><b>Nomor Kartu Keluarga</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->no_kk; ?></td>
-								</tr>
-								<tr>
-									<td><b>Pendidikan Terakhir</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->pendidikan_terakhir; ?></td>
-								</tr>
-								<tr>
-									<td><b>Status Hubungan Dalam Keluarga</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->status_hub_kel; ?></td>
-								</tr>
-								<tr>
-									<td><b>Nomor HandPhone</b></td>
-									<td> </td>
-									<td> </td>
-									<td>:</td>
-									<td><?= $detail->no_hp; ?></td>
-								</tr>
+					<table class="table-hover table-responsive">
+						<tbody>
+							<tr>
+								<td><b>NIK</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->nik; ?></td>
+							</tr>
+							<tr>
+								<td><b>NIP</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->nip; ?></td>
+							</tr>
+							<tr>
+								<td><b>Nama Lengkap</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->nama; ?></td>
+							</tr>
+							<tr>
+								<td><b>Tempat Lahir</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->tempat_lahir; ?></td>
+							</tr>
+							<tr>
+								<td><b>Tanggal Lahir</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= format_indo(date($detail->tanggal_lahir)); ?></td>
+							</tr>
+							<tr>
+								<td><b>Jenis Kelamin</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->jenis_kelamin; ?></td>
+							</tr>
+							<tr>
+								<td><b>Golongan Darah</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->golongan_darah; ?></td>
+							</tr>
+							<tr>
+								<td><b>Agama</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->agama; ?></td>
+							</tr>
+							<tr>
+								<td><b>Alamat</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->alamat; ?></td>
+							</tr>
+							<tr>
+								<td><b>RT</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->rt; ?></td>
+							</tr>
+							<tr>
+								<td><b>Kelurahan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->kelurahan; ?></td>
+							</tr>
+							<tr>
+								<td><b>Kecamatan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->kecamatan; ?></td>
+							</tr>
+							<tr>
+								<td><b>Status Perkawinan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->status_perkawinan; ?></td>
+							</tr>
+							<tr>
+								<td><b>Pekerjaan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->pekerjaan; ?></td>
+							</tr>
+							<tr>
+								<td><b>Kewarganegaraan</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->kewarganegaraan; ?></td>
+							</tr>
+							<tr>
+								<td><b>Nomor Kartu Keluarga</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->no_kk; ?></td>
+							</tr>
+							<tr>
+								<td><b>Pendidikan Terakhir</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->pendidikan_terakhir; ?></td>
+							</tr>
+							<tr>
+								<td><b>Status Hubungan Dalam Keluarga</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->status_hub_kel; ?></td>
+							</tr>
+							<tr>
+								<td><b>Nomor HandPhone</b></td>
+								<td> </td>
+								<td> </td>
+								<td>:</td>
+								<td><?= $detail->no_hp; ?></td>
+							</tr>
 							<?php } ?>
-							</tbody>
-						</table>
+						</tbody>
+					</table>
 				</div>
 				<div class="card-footer">
 					<em class="float-center small text-danger">*Anda bisa mengubah Kata Sandi serta Foto Profil, Foto

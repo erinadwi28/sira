@@ -21,4 +21,16 @@ class M_landing extends CI_Model
         return $this->db->insert('pesan', $data);
     }
 
+    // slider data mantan kepala desa
+    public function get_data_mantan_kades()
+    {
+        $this->db->select('nama, foto_profil_kades, masa_awal_jabatan, tanggal_dinonaktifkan');
+        $this->db->from('kepala_desa');
+        $this->db->where('status_delete', 1);
+        $this->db->order_by('id_kades', 'asc');
+
+        $hasil = $this->db->get();
+
+        return $hasil;
+    }
 }

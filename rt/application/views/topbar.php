@@ -21,8 +21,8 @@
 						<i class="fas fa-bell fa-fw"></i>
 						<!-- Counter - Alerts -->
 						<span class="badge badge-danger badge-counter"><?php
-																		foreach ($total_notif as $total) { ?>
-								<?= $total->total_notif; ?>
+																		foreach ($total_notif as $permohonan_masuk) { ?>
+								<?= $permohonan_masuk->total_notif; ?>
 							<?php } ?>
 						</span>
 					</a>

@@ -77,35 +77,45 @@
 																<td><b>Nama</b></td>
 																<td> </td>
 																<td> </td>
-																<td> :</td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->nama; ?></td>
 															</tr>
 															<tr>
 																<td><b>Jenis Kelamin</b></td>
 																<td> </td>
 																<td> </td>
-																<td> :</td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->jenis_kelamin; ?></td>
 															</tr>
 															<tr>
 																<td><b>Tempat, Tanggal Lahir</b></td>
 																<td> </td>
 																<td> </td>
-																<td> :</td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->tempat_lahir; ?>, <?= format_indo(date($w->tanggal_lahir)); ?></td>
 															</tr>
 															<tr>
 																<td><b>Pekerjaan</b></td>
 																<td> </td>
 																<td> </td>
-																<td> :</td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->pekerjaan; ?></td>
 															</tr>
 															<tr>
 																<td><b>Alamat</b></td>
 																<td> </td>
 																<td> </td>
-																<td> :</td>
+																<td>:</td>
+																<td> </td>
+																<td> </td>
 																<td><?= $w->alamat; ?></td>
 															</tr>
 														</tbody>
@@ -138,15 +148,28 @@
 									<div class="col-md-6">
 										<div class="badan_surat isi_surat">
 											<?php
-											foreach ($detail_permohonan as $d) {
+											foreach ($detail_suket as $d) {
 											?>
 												<center>
 
 													Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
-													LURAH MENDAWAI
-
+												<?php } ?>
+												<?php
+												foreach ($detail_suket as $w) {
+													if ($w->status_tanda_tangan == "Kepala Desa") {
+														echo "LURAH MENDAWAI";
+													} elseif ($w->status_tanda_tangan == "Diwakilkan") {
+														echo "An. LURAH MENDAWAI";
+														foreach ($data_kades as $k) { ?>
+															<div class="badan_surat isi_surat">
+																<center>
+																	<b><?= $k->jabatan; ?></b>
+																</center>
+															</div> <?php
+																}
+															}
+														} ?>
 												</center>
-											<?php } ?>
 										</div>
 									</div>
 								</div>
@@ -156,10 +179,18 @@
 									<div class="col-md-6">
 										<?php
 										foreach ($data_kades as $k) {
-										?>
-											<div class="badan_surat isi_surat">
-												<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
-											</div>
+											foreach ($detail_suket as $w) {
+												if ($w->status_tanda_tangan == "Kepala Desa") { ?>
+													<div class="badan_surat isi_surat">
+														<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+													</div>
+												<?php } elseif ($w->status_tanda_tangan == "Diwakilkan") { ?>
+													<div class="badan_surat isi_surat">
+														<center><img class="img-fluid" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>/assets/uploads/pejabat_berwenang/<?= $k->ttd_pejabat; ?>"></center>
+													</div>
+											<?php }
+											}
+											?>
 									</div>
 								</div>
 								<div class="row">

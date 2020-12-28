@@ -206,6 +206,7 @@
         .kades {
             display: block;
             position: absolute;
+            margin-top: 40px;
             float: left;
         }
 
@@ -407,29 +408,29 @@
                                                 <tr>
                                                     <td><b>Hari</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->hari_lahir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Tanggal</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= format_indo(date($w->tanggal_lahir)); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Di</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->tempat_lahir; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Jam</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->jam_lahir; ?> WITA</td>
                                                 </tr>
                                             </tbody>
@@ -451,22 +452,22 @@
                                                 <tr>
                                                     <td><b>Nama Ibu</b></td>
                                                     <td> </td>
-                                                    <td></td>
-                                                    <td> :</td>
+                                                    <td>:</td>
+                                                    <td> </td>
                                                     <td><?= $w->nama_ibu; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Alamat</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->alamat_ibu; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Istri dari</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->nama_ayah; ?></td>
                                                 </tr>
                                             </tbody>
@@ -485,15 +486,15 @@
                                                 <tr>
                                                     <td><b>Nama yang melapor</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->nama_pemohon; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Hubungan dengan bayi</b></td>
                                                     <td> </td>
+                                                    <td>:</td>
                                                     <td> </td>
-                                                    <td> :</td>
                                                     <td><?= $w->hubungan_dengan_bayi; ?></td>
                                                 </tr>
                                             </tbody>
@@ -515,10 +516,25 @@
                                     <center>
 
                                         Pangkalan Bun, <?= format_indo(date($d->tgl_persetujuan_admin)); ?><br>
-                                        LURAH MENDAWAI
+                                    <?php } ?>
+                                    <?php
+                                    foreach ($detail_suket as $w) {
+                                        if ($w->status_tanda_tangan == "Kepala Desa") {
+                                            echo "LURAH MENDAWAI";
+                                        } elseif ($w->status_tanda_tangan == "Diwakilkan") {
+                                            echo "An. LURAH MENDAWAI";
+                                            foreach ($data_kades as $k) { ?>
+                                                <div class="badan_surat isi_surat">
+                                                    <center>
+                                                        <b><?= $k->jabatan; ?></b>
+                                                    </center>
+                                                </div> <?php
+                                                    }
+                                                }
+                                            } ?>
 
                                     </center>
-                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
@@ -528,11 +544,18 @@
                         <div class="col-md-6">
                             <?php
                             foreach ($data_kades as $k) {
-                            ?>
-                                <div class="badan_surat1 isi_surat1" style="margin-top: 40px; margin-right: -480px;">
-                                    <center><img class="img-fluid1 img_ttd1" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/kades/<?= $k->foto_ttd_kades; ?>">
-                                    </center>
-                                </div>
+                                foreach ($detail_suket as $w) {
+                                    if ($w->status_tanda_tangan == "Kepala Desa") { ?>
+                                        <div class="badan_surat1 isi_surat1" style="margin-top: 40px; margin-right: -480px;">
+                                            <center><img class="fluid1 img_ttd1" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+                                        </div>
+                                    <?php } elseif ($w->status_tanda_tangan == "Diwakilkan") { ?>
+                                        <div class="badan_surat1 isi_surat1" style="margin-top: 40px; margin-right: -480px;">
+                                            <center><img class="fluid1 img_ttd1" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/pejabat_berwenang/<?= $k->ttd_pejabat; ?>"></center>
+                                        </div>
+                                <?php }
+                                }
+                                ?>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 85px; margin-right: -970px;">
@@ -747,10 +770,25 @@
                                         <center>
 
                                             Pangkalan Bun, <?= $d->tgl_persetujuan_admin; ?><br>
-                                            LURAH MENDAWAI
+                                        <?php } ?>
+                                        <?php
+                                        foreach ($detail_suket as $w) {
+                                            if ($w->status_tanda_tangan == "Kepala Desa") {
+                                                echo "LURAH MENDAWAI";
+                                            } elseif ($w->status_tanda_tangan == "Diwakilkan") {
+                                                echo "An. LURAH MENDAWAI";
+                                                foreach ($data_kades as $k) { ?>
+                                                    <div class="badan_surat isi_surat">
+                                                        <center>
+                                                            <b><?= $k->jabatan; ?></b>
+                                                        </center>
+                                                    </div> <?php
+                                                        }
+                                                    }
+                                                } ?>
 
                                         </center>
-                                    <?php } ?>
+
                                 </div>
                             </div>
                         </div>
@@ -759,11 +797,18 @@
                             <div class="col-md-6">
                                 <?php
                                 foreach ($data_kades as $k) {
-                                ?>
-                                    <div class="badan_surat isi_surat" style=" margin-top: 40px; margin-right: -70px;">
-                                        <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/kades/<?= $k->foto_ttd_kades; ?>">
-                                        </center>
-                                    </div>
+                                    foreach ($detail_suket as $w) {
+                                        if ($w->status_tanda_tangan == "Kepala Desa") { ?>
+                                            <div class="badan_surat isi_surat" style=" margin-top: 40px; margin-right: -70px;">
+                                                <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/kades/<?= $k->foto_ttd_kades; ?>"></center>
+                                            </div>
+                                        <?php } elseif ($w->status_tanda_tangan == "Diwakilkan") { ?>
+                                            <div class="badan_surat isi_surat" style=" margin-top: 40px; margin-right: -70px;">
+                                                <center><img class="img-fluid img_ttd" width="50%" alt="ttd_lurah" src="<?= base_url(); ?>../assets/uploads/pejabat_berwenang/<?= $k->ttd_pejabat; ?>"></center>
+                                            </div>
+                                    <?php }
+                                    }
+                                    ?>
                             </div>
                         </div>
 

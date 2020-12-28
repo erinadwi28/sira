@@ -157,6 +157,7 @@
 							</button>
 						</a>
 					</div>
+					</div>
 					</form>
 				<?php } ?>
 				</div>

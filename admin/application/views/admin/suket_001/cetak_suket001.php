@@ -44,23 +44,25 @@
         }
 
         .badan_surat {
-            font-family: 'Book Antiqua';
+            font-family: 'Arial';
         }
 
         .no_surat {
             font-weight: bold;
-            font-size: 14pt;
+            font-size: 12pt;
         }
 
         .paragraf {
             /* text-indent: 2.8125em; */
             text-align: justify;
+            font-family: 'Arial';
         }
 
         .isi_surat {
             margin-left: 0.0375em;
-            font-size: 12pt;
+            font-size: 11pt;
             line-height: 1.2em;
+            font-family: 'Arial';
         }
 
         .identitas {
@@ -70,7 +72,7 @@
 
         .img_ttd {
             width: 200px;
-            margin-right: 90px;
+            margin-right: 110px;
         }
 
         .ttd_kades {
@@ -105,8 +107,8 @@
             display: block;
             position: absolute;
             float: left;
-            margin-top: 180px;
-            margin-right: -510px;
+            margin-top: 200px;
+            margin-right: -460px;
         }
     </style>
 

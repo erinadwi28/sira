@@ -3,6 +3,11 @@
 require '../vendor/autoload.php';
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
+
+$options = new Options();
+$options->set('defaultFont', 'Arial');
+$dompdf = new Dompdf($options);
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -2829,6 +2834,9 @@ class Admin extends CI_Controller
                 $dompdf->set_base_path("../../assets/dashboard/css");
                 // $html .= '<link href="../../assets/dashboard/css/sb-admin-2.min.css" rel="stylesheet" />';
                 $dompdf->loadHtml($html);
+                $options = $dompdf->getOptions();
+                $options->setDefaultFont('Arial');
+                $dompdf->setOptions($options);
                 $dompdf->setPaper('A4', 'portrait');
                 $dompdf->render();
                 $dompdf->stream('Surat Keterangan Usaha');

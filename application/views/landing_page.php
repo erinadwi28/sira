@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/main.css" />
 	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/responsive.css" />
 	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/mantan_carousel.css" />
+	<link rel="stylesheet" href="<?= base_url('assets/landing_page/') ?>css/mantan_carousel.css" />
 	<!-- Link Swiper's CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
@@ -602,17 +603,18 @@
 				$no = 1;
 				foreach ($data_mantan_kades as $mantan_kades) { ?>
 					<div class="swiper-slide">
-						<div><img src="<?= base_url(); ?>/assets/uploads/kades/<?= $mantan_kades->foto_profil_kades; ?>" alt=""></div>
-						<div>
-							<h5><u><?php echo $mantan_kades->nama ?></u></h5>
-							<h6><?= date("Y", strtotime($mantan_kades->masa_awal_jabatan)); ?> - <?= date("Y", strtotime($mantan_kades->tanggal_dinonaktifkan)); ?></h6>
+						<div class="img-area"><img src="<?= base_url(); ?>/assets/uploads/kades/<?= $mantan_kades->foto_profil_kades; ?>" alt=""></div>
+						<div class="img-text">
+							<h2><u><?php echo $mantan_kades->nama ?></u></h2>
+							<p><?= date("Y", strtotime($mantan_kades->masa_awal_jabatan)); ?> - <?= date("Y", strtotime($mantan_kades->tanggal_dinonaktifkan)); ?></p>
 						</div>
 					</div>
 				<?php } ?>
 			</div>
-			<!-- Add Pagination -->
 			<div class="swiper-pagination"></div>
 		</div>
+		<!-- Add Pagination -->
+
 
 
 
@@ -882,7 +884,7 @@
 	<script>
 		var swiper = new Swiper('.swiper-container', {
 			slidesPerView: 3,
-			spaceBetween: 30,
+			spaceBetween: 15,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,

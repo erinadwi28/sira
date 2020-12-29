@@ -56,7 +56,7 @@
 							<?php
 							foreach ($pejabat as $detail) {
 							?>
-								<div class="form-check ml-3">
+								<div class="form-check ml-3 checkall">
 									<input class="form-check-input" type="checkbox" name="id_penanda_tangan" id="status_tanda_tangan_pejabat_berwenang" value="<?= $detail->id_pejabat_berwenang ?>">
 									<label class="form-check-label" for="status_tanda_tangan_pejabat_berwenang">
 										<h5><?= $detail->nama ?></h5>
@@ -92,3 +92,32 @@
 	<!-- /.container-fluid -->
 	</div>
 	<!-- End of Main Content -->
+	<script>
+		// function radioLurah() {
+		// 	if (document.getElementById("status_tanda_tangan_kades").checked) {
+		// 		document.getElementsByClassName("form-check ml-3 checkall").disabled = true;
+
+		// 	} else if (document.getElementById("status_tanda_tangan_pejabat").checked) {
+		// 		document.getElementById("id_penanda_tangan_kades").disabled = true;
+		// 	}
+		// }
+
+		$(document).ready(function radioLurah() {
+			// By Default Disable radio button
+			$(".status_tanda_tangan_pejabat_berwenang").attr('disabled', true);
+			$(".form-check-label").css('opacity', '.2'); // This line is used to lightly hide label for disable radio buttons.
+			// Disable radio buttons function on Check Disable radio button.
+			$("form input:radio").change(function() {
+				if ($(this).val() == "Disable") {
+					$(".status_tanda_tangan_pejabat_berwenang").attr('checked', false);
+					$(".status_tanda_tangan_pejabat_berwenang").attr('disabled', true);
+					$(".form-check-label").css('opacity', '.2');
+				}
+				// Else Enable radio buttons.
+				else {
+					$(".status_tanda_tangan_pejabat_berwenang").attr('disabled', false);
+					$(".form-check-label").css('opacity', '1');
+				}
+			});
+		});
+	</script>
